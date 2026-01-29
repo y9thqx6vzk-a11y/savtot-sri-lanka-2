@@ -233,7 +233,7 @@ const EditableImage = ({ id, src, alt, className }) => {
   useEffect(() => {
     const saved = localStorage.getItem(`savtot_img_${id}`);
     if (saved) setImgSrc(saved);
-  }, [id]);
+  }, [id, src]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -456,7 +456,7 @@ const HomePage = ({ navigateTo, t }) => (
       <div className="absolute inset-0 z-0">
         <EditableImage 
           id="hero_bg" 
-          src="https://images.unsplash.com/photo-1588258524675-963d04738596?q=80&w=1920&auto=format&fit=crop" 
+          src="/home1.jpg" 
           alt="Hero Background" 
           className="w-full h-full object-cover" 
         />
@@ -519,8 +519,8 @@ const HomePage = ({ navigateTo, t }) => (
           </button>
         </div>
         <div className="md:w-1/2 grid grid-cols-2 gap-4">
-           <EditableImage id="gal_1" src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=400&h=400&fit=crop" alt="Train" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" />
-           <EditableImage id="gal_2" src="https://images.unsplash.com/photo-1586516483556-ed50e9095697?q=80&w=400&h=400&fit=crop" alt="Tea" className="rounded-2xl shadow-lg w-full h-auto" />
+           <EditableImage id="gal_1" src="/home2.jpg" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" />
+           <EditableImage id="gal_2" src="/home3.jpg" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" />
         </div>
       </div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
@@ -529,6 +529,19 @@ const HomePage = ({ navigateTo, t }) => (
 );
 
 const ItineraryPage = ({ t }) => {
+  // מיפוי ידני של תמונות לפי אינדקס הימים
+  const dayImages = [
+    '/1.jpg',   // Day 1
+    '/2.jpg',   // Day 2
+    '/3.jpg',   // Day 3
+    '/4.jpg',   // Day 4
+    '/5.jpg',   // Day 5
+    '/6.jpg',   // Day 6-7 (Combined in data, so we use 6.jpg)
+    '/8.jpg',   // Day 8
+    '/9.jpg',   // Day 9
+    '/10.jpg'   // Day 10
+  ];
+
   return (
     <div className="pt-32 pb-20 bg-stone-50">
       <div className="container mx-auto px-6">
@@ -549,7 +562,7 @@ const ItineraryPage = ({ t }) => {
                     <div className="h-64 bg-stone-200 rounded-xl overflow-hidden relative">
                        <EditableImage 
                         id={`itinerary_day_${index}`} 
-                        src={`https://source.unsplash.com/random/800x600?sri-lanka,travel&sig=${index}`} 
+                        src={dayImages[index]} 
                         alt={item.title}
                         className="w-full h-full object-cover"
                        />
@@ -691,9 +704,9 @@ const EssentialsPage = ({ t, lang }) => {
 
 const DiscoveryPage = ({ t }) => {
   const images = [
-    "https://images.unsplash.com/photo-1590615370581-2550b9220a62?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1598556776374-297eb65ce994?q=80&w=600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=600&auto=format&fit=crop"
+    "/rock.jpg",
+    "/tea.jpg",
+    "/arugam.jpg"
   ];
 
   return (
@@ -738,7 +751,7 @@ const AboutPage = ({ t }) => (
       <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl mb-12">
         <EditableImage 
           id="about_family" 
-          src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600&auto=format&fit=crop" 
+          src="/family.jpg" 
           alt="Family" 
           className="w-full md:w-2/3 h-80 object-cover rounded-2xl mx-auto mb-8 shadow-sm"
         />

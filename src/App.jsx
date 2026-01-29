@@ -224,9 +224,11 @@ const contentData = {
   }
 };
 
-// --- רכיב תמונה הניתנת לעריכה (Editable Image) ---
+// --- רכיב תמונה הניתנת לעריכה (עם הגנת מנהל) ---
 const EditableImage = ({ id, src, alt, className }) => {
   const [imgSrc, setImgSrc] = useState(src);
+  // בדיקה האם המשתמש הוא מנהל
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   useEffect(() => {
     const saved = localStorage.getItem(`savtot_img_${id}`);
@@ -246,19 +248,23 @@ const EditableImage = ({ id, src, alt, className }) => {
   };
 
   return (
-    <div className="relative group cursor-pointer overflow-hidden rounded-2xl h-full">
+    <div className={`relative group overflow-hidden rounded-2xl h-full ${isAdmin ? 'cursor-pointer' : ''}`}>
       <img src={imgSrc} alt={alt} className={className} />
-      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-300 z-10">
-        <Upload className="text-white w-8 h-8 mb-2" />
-        <span className="text-white text-sm font-bold bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">החלף תמונה</span>
-        <input 
-          type="file" 
-          className="absolute inset-0 opacity-0 cursor-pointer w-full h-full" 
-          onChange={handleFileChange} 
-          accept="image/*" 
-          title="לחץ להחלפת תמונה"
-        />
-      </div>
+      
+      {/* שכבת העריכה מוצגת רק אם אתה מנהל */}
+      {isAdmin && (
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity duration-300 z-10">
+          <Upload className="text-white w-8 h-8 mb-2" />
+          <span className="text-white text-sm font-bold bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">החלף תמונה</span>
+          <input 
+            type="file" 
+            className="absolute inset-0 opacity-0 cursor-pointer w-full h-full" 
+            onChange={handleFileChange} 
+            accept="image/*" 
+            title="לחץ להחלפת תמונה"
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -383,7 +389,7 @@ const App = () => {
 
       <AIChatWidget lang={lang} />
 
-      <footer className="bg-teal-900 text-teal-100 py-12 mt-12">
+      <footer className="bg-teal-900 text-teal-100 py-12 mt-12 relative">
         <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-start">
           <div>
             <h3 className="text-2xl font-serif font-bold text-white mb-4">Savtot in Sri Lanka</h3>
@@ -409,8 +415,35 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className="text-center mt-12 pt-8 border-t border-teal-800 text-sm opacity-60">
-          © 2025 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.
+        
+        <div className="text-center mt-12 pt-8 border-t border-teal-800 text-sm opacity-60 flex flex-col items-center gap-2">
+          <span>© 2025 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.</span>
+          
+          {/* כפתור כניסה למנהל - מנעול קטן */}
+          <button 
+            onClick={() => {
+              const isAdmin = localStorage.getItem('isAdmin') === 'true';
+              if (isAdmin) {
+                if (confirm('האם לצאת ממצב עריכה?')) {
+                  localStorage.setItem('isAdmin', 'false');
+                  window.location.reload();
+                }
+              } else {
+                const pass = prompt('סיסמת מנהל:');
+                if (pass === '1086E') { 
+                  localStorage.setItem('isAdmin', 'true');
+                  alert('מצב עריכה הופעל! כעת ניתן לשנות תמונות.');
+                  window.location.reload();
+                } else if (pass !== null) {
+                  alert('סיסמה שגויה');
+                }
+              }
+            }}
+            className="opacity-30 hover:opacity-100 transition-opacity p-2"
+            title="Admin Login"
+          >
+            🔒
+          </button>
         </div>
       </footer>
     </div>

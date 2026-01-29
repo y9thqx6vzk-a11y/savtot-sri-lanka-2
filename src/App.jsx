@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 
 // --- Gemini API Setup ---
+// 🔴 שים כאן את המפתח שלך בתוך המרכאות!
 const apiKey = "AIzaSyCY3e9I2VzeqVXxC7K9hSuSPcr7OubKKeo"; 
 const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
 
@@ -63,7 +64,7 @@ const contentData = {
       toggle: 'Switch to English'
     },
     hero: {
-      title: 'סבתות בסרי לנקה\nמסע משפחתי לקיץ 2025',
+      title: 'סבתות בסרי לנקה\nמסע משפחתי לקיץ 2026',
       subtitle: 'מסע בוטיק המיועד לנשים, אימהות וסבתות. אנחנו דואגים ללוגיסטיקה, אתן אוספות את הזיכרונות.',
       cta_plan: 'צפו בתוכנית',
       cta_discover: 'גלו עוד'
@@ -148,7 +149,7 @@ const contentData = {
       toggle: 'עבור לעברית'
     },
     hero: {
-      title: 'Savtot in Sri Lanka\nSummer 2025',
+      title: 'Savtot in Sri Lanka\nSummer 2026',
       subtitle: 'An unforgettable journey connecting generations. A boutique experience designed for women, mothers, and grandmothers.',
       cta_plan: 'See the Plan',
       cta_discover: 'Explore'
@@ -417,7 +418,7 @@ const App = () => {
         </div>
         
         <div className="text-center mt-12 pt-8 border-t border-teal-800 text-sm opacity-60 flex flex-col items-center gap-2">
-          <span>© 2025 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.</span>
+          <span>© 2026 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.</span>
           
           {/* כפתור כניסה למנהל - מנעול קטן */}
           <button 

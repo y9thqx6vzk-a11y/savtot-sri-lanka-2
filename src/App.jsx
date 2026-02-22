@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   MapPin, 
   Calendar, 
@@ -229,14 +229,11 @@ const contentData = {
 
 // --- רכיב תמונה הניתנת לעריכה (עם הגנת מנהל) ---
 const EditableImage = ({ id, src, alt, className }) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  // בדיקה האם המשתמש הוא מנהל
-  const isAdmin = localStorage.getItem('isAdmin') === 'true';
-
-  useEffect(() => {
+  const [imgSrc, setImgSrc] = useState(() => {
     const saved = localStorage.getItem(`savtot_img_${id}`);
-    if (saved) setImgSrc(saved);
-  }, [id, src]);
+    return saved || src;
+  });
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -503,7 +500,7 @@ const HomePage = ({ navigateTo, t }) => (
               <h3 className="text-xl font-bold mb-3 text-teal-800">{feature.title}</h3>
               <p className="text-stone-600 leading-relaxed">{feature.desc}</p>
             </div>
-          ))ж
+          ))}
         </div>
       </div>
     </section>
@@ -677,6 +674,8 @@ const EssentialsPage = ({ t, lang }) => {
           <p className="text-lg text-stone-600">{t.essentials.subtitle}</p>
         </div>
 
+        <SmartPackingList t={t} lang={lang} />
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.essentials.categories.map((cat, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border-t-4 border-orange-400">
@@ -697,7 +696,7 @@ const EssentialsPage = ({ t, lang }) => {
                 </ul>
               </div>
             </div>
-          ))ж
+          ))}
         </div>
       </div>
     </div>

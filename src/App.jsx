@@ -27,7 +27,7 @@ import {
 // --- Gemini API Setup ---
 // 🔴 שים כאן את המפתח שלך בתוך המרכאות!
 const apiKey = "AIzaSyCY3e9I2VzeqVXxC7K9hSuSPcr7OubKKeo"; 
-const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
+const MODEL_NAME = "gemini-1.5-flash-preview-0514";
 
 async function callGemini(prompt, systemInstruction = "") {
   try {
@@ -85,17 +85,18 @@ const contentData = {
     },
     itinerary: {
       title: 'פרטי המסע',
-      subtitle: 'תוכנית מושלמת של 10 ימים, מהרים ועד אוקיינוס.',
+      subtitle: 'תוכנית מעודכנת',
       days: [
-        { day: 1, title: "ברוכים הבאים לגן עדן", desc: "נחיתה בשדה התעופה (CMB). קבלת פנים ונסיעה ציורית להרים עם עצירות קוקוס. ארוחת ערב חגיגית וטעימות קארי.", highlight: "מעגל פתיחה וקבלת פנים" },
-        { day: 2, title: "מפלים וטבע", desc: "ביקור במפלי ראבנה לצילומים. ביקור בגשר תשע הקשתות המפורסם וטיפוס ל'פסגת אדם הקטנה' לשקיעה.", highlight: "גשר תשע הקשתות" },
-        { day: 3, title: "נסיעת הרכבת המפורסמת", desc: "ביקור במפעל תה ציילוני. עלייה לרכבת הכחולה מנאנו-אויה לאלה - הנסיעה היפה בעולם. זמן חופשי בעיירה אלה.", highlight: "הרכבת הכחולה" },
-        { day: 4, title: "יורדים לחוף", desc: "ירידה מההרים לכיוון החוף המזרחי. עצירה בגילופי הסלע העתיקים בבודורווגאלה. הגעה לארוגם ביי.", highlight: "הגעה לארוגם ביי" },
-        { day: 5, title: "ספארי וחיות בר", desc: "בוקר של יוגה או גלישה אופציונלית. ב-15:00 יציאה לספארי בלגונות פוטוויל - פילים, תנינים וטבע פראי.", highlight: "ספארי בלגונות" },
-        { day: "6-7", title: "שבת וקהילה", desc: "הכנות לשישי. ארוחת שבת בבית חב\"ד המקומי. יום שבת הוא יום מנוחה מלא - קריאה, הליכה על החוף ומשחקים.", highlight: "שבת בבית חב\"ד" },
-        { day: 8, title: "טעמים ותרבות", desc: "סדנת בישול: לומדים להכין קארי דלעת וסמבול קוקוס עם משפחה מקומית. ביקור במנזר קודומביגלה בלב הג'ונגל.", highlight: "סדנת בישול מקומית" },
-        { day: 9, title: "המזרח הפראי", desc: "טיול לחופי פנמה וחוף הבוטנים (Peanut Farm). שקיעה אחרונה ב'סלע הפיל' (Elephant Rock) מעל הלגונה.", highlight: "שקיעה בסלע הפיל" },
-        { day: 10, title: "פרידה וקולומבו", desc: "נסיעה חזרה לקולומבו דרך הכביש המהיר. קניות ב-Odel וכיכר העצמאות. העברה לשדה התעופה, חיבוקים וטיסה.", highlight: "קניות ופרידה" },
+        { day: '30/8', title: "הגעה וסיגיריה", desc: "נחיתה בשדה התעופה קולומבו ב-16:00. נסיעה של 3 שעות לסיגיריה ולינה במקום." },
+        { day: '30/8', title: "סיגיריה", desc: "1. טיפוס למצודת סלע האריה בזריחה.\nארוחת בוקר\n2. ביקור בגלריות אמנות.\nארוחת צהריים\n3. ספארי פילים (מומלץ בין 15:00-18:00).\n4. ספא איורוודי או סיור כפרי.\nארוחת ערב ולינה בסיגיריה." },
+        { day: '31/8', title: "קיטוגלה ונוארה אליה", desc: "1. (אופציונלי) טיפוס לזריחה בסלע פידורנגלה.\nארוחת בוקר\nנסיעה של 4 שעות לקיטוגלה.\nארוחת צהריים\n2. רפטינג וקניונינג בקיטוגלה או טיול ביער הגשם/מערת בלילנה.\nנסיעה של שעתיים לנוארה אליה.\nארוחת ערב ולינה בנוארה אליה." },
+        { day: '1/9', title: "אלה", desc: "1. יוגת בוקר.\nארוחת בוקר\n2. טיול רגלי סביב אגם גרגורי או בפארק הלאומי הורטון פליינס.\nארוחת צהריים\n3. נסיעה ברכבת לאלה מתחנת נאנו אויה (12:45, כ-2.5 שעות).\n4. ביקור בגשר תשע הקשתות.\n5. טיול למפל נסתר.\nארוחת ערב ולינה באלה." },
+        { day: '2/9', title: "ארוגם ביי", desc: "1. טיפוס לפסגת אדם הקטנה.\nארוחת בוקר\n2. אומגה זיפליין.\nארוחת צהריים\n3. סיור במטעי תה ומפעל תה.\n4. זמן חופשי לחנויות ובתי קפה.\nנסיעה של 3 שעות לארוגם ביי.\nארוחת ערב (פיצה בבית חב\"ד) ולינה בארוגם ביי." },
+        { day: '3/9', title: "ארוגם ביי", desc: "ארוחת בוקר\n1. יוגה על החוף.\n2. שיעור גלישה למתחילים או בילוי בחוף.\nארוחת צהריים\n3. שנורקלינג בשונית בסס.\n4. צפייה בשקיעה בסלע הפיל.\nארוחת ערב ובילוי לילי." },
+        { day: '4/9', title: "שבת בארוגם ביי", desc: "ארוחת בוקר\n1. יוגה על החוף.\n2. סאפ בלגונת פוטוויל.\nארוחת צהריים קלה\nהתארגנות לשבת.\nארוחת שבת ולינה בארוגם ביי." },
+        { day: '5/9', title: "שבת", desc: "שבת מנוחה.\nפעילות חוף לילית במוצ\"ש." },
+        { day: '6/9', title: "יאלה", desc: "ארוחת בוקר\n1. יוגה על החוף.\n2. זמן חופשי.\nנסיעה של שעתיים ליער יאלה.\nארוחת צהריים\n3. ספארי.\nארוחת ערב ולינה ביאלה." },
+        { day: '7/9', title: "חזרה", desc: "ארוחת בוקר\n1. יוגה.\n2. מנוחה בבריכה.\nארוחת צהריים\nנסיעה של 5-6 שעות לשדה התעופה.\nנחיתה בתל אביב ביום שלישי ב-12:00." },
       ]
     },
     essentials: {
@@ -170,17 +171,18 @@ const contentData = {
     },
     itinerary: {
       title: 'The Journey Details',
-      subtitle: 'A Perfectly Curated 10-Day Plan',
+      subtitle: 'Updated Itinerary',
       days: [
-        { day: 1, title: "Welcome to Paradise", desc: "Landing at Bandaranaike International Airport (CMB). Scenic drive to the mountains. Welcome Dinner: Opening circle and curry tasting.", highlight: "Welcome Dinner" },
-        { day: 2, title: "Waterfalls & Nature", desc: "Visit Ravana Falls. Visit the Nine Arch Bridge. Climb Little Adam's Peak for sunset.", highlight: "Nine Arch Bridge" },
-        { day: 3, title: "The Famous Train Ride", desc: "Visit a Tea Factory. Board the Blue Train (Nanu Oya to Ella). Free time in Ella town.", highlight: "Blue Train Ride" },
-        { day: 4, title: "Moving to the Coast", desc: "Descent towards the East Coast. Stopover at Buduruwagala ancient rock carvings. Arrival at Arugam Bay.", highlight: "Arugam Bay Arrival" },
-        { day: 5, title: "Safari & Wildlife", desc: "Morning yoga or optional surfing. Lagoon Safari (Pottuvil) - Elephants, crocodiles, and nature.", highlight: "Lagoon Safari" },
-        { day: "6-7", title: "Shabbat & Community", desc: "Friday preparations. Shabbat dinner at the local Chabad House. Saturday is a full rest day.", highlight: "Shabbat Dinner" },
-        { day: 8, title: "Taste & Culture", desc: "Cooking Class: Learn to cook traditional Sri Lankan Pumpkin Curry. Visit Kudumbigala Monastery in the jungle.", highlight: "Cooking Class" },
-        { day: 9, title: "The Wild East", desc: "Trip to Panama & Peanut Farm Beach. Elephant Rock for the final sunset of the trip. Closing Dinner party.", highlight: "Elephant Rock Sunset" },
-        { day: 10, title: "Farewell Colombo", desc: "Drive back to Colombo via highway. Independence Square and Odel shopping. Transfer to airport.", highlight: "Shopping & Farewell" },
+        { day: 'Aug 30', title: "Arrival & Sigiriya", desc: "Arrival at Colombo Airport at 4 PM. 3-hour drive to Sigiriya for overnight stay." },
+        { day: 'Aug 30', title: "Sigiriya", desc: "1. Climb Sigiriya Lion’s Rock Fortress for Sunrise.\nBREAKFAST\n2. Visit art galleries.\nLUNCH\n3. Elephant Safari (best between 3-6 PM).\n4. Ayurvedic spa or Village tour.\nDINNER\nOvernight Stay in Sigiriya." },
+        { day: 'Aug 31', title: "Kitulgala & Nuwara Eliya", desc: "1. (Optional) Sunrise hike at Pidurangala Rock.\nBREAKFAST\n4-hour drive to Kitulgala.\nLUNCH\n2. Rafting and Canyoning or Rainforest walk/Belilena Cave.\n2-hour drive to Nuwara Eliya.\nDINNER\nSleep in Nuwara Eliya." },
+        { day: 'Sep 1', title: "Ella", desc: "1. Morning yoga.\nBREAKFAST\n2. Hike around Gregory Lake or Horton Plains National Park.\nLUNCH\n3. Train to Ella from Nanu Oya (12:45 PM, 2.5 hours).\n4. Visit the Nine Arches Bridge.\n5. Hidden Waterfall trek.\nDINNER\nOvernight Stay in Ella." },
+        { day: 'Sep 2', title: "Arugam Bay", desc: "1. Hike Little Adam's Peak.\nBREAKFAST\n2. Omega Zipline.\nLUNCH\n3. Tea factory tour.\n4. Browse shops/cafes.\n3-hour drive to Arugam Bay.\nDINNER (Pizza at Chabad) and sleep in Arugam Bay." },
+        { day: 'Sep 3', title: "Arugam Bay", desc: "BREAKFAST\n1. Yoga on the beach.\n2. Beginner surf lesson.\nLUNCH\n3. Snorkeling at Basses Reefs.\n4. Elephant rock at sunset.\nDINNER\nArugam Bay nightlife." },
+        { day: 'Sep 4', title: "Shabbat in Arugam Bay", desc: "BREAKFAST\n1. Yoga on the beach.\n2. Morning SUP at Pottuvil Lagoon.\nLIGHT LUNCH\nPrepare for Shabbat.\nSHABBAT DINNER\nSleep in Arugum Bay." },
+        { day: 'Sep 5', title: "Shabbat", desc: "Shabbat rest.\nNighttime beach activity after Shabbat." },
+        { day: 'Sep 6', title: "Yala", desc: "BREAKFAST\n1. Yoga on the beach.\n2. Free time.\n2-hour drive to Yala forest.\nLUNCH\n3. Safari.\nDINNER\nSleep in Yala." },
+        { day: 'Sep 7', title: "Departure", desc: "BREAKFAST\n1. Yoga.\n2. Relax by the pool.\nLUNCH\n5-6 hour drive to the airport.\nLand in Tel Aviv on Tuesday by 12 PM." },
       ]
     },
     essentials: {
@@ -388,8 +390,6 @@ const App = () => {
         {activePage === 'register' && <RegisterPage t={t} />}
       </main>
 
-      <AIChatWidget lang={lang} />
-
       <footer className="bg-teal-900 text-teal-100 py-12 mt-12 relative">
         <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-start">
           <div>
@@ -503,7 +503,7 @@ const HomePage = ({ navigateTo, t }) => (
               <h3 className="text-xl font-bold mb-3 text-teal-800">{feature.title}</h3>
               <p className="text-stone-600 leading-relaxed">{feature.desc}</p>
             </div>
-          ))}
+          ))ж
         </div>
       </div>
     </section>
@@ -540,7 +540,8 @@ const ItineraryPage = ({ t }) => {
     '/6.jpg',   // Day 6-7 (Combined in data, so we use 6.jpg)
     '/8.jpg',   // Day 8
     '/9.jpg',   // Day 9
-    '/10.jpg'   // Day 10
+    '/10.jpg',   // Day 10
+    '/arugam.jpg'
   ];
 
   return (
@@ -576,11 +577,13 @@ const ItineraryPage = ({ t }) => {
                     Day {item.day}
                   </div>
                   <h3 className="text-2xl font-bold text-teal-900 mb-3 pt-8">{item.title}</h3>
-                  <p className="text-stone-600 mb-4 leading-relaxed">{item.desc}</p>
-                  <div className="flex items-center gap-2 text-orange-600 font-medium justify-center md:justify-start">
-                    <Sun className="w-5 h-5" />
-                    <span>Highlight: {item.highlight}</span>
-                  </div>
+                  <p className="text-stone-600 mb-4 leading-relaxed whitespace-pre-line">{item.desc}</p>
+                  {item.highlight && (
+                    <div className="flex items-center gap-2 text-orange-600 font-medium justify-center md:justify-start">
+                      <Sun className="w-5 h-5" />
+                      <span>Highlight: {item.highlight}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -674,8 +677,6 @@ const EssentialsPage = ({ t, lang }) => {
           <p className="text-lg text-stone-600">{t.essentials.subtitle}</p>
         </div>
 
-        <SmartPackingList t={t} lang={lang} />
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.essentials.categories.map((cat, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border-t-4 border-orange-400">
@@ -696,7 +697,7 @@ const EssentialsPage = ({ t, lang }) => {
                 </ul>
               </div>
             </div>
-          ))}
+          ))ж
         </div>
       </div>
     </div>
@@ -872,119 +873,6 @@ const RegisterPage = ({ t }) => {
 
         </div>
       </div>
-    </div>
-  );
-};
-
-const AIChatWidget = ({ lang }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { role: 'assistant', text: lang === 'he' ? 'היי! אני העוזר החכם של Savtot. איך אפשר לעזור?' : 'Hi! I am the Savtot AI Guide. How can I help?' }
-  ]);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isOpen]);
-
-  useEffect(() => {
-     setMessages([{ role: 'assistant', text: lang === 'he' ? 'היי! אני העוזר החכם של Savtot. איך אפשר לעזור?' : 'Hi! I am the Savtot AI Guide. How can I help?' }]);
-  }, [lang]);
-
-  const handleSend = async () => {
-    if (!input.trim()) return;
-
-    const userMsg = input;
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
-    setIsLoading(true);
-
-    const systemPrompt = `
-      You are the virtual assistant for 'Savtot in Sri Lanka'. 
-      Current user language: ${lang === 'he' ? 'Hebrew' : 'English'}.
-      Trip details: 10 days, boutique, family-run by Eyal, Aliza, and Naomi. Kosher-style.
-      Locations: Colombo, Pinnawala, Sigiriya, Kandy, Nuwara Eliya, Ella, Arugam Bay.
-      Answer in the user's language briefly and politely.
-    `;
-
-    const reply = await callGemini(userMsg, systemPrompt);
-    
-    setMessages(prev => [...prev, { role: 'assistant', text: reply }]);
-    setIsLoading(false);
-  };
-
-  return (
-    <div className="fixed bottom-6 z-50 flex flex-col items-end pointer-events-none ltr:right-6 rtl:left-6">
-      {isOpen && (
-        <div className="bg-white rounded-2xl shadow-2xl w-80 sm:w-96 mb-4 overflow-hidden border border-stone-200 pointer-events-auto flex flex-col max-h-[500px] animate-in slide-in-from-bottom-10 fade-in duration-300">
-          <div className="bg-teal-900 p-4 flex justify-between items-center text-white">
-            <div className="flex items-center gap-2">
-              <div className="bg-white/20 p-1.5 rounded-full">
-                <Bot className="w-5 h-5" />
-              </div>
-              <span className="font-bold">Savtot AI Guide</span>
-            </div>
-            <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded transition">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex-1 p-4 overflow-y-auto bg-stone-50 min-h-[300px]">
-            {messages.map((msg, idx) => (
-              <div key={idx} className={`mb-3 flex ${msg.role === 'user' ? 'justify-start' : 'justify-end'}`}>
-                <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
-                  msg.role === 'user' 
-                    ? 'bg-orange-100 text-stone-800 rounded-tr-none' 
-                    : 'bg-white border border-stone-200 text-stone-700 rounded-tl-none shadow-sm'
-                }`}>
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex justify-end">
-                <div className="bg-white border border-stone-200 p-3 rounded-2xl rounded-tl-none shadow-sm">
-                  <Loader2 className="w-4 h-4 animate-spin text-teal-600" />
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-
-          <div className="p-3 bg-white border-t border-stone-100">
-            <div className="flex gap-2">
-              <button 
-                onClick={handleSend}
-                disabled={isLoading || !input}
-                className="bg-teal-600 hover:bg-teal-700 text-white p-2 rounded-full transition disabled:opacity-50"
-              >
-                <Send className="w-4 h-4 rtl:rotate-180" />
-              </button>
-              <input 
-                type="text" 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={lang === 'he' ? "שאל אותי..." : "Ask me..."}
-                className="flex-1 bg-stone-100 rounded-full px-4 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg hover:shadow-orange-500/40 transition-all transform hover:scale-110 pointer-events-auto flex items-center justify-center"
-      >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-      </button>
     </div>
   );
 };

@@ -514,8 +514,6 @@ const App = () => {
         {activePage === 'register' && <RegisterPage t={t} lang={lang} onUpdate={handleUpdateContent} />}
       </main>
 
-      <AIChatWidget lang={lang} />
-
       <footer className="bg-teal-900 text-teal-100 py-12 mt-12 relative" dir={lang === 'he' ? 'rtl' : 'ltr'}>
         <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-start">
           <div>

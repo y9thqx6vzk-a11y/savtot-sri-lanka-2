@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   MapPin, 
   Calendar, 
@@ -75,7 +75,7 @@ const defaultContentData = {
     },
     itinerary: {
       title: 'פרטי המסע',
-      subtitle: 'תוכנית מושלמת של 10 ימים, מהרים ועד אוקיינוס.',
+      subtitle: 'תוכנית מעודכנת',
       days: [
         { day: "1-3", title: "מגיעים להרים", desc: "נחיתה בקולומבו ונסיעה ישירות לאוויר הקריר והרענן של סיגירייה. התארגנות, טיפוס על \"סלע האריה\" המפורסם, וחווית הכפר המקומי. נצא לספארי פילים, קניונינג, רפטינג או הליכה ביער הגשם.", highlight: "סלע האריה וספארי פילים" },
         { day: "4-5", title: "מפלים ורכבות", desc: "טיפוס ל\"פסגת אדם הקטנה\" בזריחה, והכנה לנסיעת הרכבת המפורסמת. נחקור את גשר תשע הקשתות ונלגום תה ציילוני מפורסם במטעים הירוקים. נראה מפלים עוצרי נשימה ונופים עוצרי לב במהלך גלישת אומגה (Zipline).", highlight: "גשר תשע הקשתות ואומגה" },
@@ -688,7 +688,8 @@ const ItineraryPage = ({ t }) => {
     '/6.jpg',   // Day 6-7 (Combined in data, so we use 6.jpg)
     '/8.jpg',   // Day 8
     '/9.jpg',   // Day 9
-    '/10.jpg'   // Day 10
+    '/10.jpg',   // Day 10
+    '/arugam.jpg'
   ];
 
   return (
@@ -1065,119 +1066,6 @@ const RegisterPage = ({ t }) => {
 
         </div>
       </div>
-    </div>
-  );
-};
-
-const AIChatWidget = ({ lang }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { role: 'assistant', text: lang === 'he' ? 'היי! אני העוזר החכם של Savtot. איך אפשר לעזור?' : 'Hi! I am the Savtot AI Guide. How can I help?' }
-  ]);
-  const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isOpen]);
-
-  useEffect(() => {
-     setMessages([{ role: 'assistant', text: lang === 'he' ? 'היי! אני העוזר החכם של Savtot. איך אפשר לעזור?' : 'Hi! I am the Savtot AI Guide. How can I help?' }]);
-  }, [lang]);
-
-  const handleSend = async () => {
-    if (!input.trim()) return;
-
-    const userMsg = input;
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
-    setIsLoading(true);
-
-    const systemPrompt = `
-      You are the virtual assistant for 'Savtot in Sri Lanka'. 
-      Current user language: ${lang === 'he' ? 'Hebrew' : 'English'}.
-      Trip details: 10 days, boutique, family-run by Eyal, Aliza, and Naomi. Kosher-style.
-      Locations: Colombo, Pinnawala, Sigiriya, Kandy, Nuwara Eliya, Ella, Arugam Bay.
-      Answer in the user's language briefly and politely.
-    `;
-
-    const reply = await callGemini(userMsg, systemPrompt);
-    
-    setMessages(prev => [...prev, { role: 'assistant', text: reply }]);
-    setIsLoading(false);
-  };
-
-  return (
-    <div className="fixed bottom-6 z-50 flex flex-col items-end pointer-events-none ltr:right-6 rtl:left-6">
-      {isOpen && (
-        <div className="bg-white rounded-2xl shadow-2xl w-80 sm:w-96 mb-4 overflow-hidden border border-stone-200 pointer-events-auto flex flex-col max-h-[500px] animate-in slide-in-from-bottom-10 fade-in duration-300">
-          <div className="bg-teal-900 p-4 flex justify-between items-center text-white">
-            <div className="flex items-center gap-2">
-              <div className="bg-white/20 p-1.5 rounded-full">
-                <Bot className="w-5 h-5" />
-              </div>
-              <span className="font-bold">Savtot AI Guide</span>
-            </div>
-            <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1 rounded transition">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex-1 p-4 overflow-y-auto bg-stone-50 min-h-[300px]">
-            {messages.map((msg, idx) => (
-              <div key={idx} className={`mb-3 flex ${msg.role === 'user' ? 'justify-start' : 'justify-end'}`}>
-                <div className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${
-                  msg.role === 'user' 
-                    ? 'bg-orange-100 text-stone-800 rounded-tr-none' 
-                    : 'bg-white border border-stone-200 text-stone-700 rounded-tl-none shadow-sm'
-                }`}>
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-            {isLoading && (
-              <div className="flex justify-end">
-                <div className="bg-white border border-stone-200 p-3 rounded-2xl rounded-tl-none shadow-sm">
-                  <Loader2 className="w-4 h-4 animate-spin text-teal-600" />
-                </div>
-              </div>
-            )}
-            <div ref={messagesEndRef} />
-          </div>
-
-          <div className="p-3 bg-white border-t border-stone-100">
-            <div className="flex gap-2">
-              <button 
-                onClick={handleSend}
-                disabled={isLoading || !input}
-                className="bg-teal-600 hover:bg-teal-700 text-white p-2 rounded-full transition disabled:opacity-50"
-              >
-                <Send className="w-4 h-4 rtl:rotate-180" />
-              </button>
-              <input 
-                type="text" 
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder={lang === 'he' ? "שאל אותי..." : "Ask me..."}
-                className="flex-1 bg-stone-100 rounded-full px-4 py-2 text-sm text-start focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg hover:shadow-orange-500/40 transition-all transform hover:scale-110 pointer-events-auto flex items-center justify-center"
-      >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-      </button>
     </div>
   );
 };

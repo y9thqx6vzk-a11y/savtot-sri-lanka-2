@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 server/.env
 savtot-site/
+.vercel
+.env*.local

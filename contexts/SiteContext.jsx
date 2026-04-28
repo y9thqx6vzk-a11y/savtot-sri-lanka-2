@@ -482,7 +482,7 @@ export const SiteProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch('/api/content')
+    fetch('/api/content', { cache: 'no-store' })
       .then(r => r.json())
       .then(data => setSiteContent(data))
       .catch(e => console.error('Failed to load content:', e));

@@ -4,6 +4,8 @@ import { db } from '../../../lib/firebaseAdmin';
 // Default content fallback if Firestore is empty or not configured yet
 import { defaultContentData } from '../../../contexts/SiteContext';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     // If Firebase env vars are missing, return default content locally (so the site doesn't crash)

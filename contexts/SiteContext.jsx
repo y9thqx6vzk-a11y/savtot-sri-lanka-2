@@ -18,8 +18,105 @@ export const defaultContentData = {
       title: 'לחוות את הקסם', desc: 'ממפלים מלכותיים ועד מטעי תה מרהיבים והחופים המוזהבים של ארוגם ביי, תקבלו את ההזדמנות לראות את כל הפלאים של סרי לנקה.', cta: 'שריינו מקום בטיול'
     },
     itinerary: {
-      title: 'פרטי המסע', subtitle: 'תוכנית מעודכנת', days: [
-        { day: "1-3", title: "מגיעים להרים", desc: "נחיתה בקולומבו ונסיעה ישירות לאוויר הקריר והרענן של סיגירייה. התארגנות, טיפוס על \"סלע האריה\" המפורסם, וחווית הכפר המקומי. נצא לספארי פילים, קניונינג, רפטינג או הליכה ביער הגשם.", highlight: "סלע האריה וספארי פילים" },
+      title: 'פרטי המסע', subtitle: 'תוכנית מעודכנת ומפורטת',
+      headers: { hour: 'שעה', place: 'מיקום', activity: 'פעילות' },
+      days: [
+        { day: "1", title: "מגיעים לסרי לנקה", desc: "נחיתה בקולומבו ונסיעה ישירות לאוויר הקריר והרענן של סיגירייה. התארגנות, ארוחת ערב ועיסוי מפנק.", highlight: "הגעה והתארגנות", 
+          schedule: [
+            { hour: "-", place: "ישראל", activity: "טיסה" },
+            { hour: "-", place: "קולומבו", activity: "נסיעה באוטובוס לסיגירייה" },
+            { hour: "-", place: "סיגירייה", activity: "קבלת חדרים והתארגנות" },
+            { hour: "-", place: "סיגירייה", activity: "ארוחת ערב" },
+            { hour: "-", place: "סיגירייה", activity: "עיסוי מפנק" }
+          ]
+        },
+        { day: "2", title: "סלע האריה וספארי", desc: "טיפוס מוקדם על סלע האריה המפורסם, סיור אותנטי בכפר המקומי, ולאחר מנוחה נצא לספארי מרתק לראות פילים.", highlight: "סלע האריה וספארי פילים", 
+          schedule: [
+            { hour: "05:00", place: "סלע האריה (Sigiriya Rock)", activity: "טיפוס וזריחה" },
+            { hour: "08:00 - 09:00", place: "מלון בסיגירייה", activity: "ארוחת בוקר" },
+            { hour: "10:00 - 15:00", place: "כפר מקומי", activity: "סיור כפר אותנטי" },
+            { hour: "15:00 - 16:00", place: "מלון", activity: "מנוחה" },
+            { hour: "16:00 - 18:00", place: "ספארי", activity: "טיול ספארי" },
+            { hour: "18:30 - 19:30", place: "מלון בסיגירייה", activity: "ארוחת ערב" },
+            { hour: "20:30", place: "מלון", activity: "זמן חופשי / התאוששות" }
+          ]
+        },
+        { day: "3", title: "אקסטרים ויערות גשם", desc: "מתחילים את הבוקר בזריחה ויוגה, ואז ממשיכים לקיטולגלה ליום של רפטינג, קניונינג והליכה ביער הגשם, לפני הנסיעה לנווארה אליה.", highlight: "רפטינג וקניונינג", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
+            { hour: "09:30 - 13:30", place: "קיטולגלה (Kitulgala)", activity: "נסיעה" },
+            { hour: "14:00 - 15:30", place: "קיטולגלה", activity: "רפטינג" },
+            { hour: "15:30 - 17:00", place: "קיטולגלה", activity: "קניונינג" },
+            { hour: "15:30 - 17:00", place: "קיטולגלה", activity: "הליכה ביער הגשם" },
+            { hour: "17:30 - 19:30", place: "נווארה אליה", activity: "נסיעה" },
+            { hour: "19:30 - 20:30", place: "מלון בנווארה אליה", activity: "ארוחת ערב" }
+          ]
+        },
+        { day: "4", title: "תה ורכבות", desc: "סיור מרתק במטעי התה של ציילון, ואחריו נסיעת הרכבת המפורסמת בעולם אל העיירה הקסומה אלה.", highlight: "נסיעת הרכבת לאלה", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
+            { hour: "09:30 - 14:30", place: "מטעי תה", activity: "סיור במטעי התה" },
+            { hour: "15:00 - 17:30", place: "נווארה אליה", activity: "נסיעת רכבת לאלה" },
+            { hour: "17:30 - 18:00", place: "אלה (Ella)", activity: "נסיעה למלון" },
+            { hour: "19:30 - 20:30", place: "מלון באלה", activity: "ארוחת ערב" }
+          ]
+        },
+        { day: "5", title: "מפלים ואדרנלין", desc: "נבקר במפלי דיאלומא המרשימים, נגלוש באומגה (Zipline) ונסתובב בחנויות באלה, ואז נרד לארוגם ביי.", highlight: "מפלי דיאלומא ואומגה", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון באלה", activity: "ארוחת בוקר" },
+            { hour: "09:30 - 13:30", place: "אלה", activity: "מפלי דיאלומא" },
+            { hour: "15:30 - 17:00", place: "אלה", activity: "גלישת אומגה (Zipline)" },
+            { hour: "15:30 - 17:00", place: "אלה", activity: "הסתובבות וקניות" },
+            { hour: "17:30 - 20:30", place: "ארוגם ביי", activity: "נסיעה לארוגם ביי" },
+            { hour: "19:30 - 20:30", place: "מלון בארוגם ביי", activity: "ארוחת ערב" }
+          ]
+        },
+        { day: "6", title: "החיים על החוף ושבת", desc: "סאפ בוקר בלגונה, שיעורי גלישה או סתם מנוחה על החוף, ואז נתכונן ונכניס את השבת ביחד.", highlight: "שבת בארוגם ביי", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
+            { hour: "09:30 - 12:00", place: "פוטוביל (Pottuvil)", activity: "סאפ בוקר בלגונה" },
+            { hour: "13:30 - 15:30", place: "ארוגם ביי", activity: "שיעור גלישה / זמן חוף" },
+            { hour: "15:30 - 17:00", place: "מלון", activity: "התארגנות לשבת" },
+            { hour: "17:15", place: "מלון", activity: "כניסת שבת" },
+            { hour: "18:30 - 19:30", place: "מלון בארוגם ביי", activity: "ארוחת ערב שבת" }
+          ]
+        },
+        { day: "7", title: "שבת מנוחה", desc: "יום מנוחה רגוע בארוגם ביי. זמן ליהנות מהאווירה, לאגור כוחות ופשוט להיות.", highlight: "מנוחה וחופש", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה (אופציונלי)" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
+            { hour: "18:30", place: "ארוגם ביי", activity: "מוצאי שבת" },
+            { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
+          ]
+        },
+        { day: "8", title: "גלישה וקניות", desc: "המשך ההרפתקה בארוגם ביי עם גלישה בחופים המפורסמים והסתובבות בעיירה.", highlight: "גלישה בארוגם ביי", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
+            { hour: "09:30 - 12:30", place: "ארוגם ביי", activity: "גלישה / קניות" },
+            { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
+          ]
+        },
+        { day: "9-10", title: "פרידה מהקסם", desc: "ימים אחרונים בארוגם ביי של ים, חופש, ואריזות לקראת החזרה הביתה.", highlight: "רגעים אחרונים", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "טיול זריחה" },
+            { hour: "06:30", place: "מלון", activity: "יוגה" },
+            { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
+            { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב (ביום 9)" }
+          ]
+        }
+      ]
+    },
         { day: "4-5", title: "מפלים ורכבות", desc: "טיפוס ל\"פסגת אדם הקטנה\" בזריחה, והכנה לנסיעת הרכבת המפורסמת. נחקור את גשר תשע הקשתות ונלגום תה ציילוני מפורסם במטעים הירוקים. נראה מפלים עוצרי נשימה ונופים עוצרי לב במהלך גלישת אומגה (Zipline).", highlight: "גשר תשע הקשתות ואומגה" },
         { day: "6-8", title: "החיים על החוף", desc: "נסיעה לארוגם ביי והתמקמות בדירת בוטיק על החוף. גלישה או שיעור גלישה, סיור בלגונות, טיפוס על \"סלע הפיל\" בזריחה, יציאה לספארי, ישיבה על החוף, בילוי בספא וקניות. נהנה מהקולינריה המקומית וחווית שבת על החוף.", highlight: "שבת בארוגם ביי" },
         { day: "9", title: "שנורקלים ומנוחה", desc: "שנורקלינג במים הצלולים וצפייה באלמוגים ובעלי החיים הימיים. נקבל עיסוי, נצא לקניות מזכרות ונבלה בעיירה המקומית.", highlight: "שנורקלינג וספא" },
@@ -55,8 +152,106 @@ export const defaultContentData = {
     hero: { title: 'Savtot in Sri Lanka\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Your post-kids/grandkids camp, end-of-summer once-in-a-lifetime trip\n\nThe trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
     features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the incredible local cuisine' },
     gallery: { title: 'Experience the magic', desc: 'From majestic waterfalls to glorious tea plantations to the golden shores of Arugam Bay, you’ll get the chance to see all the wonders of Sri Lanka', cta: 'Secure Your Spot' },
-    itinerary: { title: 'Your fully planned adventure', subtitle: 'A Perfectly Curated 10-Day Plan', days: [
-        { day: "1-3", title: "Arrival & Mountains", desc: "Land in Colombo and head straight to the fresh, cool air of Sigiriya. Settle in, climb the famous Lion’s Rock, and experience the local village. See an elephant safari, go canyoning, rafting or take a rainforest walk.", highlight: "Lion's Rock & Elephant Safari" },
+    itinerary: {
+      title: 'Your fully planned adventure', subtitle: 'A Perfectly Curated 10-Day Detailed Plan',
+      headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
+      days: [
+        { day: "1", title: "Arrival in Sri Lanka", desc: "Land in Colombo and head straight to the fresh, cool air of Sigiriya. Settle in, have dinner and a relaxing massage.", highlight: "Arrival & Settling in", 
+          schedule: [
+            { hour: "-", place: "Israel", activity: "Flight" },
+            { hour: "-", place: "Colombo", activity: "Bus ride to Sigiriya" },
+            { hour: "-", place: "Sigiriya", activity: "Get rooms & settle in" },
+            { hour: "-", place: "Sigiriya", activity: "Dinner" },
+            { hour: "-", place: "Sigiriya", activity: "Massage" }
+          ]
+        },
+        { day: "2", title: "Lion's Rock & Safari", desc: "Climb the famous Lion’s Rock, experience an authentic local village tour, and go on a thrilling elephant safari.", highlight: "Lion's Rock & Elephant Safari", 
+          schedule: [
+            { hour: "05:00", place: "Sigiriya Rock", activity: "Sunrise Hike" },
+            { hour: "08:00 - 09:00", place: "Hotel Sigiriya", activity: "Breakfast" },
+            { hour: "10:00 - 15:00", place: "Village", activity: "Authentic Village Tour" },
+            { hour: "15:00 - 16:00", place: "Hotel", activity: "Nap / Rest" },
+            { hour: "16:00 - 18:00", place: "Safari", activity: "Elephant Safari" },
+            { hour: "18:30 - 19:30", place: "Hotel Sigiriya", activity: "Dinner" },
+            { hour: "20:30", place: "Hotel", activity: "Hang out" }
+          ]
+        },
+        { day: "3", title: "Waterfalls & Adventure", desc: "Start the day with yoga, then head to Kitulgala for rafting, canyoning, and a rainforest walk before driving to Nuwara Eliya.", highlight: "Kitulgala Rafting", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+            { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Driving to Kitulgala" },
+            { hour: "14:00 - 15:30", place: "Kitulgala", activity: "Rafting" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Canyoning" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Rainforest walk" },
+            { hour: "17:30 - 19:30", place: "Nuwara Eliya", activity: "Driving" },
+            { hour: "19:30 - 20:30", place: "Hotel Nuwara Eliya", activity: "Dinner" }
+          ]
+        },
+        { day: "4", title: "Tea Plantations & Trains", desc: "Tour the famous Ceylon tea plantations and take the iconic, breathtaking train ride to the beautiful town of Ella.", highlight: "Train to Ella", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+            { hour: "09:30 - 14:30", place: "Tea Plantation", activity: "Tea plantation tour" },
+            { hour: "15:00 - 17:30", place: "Nuwara Eliya", activity: "Train to Ella" },
+            { hour: "17:30 - 18:00", place: "Ella", activity: "Drive to hotel" },
+            { hour: "19:30 - 20:30", place: "Hotel Ella", activity: "Dinner" }
+          ]
+        },
+        { day: "5", title: "Adrenaline in Ella", desc: "Visit Diyaluma Falls, go ziplining, do some shopping in Ella, and then drive down to the sunny Arugam Bay.", highlight: "Diyaluma Falls & Zipline", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel Ella", activity: "Breakfast" },
+            { hour: "09:30 - 13:30", place: "Ella", activity: "Diyaluma Falls" },
+            { hour: "15:30 - 17:00", place: "Ella", activity: "Omega Zipline" },
+            { hour: "15:30 - 17:00", place: "Ella", activity: "Shopping" },
+            { hour: "17:30 - 20:30", place: "Arugam Bay", activity: "Drive to Arugam Bay" },
+            { hour: "19:30 - 20:30", place: "Hotel Arugam Bay", activity: "Dinner" }
+          ]
+        },
+        { day: "6", title: "Beach Life & Shabbat", desc: "Enjoy a morning SUP session at the lagoon, surf lessons, and getting ready for a beautiful Shabbat by the beach.", highlight: "Shabbat on the Beach", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
+            { hour: "09:30 - 12:00", place: "Pottuvil", activity: "Morning SUP at Pottuvil Lagoon" },
+            { hour: "13:30 - 15:30", place: "Arugam Bay", activity: "Surf lesson / hang out on beach" },
+            { hour: "15:30 - 17:00", place: "Hotel", activity: "Get ready for Shabbat" },
+            { hour: "17:15", place: "Hotel", activity: "Shabbat begins" },
+            { hour: "18:30 - 19:30", place: "Hotel Arugam Bay", activity: "Shabbat Dinner" }
+          ]
+        },
+        { day: "7", title: "Shabbat Rest", desc: "A relaxing day in Arugam Bay. Time to enjoy the vibe, rest, and just be.", highlight: "Rest and Relaxation", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike (optional)" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
+            { hour: "18:30", place: "Arugam Bay", activity: "Motzash (Shabbat ends)" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+          ]
+        },
+        { day: "8", title: "Surfing & Shopping", desc: "Continue the adventure in Arugam Bay with surfing at the famous beaches and exploring the town.", highlight: "Surfing in Arugam Bay", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
+            { hour: "09:30 - 12:30", place: "Arugam Bay", activity: "Surf / Shops" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+          ]
+        },
+        { day: "9-10", title: "Farewell to the Magic", desc: "Final days in Arugam Bay enjoying the ocean, freedom, and packing up before heading home.", highlight: "Last Memories", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner (Day 9)" }
+          ]
+        }
+      ]
+    },
         { day: "4-5", title: "Waterfalls & Trains", desc: "Hike Little Adam’s Peak at sunrise, and get ready for the famous train ride. Explore the Nine Arches Bridge and sip the world-famous Ceylon in the rolling green plantations. See breathtaking waterfalls and heartstopping views when you are ziplining.", highlight: "Nine Arches Bridge & Zipline" },
         { day: "6-8", title: "Beach Life & Safari", desc: "Travel to Arugam Bay and settle into your boutique, beachfront apartment. Surf or take a surf lesson, explore the lagoons, hike up Elephant Rock at sunrise, go on a safari, sit at the beach, enjoy the spas and do some shopping. Enjoy some authentic local cuisine. Experience shabbat on the beach.", highlight: "Shabbat on the beach" },
         { day: "9", title: "Snorkeling & Spas", desc: "Go snorkeling in the clear waters and see the corals and marine life. Get a massage, go souvenir shopping and spend time in the local town.", highlight: "Snorkeling & Massage" },

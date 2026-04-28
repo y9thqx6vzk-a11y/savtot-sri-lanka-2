@@ -55,6 +55,30 @@ export default function ItineraryPage() {
                   <p className="text-stone-600 mb-4 leading-relaxed">
                     <EditableText path={`${lang}.itinerary.days.${index}.desc`} text={item.desc} multiline />
                   </p>
+
+                  {item.schedule && item.schedule.length > 0 && (
+                    <div className="my-6 w-full overflow-x-auto rounded-xl border border-teal-100 bg-teal-50/30">
+                      <table className="w-full text-sm text-start">
+                        <thead className="bg-teal-100/50 text-teal-900 font-medium">
+                          <tr>
+                            <th className="px-4 py-3 rounded-tl-xl">{t.itinerary.headers?.hour || 'Hour'}</th>
+                            <th className="px-4 py-3">{t.itinerary.headers?.place || 'Place'}</th>
+                            <th className="px-4 py-3 rounded-tr-xl">{t.itinerary.headers?.activity || 'Activity'}</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-teal-100/50">
+                          {item.schedule.map((row, rowIdx) => (
+                            <tr key={rowIdx} className="hover:bg-white/80 transition-colors">
+                              <td className="px-4 py-3 whitespace-nowrap font-medium text-teal-800">{row.hour}</td>
+                              <td className="px-4 py-3 text-stone-600">{row.place}</td>
+                              <td className="px-4 py-3 text-stone-700">{row.activity}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+
                   <div className="flex items-center gap-2 text-orange-600 font-medium justify-center md:justify-start">
                     <Sun className="w-5 h-5" />
                     <span>Highlight: <EditableText path={`${lang}.itinerary.days.${index}.highlight`} text={item.highlight} /></span>

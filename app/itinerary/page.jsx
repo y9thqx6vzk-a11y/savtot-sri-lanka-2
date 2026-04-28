@@ -57,26 +57,37 @@ export default function ItineraryPage() {
                   </p>
 
                   {item.schedule && item.schedule.length > 0 && (
-                    <div className="my-6 w-full overflow-x-auto rounded-xl border border-teal-100 bg-teal-50/30">
-                      <table className="w-full text-sm text-start">
-                        <thead className="bg-teal-100/50 text-teal-900 font-medium">
-                          <tr>
-                            <th className="px-4 py-3 rounded-tl-xl">{t.itinerary.headers?.hour || 'Hour'}</th>
-                            <th className="px-4 py-3">{t.itinerary.headers?.place || 'Place'}</th>
-                            <th className="px-4 py-3 rounded-tr-xl">{t.itinerary.headers?.activity || 'Activity'}</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-teal-100/50">
-                          {item.schedule.map((row, rowIdx) => (
-                            <tr key={rowIdx} className="hover:bg-white/80 transition-colors">
-                              <td className="px-4 py-3 whitespace-nowrap font-medium text-teal-800">{row.hour}</td>
-                              <td className="px-4 py-3 text-stone-600">{row.place}</td>
-                              <td className="px-4 py-3 text-stone-700">{row.activity}</td>
+                    <details className="my-6 group border border-teal-100 bg-teal-50/30 rounded-xl overflow-hidden cursor-pointer">
+                      <summary className="font-medium text-teal-800 px-4 py-3 bg-teal-100/50 hover:bg-teal-200/50 transition-colors flex justify-between items-center outline-none list-none">
+                        <span className="flex items-center gap-2">
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                          לו"ז מפורט / Detailed Schedule
+                        </span>
+                        <span className="text-teal-600 group-open:rotate-180 transition-transform duration-300">
+                          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </span>
+                      </summary>
+                      <div className="overflow-x-auto bg-white/40">
+                        <table className="w-full text-sm text-start">
+                          <thead className="text-teal-900 border-b border-teal-100/50 bg-teal-50/50">
+                            <tr>
+                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.hour || 'Hour'}</th>
+                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.place || 'Place'}</th>
+                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.activity || 'Activity'}</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                          </thead>
+                          <tbody className="divide-y divide-teal-100/30">
+                            {item.schedule.map((row, rowIdx) => (
+                              <tr key={rowIdx} className="hover:bg-white/80 transition-colors">
+                                <td className="px-4 py-3 whitespace-nowrap font-medium text-teal-700" dir="ltr">{row.hour}</td>
+                                <td className="px-4 py-3 text-stone-600">{row.place}</td>
+                                <td className="px-4 py-3 text-stone-700">{row.activity}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </details>
                   )}
 
                   <div className="flex items-center gap-2 text-orange-600 font-medium justify-center md:justify-start">

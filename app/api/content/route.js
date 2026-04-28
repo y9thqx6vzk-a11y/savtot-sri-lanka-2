@@ -14,11 +14,11 @@ export async function GET() {
       return NextResponse.json(defaultContentData);
     }
 
-    const doc = await db.collection('settings').doc('content').get();
+    const doc = await db.collection('settings').doc('content_v2').get();
     
     if (!doc.exists) {
       // Initialize with default if it doesn't exist
-      await db.collection('settings').doc('content').set(defaultContentData);
+      await db.collection('settings').doc('content_v2').set(defaultContentData);
       return NextResponse.json(defaultContentData);
     }
 
@@ -38,7 +38,7 @@ export async function POST(req) {
     }
 
     // Read current
-    const docRef = db.collection('settings').doc('content');
+    const docRef = db.collection('settings').doc('content_v2');
     const doc = await docRef.get();
     let content = doc.exists ? doc.data() : { ...defaultContentData };
 

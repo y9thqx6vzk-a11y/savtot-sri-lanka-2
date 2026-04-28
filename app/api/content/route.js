@@ -6,11 +6,13 @@ import { defaultContentData } from '../../../contexts/SiteContext';
 
 export const dynamic = 'force-dynamic';
 
+const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
+
 export async function GET() {
   try {
-    // If Firebase env vars are missing, return default content locally (so the site doesn't crash)
-    if (!process.env.FIREBASE_PROJECT_ID) {
-      console.warn("Firebase not configured. Returning default content.");
+    // If Firebase env vars are missing or disabled, return default content locally (so the site doesn't crash)
+    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
+      console.warn("Firebase is temporarily disconnected. Returning default content.");
       return NextResponse.json(defaultContentData);
     }
 
@@ -33,8 +35,8 @@ export async function POST(req) {
   try {
     const { path: fieldPath, newValue } = await req.json();
     
-    if (!process.env.FIREBASE_PROJECT_ID) {
-      return NextResponse.json({ error: "Firebase not configured" }, { status: 500 });
+    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
+      return NextResponse.json({ error: "Firebase is temporarily disconnected" }, { status: 500 });
     }
 
     // Read current

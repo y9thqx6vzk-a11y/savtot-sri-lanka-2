@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { storage } from '../../../lib/firebaseAdmin';
 
+const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
+
 export async function POST(req) {
   try {
     const formData = await req.formData();
@@ -11,8 +13,8 @@ export async function POST(req) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    if (!process.env.FIREBASE_PROJECT_ID) {
-      console.warn("Firebase not configured. Image cannot be saved permanently.");
+    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
+      console.warn("Firebase is temporarily disconnected. Image cannot be saved permanently.");
       return NextResponse.json({ error: "Firebase Storage not configured on server" }, { status: 500 });
     }
 

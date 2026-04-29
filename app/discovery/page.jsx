@@ -4,6 +4,7 @@ import React from 'react';
 import { useSite } from '../../contexts/SiteContext';
 import EditableText from '../../components/EditableText';
 import EditableImage from '../../components/EditableImage';
+import NoticeBoardGallery from '../../components/NoticeBoardGallery';
 
 export default function DiscoveryPage() {
   const { lang, t } = useSite();
@@ -42,6 +43,8 @@ export default function DiscoveryPage() {
             </div>
           ))}
         </div>
+
+        <NoticeBoardGallery title={lang === 'he' ? 'קצת מהקסם שלנו' : 'A Glimpse of the Magic'} />
       </div>
     </div>
   );

@@ -60,8 +60,20 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="font-bold text-white mb-4 text-lg">{lang === 'he' ? 'צרו קשר' : 'Contact Us'}</h4>
-          <p className="opacity-80">Eyal: 054-351-0664</p>
-          <p className="opacity-80">Naomi: +972 54-663-9597</p>
+          <div className="flex flex-col gap-3">
+            <a href="https://wa.me/972543510664" target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100 hover:text-orange-400 transition-colors flex items-center gap-2 justify-center md:justify-start" dir="ltr">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12.031 0C5.394 0 0 5.385 0 12.016c0 2.115.548 4.184 1.594 6.008L.027 24l6.126-1.603A12.016 12.016 0 0012.031 24c6.635 0 12.031-5.385 12.031-12.016S18.667 0 12.031 0zm3.834 17.202c-.161.455-.93.882-1.332.966-.403.084-.897.136-2.585-.563-2.037-.84-3.344-2.91-3.444-3.047-.1-.137-1.096-1.464-1.127-2.977-.03-1.512.723-2.257.994-2.56.27-.302.588-.377.785-.377.197 0 .394.004.568.013.184.01.428-.066.65.467.229.549.785 1.916.854 2.054.07.138.116.299.016.498-.098.197-.148.32-.295.49-.148.169-.313.364-.446.49-.148.148-.306.313-.135.611.171.298.761 1.261 1.636 2.04.1.09.206.183.322.281.821.688 1.76 1.05 2.023 1.185.263.136.417.112.573-.064.156-.176.669-.78.85-1.047.18-.268.36-.223.599-.133.24.089 1.516.714 1.776.844.259.13.433.195.496.302.064.108.064.629-.098 1.084z" />
+              </svg>
+              Eyal: +972-54-351-0664
+            </a>
+            <a href="https://wa.me/972546639597" target="_blank" rel="noreferrer" className="opacity-80 hover:opacity-100 hover:text-orange-400 transition-colors flex items-center gap-2 justify-center md:justify-start" dir="ltr">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12.031 0C5.394 0 0 5.385 0 12.016c0 2.115.548 4.184 1.594 6.008L.027 24l6.126-1.603A12.016 12.016 0 0012.031 24c6.635 0 12.031-5.385 12.031-12.016S18.667 0 12.031 0zm3.834 17.202c-.161.455-.93.882-1.332.966-.403.084-.897.136-2.585-.563-2.037-.84-3.344-2.91-3.444-3.047-.1-.137-1.096-1.464-1.127-2.977-.03-1.512.723-2.257.994-2.56.27-.302.588-.377.785-.377.197 0 .394.004.568.013.184.01.428-.066.65.467.229.549.785 1.916.854 2.054.07.138.116.299.016.498-.098.197-.148.32-.295.49-.148.169-.313.364-.446.49-.148.148-.306.313-.135.611.171.298.761 1.261 1.636 2.04.1.09.206.183.322.281.821.688 1.76 1.05 2.023 1.185.263.136.417.112.573-.064.156-.176.669-.78.85-1.047.18-.268.36-.223.599-.133.24.089 1.516.714 1.776.844.259.13.433.195.496.302.064.108.064.629-.098 1.084z" />
+              </svg>
+              Naomi: +972-54-663-9597
+            </a>
+          </div>
           <div className="mt-4 flex justify-center md:justify-start gap-4">
             <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 cursor-pointer transition-colors">📷</div>
             <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 cursor-pointer transition-colors">📘</div>

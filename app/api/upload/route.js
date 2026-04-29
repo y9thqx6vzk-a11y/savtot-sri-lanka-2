@@ -1,10 +1,17 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import { storage } from '../../../lib/firebaseAdmin';
 
 const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
 
 export async function POST(req) {
   try {
+    // Authenticate
+    const token = cookies().get('admin_token')?.value;
+    if (!token || token !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const formData = await req.formData();
     const file = formData.get('image');
     const id = formData.get('id');

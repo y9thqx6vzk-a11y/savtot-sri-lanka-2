@@ -10,6 +10,7 @@ export default function Footer() {
   const handleAdminToggle = async () => {
     if (isAdmin) {
       if (confirm('האם לצאת ממצב עריכה?')) {
+        await fetch('/api/logout', { method: 'POST' });
         localStorage.setItem('isAdmin', 'false');
         setIsAdmin(false);
         window.location.reload();

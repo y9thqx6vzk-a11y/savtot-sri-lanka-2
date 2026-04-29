@@ -7,7 +7,7 @@ import EditableText from '../../components/EditableText';
 
 export default function RegisterPage() {
   const { lang, t } = useSite();
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', guests: '1', notes: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,7 @@ export default function RegisterPage() {
       
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', phone: '', email: '', guests: '1', notes: '' });
+        setFormData({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
       } else {
         setStatus('error');
       }
@@ -103,6 +103,12 @@ export default function RegisterPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field for spam protection */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <label htmlFor="website_url">Website URL</label>
+                  <input type="text" id="website_url" name="website_url" tabIndex="-1" autoComplete="off" value={formData.website_url} onChange={e => setFormData({...formData, website_url: e.target.value})} />
+                </div>
+                
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.name} *</label>
                   <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" />

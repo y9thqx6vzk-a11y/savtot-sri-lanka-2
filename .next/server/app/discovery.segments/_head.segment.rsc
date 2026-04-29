@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/0hoql2f7nrh0b.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
+3:I[97367,["/_next/static/chunks/0hoql2f7nrh0b.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Savtot in Sri Lanka | סבתות בסרי לנקה"}],["$","meta","1",{"name":"description","content":"A unique and unforgettable experience designed exclusively for mothers and grandmothers. חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות."}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Oc5QRKa4qTCrK1FKlEkaa"}

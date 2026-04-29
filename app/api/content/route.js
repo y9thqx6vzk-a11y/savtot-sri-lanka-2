@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import { db } from '../../../lib/firebaseAdmin';
 
 // Default content fallback if Firestore is empty or not configured yet
@@ -33,6 +34,12 @@ export async function GET() {
 
 export async function POST(req) {
   try {
+    // Authenticate
+    const token = cookies().get('admin_token')?.value;
+    if (!token || token !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { path: fieldPath, newValue } = await req.json();
     
     if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {

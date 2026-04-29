@@ -7,8 +7,16 @@ export async function POST(req) {
   try {
     const data = await req.json();
     
+    // Honeypot check - bots often fill hidden fields
+    if (data.website_url) {
+      console.log("Bot detected by honeypot field");
+      return NextResponse.json({ success: true, message: "Registration saved successfully" }); // Fake success for bots
+    }
+    
+    const { website_url, ...cleanData } = data;
+    
     const newRegistration = {
-      ...data,
+      ...cleanData,
       timestamp: new Date().toISOString()
     };
 

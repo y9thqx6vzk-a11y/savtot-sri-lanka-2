@@ -19,7 +19,6 @@ const files = [
 ];
 
 // Shuffle files statically once so it looks random but doesn't cause hydration mismatch
-// A simple deterministic shuffle based on index
 const shuffledFiles = [...files].sort((a, b) => {
   const hashA = a.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   const hashB = b.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -38,60 +37,93 @@ const styles = [
   'rotate-3 -translate-y-2'
 ];
 
-export default function NoticeBoardGallery({ title }) {
+const posterTitles = [
+  "SRI LANKA LIVE", "SAVTOT ON TOUR", "SIGIRIYA SESSIONS", "ARUGAM BAY VIBES",
+  "TEA COUNTRY TOUR", "WILDLIFE UNPLUGGED", "SUNSET DANCE", "ISLAND SOUL",
+  "TROPICAL BEAT", "CEYLON DREAMS", "COASTAL RHYTHM", "NATURE REVELATION"
+];
+
+const colors = [
+  "border-orange-500 text-orange-500", 
+  "border-teal-400 text-teal-400", 
+  "border-rose-500 text-rose-500", 
+  "border-yellow-400 text-yellow-400", 
+  "border-blue-400 text-blue-400"
+];
+
+export default function NoticeBoardGallery() {
   const [lightbox, setLightbox] = useState(null);
 
   return (
-    <div className="mt-20">
-      <div className="relative p-8 md:p-16 bg-[#e4d5b7] rounded-xl shadow-inner border-8 border-stone-300" 
-           style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/cork-board.png")' }}>
+    <div className="mt-10">
+      <div className="relative p-4 md:p-12 bg-stone-950 rounded-3xl overflow-hidden border-4 border-stone-800 shadow-2xl" 
+           style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/dark-matter.png")' }}>
         
-        {/* Gallery Header */}
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white px-8 py-3 shadow-md border border-stone-200 transform -rotate-2 z-20 flex items-center justify-center">
-           <div className="w-3 h-3 rounded-full bg-red-500 absolute top-2 left-1/2 -translate-x-1/2 shadow-sm"></div>
-           <h2 className="text-3xl font-serif text-stone-800 tracking-wide font-bold">{title || 'קצת מהקסם שלנו'}</h2>
-        </div>
+        {/* Spray paint effect background */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-teal-600/10 blur-[100px] rounded-full"></div>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-6 space-y-6 pt-10">
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-8 space-y-12 pt-10 px-4">
           {shuffledFiles.map((file, idx) => {
             const isVideo = file.endsWith('.mp4');
             const styleClass = styles[idx % styles.length];
             const src = `/discovery-gallery/${file}`;
+            const title = posterTitles[idx % posterTitles.length];
+            const colorClass = colors[idx % colors.length];
+            const date = `AUG ${10 + (idx % 20)} | 2025`;
             
             return (
               <div 
                 key={idx} 
-                className={`break-inside-avoid relative group cursor-pointer ${styleClass} transition-all duration-300 hover:!rotate-0 hover:!scale-110 hover:z-50`}
+                className={`break-inside-avoid relative group cursor-pointer ${styleClass} transition-all duration-500 hover:!rotate-0 hover:!scale-105 hover:z-50`}
                 onClick={() => setLightbox(src)}
               >
-                {/* Pin graphic */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 w-4 h-4 rounded-full bg-stone-700 shadow-md border border-stone-500 opacity-90"></div>
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-0 w-1 h-3 bg-stone-400"></div>
+                {/* Poster Frame */}
+                <div className={`bg-stone-900 border-4 ${colorClass.split(' ')[0]} p-1 shadow-[10px_10px_0px_rgba(0,0,0,0.5)] relative group-hover:shadow-[15px_15px_0px_rgba(0,0,0,0.6)] transition-all`}>
+                  
+                  {/* Poster Header */}
+                  <div className={`text-center py-2 border-b-2 ${colorClass.split(' ')[0]} bg-stone-950`}>
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-80">Presented by Savtot</span>
+                  </div>
 
-                {/* Polaroid styling */}
-                <div className="bg-white p-2 pb-8 shadow-lg hover:shadow-2xl transition-shadow border border-stone-200 relative overflow-hidden">
-                  {isVideo ? (
-                    <video 
-                      src={src} 
-                      className="w-full h-auto object-cover bg-stone-100" 
-                      autoPlay 
-                      loop 
-                      muted 
-                      playsInline
-                      preload="none"
-                      poster="/discovery-gallery/PXL_20250804_231312230.webp"
-                    />
-                  ) : (
-                    <Image 
-                      src={src} 
-                      alt={`Gallery item ${idx}`} 
-                      width={500} 
-                      height={500}
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                      loading="lazy"
-                      className="w-full h-auto object-cover bg-stone-100"
-                    />
-                  )}
+                  <div className="relative aspect-[3/4] overflow-hidden bg-stone-800">
+                    {isVideo ? (
+                      <video 
+                        src={src} 
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
+                        autoPlay 
+                        loop 
+                        muted 
+                        playsInline
+                        preload="none"
+                      />
+                    ) : (
+                      <Image 
+                        src={src} 
+                        alt={title} 
+                        width={600} 
+                        height={800}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        loading="lazy"
+                      />
+                    )}
+                    {/* Gritty overlay */}
+                    <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstripe.png')]"></div>
+                  </div>
+
+                  {/* Poster Info */}
+                  <div className="p-4 bg-stone-950 text-center space-y-1">
+                    <h3 className={`text-xl font-black uppercase tracking-tighter leading-none ${colorClass.split(' ')[1]}`}>
+                      {title}
+                    </h3>
+                    <div className="flex justify-between items-center pt-2 opacity-60 text-[10px] font-mono">
+                      <span>{date}</span>
+                      <span>SRI LANKA</span>
+                    </div>
+                  </div>
+
+                  {/* "Torn" effect corner */}
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-stone-950 rotate-45 border-l-2 border-stone-800"></div>
                 </div>
               </div>
             );
@@ -102,16 +134,16 @@ export default function NoticeBoardGallery({ title }) {
       {/* Lightbox */}
       {lightbox && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setLightbox(null)}
         >
-          <button className="absolute top-6 right-6 text-white hover:text-orange-400 p-2">
-             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          <button className="absolute top-6 right-6 text-white hover:text-orange-400 p-2 transition-colors">
+             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
           {lightbox.endsWith('.mp4') ? (
-            <video src={lightbox} className="max-w-full max-h-[90vh] rounded shadow-2xl" controls autoPlay />
+            <video src={lightbox} className="max-w-full max-h-[90vh] rounded-lg shadow-2xl border-4 border-stone-700" controls autoPlay />
           ) : (
-            <img src={lightbox} className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl" alt="Enlarged view" />
+            <img src={lightbox} className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border-4 border-stone-700" alt="Enlarged view" />
           )}
         </div>
       )}

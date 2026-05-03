@@ -4,14 +4,16 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Upload } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
+import { getCloudinaryUrl } from '../lib/cloudinary';
 
 export default function EditableImage({ id, src, alt, className }) {
   const { isAdmin } = useSite();
-  // Ensure we use the new .webp extension for local defaults
-  const webpSrc = src.replace(/\.jpg$/i, '.webp').replace(/\.jpeg$/i, '.webp');
   
-  // Start with the passed src (converted to webp) since uploads are offline
-  const [imgSrc, setImgSrc] = useState(webpSrc);
+  // Use Cloudinary URL if it's a local path
+  const finalSrc = getCloudinaryUrl(src);
+  
+  // Start with the Cloudinary URL
+  const [imgSrc, setImgSrc] = useState(finalSrc);
   const [hasError, setHasError] = useState(false);
 
   const handleFileChange = async (e) => {
@@ -43,7 +45,7 @@ export default function EditableImage({ id, src, alt, className }) {
   return (
     <div className={`relative group overflow-hidden rounded-2xl h-full ${isAdmin ? 'cursor-pointer' : ''} ${className}`}>
       <Image 
-        src={hasError ? '/home1.webp' : imgSrc} 
+        src={hasError ? getCloudinaryUrl('/home1.webp') : imgSrc} 
         alt={alt} 
         fill
         sizes="(max-width: 768px) 100vw, 50vw"

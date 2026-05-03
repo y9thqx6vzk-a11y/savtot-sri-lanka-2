@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-
+import { getCloudinaryUrl } from '../lib/cloudinary';
 const files = [
   "PXL_20250804_231312230.webp", "PXL_20250805_061834012.webp", "PXL_20250805_101202880.webp",
   "PXL_20250805_101212699.webp", "PXL_20250805_110950616.MP.webp", "PXL_20250805_110952829.MP.webp",
@@ -67,7 +67,7 @@ export default function NoticeBoardGallery() {
           {shuffledFiles.map((file, idx) => {
             const isVideo = file.endsWith('.mp4');
             const styleClass = styles[idx % styles.length];
-            const src = `/discovery-gallery/${file}`;
+            const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
             const title = posterTitles[idx % posterTitles.length];
             const colorClass = colors[idx % colors.length];
             const date = `AUG ${10 + (idx % 20)} | 2025`;

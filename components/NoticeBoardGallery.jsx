@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { getCloudinaryUrl } from '../lib/cloudinary';
+
 const files = [
   "PXL_20250804_231312230.webp", "PXL_20250805_061834012.webp", "PXL_20250805_101202880.webp",
   "PXL_20250805_101212699.webp", "PXL_20250805_110950616.MP.webp", "PXL_20250805_110952829.MP.webp",
@@ -18,133 +19,193 @@ const files = [
   "PXL_20250813_092451170.webp"
 ];
 
-// Shuffle files statically once so it looks random but doesn't cause hydration mismatch
+// Deterministic pseudo-shuffle
 const shuffledFiles = [...files].sort((a, b) => {
-  const hashA = a.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  const hashB = b.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return (hashA % 10) - (hashB % 10);
+  const hashA = a.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  const hashB = b.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  return (hashA % 7) - (hashB % 7);
 });
 
-// A set of messy rotations and slight translations
-const styles = [
-  '-rotate-3 translate-y-2',
-  'rotate-2 translate-y-0',
-  '-rotate-1 -translate-y-2',
-  'rotate-4 translate-y-3',
-  '-rotate-2 -translate-y-1',
-  'rotate-1 translate-y-2',
-  '-rotate-4 translate-y-1',
-  'rotate-3 -translate-y-2'
+// Subtle organic size variations for masonry interest
+const sizeVariants = [
+  'row-span-1', 'row-span-2', 'row-span-1', 'row-span-1',
+  'row-span-2', 'row-span-1', 'row-span-1', 'row-span-2',
 ];
 
-const posterTitles = [
-  "SRI LANKA LIVE", "SAVTOT ON TOUR", "SIGIRIYA SESSIONS", "ARUGAM BAY VIBES",
-  "TEA COUNTRY TOUR", "WILDLIFE UNPLUGGED", "SUNSET DANCE", "ISLAND SOUL",
-  "TROPICAL BEAT", "CEYLON DREAMS", "COASTAL RHYTHM", "NATURE REVELATION"
-];
-
-const colors = [
-  "border-orange-500 text-orange-500", 
-  "border-teal-400 text-teal-400", 
-  "border-rose-500 text-rose-500", 
-  "border-yellow-400 text-yellow-400", 
-  "border-blue-400 text-blue-400"
-];
-
-export default function NoticeBoardGallery() {
+export default function NoticeBoardGallery({ lang }) {
   const [lightbox, setLightbox] = useState(null);
+  const [lightboxIdx, setLightboxIdx] = useState(null);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
+
+  const openLightbox = useCallback((src, idx) => {
+    setLightbox(src);
+    setLightboxIdx(idx);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightbox(null);
+    setLightboxIdx(null);
+  }, []);
+
+  const navigate = useCallback((dir) => {
+    const next = (lightboxIdx + dir + shuffledFiles.length) % shuffledFiles.length;
+    const file = shuffledFiles[next];
+    const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
+    setLightbox(src);
+    setLightboxIdx(next);
+  }, [lightboxIdx]);
 
   return (
-    <div className="mt-10">
-      <div className="relative p-4 md:p-12 bg-stone-950 rounded-3xl overflow-hidden border-4 border-stone-800 shadow-2xl" 
-           style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/dark-matter.png")' }}>
-        
-        {/* Spray paint effect background */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 blur-[100px] rounded-full"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-teal-600/10 blur-[100px] rounded-full"></div>
-
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-8 space-y-12 pt-10 px-4">
-          {shuffledFiles.map((file, idx) => {
-            const isVideo = file.endsWith('.mp4');
-            const styleClass = styles[idx % styles.length];
-            const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
-            const title = posterTitles[idx % posterTitles.length];
-            const colorClass = colors[idx % colors.length];
-            const date = `AUG ${10 + (idx % 20)} | 2025`;
-            
-            return (
-              <div 
-                key={idx} 
-                className={`break-inside-avoid relative group cursor-pointer ${styleClass} transition-all duration-500 hover:!rotate-0 hover:!scale-105 hover:z-50`}
-                onClick={() => setLightbox(src)}
-              >
-                {/* Poster Frame */}
-                <div className={`bg-stone-900 border-4 ${colorClass.split(' ')[0]} p-1 shadow-[10px_10px_0px_rgba(0,0,0,0.5)] relative group-hover:shadow-[15px_15px_0px_rgba(0,0,0,0.6)] transition-all`}>
-                  
-                  {/* Poster Header */}
-                  <div className={`text-center py-2 border-b-2 ${colorClass.split(' ')[0]} bg-stone-950`}>
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-80">Presented by Savtot</span>
-                  </div>
-
-                  <div className="relative aspect-[3/4] overflow-hidden bg-stone-800">
-                    {isVideo ? (
-                      <video 
-                        src={src} 
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline
-                        preload="none"
-                      />
-                    ) : (
-                      <Image 
-                        src={src} 
-                        alt={title} 
-                        width={600} 
-                        height={800}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        loading="lazy"
-                      />
-                    )}
-                    {/* Gritty overlay */}
-                    <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstripe.png')]"></div>
-                  </div>
-
-                  {/* Poster Info */}
-                  <div className="p-4 bg-stone-950 text-center space-y-1">
-                    <h3 className={`text-xl font-black uppercase tracking-tighter leading-none ${colorClass.split(' ')[1]}`}>
-                      {title}
-                    </h3>
-                    <div className="flex justify-between items-center pt-2 opacity-60 text-[10px] font-mono">
-                      <span>{date}</span>
-                      <span>SRI LANKA</span>
-                    </div>
-                  </div>
-
-                  {/* "Torn" effect corner */}
-                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-stone-950 rotate-45 border-l-2 border-stone-800"></div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <div>
+      {/* ——— Section label ——— */}
+      <div className="flex items-center gap-6 mb-10">
+        <div className="h-px flex-1 bg-stone-200" />
+        <span className="text-[11px] uppercase tracking-[0.35em] text-stone-400 font-light whitespace-nowrap">
+          {lang === 'he' ? 'הגלריה שלנו' : 'Our Gallery'}
+        </span>
+        <div className="h-px flex-1 bg-stone-200" />
       </div>
 
-      {/* Lightbox */}
+      {/* ——— Masonry Grid ——— */}
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
+        {shuffledFiles.map((file, idx) => {
+          const isVideo = file.endsWith('.mp4');
+          const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
+          const isHovered = hoveredIdx === idx;
+
+          return (
+            <div
+              key={idx}
+              className="break-inside-avoid relative group cursor-pointer overflow-hidden"
+              style={{
+                borderRadius: '2px',
+                backgroundColor: '#ede8e0',
+              }}
+              onClick={() => openLightbox(src, idx)}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
+            >
+              {/* Image / Video */}
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: idx % 5 === 0 ? '3/4' : idx % 3 === 0 ? '4/5' : '2/3' }}>
+                {isVideo ? (
+                  <video
+                    src={src}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out"
+                    style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                  />
+                ) : (
+                  <Image
+                    src={src}
+                    alt={`Sri Lanka ${idx + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-700 ease-out"
+                    style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
+                    loading="lazy"
+                  />
+                )}
+
+                {/* Hover overlay: minimal cream fade from bottom */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(250,247,242,0.5) 0%, transparent 50%)',
+                    opacity: isHovered ? 1 : 0,
+                  }}
+                />
+
+                {/* Play icon for videos */}
+                {isVideo && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-10 h-10 rounded-full bg-white/70 flex items-center justify-center backdrop-blur-sm opacity-80">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="#2c2c2c">
+                        <polygon points="5,3 19,12 5,21" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ——— Footer note ——— */}
+      <div className="mt-16 text-center">
+        <p className="text-xs text-stone-400 tracking-widest uppercase font-light">
+          {lang === 'he' ? 'כל התמונות צולמו בסרי לנקה · קיץ 2025' : 'All photos taken in Sri Lanka · Summer 2025'}
+        </p>
+      </div>
+
+      {/* ——— Lightbox ——— */}
       {lightbox && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
-          onClick={() => setLightbox(null)}
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center"
+          style={{ backgroundColor: 'rgba(44, 44, 44, 0.96)', backdropFilter: 'blur(8px)' }}
+          onClick={closeLightbox}
         >
-          <button className="absolute top-6 right-6 text-white hover:text-orange-400 p-2 transition-colors">
-             <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          {/* Close */}
+          <button
+            className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors z-10 p-2"
+            onClick={closeLightbox}
+            aria-label="Close"
+          >
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
-          {lightbox.endsWith('.mp4') ? (
-            <video src={lightbox} className="max-w-full max-h-[90vh] rounded-lg shadow-2xl border-4 border-stone-700" controls autoPlay />
-          ) : (
-            <img src={lightbox} className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border-4 border-stone-700" alt="Enlarged view" />
-          )}
+
+          {/* Prev */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
+            onClick={(e) => { e.stopPropagation(); navigate(-1); }}
+            aria-label="Previous"
+          >
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Media */}
+          <div className="relative max-w-5xl max-h-[88vh] px-16" onClick={(e) => e.stopPropagation()}>
+            {lightbox.endsWith('.mp4') ? (
+              <video
+                src={lightbox}
+                className="max-w-full max-h-[88vh] object-contain"
+                style={{ borderRadius: '2px' }}
+                controls
+                autoPlay
+              />
+            ) : (
+              <img
+                src={lightbox}
+                className="max-w-full max-h-[88vh] object-contain"
+                style={{ borderRadius: '2px' }}
+                alt="Gallery view"
+              />
+            )}
+
+            {/* Counter */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-[11px] tracking-widest uppercase">
+              {lightboxIdx + 1} / {shuffledFiles.length}
+            </div>
+          </div>
+
+          {/* Next */}
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
+            onClick={(e) => { e.stopPropagation(); navigate(1); }}
+            aria-label="Next"
+          >
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       )}
     </div>

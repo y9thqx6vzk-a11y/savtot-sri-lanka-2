@@ -29,16 +29,17 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 shadow-lg backdrop-blur-sm py-2' : 'bg-transparent py-4 text-white'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'bg-transparent py-4 text-white'}`} style={scrolled ? { backgroundColor: '#faf7f2', boxShadow: '0 1px 0 rgba(0,0,0,0.06)' } : {}}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         
         <Link 
           href="/register"
-          className={`text-2xl font-serif font-bold cursor-pointer flex items-center gap-2 ${scrolled ? 'text-teal-900' : 'text-white'}`}
+          className={`text-xl cursor-pointer flex items-center gap-2 ${scrolled ? 'text-stone-800' : 'text-white'}`}
+          style={{ fontFamily: "'Playfair Display', Georgia, serif", letterSpacing: '-0.01em' }}
           title={lang === 'he' ? 'להרשמה' : 'Sign Up'}
         >
-          <Leaf className="w-6 h-6 text-orange-500" />
-          <span>Savtot <span className="font-light italic">in Sri Lanka</span></span>
+          <Leaf className="w-5 h-5" style={{ color: '#c4704f' }} />
+          <span>Savtot <span className="italic font-normal opacity-70">in Sri Lanka</span></span>
         </Link>
 
         <div className="hidden md:flex gap-6 items-center font-medium">
@@ -54,14 +55,16 @@ export default function Navbar() {
             <Link 
               key={item.id}
               href={item.id}
-              className={`hover:text-orange-500 transition-colors ${pathname === item.id ? 'text-orange-500 font-bold' : (scrolled ? 'text-stone-600' : 'text-white/90')}`}
+              className={`text-sm tracking-wide transition-colors font-light ${pathname === item.id ? 'font-medium' : ''} ${scrolled ? 'text-stone-600 hover:text-stone-900' : 'text-white/80 hover:text-white'}`}
+              style={pathname === item.id ? { color: '#c4704f' } : {}}
             >
               {item.label}
             </Link>
           ))}
           <Link 
             href="/register"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-full font-bold transition-transform hover:scale-105 shadow-md inline-block"
+            className="text-white px-5 py-2 text-sm tracking-wide font-light transition-all hover:opacity-90 inline-block"
+            style={{ backgroundColor: '#c4704f', borderRadius: '1px' }}
           >
             {t.nav.register}
           </Link>

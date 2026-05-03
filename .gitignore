@@ -24,5 +24,8 @@ dist-ssr
 *.sw?
 server/.env
 savtot-site/
+.next
+update_name.cjs
+update_schedule.cjs
 .vercel
 .env*.local

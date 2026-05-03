@@ -50,7 +50,6 @@ export const defaultContentData = {
         },
         { day: "3", title: "אקסטרים בקיטולגלה", desc: "יום מלא אדרנלין עם רפטינג וקניונינג, ומעבר לנווארה אליה הקרירה.", highlight: "רפטינג וקניונינג", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
             { hour: "09:30 - 13:30", place: "קיטולגלה", activity: "נסיעה" },
@@ -63,7 +62,6 @@ export const defaultContentData = {
         },
         { day: "4", title: "תה, רכבות ואלה", desc: "הזהב הירוק של סרי לנקה ונסיעת הרכבת היפה בעולם בדרך אל העיירה אלה.", highlight: "נסיעת הרכבת לאלה", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
             { hour: "09:30 - 14:30", place: "מטעי תה", activity: "סיור במטעי התה" },
@@ -74,7 +72,6 @@ export const defaultContentData = {
         },
         { day: "5", title: "מפלים ואדרנלין", desc: "נופים עוצרי נשימה במפלי דיאלומא וגלישת אומגה מעל הצמרות.", highlight: "מפלי דיאלומא ואומגה", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון באלה", activity: "ארוחת בוקר" },
             { hour: "09:30 - 13:30", place: "אלה", activity: "מפלי דיאלומא" },
@@ -86,7 +83,6 @@ export const defaultContentData = {
         },
         { day: "6", title: "החיים על החוף", desc: "סאפ בוקר, שיעור גלישה וקבלת שבת מול הים של ארוגם ביי.", highlight: "שבת בארוגם ביי", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
             { hour: "09:30 - 12:00", place: "פוטוביל", activity: "סאפ בוקר בלגונה" },
@@ -98,7 +94,6 @@ export const defaultContentData = {
         },
         { day: "7", title: "שבת מנוחה", desc: "יום מנוחה רגוע בארוגם ביי. זמן ליהנות מהאווירה ולאגור כוחות.", highlight: "מנוחה וחופש", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה (אופציונלי)" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
             { hour: "18:30", place: "ארוגם ביי", activity: "מוצאי שבת" },
@@ -107,7 +102,6 @@ export const defaultContentData = {
         },
         { day: "8", title: "גלישה וקניות", desc: "המשך ההרפתקה עם גלישה בחופים המפורסמים והסתובבות בעיירה.", highlight: "גלישה בארוגם ביי", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
             { hour: "09:30 - 12:30", place: "ארוגם ביי", activity: "גלישה / קניות" },
@@ -116,7 +110,6 @@ export const defaultContentData = {
         },
         { day: "9", title: "זמן ים אחרון", desc: "נצלו כל רגע של שמש, גלים וחול על החוף לפני הפרידה.", highlight: "ים ושמש", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
             { hour: "09:30 - 17:00", place: "ארוגם ביי", activity: "זמן חוף חופשי / קניות אחרונות" },
@@ -125,7 +118,6 @@ export const defaultContentData = {
         },
         { day: "10", title: "פרידה מהקסם", desc: "אריזות אחרונות, ארוחת בוקר ונסיעה חזרה עם זיכרונות לכל החיים.", highlight: "חזרה הביתה", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "טיול זריחה" },
             { hour: "06:30", place: "מלון", activity: "יוגה" },
             { hour: "08:00 - 09:00", place: "מלון בארוגם ביי", activity: "ארוחת בוקר" },
             { hour: "10:00", place: "סרי לנקה", activity: "נסיעה חזרה ותחילת מסע הביתה" }
@@ -151,10 +143,10 @@ export const defaultContentData = {
       ]
     },
     about: {
-      title: 'הסיפור שלנו', p1: 'אז הנה אנחנו, אייל, עליזה ונעמי 🙂.\\n\\nבקיץ של 2025, שלושתנו נפגשנו בסרי לנקה אחרי שאייל ועליזה סיימו ירח דבש ארוך במזרח. אלו היו 10 ימים מופלאים של מפלים, גלישה, חופים, נופים ופשוט מלונות מצוינים (ואחד גרוע, רק כדי שיהיה לנו על מה להתלונן).', p2: 'חזרנו הביתה, ולנעמי היה רעיון. למה לא להנגיש את החוויה המדהימה והמשנה-חיים הזו של טיול למזרח גם לסבתות ואימהות? כל כך הרבה צעירים ישראלים מטיילים אחרי הצבא לחלק הזה של העולם ויש להם את הזמן של חייהם. הם חיים את התרבות, לוקחים על עצמם אתגרים שלעולם לא היו עושים בבית ורואים את החיים מנקודת מבט חדשה לגמרי. אנחנו מאמינים שלכולם מגיעה ההזדמנות לעשות את זה. (למעשה אנחנו מאמינים שכולם צריכים לעשות את זה אבל נדבר על זה כשניפגש :)\\n\\nהבנו שמי יותר טוב להדריך סבתות ואימהות במסע משנה החיים הזה מאשר אנחנו? אנחנו לא אנשי מכירות, אנחנו לא סוכנות נסיעות, ואנחנו לא עובדים עם שום חברה גדולה. אנחנו 3 אנשים שחולקים תשוקה לכל מה שיש לסרי לנקה להציע ואנחנו רוצים לתת לכם את ההזדמנות לחלוק את התשוקה הזו.', p3: 'כל אחד מאיתנו מביא משהו אחר להרפתקה הסרי-לנקית שלכן. אני, נעמי, אהיה איתכן בכל חוויה, אוודא שכולן נהנות מכל רגע ותמיד אהיה זמינה לענות על כל שאלה. אייל ועליזה הם מדריכי יוגה מוסמכים ושפים מדהימים והם יוודאו שכולן אוכלות היטב ומרגישות במיטבן. (הם גם מנגנים בגיטרה ויוקלילי בהתאמה, מה שיבוא לידי ביטוי בהופעות החוף הליליות שלנו). יהיה איתנו גם מדריך ונהג מקומי כדי להבטיח שנוכל להתנייד בקלות וכדי לתת לנו הבנה והערכה לתרבות המקומית.', team: { eyal: 'אייל & עליזה', naomi: 'נעמי', guide: 'מדריך מקומי' }
+      title: 'הסיפור שלנו', p1: 'אז הנה אנחנו, איל, עליזה ונעמי 🙂.\\n\\nבקיץ של 2025, שלושתנו נפגשנו בסרי לנקה אחרי שאיל ועליזה סיימו ירח דבש ארוך במזרח. אלו היו 10 ימים מופלאים של מפלים, גלישה, חופים, נופים ופשוט מלונות מצוינים (ואחד גרוע, רק כדי שיהיה לנו על מה להתלונן).', p2: 'חזרנו הביתה, ולנעמי היה רעיון. למה לא להנגיש את החוויה המדהימה והמשנה-חיים הזו של טיול למזרח גם לסבתות ואימהות? כל כך הרבה צעירים ישראלים מטיילים אחרי הצבא לחלק הזה של העולם ויש להם את הזמן של חייהם. הם חיים את התרבות, לוקחים על עצמם אתגרים שלעולם לא היו עושים בבית ורואים את החיים מנקודת מבט חדשה לגמרי. אנחנו מאמינים שלכולם מגיעה ההזדמנות לעשות את זה. (למעשה אנחנו מאמינים שכולם צריכים לעשות את זה אבל נדבר על זה כשניפגש :)\\n\\nהבנו שמי יותר טוב להדריך סבתות ואימהות במסע משנה החיים הזה מאשר אנחנו? אנחנו לא אנשי מכירות, אנחנו לא סוכנות נסיעות, ואנחנו לא עובדים עם שום חברה גדולה. אנחנו 3 אנשים שחולקים תשוקה לכל מה שיש לסרי לנקה להציע ואנחנו רוצים לתת לכם את ההזדמנות לחלוק את התשוקה הזו.', p3: 'כל אחד מאיתנו מביא משהו אחר להרפתקה הסרי-לנקית שלכן. אני, נעמי, אהיה איתכן בכל חוויה, אוודא שכולן נהנות מכל רגע ותמיד אהיה זמינה לענות על כל שאלה. איל ועליזה הם מדריכי יוגה מוסמכים ושפים מדהימים והם יוודאו שכולן אוכלות היטב ומרגישות במיטבן. (הם גם מנגנים בגיטרה ויוקלילי בהתאמה, מה שיבוא לידי ביטוי בהופעות החוף הליליות שלנו). יהיה איתנו גם מדריך ונהג מקומי כדי להבטיח שנוכל להתנייד בקלות וכדי לתת לנו הבנה והערכה לתרבות המקומית.', team: { eyal: 'איל & עליזה', naomi: 'נעמי', guide: 'מדריך מקומי' }
     },
     register: {
-      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם תוך 24 שעות.', contact_wa: 'שאלות? דברו עם אייל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה' }
+      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם תוך 24 שעות.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה' }
     }
   },
   en: {
@@ -177,7 +169,6 @@ export const defaultContentData = {
         },
         { day: "2", title: "Lion's Rock & Safari", desc: "Climb the famous Lion’s Rock, explore the village, and go on a thrilling elephant safari.", highlight: "Lion's Rock & Elephant Safari", 
           schedule: [
-            { hour: "05:00", place: "Sigiriya Rock", activity: "Sunrise Hike" },
             { hour: "08:00 - 09:00", place: "Hotel Sigiriya", activity: "Breakfast" },
             { hour: "10:00 - 15:00", place: "Village", activity: "Authentic Village Tour" },
             { hour: "15:00 - 16:00", place: "Hotel", activity: "Nap / Rest" },
@@ -188,7 +179,6 @@ export const defaultContentData = {
         },
         { day: "3", title: "Waterfalls & Adventure", desc: "Head to Kitulgala for an exciting day of rafting, canyoning, and a rainforest walk.", highlight: "Kitulgala Rafting", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
             { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Driving" },
@@ -201,7 +191,6 @@ export const defaultContentData = {
         },
         { day: "4", title: "Tea Plantations & Trains", desc: "Tour the famous Ceylon tea plantations and take the iconic train ride to Ella.", highlight: "Train to Ella", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
             { hour: "09:30 - 14:30", place: "Tea Plantation", activity: "Tea plantation tour" },
@@ -212,7 +201,6 @@ export const defaultContentData = {
         },
         { day: "5", title: "Adrenaline in Ella", desc: "Visit Diyaluma Falls, go ziplining, and then drive down to the sunny Arugam Bay.", highlight: "Diyaluma Falls & Zipline", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Ella", activity: "Breakfast" },
             { hour: "09:30 - 13:30", place: "Ella", activity: "Diyaluma Falls" },
@@ -224,7 +212,6 @@ export const defaultContentData = {
         },
         { day: "6", title: "Beach Life & Shabbat", desc: "Enjoy a morning SUP session, surf lessons, and getting ready for Shabbat by the beach.", highlight: "Shabbat on the Beach", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
             { hour: "09:30 - 12:00", place: "Pottuvil", activity: "Morning SUP" },
@@ -236,7 +223,6 @@ export const defaultContentData = {
         },
         { day: "7", title: "Shabbat Rest", desc: "A relaxing day in Arugam Bay. Time to enjoy the vibe, rest, and just be.", highlight: "Rest and Relaxation", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike (optional)" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
             { hour: "18:30", place: "Arugam Bay", activity: "Motzash" },
@@ -245,7 +231,6 @@ export const defaultContentData = {
         },
         { day: "8", title: "Surfing & Shopping", desc: "Continue the adventure with surfing at the famous beaches and exploring the town.", highlight: "Surfing in Arugam Bay", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
             { hour: "09:30 - 12:30", place: "Arugam Bay", activity: "Surf / Shops" },
@@ -254,7 +239,6 @@ export const defaultContentData = {
         },
         { day: "9", title: "Last Beach Day", desc: "Make the most of your last full day in Arugam Bay enjoying the ocean and sun.", highlight: "Sun and Sand", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
             { hour: "09:30 - 17:00", place: "Arugam Bay", activity: "Free beach time" },
@@ -263,7 +247,6 @@ export const defaultContentData = {
         },
         { day: "10", title: "Farewell to the Magic", desc: "Final packing up before heading home with lifelong memories.", highlight: "Heading Home", 
           schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
             { hour: "10:00", place: "Sri Lanka", activity: "Drive & journey home" }

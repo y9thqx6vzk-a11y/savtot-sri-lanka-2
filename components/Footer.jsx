@@ -47,7 +47,7 @@ export default function Footer() {
           <h3 className="text-2xl font-serif font-bold text-white mb-4">Savtot in Sri Lanka</h3>
           <p className="opacity-80 leading-relaxed whitespace-pre-line">
             {lang === 'he' 
-              ? "סבתות בסרי לנקה\nחוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות.\nהמארחים שלכן: עליזה, אייל ונעמי | קיץ 2026" 
+              ? "סבתות בסרי לנקה\nחוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות.\nהמארחים שלכן: עליזה, איל ונעמי | קיץ 2026" 
               : "Savtot in Sri Lanka\nA unique, unforgettable experience designed exclusively for mothers and grandmothers.\nYour hosts: Aliza, Eyal & Naomi | Summer 2026"}
           </p>
         </div>

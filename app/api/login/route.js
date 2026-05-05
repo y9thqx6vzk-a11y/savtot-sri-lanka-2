@@ -11,6 +11,7 @@ export async function POST(req) {
       return NextResponse.json({ success: false, message: "Server misconfiguration: Admin password not set" }, { status: 500 });
     }
 
+    console.log("Client:", `[${password}]`, "Server:", `[${ADMIN_PASSWORD}]`);
     if (password === ADMIN_PASSWORD) {
       // Set secure HttpOnly cookie for 30 days
       cookies().set('admin_token', ADMIN_PASSWORD, { 

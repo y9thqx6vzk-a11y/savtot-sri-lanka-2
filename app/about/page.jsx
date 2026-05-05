@@ -34,26 +34,42 @@ export default function AboutPage() {
               <p><EditableText path={`${lang}.about.p3`} text={t.about.p3} multiline /></p>
             </div>
 
-            <div className="mt-16 border-t pt-12">
-              <h3 className="text-2xl font-bold text-teal-900 mb-8 text-center">הצוות שילווה אתכן</h3>
-              <div className="grid grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="w-24 h-24 mx-auto bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
+            <div className="mt-16 border-t pt-12 text-center">
+              <h3 className="text-2xl font-bold text-teal-900 mb-8">
+                {lang === 'he' ? 'הצוות שילווה אתכן' : 'Your Hosts'}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div className="flex flex-col items-center">
+                  <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
                      <EditableImage id="team_eyal" src="team_eyal" alt="Eyal & Aliza" className="w-full h-full object-cover" width={300} height={300} crop="thumb" />
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.eyal`} text={t.about.team.eyal} /></h4>
                 </div>
-                <div>
-                  <div className="w-24 h-24 mx-auto bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
+                <div className="flex flex-col items-center">
+                  <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
                      <EditableImage id="team_naomi" src="team_naomi" alt="Naomi" className="w-full h-full object-cover" width={300} height={300} crop="thumb" />
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.naomi`} text={t.about.team.naomi} /></h4>
                 </div>
-                <div>
-                  <div className="w-24 h-24 mx-auto bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md flex items-center justify-center">
+                <div className="flex flex-col items-center">
+                  <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md flex items-center justify-center bg-teal-50">
                      <span className="text-4xl">🚐</span>
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.guide`} text={t.about.team.guide} /></h4>
+                </div>
+              </div>
+
+              <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
+                <h4 className="text-xl font-bold text-teal-900 mb-4">{lang === 'he' ? 'צרו קשר' : 'Contact Us'}</h4>
+                <div className="flex flex-col md:flex-row justify-center gap-8 text-lg">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="font-semibold text-orange-600">Eyal:</span>
+                    <a href="tel:+972540000000" className="hover:text-orange-500">+972 54...</a>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="font-semibold text-orange-600">Naomi:</span>
+                    <a href="tel:+972540000000" className="hover:text-orange-500">+972 54...</a>
+                  </div>
                 </div>
               </div>
             </div>

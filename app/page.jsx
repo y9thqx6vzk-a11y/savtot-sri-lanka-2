@@ -29,14 +29,15 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16 pointer-events-none">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto">
-            <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
-          </h1>
-          <p className="text-lg md:text-xl font-light mb-4 opacity-90 max-w-2xl mx-auto pointer-events-auto">
-            <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
+          <p className="text-sm uppercase tracking-[0.4em] mb-4 opacity-80 font-medium">
+            {lang === 'he' ? 'חוויה של פעם בחיים' : 'The trip of a lifetime'}
           </p>
-          <p className="text-2xl md:text-3xl font-serif font-semibold mb-10 opacity-95 tracking-wide pointer-events-auto drop-shadow">
-            <EditableText path={`${lang}.hero.tagline`} text={t.hero.tagline} />
+          <h1 className="text-5xl md:text-8xl font-serif font-bold mb-8 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto relative">
+            <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
+            <span className="absolute -top-10 -right-10 text-orange-500 text-6xl opacity-40 select-none hidden md:block">🍃</span>
+          </h1>
+          <p className="text-lg md:text-2xl font-light mb-10 opacity-90 max-w-2xl mx-auto pointer-events-auto leading-relaxed">
+            <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
             <button
@@ -89,25 +90,27 @@ export default function HomePage() {
       </section>
 
       {/* ── Gallery / CTA ─────────────────────────────────────────────────── */}
-      <section className="py-20 bg-teal-900 text-white overflow-hidden relative">
-        <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2 text-start">
-            <h2 className="text-4xl font-serif font-bold mb-6">
-              <EditableText path={`${lang}.gallery.title`} text={t.gallery.title} />
-            </h2>
-            <p className="text-teal-100 text-lg mb-8 leading-relaxed">
-              <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
-            </p>
-            <button
-              onClick={() => router.push('/register')}
-              className="flex items-center gap-2 text-orange-400 font-bold hover:gap-4 transition-all"
-            >
-              {t.gallery.cta} <ArrowRight className="w-5 h-5 rtl:rotate-180" />
-            </button>
-          </div>
-          <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" width={800} crop="fill" />
-            <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" width={800} crop="fill" />
+      <section className="py-20 bg-white overflow-hidden relative">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
+            <div className="md:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-teal-900 mb-6">
+                <EditableText path={`${lang}.gallery.title`} text={t.gallery.title} />
+              </h2>
+              <p className="text-xl text-stone-600 mb-8 leading-relaxed">
+                <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
+              </p>
+              <button
+                onClick={() => router.push('/register')}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg"
+              >
+                {t.gallery.cta}
+              </button>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+              <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" width={800} crop="fill" />
+              <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" width={800} crop="fill" />
+            </div>
           </div>
         </div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>

@@ -97,9 +97,11 @@ export default function RegisterPage() {
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
                   <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
-                <h3 className="text-3xl font-bold text-teal-900">תודה רבה! הבקשה התקבלה.</h3>
-                <p className="text-stone-600">ניצור קשר בהקדם להשלמת ההרשמה ולמתן פרטים נוספים.</p>
-                <button onClick={() => setStatus('idle')} className="mt-8 text-orange-500 font-bold hover:underline">שלח בקשה נוספת</button>
+                <h3 className="text-3xl font-bold text-teal-900"><EditableText path={`${lang}.register.form.success_title`} text={t.register.form.success_title} /></h3>
+                <p className="text-stone-600"><EditableText path={`${lang}.register.form.success_desc`} text={t.register.form.success_desc} /></p>
+                <button onClick={() => setStatus('idle')} className="mt-8 text-orange-500 font-bold hover:underline">
+                  <EditableText path={`${lang}.register.form.success_btn`} text={t.register.form.success_btn} />
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -137,10 +139,10 @@ export default function RegisterPage() {
                   <textarea value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 min-h-[120px]"></textarea>
                 </div>
 
-                {status === 'error' && <p className="text-red-500 font-medium">אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.</p>}
+                {status === 'error' && <p className="text-red-500 font-medium"><EditableText path={`${lang}.register.form.error`} text={t.register.form.error} /></p>}
 
                 <button disabled={status === 'submitting'} type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70">
-                  {status === 'submitting' ? 'שולח...' : <>{t.register.form.submit} <Send className={`w-5 h-5 ${lang === 'he' ? 'rotate-180' : ''}`} /></>}
+                  {status === 'submitting' ? t.register.form.submitting : <>{t.register.form.submit} <Send className={`w-5 h-5 ${lang === 'he' ? 'rotate-180' : ''}`} /></>}
                 </button>
               </form>
             )}

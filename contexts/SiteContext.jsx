@@ -135,124 +135,89 @@ export const defaultContentData = {
         { title: "ספארי וחיות בר", text: "פילים, תנינים, ציפורים נדירות ואפילו נמרים. סרי לנקה היא גן עדן לחובבי טבע." }
       ]
     },
-    about: {
-      title: 'הסיפור שלנו', p1: 'אז הנה אנחנו, איל, עליזה ונעמי 🙂.\n\nבקיץ של 2025, שלושתנו נפגשנו בסרי לנקה אחרי שאיל ועליזה סיימו ירח דבש ארוך במזרח. אלו היו 10 ימים מופלאים של מפלים, גלישה, חופים, נופים ופשוט מלונות מצוינים (ואחד גרוע, רק כדי שיהיה לנו על מה להתלונן).', p2: 'חזרנו הביתה, ולנעמי היה רעיון. למה לא להנגיש את החוויה המדהימה והמשנה-חיים הזו של טיול למזרח גם לסבתות ואימהות? כל כך הרבה צעירים ישראלים מטיילים אחרי הצבא לחלק הזה של העולם ויש להם את הזמן של חייהם. הם חיים את התרבות, לוקחים על עצמם אתגרים שלעולם לא היו עושים בבית ורואים את החיים מנקודת מבט חדשה לגמרי. אנחנו מאמינים שלכולם מגיעה ההזדמנות לעשות את זה. (למעשה אנחנו מאמינים שכולם צריכים לעשות את זה אבל נדבר על זה כשניפגש :)\n\nהבנו שמי יותר טוב להדריך סבתות ואימהות במסע משנה החיים הזה מאשר אנחנו? אנחנו לא אנשי מכירות, אנחנו לא סוכנות נסיעות, ואנחנו לא עובדים עם שום חברה גדולה. אנחנו 3 אנשים שחולקים תשוקה לכל מה שיש לסרי לנקה להציע ואנחנו רוצים לתת לכם את ההזדמנות לחלוק את התשוקה הזו.', p3: 'כל אחד מאיתנו מביא משהו אחר להרפתקה הסרי-לנקית שלכן. אני, נעמי, אהיה איתכן בכל חוויה, אוודא שכולן נהנות מכל רגע ותמיד אהיה זמינה לענות על כל שאלה. איל ועליזה הם מדריכי יוגה מוסמכים ושפים מדהימים והם יוודאו שכולן אוכלות היטב ומרגישות במיטבן. (הם גם מנגנים בגיטרה ויוקלילי בהתאמה, מה שיבוא לידי ביטוי בהופעות החוף הליליות שלנו). יהיה איתנו גם מדריך ונהג מקומי כדי להבטיח שנוכל להתנייד בקלות וכדי לתת לנו הבנה והערכה לתרבות המקומית.', team: { eyal: 'איל & עליזה', naomi: 'נעמי', guide: 'מדריך מקומי' }
+    about: { 
+      title: 'הסיפור שלנו', 
+      p1: 'אז הנה אנחנו, איל, עליזה ונעמי 🙂.\n\nבקיץ של 2025, שלושתנו נפגשנו בסרי לנקה אחרי שאיל ועליזה סיימו ירח דבש ארוך במזרח. אלו היו 10 ימים מופלאים של מפלים, גלישה, חופים, נופים ופשוט מלונות מצוינים (ואחד גרוע, רק כדי שיהיה לנו על מה להתלונן).', 
+      p2: 'חזרנו הביתה, ולנעמי היה רעיון. למה לא להנגיש את החוויה המדהימה והמשנה-חיים הזו של טיול למזרח גם לסבתות ואימהות? כל כך הרבה צעירים ישראלים מטיילים אחרי הצבא לחלק הזה של העולם ויש להם את הזמן של חייהם. הם חיים את התרבות, לוקחים על עצמם אתגרים שלעולם לא היו עושים בבית ורואים את החיים מנקודת מבט חדשה לגמרי. אנחנו מאמינים שלכולם מגיעה ההזדמנות לעשות את זה. (למעשה אנחנו מאמינים שכולם צריכים לעשות את זה אבל נדבר על זה כשניפגש :)\n\nהבנו שמי יותר טוב להדריך סבתות ואימהות במסע משנה החיים הזה מאשר אנחנו? אנחנו לא אנשי מכירות, אנחנו לא סוכנות נסיעות, ואנחנו לא עובדים עם שום חברה גדולה. אנחנו 3 אנשים שחולקים תשוקה לכל מה שיש לסרי לנקה להציע ואנחנו רוצים לתת לכם את ההזדמנות לחלוק את התשוקה הזו.', 
+      p3: 'כל אחד מאיתנו מביא משהו אחר להרפתקה הסרי-לנקית שלכן. אני, נעמי, אהיה איתכן בכל חוויה, אוודא שכולן נהנות מכל רגע ותמיד אהיה זמינה לענות על כל שאלה. איל ועליזה הם מדריכי יוגה מוסמכים ושפים מדהימים והם יוודאו שכולן אוכלות היטב ומרגישות במיטבן. (הם גם מנגנים בגיטרה ויוקלילי בהתאמה, מה שיבוא לידי ביטוי בהופעות החוף הליליות שלנו). יהיה איתנו גם מדריך ונהג מקומי כדי להבטיח שנוכל להתנייד בקלות וכדי לתת לנו הבנה והערכה לתרבות המקומית.', 
+      team: { eyal: 'אליזה, איל ונעמי', naomi: 'המארחים שלכן', guide: 'מדריך מקומי' },
+      contact: 'צרו קשר:\nאיל: 054-...\nנעמי: 054-...'
     },
-    register: {
-      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם תוך 24 שעות.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה' }
+    register: { 
+      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם תוך 24 שעות.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], 
+      form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה', success_title: 'תודה רבה! הבקשה התקבלה.', success_desc: 'ניצור קשר בהקדם להשלמת ההרשמה ולמתן פרטים נוספים.', success_btn: 'שלח בקשה נוספת', error: 'אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.', submitting: 'שולח...' }
     }
   },
   en: {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Discovery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
-    hero: { title: 'Savtot in Sri Lanka\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', tagline: 'The trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
-    features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the amazing local cuisine.' },
+    hero: { 
+      title: 'Savtot in Sri Lanka\nSummer 2026', 
+      subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', 
+      tagline: 'The trip of a lifetime', 
+      cta_plan: 'See the Plan', 
+      cta_discover: 'Experience the magic' 
+    },
+    features: { 
+      title: 'More than just a trip', 
+      f3_title: 'Fully kosher', 
+      f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the incredible local cuisine',
+      f2_title: 'Authentic culture', 
+      f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka',
+      f1_title: 'Wellness & Yoga', 
+      f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind'
+    },
+    gallery: {
+      title: 'Experience the magic',
+      desc: 'From majestic waterfalls to glorious tea plantations to the golden shores of Arugam Bay, you’ll get the chance to see all the wonders of Sri Lanka',
+      cta: 'More info / Save your spot'
+    },
     itinerary: {
-      title: 'Journey Details', subtitle: 'Detailed 10-day daily program',
+      title: 'Your fully planned adventure', subtitle: 'A 10-day journey of discovery and relaxation',
       headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
       days: [
-        { day: "1", title: "Arrival in Sri Lanka", desc: "Landing in Colombo and driving to Sigiriya. Time to settle in, meet and have dinner.", highlight: "Arrival and Orientation", 
+        { day: "1-3", title: "Arrival & Ancient Wonders", desc: "Land in Colombo and head straight to the fresh, cool air of Sigiriya. Settle in, climb the famous Lion’s Rock, and experience the local village.", highlight: "Sigiriya Rock & Local Village", 
           schedule: [
-            { hour: "-", place: "Israel", activity: "Flight" },
-            { hour: "-", place: "Colombo", activity: "Bus drive to Sigiriya" },
-            { hour: "-", place: "Sigiriya", activity: "Check-in and settle in" },
-            { hour: "-", place: "Sigiriya", activity: "Dinner" },
-            { hour: "-", place: "Sigiriya", activity: "Relaxing massage" }
+            { hour: "-", place: "Colombo", activity: "Arrival" },
+            { hour: "-", place: "Sigiriya", activity: "Lion's Rock Hike" },
+            { hour: "-", place: "Kitulgala", activity: "Elephant safari, canyoning, rafting or rainforest walk" }
           ]
         },
-        { day: "2", title: "Lion Rock & Safari", desc: "Early wake up for an exciting climb, authentic village tour and afternoon safari.", highlight: "Sigiriya Rock & Elephant Safari", 
+        { day: "4-5", title: "Tea & Mountains", desc: "Hike Little Adam’s Peak at sunrise, and get ready for the famous train ride. Explore the Nine Arches Bridge and sip the world-famous Ceylon tea.", highlight: "Nine Arches Bridge & Tea Plantations", 
           schedule: [
-            { hour: "05:00", place: "Sigiriya Rock", activity: "Sunrise hike" },
-            { hour: "08:00 - 09:00", place: "Hotel Sigiriya", activity: "Breakfast" },
-            { hour: "10:00 - 15:00", place: "Local Village", activity: "Authentic village tour" },
-            { hour: "15:00 - 16:00", place: "Hotel", activity: "Rest" },
-            { hour: "16:00 - 18:00", place: "Safari", activity: "Safari jeep tour" },
-            { hour: "18:30 - 19:30", place: "Hotel Sigiriya", activity: "Dinner" },
-            { hour: "20:30", place: "Hotel", activity: "Free time" }
+            { hour: "-", place: "Little Adam's Peak", activity: "Sunrise hike" },
+            { hour: "-", place: "Ella", activity: "Famous Train Ride" },
+            { hour: "-", place: "Ella", activity: "Breathtaking waterfalls and Ziplining or Shopping" }
           ]
         },
-        { day: "3", title: "Extreme in Kitulgala", desc: "Adrenaline filled day with rafting and canyoning, then heading to Nuwara Eliya.", highlight: "Rafting & Canyoning", 
+        { day: "6-8", title: "Beach & Shabbat", desc: "Travel to Arugam Bay and settle into your boutique, beachfront apartment. Surf or take a surf lesson, explore the lagoons and enjoy authentic local cuisine.", highlight: "Shabbat on the beach", 
           schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
-            { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Drive" },
-            { hour: "14:00 - 15:30", place: "Kitulgala", activity: "White water rafting" },
-            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Canyoning" },
-            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Rainforest walk" },
-            { hour: "17:30 - 19:30", place: "Nuwara Eliya", activity: "Drive" },
-            { hour: "19:30 - 20:30", place: "Hotel Nuwara Eliya", activity: "Dinner" }
+            { hour: "-", place: "Arugam Bay", activity: "Beachfront settle-in" },
+            { hour: "-", place: "Elephant Rock", activity: "Sunrise hike & Safari" },
+            { hour: "-", place: "Arugam Bay", activity: "Surf, Spas & Shopping" },
+            { hour: "-", place: "Beach", activity: "Experience Shabbat on the beach" }
           ]
         },
-        { day: "4", title: "Tea, Trains & Ella", desc: "Sri Lanka's green gold and the world's most beautiful train ride to Ella.", highlight: "Train Ride to Ella", 
+        { day: "9", title: "Snorkeling & Relaxation", desc: "Go snorkeling in the clear waters and see the corals and marine life. Get a massage, go souvenir shopping and spend time in the local town.", highlight: "Snorkeling & Souvenirs", 
           schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
-            { hour: "09:30 - 14:30", place: "Tea Plantation", activity: "Tea plantation tour" },
-            { hour: "15:00 - 17:30", place: "Nuwara Eliya", activity: "Train to Ella" },
-            { hour: "17:30 - 18:00", place: "Ella", activity: "Drive to hotel" },
-            { hour: "19:30 - 20:30", place: "Hotel Ella", activity: "Dinner" }
+            { hour: "-", place: "Ocean", activity: "Snorkeling" },
+            { hour: "-", place: "Town", activity: "Massage & Souvenirs" }
           ]
         },
-        { day: "5", title: "Adrenaline in Ella", desc: "Visit Diyaluma Falls, go ziplining, and then drive down to the sunny Arugam Bay.", highlight: "Diyaluma Falls & Zipline", 
+        { day: "10", title: "Farewell", desc: "Sunrise hike at the famous Elephant Rock and then pack up and drive to the airport. See your family and share your life-changing experiences.", highlight: "Final Sunrise Hike", 
           schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Ella", activity: "Breakfast" },
-            { hour: "09:30 - 13:30", place: "Ella", activity: "Diyaluma Falls" },
-            { hour: "15:30 - 17:00", place: "Ella", activity: "Omega Zipline" },
-            { hour: "15:30 - 17:00", place: "Ella", activity: "Shopping" },
-            { hour: "17:30 - 20:30", place: "Arugam Bay", activity: "Drive to Arugam Bay" },
-            { hour: "19:30 - 20:30", place: "Hotel Arugam Bay", activity: "Dinner" }
-          ]
-        },
-        { day: "6", title: "Beach Life & Shabbat", desc: "Enjoy a morning SUP session, surf lessons, and getting ready for Shabbat by the beach.", highlight: "Shabbat on the Beach", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
-            { hour: "09:30 - 12:00", place: "Pottuvil", activity: "Morning SUP" },
-            { hour: "13:30 - 15:30", place: "Arugam Bay", activity: "Surf lesson / beach" },
-            { hour: "15:30 - 17:00", place: "Hotel", activity: "Get ready for Shabbat" },
-            { hour: "17:15", place: "Hotel", activity: "Shabbat begins" },
-            { hour: "18:30 - 19:30", place: "Hotel Arugam Bay", activity: "Shabbat Dinner" }
-          ]
-        },
-        { day: "7", title: "Shabbat Rest", desc: "A relaxing day in Arugam Bay. Time to enjoy the vibe, rest, and just be.", highlight: "Rest and Relaxation", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
-            { hour: "18:30", place: "Arugam Bay", activity: "Motzash" },
-            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
-          ]
-        },
-        { day: "8", title: "Surfing & Shopping", desc: "Continue the adventure with surfing at the famous beaches and exploring the town.", highlight: "Surfing in Arugam Bay", 
-          schedule: [
-            { hour: "05:00", place: "-", activity: "Sunrise hike" },
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
-            { hour: "09:30 - 12:30", place: "Arugam Bay", activity: "Surf / Shops" },
-            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
-          ]
-        },
-        { day: "9", title: "Last Beach Day", desc: "Make the most of your last full day in Arugam Bay enjoying the ocean and sun.", highlight: "Sun and Sand", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
-            { hour: "09:30 - 17:00", place: "Arugam Bay", activity: "Free beach time" },
-            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
-          ]
-        },
-        { day: "10", title: "Farewell to the Magic", desc: "Final packing up before heading home with lifelong memories.", highlight: "Heading Home", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel Arugam Bay", activity: "Breakfast" },
-            { hour: "10:00", place: "Sri Lanka", activity: "Drive & journey home" }
+            { hour: "-", place: "Elephant Rock", activity: "Sunrise hike" },
+            { hour: "-", place: "Airport", activity: "Flight home" }
           ]
         }
       ]
     },
-    essentials: { title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', categories: [
+    essentials: { 
+      title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', 
+      categories: [
+        { title: "Clothing", items: ["Loose hiking pants, leggings, skirts", "Bathing suits", "Hiking sandals"] },
         { title: "Visa (ETA)", items: ["Israelis need an ETA (~$50 USD)", "Apply at eta.gov.lk", "Passport valid for 6 months"] },
         { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "Cash is needed for Tuk-Tuks"] },
-        { title: "Electricity", items: ["Voltage: 230V, Type D or G plugs", "Bring a universal adapter", "Pen trick works for Type G"] },
-        { title: "Clothing", items: ["Loose hiking pants, leggings, skirts", "Bathing suits", "Hiking sandals"] },
+        { title: "Electricity", items: ["Voltage: 230V, Type D or G plugs", "Bring a universal adapter"] },
         { title: "Kosher Food", items: ["We provide kosher-style meals", "Chabad Houses: Colombo, Ella, Arugam Bay", "Fresh tropical fruit"] }
       ]
     },
@@ -263,9 +228,17 @@ export const defaultContentData = {
         { title: "Safari & Wildlife", text: "Elephants, crocodiles, rare birds and even leopards. Sri Lanka is a paradise for nature lovers." }
       ]
     },
-    about: { title: 'Our Story', p1: 'So here we are, Eyal, Aliza, and Naomi 🙂.\n\nIn the summer of 2025, the three of us met in Sri Lanka after Eyal and Aliza completed a long honeymoon in the East. It was 10 miraculous days of waterfalls, surfing, beaches, landscapes, and simply excellent hotels (and one bad one, just so we’d have something to complain about).', p2: 'We returned home, and Naomi had an idea. Why not make this incredible, life-changing experience of travelling to the East accessible to savtas and mothers? So many young Israelis travel after the army to this part of the world and they have the time of their lives. They live the culture, they take on challenges they never would at home and they see life from a completely new perspective. We believe everyone should get the chance to do this. (We actually believe everyone needs to do this but we’ll discuss that when we meet:)\n\nWe realized that who better to guide savtas and mothers on this life-changing journey than us? We are not salespeople, we are not a travel agency, we are not working with any big companies. We are 3 people who are passionate about all that Sri Lanka has to offer and we want to give you the opportunity to share that passion.', p3: 'We each bring something else to your Sri Lankan adventure. I, Naomi, will be with you through every experience, making sure everyone is thoroughly enjoying themselves and always available to answer any and all questions. Eyal and Aliza, are trained yoga instructors and incredible chefs and they will make sure everyone is well fed and feeling their best. (They also play guitar and ukulele, respectively, which will come in handy at our nighttime beach concerts.) We will also have a local guide and driver with us to make sure we can easily get around and to give us an understanding and appreciation for the local culture.', team: { eyal: 'Eyal & Aliza', naomi: 'Naomi', guide: 'Local Guide' }
+    about: { 
+      title: 'Our Story', 
+      p1: 'So here we are, Eyal, Aliza, and Naomi 🙂.\n\nIn the summer of 2025, the three of us met in Sri Lanka after Eyal and Aliza completed a long honeymoon in the East. It was 10 miraculous days of waterfalls, surfing, beaches, landscapes, and simply excellent hotels (and one bad one, just so we’d have something to complain about).', 
+      p2: 'We returned home, and Naomi had an idea. Why not make this incredible, life-changing experience of travelling to the East accessible to savtas and mothers? So many young Israelis travel after the army to this part of the world and they have the time of their lives. They live the culture, they take on challenges they never would at home and they see life from a completely new perspective. We believe everyone should get the chance to do this. (We actually believe everyone needs to do this but we’ll discuss that when we meet:)\n\nWe realized that who better to guide savtas and mothers on this life-changing journey than us? We are not salespeople, we are not a travel agency, we are not working with any big companies. We are 3 people who are passionate about all that Sri Lanka has to offer and we want to give you the opportunity to share that passion.', 
+      p3: 'We each bring something else to your Sri Lankan adventure. I, Naomi, will be with you through every experience, making sure everyone is thoroughly enjoying themselves and always available to answer any and all questions. Eyal and Aliza, are trained yoga instructors and incredible chefs and they will make sure everyone is well fed and feeling their best. (They also play guitar and ukulele, respectively, which will come in handy at our nighttime beach concerts.) We will also have a local guide and driver with us to make sure we can easily get around and to give us an understanding and appreciation for the local culture.', 
+      team: { eyal: 'Aliza, Eyal & Naomi', naomi: 'Your Hosts', guide: 'Local Guide' },
+      contact: 'Contact us:\nEyal: +972 ...\nNaomi: +972 ...'
     },
-    register: { title: 'Secure Your Spot', subtitle: 'Fill out the details below, and we will contact you within 24 hours.', contact_wa: 'Contact Eyal', contact_email: 'Or Email Us', details: ["Limited to 15 participants", "No immediate payment", "Full refund policy"], form: { name: 'Full Name', phone: 'Phone', email: 'Email', guests: 'Number of Travelers', notes: 'Special Requests', submit: 'Send Request' }
+    register: { 
+      title: 'Secure Your Spot', subtitle: 'Fill out the details below, and we will contact you within 24 hours.', contact_wa: 'Contact Eyal', contact_email: 'Or Email Us', details: ["Limited to 15 participants", "No immediate payment", "Full refund policy"], 
+      form: { name: 'Full Name', phone: 'Phone', email: 'Email', guests: 'Number of Travelers', notes: 'Special Requests', submit: 'Send Request', success_title: 'Thank you! Request received.', success_desc: 'We will contact you soon to complete your registration.', success_btn: 'Send another request', error: 'Error sending form. Please try again or contact us via WhatsApp.', submitting: 'Sending...' }
     }
   }
 };

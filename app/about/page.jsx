@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="h-80 bg-stone-200 relative">
              <EditableImage 
                 id="about_hero" 
-                src="/about_us.jpg" 
+                src="about_hero" 
                 alt="Our Team"
                 className="w-full h-full object-cover"
              />
@@ -37,13 +37,13 @@ export default function AboutPage() {
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="w-24 h-24 mx-auto bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
-                     <EditableImage id="team_eyal" src="/eyal_aliza.jpg" alt="Eyal & Aliza" className="w-full h-full object-cover" />
+                     <EditableImage id="team_eyal" src="team_eyal" alt="Eyal & Aliza" className="w-full h-full object-cover" />
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.eyal`} text={t.about.team.eyal} /></h4>
                 </div>
                 <div>
                   <div className="w-24 h-24 mx-auto bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
-                     <EditableImage id="team_naomi" src="/naomi.jpg" alt="Naomi" className="w-full h-full object-cover" />
+                     <EditableImage id="team_naomi" src="team_naomi" alt="Naomi" className="w-full h-full object-cover" />
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.naomi`} text={t.about.team.naomi} /></h4>
                 </div>

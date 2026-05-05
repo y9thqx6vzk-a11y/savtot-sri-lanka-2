@@ -5,18 +5,19 @@ import Image from 'next/image';
 import { getCloudinaryUrl } from '../lib/cloudinary';
 
 const files = [
-  "PXL_20250804_231312230.webp", "PXL_20250805_061834012.webp", "PXL_20250805_101202880.webp",
-  "PXL_20250805_101212699.webp", "PXL_20250805_110950616.MP.webp", "PXL_20250805_110952829.MP.webp",
-  "PXL_20250805_110954833.webp", "PXL_20250805_112807041.webp", "PXL_20250805_113440117.webp",
-  "PXL_20250805_131932263.webp", "PXL_20250805_131935688.MP.webp", "PXL_20250806_022238016.webp",
-  "PXL_20250806_043848103.webp", "PXL_20250806_103924168.webp", "PXL_20250806_104315164.webp",
-  "PXL_20250807_024105138.webp", "PXL_20250807_090023481.webp", "PXL_20250807_090039580.webp",
-  "PXL_20250807_090508332.MP.webp", "PXL_20250807_090635657.MP.webp", "PXL_20250807_100921999.mp4",
-  "PXL_20250807_100946064.webp", "PXL_20250807_104232959.webp", "PXL_20250807_104328670.webp",
-  "PXL_20250812_051612407.webp", "PXL_20250812_090458231.webp", "PXL_20250812_091006003.webp",
-  "PXL_20250813_005516532.webp", "PXL_20250813_005533486.webp", "PXL_20250813_084419570.MP.webp",
-  "PXL_20250813_090005700.MP.webp", "PXL_20250813_090011635.MP.webp", "PXL_20250813_090910761.webp",
-  "PXL_20250813_092451170.webp"
+  "GOPR8660.JPG", "GP018855.JPG", "GP018860.JPG", "GP018864.JPG",
+  "IMG_6749.HEIC", "IMG_6752.HEIC", "IMG_6841.MOV", "PXL_20250804_231312230.jpg",
+  "PXL_20250805_061834012.jpg", "PXL_20250805_101202880.jpg", "PXL_20250805_101212699.jpg",
+  "PXL_20250805_110950616.MP.jpg", "PXL_20250805_110952829.MP.jpg", "PXL_20250805_112807041.jpg",
+  "PXL_20250805_113440117.jpg", "PXL_20250805_131932263.jpg", "PXL_20250805_131935688.MP.jpg",
+  "PXL_20250806_022238016.jpg", "PXL_20250806_043848103.jpg", "PXL_20250806_103924168.jpg",
+  "PXL_20250806_104315164.jpg", "PXL_20250807_024105138.jpg", "PXL_20250807_090023481.jpg",
+  "PXL_20250807_090039580.jpg", "PXL_20250807_090508332.MP.jpg", "PXL_20250807_090635657.MP.jpg",
+  "PXL_20250807_100921999.mp4", "PXL_20250807_100946064.jpg", "PXL_20250807_104232959.jpg",
+  "PXL_20250807_104328670.jpg", "PXL_20250812_051612407.jpg", "PXL_20250812_090458231.jpg",
+  "PXL_20250812_091006003.jpg", "PXL_20250813_005516532.jpg", "PXL_20250813_005533486.jpg",
+  "PXL_20250813_084419570.MP.jpg", "PXL_20250813_090005700.MP.jpg", "PXL_20250813_090011635.MP.jpg",
+  "PXL_20250813_090910761.jpg", "PXL_20250813_092451170.jpg"
 ];
 
 // Deterministic pseudo-shuffle
@@ -69,7 +70,7 @@ export default function NoticeBoardGallery({ lang }) {
       {/* ——— Masonry Grid ——— */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
         {shuffledFiles.map((file, idx) => {
-          const isVideo = file.endsWith('.mp4');
+          const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(file);
           const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
           const isHovered = hoveredIdx === idx;
 
@@ -173,7 +174,7 @@ export default function NoticeBoardGallery({ lang }) {
 
           {/* Media */}
           <div className="relative max-w-5xl max-h-[88vh] px-16" onClick={(e) => e.stopPropagation()}>
-            {lightbox.endsWith('.mp4') ? (
+            {/\.(mp4|mov|webm|ogg)$/i.test(lightbox) ? (
               <video
                 src={lightbox}
                 className="max-w-full max-h-[88vh] object-contain"

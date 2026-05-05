@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <EditableImage
             id="hero_bg"
-            src="/home1.jpg"
+            src="hero_bg"
             alt="Hero Background"
             className="w-full h-full object-cover"
           />
@@ -104,8 +104,8 @@ export default function HomePage() {
             </button>
           </div>
           <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            <EditableImage id="gal_1" src="/home2.jpg" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" />
-            <EditableImage id="gal_2" src="/home3.jpg" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" />
+            <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" />
+            <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" />
           </div>
         </div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>

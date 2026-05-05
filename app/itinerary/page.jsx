@@ -10,7 +10,8 @@ export default function ItineraryPage() {
   const { lang, t } = useSite();
 
   const dayImages = [
-    '/1.jpg', '/2.jpg', '/3.jpg', '/4.jpg', '/5.jpg', '/6.jpg', '/8.jpg', '/9.jpg', '/10.jpg', '/arugam.jpg'
+    'itinerary_day_0', 'itinerary_day_1', 'itinerary_day_2', 'itinerary_day_3', 'itinerary_day_4',
+    'itinerary_day_5', 'itinerary_day_6', 'itinerary_day_7', 'itinerary_day_8', 'itinerary_day_9'
   ];
 
   return (

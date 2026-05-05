@@ -1,44 +1,59 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { storage } from '../../../lib/firebaseAdmin';
 
-const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
+const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dsgvsqnjp';
+// Unsigned upload preset — create this in Cloudinary dashboard:
+// Settings → Upload → Upload Presets → Add upload preset → Signing Mode: Unsigned
+// Name it: savtot_admin
+const UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET || 'savtot_admin';
 
 export async function POST(req) {
   try {
     // Authenticate
     const token = cookies().get('admin_token')?.value;
     if (!token || token !== process.env.ADMIN_PASSWORD) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const formData = await req.formData();
     const file = formData.get('image');
-    const id = formData.get('id');
+    const id = formData.get('id'); // e.g. "hero_bg", "gal_1"
 
     if (!file) {
-      return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
-      console.warn("Firebase is temporarily disconnected. Image cannot be saved permanently.");
-      return NextResponse.json({ error: "Firebase Storage not configured on server" }, { status: 500 });
+    // Forward to Cloudinary unsigned upload
+    const cloudinaryForm = new FormData();
+    cloudinaryForm.append('file', file);
+    cloudinaryForm.append('upload_preset', UPLOAD_PRESET);
+    // Use the image ID as the public_id so it's predictable
+    if (id) {
+      cloudinaryForm.append('public_id', id);
     }
 
-    const buffer = Buffer.from(await file.arrayBuffer());
-    const bucket = storage.bucket();
-    const fileName = id ? `uploads/${id}.jpg` : `uploads/img-${Date.now()}.jpg`;
-    const fileRef = bucket.file(fileName);
+    const cloudinaryRes = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+      {
+        method: 'POST',
+        body: cloudinaryForm,
+      }
+    );
 
-    await fileRef.save(buffer, {
-      metadata: { contentType: file.type },
-      public: true // Make file publicly accessible
+    if (!cloudinaryRes.ok) {
+      const err = await cloudinaryRes.text();
+      console.error('Cloudinary error:', err);
+      return NextResponse.json({ error: 'Cloudinary upload failed', details: err }, { status: 500 });
+    }
+
+    const result = await cloudinaryRes.json();
+    return NextResponse.json({
+      success: true,
+      imageUrl: result.secure_url,
+      publicId: result.public_id,
     });
-
-    const imageUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
-    return NextResponse.json({ success: true, imageUrl });
   } catch (error) {
-    console.error("Upload Error:", error);
-    return NextResponse.json({ error: "Failed to upload image" }, { status: 500 });
+    console.error('Upload Error:', error);
+    return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 });
   }
 }

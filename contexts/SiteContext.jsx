@@ -8,7 +8,7 @@ export const defaultContentData = {
       home: 'בית', itinerary: 'המסלול', essentials: 'מידע חשוב', discovery: 'מגלים עולם', about: 'הסיפור שלנו', register: 'הצטרפו למסע', toggle: 'Switch to English'
     },
     hero: {
-      title: 'סבתות בסרי לנקה\nקיץ 2026', subtitle: 'חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות. המסע יתאפיין בקצב נינוח, רגעים מרגשים וקסם מקומי עם דגש על טבע, הרפתקאות, חברות וחוף הים.\n\n10 ימים מדהימים | מחנה פוסט-ילדים/נכדים שלכן, טיול סוף-קיץ של פעם בחיים\n\nטיול של פעם בחיים', cta_plan: 'צפו בתוכנית', cta_discover: 'גלו עוד'
+      title: 'סבתות בסרי לנקה\nקיץ 2026', subtitle: 'חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות. המסע יתאפיין בקצב נינוח, רגעים מרגשים וקסם מקומי עם דגש על טבע, הרפתקאות, חברות וחוף הים.\n\n10 ימים מדהימים | מחנה פוסט-ילדים/נכדים שלכן | סוף הקיץ', tagline: 'טיול של פעם בחיים', cta_plan: 'צפו בתוכנית', cta_discover: 'גלו עוד'
     },
     features: {
       title: 'יותר מסתם טיול', f1_title: 'וולנס ויוגה', f1_desc: 'תרגולי יוגה עדינים בזריחה או בשקיעה, לכל הרמות, למתיחה והרגעה של הגוף והנפש.', f2_title: 'תרבות אותנטית', f2_desc: 'מספארי ועד מטעי תה וטיולי זריחה, תקבלו את ההזדמנות לראות את סרי לנקה האמיתית.', f3_title: 'כשרות מלאה', f3_desc: 'מרכיבים מקומיים טריים המוכנים בסטנדרטים של כשרות. הזדמנות ייחודית לחוות את המטבח המקומי המדהים.'
@@ -119,7 +119,7 @@ export const defaultContentData = {
       ]
     },
     essentials: {
-      title: 'מידע חשוב - טוב לדעת', subtitle: 'כל מה שצריך לדעת לפני שאורזים מזוודה.', ai_title: 'מה לארוז? שאל את המומחה', ai_desc: 'ספר לנו קצת על עצמך (למשל: "תמיד קר לי", "אני שומרת כשרות") וה-AI יכין לך רשימה.', ai_placeholder: 'דוגמה: אני רגיש ליתושים ואוהב נשנושים מהארץ...', ai_btn: 'צור רשימה אישית', categories: [
+      title: 'מידע חשוב - טוב לדעת', subtitle: 'כל מה שצריך לדעת לפני שאורזים מזוודה.', categories: [
         { title: "ויזה (ETA)", items: ["ישראלים חייבים ויזה אלקטרונית (כ-50$ באתר eta.gov.lk)", "דרכון בתוקף ל-6 חודשים לפחות"] },
         { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים חדשים ונקיים להמרה", "אשראי עובד במלונות, מזומן לטוקטוקים"] },
         { title: "חשמל", items: ["מתח 230V, שקעים מסוג D (עגולים) או G (בריטי)", "מומלץ להביא מתאם אוניברסלי", "שיטת ה'עט' עובדת בזהירות"] },
@@ -144,48 +144,9 @@ export const defaultContentData = {
   },
   en: {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Discovery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
-    hero: { title: 'Savtot in Sri Lanka\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Your post-kids/grandkids camp, end-of-summer once-in-a-lifetime trip\n\nThe trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
-    features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the incredible local cuisine' },
-    gallery: { title: 'Experience the magic', desc: 'From majestic waterfalls to glorious tea plantations to the golden shores of Arugam Bay, you’ll get the chance to see all the wonders of Sri Lanka', cta: 'Secure Your Spot' },
-    itinerary: {
-      title: 'Your fully planned adventure', subtitle: 'A Perfectly Curated 10-Day Plan',
-      headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
-      days: [
-        { day: "1", title: "Arrival in Sri Lanka", desc: "Land in Colombo and head straight to the fresh air of Sigiriya. Time to settle in and enjoy dinner.", highlight: "Arrival & Settling in", 
-          schedule: [
-            { hour: "-", place: "Israel", activity: "Flight" },
-            { hour: "-", place: "Colombo", activity: "Bus ride to Sigiriya" },
-            { hour: "-", place: "Sigiriya", activity: "Get rooms & settle in" },
-            { hour: "-", place: "Sigiriya", activity: "Dinner" },
-            { hour: "-", place: "Sigiriya", activity: "Massage" }
-          ]
-        },
-        { day: "2", title: "Lion's Rock & Safari", desc: "Climb the famous Lion’s Rock, explore the village, and go on a thrilling elephant safari.", highlight: "Lion's Rock & Elephant Safari", 
-          schedule: [
-            { hour: "05:00", place: "Sigiriya Rock", activity: "Sunrise Hike" },
-            { hour: "08:00 - 09:00", place: "Hotel Sigiriya", activity: "Breakfast" },
-            { hour: "10:00 - 15:00", place: "Village", activity: "Authentic Village Tour" },
-            { hour: "15:00 - 16:00", place: "Hotel", activity: "Nap / Rest" },
-            { hour: "16:00 - 18:00", place: "Safari", activity: "Elephant Safari" },
-            { hour: "18:30 - 19:30", place: "Hotel Sigiriya", activity: "Dinner" },
-            { hour: "20:30", place: "Hotel", activity: "Hang out" }
-          ]
-        },
-        { day: "3", title: "Waterfalls & Adventure", desc: "Head to Kitulgala for an exciting day of rafting, canyoning, and a rainforest walk.", highlight: "Kitulgala Rafting", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
-            { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Driving" },
-            { hour: "14:00 - 15:30", place: "Kitulgala", activity: "Rafting" },
-            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Canyoning" },
-            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Rainforest walk" },
-            { hour: "17:30 - 19:30", place: "Nuwara Eliya", activity: "Driving" },
-            { hour: "19:30 - 20:30", place: "Hotel Nuwara Eliya", activity: "Dinner" }
-          ]
-        },
-        { day: "4", title: "Tea Plantations & Trains", desc: "Tour the famous Ceylon tea plantations and take the iconic train ride to Ella.", highlight: "Train to Ella", 
-          schedule: [
-            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+    hero: { title: 'Savtot in Sri Lanka\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', tagline: 'The trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
+    features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the    },
+    essentials: { title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', categories: [            { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
             { hour: "09:30 - 14:30", place: "Tea Plantation", activity: "Tea plantation tour" },
             { hour: "15:00 - 17:30", place: "Nuwara Eliya", activity: "Train to Ella" },
@@ -249,7 +210,7 @@ export const defaultContentData = {
         }
       ]
     },
-    essentials: { title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', ai_title: 'What to Pack? Ask AI', ai_desc: 'Tell us about yourself (e.g., "Always cold", "Love spicy food") and AI will generate a list.', ai_placeholder: 'Example: I am traveling with my grandmother...', ai_btn: 'Generate List', categories: [
+    essentials: { title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', categories: [
         { title: "Visa (ETA)", items: ["Israelis need an ETA (~$50 USD)", "Apply at eta.gov.lk", "Passport valid for 6 months"] },
         { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "Cash is needed for Tuk-Tuks"] },
         { title: "Electricity", items: ["Voltage: 230V, Type D or G plugs", "Bring a universal adapter", "Pen trick works for Type G"] },

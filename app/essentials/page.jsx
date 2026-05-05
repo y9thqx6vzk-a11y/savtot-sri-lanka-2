@@ -3,7 +3,6 @@
 import React from 'react';
 import { useSite } from '../../contexts/SiteContext';
 import EditableText from '../../components/EditableText';
-import SmartPackingList from '../../components/SmartPackingList';
 
 export default function EssentialsPage() {
   const { lang, t } = useSite();
@@ -19,8 +18,6 @@ export default function EssentialsPage() {
             <EditableText path={`${lang}.essentials.subtitle`} text={t.essentials.subtitle} />
           </p>
         </div>
-
-        <SmartPackingList />
 
         <div className="space-y-6">
           {t.essentials.categories.map((cat, idx) => (

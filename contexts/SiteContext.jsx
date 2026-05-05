@@ -145,8 +145,46 @@ export const defaultContentData = {
   en: {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Discovery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
     hero: { title: 'Savtot in Sri Lanka\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', tagline: 'The trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
-    features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the    },
-    essentials: { title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', categories: [            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+    features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the amazing local cuisine.' },
+    itinerary: {
+      title: 'Journey Details', subtitle: 'Detailed 10-day daily program',
+      headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
+      days: [
+        { day: "1", title: "Arrival in Sri Lanka", desc: "Landing in Colombo and driving to Sigiriya. Time to settle in, meet and have dinner.", highlight: "Arrival and Orientation", 
+          schedule: [
+            { hour: "-", place: "Israel", activity: "Flight" },
+            { hour: "-", place: "Colombo", activity: "Bus drive to Sigiriya" },
+            { hour: "-", place: "Sigiriya", activity: "Check-in and settle in" },
+            { hour: "-", place: "Sigiriya", activity: "Dinner" },
+            { hour: "-", place: "Sigiriya", activity: "Relaxing massage" }
+          ]
+        },
+        { day: "2", title: "Lion Rock & Safari", desc: "Early wake up for an exciting climb, authentic village tour and afternoon safari.", highlight: "Sigiriya Rock & Elephant Safari", 
+          schedule: [
+            { hour: "05:00", place: "Sigiriya Rock", activity: "Sunrise hike" },
+            { hour: "08:00 - 09:00", place: "Hotel Sigiriya", activity: "Breakfast" },
+            { hour: "10:00 - 15:00", place: "Local Village", activity: "Authentic village tour" },
+            { hour: "15:00 - 16:00", place: "Hotel", activity: "Rest" },
+            { hour: "16:00 - 18:00", place: "Safari", activity: "Safari jeep tour" },
+            { hour: "18:30 - 19:30", place: "Hotel Sigiriya", activity: "Dinner" },
+            { hour: "20:30", place: "Hotel", activity: "Free time" }
+          ]
+        },
+        { day: "3", title: "Extreme in Kitulgala", desc: "Adrenaline filled day with rafting and canyoning, then heading to Nuwara Eliya.", highlight: "Rafting & Canyoning", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+            { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Drive" },
+            { hour: "14:00 - 15:30", place: "Kitulgala", activity: "White water rafting" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Canyoning" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Rainforest walk" },
+            { hour: "17:30 - 19:30", place: "Nuwara Eliya", activity: "Drive" },
+            { hour: "19:30 - 20:30", place: "Hotel Nuwara Eliya", activity: "Dinner" }
+          ]
+        },
+        { day: "4", title: "Tea, Trains & Ella", desc: "Sri Lanka's green gold and the world's most beautiful train ride to Ella.", highlight: "Train Ride to Ella", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
             { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
             { hour: "09:30 - 14:30", place: "Tea Plantation", activity: "Tea plantation tour" },
             { hour: "15:00 - 17:30", place: "Nuwara Eliya", activity: "Train to Ella" },

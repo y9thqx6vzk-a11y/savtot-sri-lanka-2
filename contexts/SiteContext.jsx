@@ -300,7 +300,28 @@ export const SiteProvider = ({ children }) => {
     });
   }, []);
 
-  const t = useMemo(() => siteContent[lang] || defaultContentData[lang], [siteContent, lang]);
+  const t = useMemo(() => {
+    const base = defaultContentData[lang] || defaultContentData.en;
+    const live = siteContent?.[lang];
+    
+    if (!live) return base;
+    
+    // Simple shallow merge for top-level sections (hero, features, etc.)
+    // In a real app, you might want a recursive deep merge.
+    return {
+      ...base,
+      ...live,
+      nav: { ...base.nav, ...live.nav },
+      hero: { ...base.hero, ...live.hero },
+      features: { ...base.features, ...live.features },
+      gallery: { ...base.gallery, ...live.gallery },
+      itinerary: { ...base.itinerary, ...live.itinerary },
+      essentials: { ...base.essentials, ...live.essentials },
+      discovery: { ...base.discovery, ...live.discovery },
+      about: { ...base.about, ...live.about },
+      register: { ...base.register, ...live.register },
+    };
+  }, [siteContent, lang]);
 
   const toggleLanguage = useCallback(() => {
     setLang(prev => prev === 'he' ? 'en' : 'he');

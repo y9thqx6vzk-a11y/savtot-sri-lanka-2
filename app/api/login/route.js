@@ -17,7 +17,8 @@ export async function POST(req) {
     
     if (password === ADMIN_PASSWORD) {
       // Set secure HttpOnly cookie for 30 days
-      cookies().set('admin_token', ADMIN_PASSWORD, { 
+      const cookieStore = await cookies();
+      cookieStore.set('admin_token', ADMIN_PASSWORD, { 
         httpOnly: true, 
         secure: process.env.NODE_ENV === 'production', 
         path: '/',
@@ -28,6 +29,7 @@ export async function POST(req) {
       return NextResponse.json({ success: false, message: "Invalid password" }, { status: 401 });
     }
   } catch (error) {
+    console.error("Login error:", error);
     return NextResponse.json({ success: false, error: "Server error" }, { status: 500 });
   }
 }

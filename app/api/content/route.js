@@ -35,7 +35,8 @@ export async function GET() {
 export async function POST(req) {
   try {
     // Authenticate
-    const token = cookies().get('admin_token')?.value;
+    const cookieStore = await cookies();
+    const token = cookieStore.get('admin_token')?.value;
     if (!token || token !== process.env.ADMIN_PASSWORD) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }

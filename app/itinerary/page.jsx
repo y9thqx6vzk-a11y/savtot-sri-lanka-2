@@ -41,6 +41,8 @@ export default function ItineraryPage() {
                         src={dayImages[index] || '/home1.jpg'} 
                         alt={item.title}
                         className="w-full h-full object-cover"
+                        width={1000}
+                        crop="fill"
                        />
                     </div>
                   </div>

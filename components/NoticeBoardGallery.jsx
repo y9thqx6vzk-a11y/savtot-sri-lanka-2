@@ -38,8 +38,9 @@ export default function NoticeBoardGallery({ lang }) {
   const [lightboxIdx, setLightboxIdx] = useState(null);
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
-  const openLightbox = useCallback((src, idx) => {
-    setLightbox(src);
+  const openLightbox = useCallback((file, idx) => {
+    const fullSrc = getCloudinaryUrl(`/discovery-gallery/${file}`);
+    setLightbox(fullSrc);
     setLightboxIdx(idx);
   }, []);
 
@@ -51,8 +52,8 @@ export default function NoticeBoardGallery({ lang }) {
   const navigate = useCallback((dir) => {
     const next = (lightboxIdx + dir + shuffledFiles.length) % shuffledFiles.length;
     const file = shuffledFiles[next];
-    const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
-    setLightbox(src);
+    const fullSrc = getCloudinaryUrl(`/discovery-gallery/${file}`);
+    setLightbox(fullSrc);
     setLightboxIdx(next);
   }, [lightboxIdx]);
 
@@ -71,7 +72,7 @@ export default function NoticeBoardGallery({ lang }) {
       <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 space-y-3 md:space-y-4">
         {shuffledFiles.map((file, idx) => {
           const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(file);
-          const src = getCloudinaryUrl(`/discovery-gallery/${file}`);
+          const thumbSrc = getCloudinaryUrl(`/discovery-gallery/${file}`, isVideo ? { width: 600 } : { width: 500, crop: 'fill' });
           const isHovered = hoveredIdx === idx;
 
           return (
@@ -82,7 +83,7 @@ export default function NoticeBoardGallery({ lang }) {
                 borderRadius: '2px',
                 backgroundColor: '#ede8e0',
               }}
-              onClick={() => openLightbox(src, idx)}
+              onClick={() => openLightbox(file, idx)}
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
@@ -90,7 +91,7 @@ export default function NoticeBoardGallery({ lang }) {
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: idx % 5 === 0 ? '3/4' : idx % 3 === 0 ? '4/5' : '2/3' }}>
                 {isVideo ? (
                   <video
-                    src={src}
+                    src={thumbSrc}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out"
                     style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
                     autoPlay
@@ -101,7 +102,7 @@ export default function NoticeBoardGallery({ lang }) {
                   />
                 ) : (
                   <Image
-                    src={src}
+                    src={thumbSrc}
                     alt={`Sri Lanka ${idx + 1}`}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"

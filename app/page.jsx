@@ -21,6 +21,8 @@ export default function HomePage() {
             src="hero_bg"
             alt="Hero Background"
             className="w-full h-full object-cover"
+            width={1920}
+            crop="fill"
           />
           <div className="absolute inset-0 bg-teal-900/40 mix-blend-multiply pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 via-transparent to-transparent pointer-events-none" />
@@ -104,8 +106,8 @@ export default function HomePage() {
             </button>
           </div>
           <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" />
-            <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" />
+            <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" width={800} crop="fill" />
+            <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" width={800} crop="fill" />
           </div>
         </div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>

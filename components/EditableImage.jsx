@@ -6,11 +6,11 @@ import { Upload, Loader } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import { getCloudinaryUrl } from '../lib/cloudinary';
 
-export default function EditableImage({ id, src, alt, className }) {
+export default function EditableImage({ id, src, alt, className, width, height, crop }) {
   const { isAdmin } = useSite();
 
   // Resolve to Cloudinary URL on first render
-  const finalSrc = getCloudinaryUrl(src);
+  const finalSrc = getCloudinaryUrl(src, { width, height, crop });
   const [imgSrc, setImgSrc] = useState(finalSrc);
   const [hasError, setHasError] = useState(false);
   const [isUploading, setIsUploading] = useState(false);

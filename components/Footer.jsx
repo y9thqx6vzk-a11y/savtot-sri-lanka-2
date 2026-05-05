@@ -22,7 +22,7 @@ export default function Footer() {
           const response = await fetch('/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password: pass })
+            body: JSON.stringify({ password: pass.trim() })
           });
           const data = await response.json();
           if (data.success) {

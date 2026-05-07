@@ -38,7 +38,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-teal-900 mb-8">
                 {lang === 'he' ? 'הצוות שילווה אתכן' : 'Your Hosts'}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
                 <div className="flex flex-col items-center">
                   <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
                      <EditableImage id="team_eyal" src="team_eyal" alt="Eyal & Aliza" className="w-full h-full object-cover" width={300} height={300} crop="thumb" />
@@ -50,6 +50,12 @@ export default function AboutPage() {
                      <EditableImage id="team_naomi" src="team_naomi" alt="Naomi" className="w-full h-full object-cover" width={300} height={300} crop="thumb" />
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.naomi`} text={t.about.team.naomi} /></h4>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md flex items-center justify-center bg-teal-50">
+                     <span className="text-4xl">🚐</span>
+                  </div>
+                  <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.guide`} text={t.about.team.guide} /></h4>
                 </div>
               </div>
 

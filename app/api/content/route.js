@@ -7,7 +7,7 @@ import { defaultContentData } from '../../../contexts/SiteContext';
 
 export const dynamic = 'force-dynamic';
 
-const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
+const USE_FIREBASE = true; // Set to true when you want to reconnect Firebase
 
 export async function GET() {
   try {
@@ -17,11 +17,11 @@ export async function GET() {
       return NextResponse.json(defaultContentData);
     }
 
-    const doc = await db.collection('settings').doc('content_v2').get();
+    const doc = await db.collection('settings').doc('content_v3').get();
     
     if (!doc.exists) {
       // Initialize with default if it doesn't exist
-      await db.collection('settings').doc('content_v2').set(defaultContentData);
+      await db.collection('settings').doc('content_v3').set(defaultContentData);
       return NextResponse.json(defaultContentData);
     }
 
@@ -48,7 +48,7 @@ export async function POST(req) {
     }
 
     // Read current
-    const docRef = db.collection('settings').doc('content_v2');
+    const docRef = db.collection('settings').doc('content_v3');
     const doc = await docRef.get();
     let content = doc.exists ? doc.data() : { ...defaultContentData };
 

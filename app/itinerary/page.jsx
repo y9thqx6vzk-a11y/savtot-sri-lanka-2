@@ -48,7 +48,7 @@ export default function ItineraryPage() {
                   </div>
                 </div>
 
-                <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-r-4 border-l-0 rtl:border-r-4 rtl:border-l-0 ltr:border-l-4 ltr:border-r-0 border-orange-400 relative">
+                <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-s-4 border-e-0 border-orange-400 relative">
                   <div className="absolute top-4 start-4 bg-teal-100 text-teal-800 font-bold px-3 py-1 rounded-full text-sm">
                     Day {item.day}
                   </div>

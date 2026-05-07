@@ -34,7 +34,7 @@ export default function DiscoveryPage() {
               )}
             </h1>
           </div>
-          <p className="md:max-w-xs text-stone-500 leading-relaxed text-sm font-light md:text-right" dir={lang === 'he' ? 'rtl' : 'ltr'}>
+          <p className="md:max-w-xs text-stone-500 leading-relaxed text-sm font-light md:text-start" dir={lang === 'he' ? 'rtl' : 'ltr'}>
             {lang === 'he' 
               ? 'רגעים אמיתיים, צבעים אמיתיים, חוויות שחייבים לחוות בעיניים שלכן' 
               : 'Real moments, real colors, experiences you simply have to see for yourself.'}

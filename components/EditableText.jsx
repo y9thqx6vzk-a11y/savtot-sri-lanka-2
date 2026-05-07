@@ -44,7 +44,7 @@ export default function EditableText({ path, text, multiline = false, className 
           <textarea 
             value={value} 
             onChange={(e) => setValue(e.target.value)} 
-            className="text-stone-900 p-3 border-2 border-orange-500 rounded-lg min-h-[120px] w-full min-w-[300px] shadow-xl text-right"
+            className="text-stone-900 p-3 border-2 border-orange-500 rounded-lg min-h-[120px] w-full min-w-[300px] shadow-xl text-start"
             dir="auto"
           />
         ) : (
@@ -52,7 +52,7 @@ export default function EditableText({ path, text, multiline = false, className 
             type="text" 
             value={value} 
             onChange={(e) => setValue(e.target.value)} 
-            className="text-stone-900 p-2 border-2 border-orange-500 rounded-lg w-full min-w-[300px] shadow-xl text-right"
+            className="text-stone-900 p-2 border-2 border-orange-500 rounded-lg w-full min-w-[300px] shadow-xl text-start"
             dir="auto"
           />
         )}
@@ -71,7 +71,7 @@ export default function EditableText({ path, text, multiline = false, className 
       title="לחץ לעריכה"
     >
       {text}
-      <span className="absolute -top-8 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50 font-sans">
+      <span className="absolute -top-8 -end-2 bg-orange-500 text-white text-xs px-2 py-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50 font-sans">
         ✎ ערוך טקסט
       </span>
     </span>

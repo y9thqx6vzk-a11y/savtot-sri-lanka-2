@@ -76,7 +76,7 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t text-stone-800">
+        <div className="md:hidden absolute top-full start-0 w-full bg-white shadow-xl border-t text-stone-800">
            <div className="p-4 border-b flex justify-between items-center bg-stone-50">
              <span className="text-sm font-bold text-stone-500">{t.nav.toggle}</span>
              <button onClick={toggleLanguage} className="flex items-center gap-2 text-teal-700 font-bold">
@@ -89,7 +89,7 @@ export default function Navbar() {
                 key={item.id}
                 href={item.id}
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-${lang === 'he' ? 'right' : 'left'} font-medium py-2 border-b border-stone-100 last:border-0`}
+                className={`text-start font-medium py-2 border-b border-stone-100 last:border-0`}
               >
                 {item.label}
               </Link>

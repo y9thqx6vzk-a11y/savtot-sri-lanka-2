@@ -175,38 +175,100 @@ export const defaultContentData = {
       title: 'Your fully planned adventure', subtitle: 'A 10-day journey of discovery and relaxation',
       headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
       days: [
-        { day: "1-3", title: "Arrival & Ancient Wonders", desc: "Land in Colombo and head straight to the fresh, cool air of Sigiriya. Settle in, climb the famous Lion’s Rock, and experience the local village.", highlight: "Sigiriya Rock & Local Village", 
+        { day: "1", title: "Arriving in Sri Lanka", desc: "Landing in Colombo and driving to Sigiriya. Time to settle in, meet everyone, and have dinner.", highlight: "Arrival & Settling In", 
           schedule: [
-            { hour: "-", place: "Colombo", activity: "Arrival" },
-            { hour: "-", place: "Sigiriya", activity: "Lion's Rock Hike" },
-            { hour: "-", place: "Kitulgala", activity: "Elephant safari, canyoning, rafting or rainforest walk" }
+            { hour: "-", place: "Israel", activity: "Flight" },
+            { hour: "-", place: "Colombo", activity: "Bus ride to Sigiriya" },
+            { hour: "-", place: "Sigiriya", activity: "Room assignment & Settling in" },
+            { hour: "-", place: "Sigiriya", activity: "Dinner" },
+            { hour: "-", place: "Sigiriya", activity: "Pampering massage" }
           ]
         },
-        { day: "4-5", title: "Tea & Mountains", desc: "Hike Little Adam’s Peak at sunrise, and get ready for the famous train ride. Explore the Nine Arches Bridge and sip the world-famous Ceylon tea.", highlight: "Nine Arches Bridge & Tea Plantations", 
+        { day: "2", title: "Lion Rock & Safari", desc: "Early wake-up for an exciting climb, an authentic village tour, and an afternoon safari.", highlight: "Lion's Rock & Elephant Safari", 
           schedule: [
-            { hour: "-", place: "Little Adam's Peak", activity: "Sunrise hike" },
-            { hour: "-", place: "Ella", activity: "Famous Train Ride" },
-            { hour: "-", place: "Ella", activity: "Breathtaking waterfalls and Ziplining or Shopping" }
+            { hour: "05:00", place: "Sigiriya Rock", activity: "Climb & Sunrise" },
+            { hour: "08:00 - 09:00", place: "Hotel in Sigiriya", activity: "Breakfast" },
+            { hour: "10:00 - 15:00", place: "Local Village", activity: "Authentic Village Tour" },
+            { hour: "15:00 - 16:00", place: "Hotel", activity: "Rest" },
+            { hour: "16:00 - 18:00", place: "Safari", activity: "Safari Tour" },
+            { hour: "18:30 - 19:30", place: "Hotel in Sigiriya", activity: "Dinner" },
+            { hour: "20:30", place: "Hotel", activity: "Free Time / Recovery" }
           ]
         },
-        { day: "6-8", title: "Beach & Shabbat", desc: "Travel to Arugam Bay and settle into your boutique, beachfront apartment. Surf or take a surf lesson, explore the lagoons and enjoy authentic local cuisine.", highlight: "Shabbat on the beach", 
+        { day: "3", title: "Kitulgala Extreme", desc: "An adrenaline-filled day with rafting and canyoning, moving on to the cool Nuwara Eliya.", highlight: "Rafting & Canyoning", 
           schedule: [
-            { hour: "-", place: "Arugam Bay", activity: "Beachfront settle-in" },
-            { hour: "-", place: "Elephant Rock", activity: "Sunrise hike & Safari" },
-            { hour: "-", place: "Arugam Bay", activity: "Surf, Spas & Shopping" },
-            { hour: "-", place: "Beach", activity: "Experience Shabbat on the beach" }
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+            { hour: "09:30 - 13:30", place: "Kitulgala", activity: "Drive" },
+            { hour: "14:00 - 15:30", place: "Kitulgala", activity: "Rafting" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Canyoning" },
+            { hour: "15:30 - 17:00", place: "Kitulgala", activity: "Rainforest Walk" },
+            { hour: "17:30 - 19:30", place: "Nuwara Eliya", activity: "Drive" },
+            { hour: "19:30 - 20:30", place: "Hotel in Nuwara Eliya", activity: "Dinner" }
           ]
         },
-        { day: "9", title: "Snorkeling & Relaxation", desc: "Go snorkeling in the clear waters and see the corals and marine life. Get a massage, go souvenir shopping and spend time in the local town.", highlight: "Snorkeling & Souvenirs", 
+        { day: "4", title: "Tea, Trains & Ella", desc: "Sri Lanka's green gold and the most beautiful train ride in the world on the way to the town of Ella.", highlight: "Train Ride to Ella", 
           schedule: [
-            { hour: "-", place: "Ocean", activity: "Snorkeling" },
-            { hour: "-", place: "Town", activity: "Massage & Souvenirs" }
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+            { hour: "09:30 - 14:30", place: "Tea Plantations", activity: "Tea Plantations Tour" },
+            { hour: "15:00 - 17:30", place: "Nuwara Eliya", activity: "Train ride to Ella" },
+            { hour: "17:30 - 18:00", place: "Ella", activity: "Drive to Hotel" },
+            { hour: "19:30 - 20:30", place: "Hotel in Ella", activity: "Dinner" }
           ]
         },
-        { day: "10", title: "Farewell", desc: "Sunrise hike at the famous Elephant Rock and then pack up and drive to the airport. See your family and share your life-changing experiences.", highlight: "Final Sunrise Hike", 
+        { day: "5", title: "Waterfalls & Adrenaline", desc: "Breathtaking views at Diyaluma Falls and ziplining over the treetops.", highlight: "Diyaluma Falls & Zipline", 
           schedule: [
-            { hour: "-", place: "Elephant Rock", activity: "Sunrise hike" },
-            { hour: "-", place: "Airport", activity: "Flight home" }
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Ella", activity: "Breakfast" },
+            { hour: "09:30 - 13:30", place: "Ella", activity: "Diyaluma Falls" },
+            { hour: "15:30 - 17:00", place: "Ella", activity: "Ziplining" },
+            { hour: "15:30 - 17:00", place: "Ella", activity: "Walking around & Shopping" },
+            { hour: "17:30 - 20:30", place: "Arugam Bay", activity: "Drive to Arugam Bay" },
+            { hour: "19:30 - 20:30", place: "Hotel in Arugam Bay", activity: "Dinner" }
+          ]
+        },
+        { day: "6", title: "Beach Life", desc: "Morning SUP, a surf lesson, and welcoming Shabbat facing the sea of Arugam Bay.", highlight: "Shabbat in Arugam Bay", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "09:30 - 12:00", place: "Pottuvil", activity: "Morning Lagoon SUP" },
+            { hour: "13:30 - 15:30", place: "Arugam Bay", activity: "Surf Lesson / Beach Time" },
+            { hour: "15:30 - 17:00", place: "Hotel", activity: "Shabbat Preparations" },
+            { hour: "17:15", place: "Hotel", activity: "Shabbat Begins" },
+            { hour: "18:30 - 19:30", place: "Hotel in Arugam Bay", activity: "Shabbat Dinner" }
+          ]
+        },
+        { day: "7", title: "Shabbat Rest", desc: "A calm day of rest in Arugam Bay. Time to enjoy the atmosphere and recharge your batteries.", highlight: "Rest & Freedom", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "18:30", place: "Arugam Bay", activity: "End of Shabbat" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+          ]
+        },
+        { day: "8", title: "Surfing & Shopping", desc: "Continuing the adventure with surfing at famous beaches and wandering around the town.", highlight: "Surfing in Arugam Bay", 
+          schedule: [
+            { hour: "05:00", place: "-", activity: "Sunrise Hike" },
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "09:30 - 12:30", place: "Arugam Bay", activity: "Surfing / Shopping" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+          ]
+        },
+        { day: "9", title: "Final Beach Time", desc: "Take advantage of every moment of sun, waves, and sand on the beach before parting.", highlight: "Sea & Sun", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "09:30 - 17:00", place: "Arugam Bay", activity: "Free Beach Time / Final Shopping" },
+            { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+          ]
+        },
+        { day: "10", title: "Farewell to the Magic", desc: "Final packing, breakfast, and the drive back with memories for a lifetime.", highlight: "Heading Home", 
+          schedule: [
+            { hour: "06:30", place: "Hotel", activity: "Yoga" },
+            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "10:00", place: "Sri Lanka", activity: "Drive back and begin the journey home" }
           ]
         }
       ]

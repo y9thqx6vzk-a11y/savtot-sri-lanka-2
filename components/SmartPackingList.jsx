@@ -41,7 +41,7 @@ export default function SmartPackingList() {
 
   return (
     <div className="bg-gradient-to-br from-teal-50 to-white rounded-2xl shadow-lg p-8 border border-teal-100 my-12 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-400 to-teal-500"></div>
+      <div className="absolute top-0 inset-x-0 w-full h-2 bg-gradient-to-r from-orange-400 to-teal-500"></div>
       <div className="relative z-10 text-center max-w-2xl mx-auto">
         <div className="inline-flex items-center gap-2 bg-white px-4 py-1 rounded-full shadow-sm mb-4 border border-teal-100">
            <Sparkles className="w-4 h-4 text-orange-500" />
@@ -68,7 +68,7 @@ export default function SmartPackingList() {
         </div>
 
         {generatedList && (
-          <div className="mt-8 bg-white p-6 rounded-xl shadow-inner text-start border-r-4 border-orange-400 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="mt-8 bg-white p-6 rounded-xl shadow-inner text-start border-s-4 border-orange-400 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h4 className="font-bold text-lg mb-4 text-teal-900 border-b pb-2">הרשימה שלך:</h4>
             <div className="whitespace-pre-line text-stone-700 leading-relaxed">{generatedList}</div>
           </div>

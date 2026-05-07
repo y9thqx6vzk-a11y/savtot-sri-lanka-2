@@ -153,7 +153,7 @@ export default function NoticeBoardGallery({ lang }) {
         >
           {/* Close */}
           <button
-            className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors z-10 p-2"
+            className="absolute top-6 end-6 text-white/60 hover:text-white transition-colors z-10 p-2"
             onClick={closeLightbox}
             aria-label="Close"
           >
@@ -164,7 +164,7 @@ export default function NoticeBoardGallery({ lang }) {
 
           {/* Prev */}
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
+            className="absolute start-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
             onClick={(e) => { e.stopPropagation(); navigate(-1); }}
             aria-label="Previous"
           >
@@ -193,14 +193,14 @@ export default function NoticeBoardGallery({ lang }) {
             )}
 
             {/* Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-[11px] tracking-widest uppercase">
+            <div className="absolute bottom-4 inset-x-0 mx-auto w-fit text-white/40 text-[11px] tracking-widest uppercase">
               {lightboxIdx + 1} / {shuffledFiles.length}
             </div>
           </div>
 
           {/* Next */}
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
+            className="absolute end-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10 p-3"
             onClick={(e) => { e.stopPropagation(); navigate(1); }}
             aria-label="Next"
           >

@@ -34,7 +34,7 @@ export default function HomePage() {
           </p>
           <h1 className="text-5xl md:text-8xl font-serif font-bold mb-8 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto relative">
             <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
-            <span className="absolute -top-10 -right-10 text-orange-500 text-6xl opacity-40 select-none hidden md:block">🍃</span>
+            <span className="absolute -top-10 -end-10 text-orange-500 text-6xl opacity-40 select-none hidden md:block">🍃</span>
           </h1>
           <p className="text-lg md:text-2xl font-light mb-10 opacity-90 max-w-2xl mx-auto pointer-events-auto leading-relaxed">
             <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
@@ -113,7 +113,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 end-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
       </section>
     </>
   );

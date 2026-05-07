@@ -100,12 +100,22 @@ export default function HomePage() {
               <p className="text-xl text-stone-600 mb-8 leading-relaxed">
                 <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
               </p>
-              <button
-                onClick={() => router.push('/register')}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg"
-              >
-                {t.gallery.cta}
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <button
+                  onClick={() => router.push('/register')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/30 shrink-0"
+                >
+                  {t.gallery.cta}
+                </button>
+                <div className="flex -space-x-4 rtl:space-x-reverse">
+                   <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden transform hover:scale-110 transition-all hover:z-10 rotate-3 ring-1 ring-stone-100">
+                      <EditableImage id="small_1" src="/small_1.webp" alt="Small 1" className="w-full h-full object-cover" width={100} height={100} crop="thumb" />
+                   </div>
+                   <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden transform hover:scale-110 transition-all hover:z-10 -rotate-3 ring-1 ring-stone-100">
+                      <EditableImage id="small_2" src="/small_2.webp" alt="Small 2" className="w-full h-full object-cover" width={100} height={100} crop="thumb" />
+                   </div>
+                </div>
+              </div>
             </div>
             <div className="md:w-1/2 grid grid-cols-2 gap-4">
               <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transform translate-y-8 w-full h-auto transition-transform hover:scale-[1.02] duration-500" width={800} crop="fill" />

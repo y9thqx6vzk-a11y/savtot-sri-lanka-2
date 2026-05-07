@@ -11,7 +11,7 @@ export default function ItineraryPage() {
 
   const dayImages = [
     'itinerary_day_0', 'itinerary_day_1', 'itinerary_day_2', 'itinerary_day_3', 'itinerary_day_4',
-    'itinerary_day_5', 'itinerary_day_6', 'itinerary_day_7', 'itinerary_day_8', 'itinerary_day_9'
+    'itinerary_day_5', 'itinerary_day_6', 'itinerary_day_7', 'itinerary_day_8', '10'
   ];
 
   return (

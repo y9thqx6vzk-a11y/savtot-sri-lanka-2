@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 flex justify-between items-center">
         
         <Link 
-          href="/register"
+          href="/"
           className={`text-xl cursor-pointer flex items-center gap-2 ${scrolled ? 'text-stone-800' : 'text-white'}`}
           style={{ fontFamily: "'Playfair Display', Georgia, serif", letterSpacing: '-0.01em' }}
           title={lang === 'he' ? 'להרשמה' : 'Sign Up'}

@@ -38,7 +38,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold text-teal-900 mb-8">
                 {lang === 'he' ? 'הצוות שילווה אתכן' : 'Your Hosts'}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12 max-w-2xl mx-auto">
                 <div className="flex flex-col items-center">
                   <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md">
                      <EditableImage id="team_eyal" src="team_eyal" alt="Eyal & Aliza" className="w-full h-full object-cover" width={300} height={300} crop="thumb" />
@@ -51,12 +51,6 @@ export default function AboutPage() {
                   </div>
                   <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.naomi`} text={t.about.team.naomi} /></h4>
                 </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 bg-stone-200 rounded-full mb-4 overflow-hidden shadow-md flex items-center justify-center bg-teal-50">
-                     <span className="text-4xl">🚐</span>
-                  </div>
-                  <h4 className="font-bold text-teal-800"><EditableText path={`${lang}.about.team.guide`} text={t.about.team.guide} /></h4>
-                </div>
               </div>
 
               <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
@@ -64,11 +58,11 @@ export default function AboutPage() {
                 <div className="flex flex-col md:flex-row justify-center gap-8 text-lg">
                   <div className="flex items-center justify-center gap-2">
                     <span className="font-semibold text-orange-600">Eyal:</span>
-                    <a href="tel:+972540000000" className="hover:text-orange-500">+972 54...</a>
+                    <a href="https://wa.me/972543510664" target="_blank" rel="noreferrer" className="hover:text-orange-500" dir="ltr">+972-54-351-0664</a>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <span className="font-semibold text-orange-600">Naomi:</span>
-                    <a href="tel:+972540000000" className="hover:text-orange-500">+972 54...</a>
+                    <a href="https://wa.me/972546639597" target="_blank" rel="noreferrer" className="hover:text-orange-500" dir="ltr">+972-54-663-9597</a>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, useEffect, useMemo, useCall
 export const defaultContentData = {
   he: {
     nav: {
-      home: 'בית', itinerary: 'המסלול', essentials: 'מידע חשוב', discovery: 'מגלים עולם', about: 'הסיפור שלנו', register: 'הצטרפו למסע', toggle: 'Switch to English'
+      home: 'בית', itinerary: 'המסלול', essentials: 'מידע חשוב', discovery: 'גלריה', about: 'הסיפור שלנו', register: 'הצטרפו למסע', toggle: 'Switch to English'
     },
     hero: {
       title: 'סבתות בסרי לנקה\nקיץ 2026', subtitle: 'חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות. המסע יתאפיין בקצב נינוח, רגעים מרגשים וקסם מקומי עם דגש על טבע, הרפתקאות, חברות וחוף הים.\n\n10 ימים מדהימים | מחנה פוסט-ילדים/נכדים שלכן | סוף הקיץ', tagline: 'טיול של פעם בחיים', cta_plan: 'צפו בתוכנית', cta_discover: 'גלו עוד'
@@ -121,9 +121,9 @@ export const defaultContentData = {
     essentials: {
       title: 'מידע חשוב - טוב לדעת', subtitle: 'כל מה שצריך לדעת לפני שאורזים מזוודה.', categories: [
         { title: "ויזה (ETA)", items: ["ישראלים חייבים ויזה אלקטרונית (כ-50$ באתר eta.gov.lk)", "דרכון בתוקף ל-6 חודשים לפחות"] },
-        { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים חדשים ונקיים להמרה", "אשראי עובד במלונות, מזומן לטוקטוקים"] },
-        { title: "חשמל", items: ["מתח 230V, שקעים מסוג D (עגולים) או G (בריטי)", "מומלץ להביא מתאם אוניברסלי", "שיטת ה'עט' עובדת בזהירות"] },
-        { title: "ביגוד", items: ["מכנסי טיולים רפויים, טייצים, חצאיות", "בגדי ים", "סנדלי הליכה"] },
+        { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים חדשים ונקיים להמרה", "מומלץ להצטייד במזומן מכיוון שלא כל מקום מקבל אשראי. ניתן להוציא כסף בקלות בכספומטים מקומיים."] },
+        { title: "חשמל", items: ["מתח 230V. ברוב המקומות שקעים ישראלים (2 פינים) עובדים ללא בעיה.", "עבור תקעים אמריקאים נדרש מתאם."] },
+        { title: "ביגוד", items: ["בגדים נוחים לטיולים", "בגדים נוחים להליכה בעיר", "בגדי ים", "סנדלים ונעלי הליכה לטיולים"] },
         { title: "אוכל וכשרות", items: ["אנו מספקים ארוחות כשר-סטייל", "בתי חב\"ד: קולומבו, אלה, ארוגם ביי", "פירות טרופיים בשפע"] }
       ]
     },
@@ -149,7 +149,7 @@ export const defaultContentData = {
     }
   },
   en: {
-    nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Discovery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
+    nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Gallery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
     hero: { 
       title: 'Savtot in Sri Lanka\nSummer 2026', 
       subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', 
@@ -276,10 +276,10 @@ export const defaultContentData = {
     essentials: { 
       title: 'Good to know', subtitle: 'Everything you need to know before packing your bags.', 
       categories: [
-        { title: "Clothing", items: ["Loose hiking pants, leggings, skirts", "Bathing suits", "Hiking sandals"] },
+        { title: "Clothing", items: ["Comfortable clothes for hiking", "Comfortable clothes for city walking", "Bathing suits", "Sandals and hiking shoes"] },
         { title: "Visa (ETA)", items: ["Israelis need an ETA (~$50 USD)", "Apply at eta.gov.lk", "Passport valid for 6 months"] },
-        { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "Cash is needed for Tuk-Tuks"] },
-        { title: "Electricity", items: ["Voltage: 230V, Type D or G plugs", "Bring a universal adapter"] },
+        { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "It is recommended to have cash as not all places accept credit cards. Cash can be easily withdrawn from local ATMs."] },
+        { title: "Electricity", items: ["Voltage: 230V. Israeli plugs (2 pins) work in most places without an issue.", "American plugs require an adapter."] },
         { title: "Kosher Food", items: ["We provide kosher-style meals", "Chabad Houses: Colombo, Ella, Arugam Bay", "Fresh tropical fruit"] }
       ]
     },

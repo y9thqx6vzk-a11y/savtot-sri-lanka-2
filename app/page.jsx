@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[100svh] py-32 flex items-center justify-center overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] shadow-2xl z-10 mb-8">
         <div className="absolute inset-0 z-0">
           <EditableImage
             id="hero_bg"
@@ -57,7 +57,7 @@ export default function HomePage() {
       </div>
 
       {/* ── Features ─────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-stone-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-teal-900 mb-4">

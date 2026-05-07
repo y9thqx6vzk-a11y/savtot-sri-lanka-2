@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 
-const CLOUD_NAME = 'dpodrwq71';
+const CLOUD_NAME = 'dsgvsqnjp';
 const UPLOAD_PRESET = 'savtot_admin';
 
 const filesToUpload = [

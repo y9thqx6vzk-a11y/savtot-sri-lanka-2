@@ -308,7 +308,7 @@ export const defaultContentData = {
 const SiteContext = createContext();
 
 export const SiteProvider = ({ children }) => {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('he');
   const [siteContent, setSiteContent] = useState(defaultContentData);
   const [isAdmin, setIsAdmin] = useState(false);
 

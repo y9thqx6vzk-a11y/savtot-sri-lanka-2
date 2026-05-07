@@ -100,19 +100,19 @@ export default function HomePage() {
               <p className="text-xl text-stone-600 mb-8 leading-relaxed">
                 <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-10 mt-6">
                 <button
                   onClick={() => router.push('/register')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/30 shrink-0"
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-orange-500/30 hover:-translate-y-1 shrink-0 z-20"
                 >
                   {t.gallery.cta}
                 </button>
-                <div className="flex -space-x-4 rtl:space-x-reverse">
-                   <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden transform hover:scale-110 transition-all hover:z-10 rotate-3 ring-1 ring-stone-100">
-                      <EditableImage id="small_1" src="/small_1.webp" alt="Small 1" className="w-full h-full object-cover" width={100} height={100} crop="thumb" />
+                <div className="flex -space-x-6 rtl:space-x-reverse pt-4">
+                   <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl border-4 border-white shadow-xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 -rotate-6 origin-bottom-right">
+                      <EditableImage id="small_1" src="small_1" alt="Small 1" className="w-full h-full object-cover" width={300} height={400} crop="fill" />
                    </div>
-                   <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden transform hover:scale-110 transition-all hover:z-10 -rotate-3 ring-1 ring-stone-100">
-                      <EditableImage id="small_2" src="/small_2.webp" alt="Small 2" className="w-full h-full object-cover" width={100} height={100} crop="thumb" />
+                   <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl border-4 border-white shadow-xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 rotate-6 origin-bottom-left z-10 mt-4">
+                      <EditableImage id="small_2" src="small_2" alt="Small 2" className="w-full h-full object-cover" width={300} height={400} crop="fill" />
                    </div>
                 </div>
               </div>

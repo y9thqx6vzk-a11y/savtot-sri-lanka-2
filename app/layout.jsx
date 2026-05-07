@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="en" dir="ltr">
       <body>
         <SiteProvider>
           <div className="min-h-screen bg-stone-50 text-stone-800 font-sans selection:bg-teal-200">

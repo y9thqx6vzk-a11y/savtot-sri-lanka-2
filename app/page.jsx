@@ -25,7 +25,7 @@ export default function HomePage() {
             crop="fill"
           />
           <div className="absolute inset-0 bg-teal-900/40 mix-blend-multiply pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-900/40 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16 pointer-events-none">
@@ -73,8 +73,8 @@ export default function HomePage() {
               { icon: <MapPin   className="w-10 h-10 text-orange-500" />, title: t.features.f2_title, desc: t.features.f2_desc, key: 'f2' },
               { icon: <Users    className="w-10 h-10 text-orange-500" />, title: t.features.f1_title, desc: t.features.f1_desc, key: 'f1' },
             ].map((feature, idx) => (
-              <div key={idx} className="bg-stone-50 p-8 rounded-2xl text-center hover:shadow-xl transition-shadow border border-stone-100 group">
-                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform">
+              <div key={idx} className="bg-stone-50 p-8 rounded-[2rem] text-center hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300 border border-stone-100 group">
+                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md shadow-stone-200/50 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-teal-800">
@@ -108,8 +108,8 @@ export default function HomePage() {
               </button>
             </div>
             <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-2xl shadow-lg transform translate-y-8 w-full h-auto" width={800} crop="fill" />
-              <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-2xl shadow-lg w-full h-auto" width={800} crop="fill" />
+              <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transform translate-y-8 w-full h-auto transition-transform hover:scale-[1.02] duration-500" width={800} crop="fill" />
+              <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] w-full h-auto transition-transform hover:scale-[1.02] duration-500" width={800} crop="fill" />
             </div>
           </div>
         </div>

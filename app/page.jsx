@@ -100,19 +100,19 @@ export default function HomePage() {
               <p className="text-xl text-stone-600 mb-8 leading-relaxed">
                 <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-10 mt-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-12 mt-10">
                 <button
                   onClick={() => router.push('/register')}
                   className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-orange-500/30 hover:-translate-y-1 shrink-0 z-20"
                 >
                   {t.gallery.cta}
                 </button>
-                <div className="flex -space-x-6 rtl:space-x-reverse pt-4">
-                   <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl border-4 border-white shadow-xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 -rotate-6 origin-bottom-right">
-                      <EditableImage id="small_1" src="small_1" alt="Small 1" className="w-full h-full object-cover" width={300} height={400} crop="fill" />
+                <div className="flex -space-x-12 rtl:space-x-reverse pt-2 w-full max-w-sm">
+                   <div className="w-40 h-56 sm:w-56 sm:h-72 rounded-3xl border-[6px] border-white shadow-2xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 -rotate-6 origin-bottom-right">
+                      <EditableImage id="small_1" src="small_1" alt="Small 1" className="w-full h-full object-cover" width={600} height={800} crop="fill" />
                    </div>
-                   <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl border-4 border-white shadow-xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 rotate-6 origin-bottom-left z-10 mt-4">
-                      <EditableImage id="small_2" src="small_2" alt="Small 2" className="w-full h-full object-cover" width={300} height={400} crop="fill" />
+                   <div className="w-40 h-56 sm:w-56 sm:h-72 rounded-3xl border-[6px] border-white shadow-2xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 rotate-6 origin-bottom-left z-10 mt-8">
+                      <EditableImage id="small_2" src="small_2" alt="Small 2" className="w-full h-full object-cover" width={600} height={800} crop="fill" />
                    </div>
                 </div>
               </div>

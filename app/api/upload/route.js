@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dpodrwq71';
+const CLOUD_NAME = 'dpodrwq71'; // Hardcoded to override old env var in Vercel
 // Unsigned upload preset — create this in Cloudinary dashboard:
 // Settings → Upload → Upload Presets → Add upload preset → Signing Mode: Unsigned
 // Name it: savtot_admin

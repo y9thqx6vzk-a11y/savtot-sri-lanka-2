@@ -15,17 +15,34 @@ export default function RegisterPage() {
     setStatus('submitting');
     
     try {
-      const response = await fetch('/api/register', {
+      // Request A: Save registration data (Replace URL if using actual Formspree endpoint)
+      const reqA = fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
       
-      if (response.ok) {
+      // Request B: Send to custom calendar API
+      const reqB = fetch('/api/calendar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email, lang })
+      });
+      
+      // Execute in parallel
+      const [resA, resB] = await Promise.all([reqA, reqB]);
+      
+      // Check if primary request (A) succeeded
+      if (resA.ok) {
         setStatus('success');
         setFormData({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
       } else {
         setStatus('error');
+      }
+      
+      // We log but don't strictly fail the form if calendar invite fails
+      if (!resB.ok) {
+        console.error("Calendar invitation failed.");
       }
     } catch (err) {
       console.error(err);

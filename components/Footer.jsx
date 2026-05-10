@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Instagram, Mail } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 
 export default function Footer() {
@@ -74,10 +75,21 @@ export default function Footer() {
               </svg>
               Naomi: +972-54-663-9597
             </a>
+            <a href="mailto:srilankasavtot@gmail.com" className="opacity-80 hover:opacity-100 hover:text-orange-400 transition-colors flex items-center gap-2 justify-center md:justify-start" dir="ltr">
+              <Mail size={16} />
+              srilankasavtot@gmail.com
+            </a>
           </div>
-          <div className="mt-4 flex justify-center md:justify-start gap-4">
-            <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 cursor-pointer transition-colors">📷</div>
-            <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 cursor-pointer transition-colors">📘</div>
+          <div className="mt-6 flex justify-center md:justify-start gap-4">
+            <a 
+              href="https://www.instagram.com/srilankasavtot/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-orange-500 hover:text-white cursor-pointer transition-all hover:scale-110"
+              title="Instagram"
+            >
+              <Instagram size={20} />
+            </a>
           </div>
         </div>
       </div>

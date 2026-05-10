@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Globe, Leaf } from 'lucide-react';
+import { Menu, X, Globe, Leaf, Instagram } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 
 export default function Navbar() {
@@ -61,6 +61,15 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <a 
+            href="https://www.instagram.com/srilankasavtot/" 
+            target="_blank" 
+            rel="noreferrer"
+            className={`transition-colors ${scrolled ? 'text-stone-600 hover:text-orange-500' : 'text-white/80 hover:text-white'}`}
+            title="Instagram"
+          >
+            <Instagram size={20} />
+          </a>
           <Link 
             href="/register"
             className="text-white px-5 py-2 text-sm tracking-wide font-light transition-all hover:opacity-90 inline-block"

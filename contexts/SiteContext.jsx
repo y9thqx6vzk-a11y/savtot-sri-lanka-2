@@ -152,7 +152,7 @@ export const defaultContentData = {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Gallery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
     hero: { 
       title: 'Savtot in Sri Lanka\nSummer 2026', 
-      subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\n\n10 incredible days | Post-kids/grandkids camp | End-of-summer', 
+      subtitle: 'A special and unforgettable experience we tailored especially for us - women looking to experience a bit of a "post-army trip", but at a relaxed pace and with all the indulgences of an organized tour. Ten days of magic at the end of the summer.', 
       tagline: 'The trip of a lifetime', 
       cta_plan: 'See the Plan', 
       cta_discover: 'Experience the magic' 
@@ -160,7 +160,7 @@ export const defaultContentData = {
     features: { 
       title: 'More than just a trip', 
       f3_title: 'Fully kosher', 
-      f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the incredible local cuisine',
+      f3_desc: 'We insist on fresh, local ingredients. A local team of chefs will cook for us, with one of us (from the Israeli team) closely supervising to ensure everything is strictly kosher.',
       f2_title: 'Authentic culture', 
       f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka',
       f1_title: 'Wellness & Yoga', 
@@ -168,14 +168,14 @@ export const defaultContentData = {
     },
     gallery: {
       title: 'Experience the magic',
-      desc: 'From majestic waterfalls to glorious tea plantations to the golden shores of Arugam Bay, you’ll get the chance to see all the wonders of Sri Lanka',
+      desc: 'From stunning waterfalls and green tea plantations, to natural infinity pools and the most beautiful beaches there are - this is our opportunity to experience the real, authentic Sri Lanka.',
       cta: 'More info / Save your spot'
     },
     itinerary: {
       title: 'Your fully planned adventure', subtitle: 'A 10-day journey of discovery and relaxation',
       headers: { hour: 'Time', place: 'Location', activity: 'Activity' },
       days: [
-        { day: "1", title: "Arriving in Sri Lanka", desc: "Landing in Colombo and driving to Sigiriya. Time to settle in, meet everyone, and have dinner.", highlight: "Arrival & Settling In", 
+        { day: "1", title: "Arriving in Sri Lanka", desc: "The highlight of the day - an especially pampering massage in Sigiriya, to get into the vibe.", highlight: "Pampering Massage in Sigiriya", 
           schedule: [
             { hour: "-", place: "Israel", activity: "Flight" },
             { hour: "-", place: "Colombo", activity: "Bus ride to Sigiriya" },
@@ -224,50 +224,50 @@ export const defaultContentData = {
             { hour: "09:30 - 13:30", place: "Ella", activity: "Diyaluma Falls" },
             { hour: "15:30 - 17:00", place: "Ella", activity: "Ziplining" },
             { hour: "15:30 - 17:00", place: "Ella", activity: "Walking around & Shopping" },
-            { hour: "17:30 - 20:30", place: "Arugam Bay", activity: "Drive to Arugam Bay" },
-            { hour: "19:30 - 20:30", place: "Hotel in Arugam Bay", activity: "Dinner" }
+            { hour: "17:30 - 20:30", place: "Passikudah", activity: "Drive to Passikudah" },
+            { hour: "19:30 - 20:30", place: "Hotel in Passikudah", activity: "Dinner" }
           ]
         },
-        { day: "6", title: "Beach Life", desc: "Morning SUP, a surf lesson, and welcoming Shabbat facing the sea of Arugam Bay.", highlight: "Shabbat in Arugam Bay", 
+        { day: "6", title: "Beach Life", desc: "Arriving at the stunning Passikudah and settling in.", highlight: "Shabbat in Passikudah", 
           schedule: [
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
             { hour: "09:30 - 12:00", place: "Pottuvil", activity: "Morning Lagoon SUP" },
-            { hour: "13:30 - 15:30", place: "Arugam Bay", activity: "Surf Lesson / Beach Time" },
+            { hour: "13:30 - 15:30", place: "Passikudah", activity: "Surf Lesson / Beach Time" },
             { hour: "15:30 - 17:00", place: "Hotel", activity: "Shabbat Preparations" },
             { hour: "17:15", place: "Hotel", activity: "Shabbat Begins" },
-            { hour: "18:30 - 19:30", place: "Hotel in Arugam Bay", activity: "Shabbat Dinner" }
+            { hour: "18:30 - 19:30", place: "Hotel in Passikudah", activity: "Shabbat Dinner" }
           ]
         },
-        { day: "7", title: "Shabbat Rest", desc: "A calm day of rest in Arugam Bay. Time to enjoy the atmosphere and recharge your batteries.", highlight: "Rest & Freedom", 
+        { day: "7", title: "Shabbat Rest", desc: "A calm day of rest in Passikudah. Time to enjoy the atmosphere and recharge your batteries.", highlight: "Rest & Freedom", 
           schedule: [
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
-            { hour: "18:30", place: "Arugam Bay", activity: "End of Shabbat" },
+            { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
+            { hour: "18:30", place: "Passikudah", activity: "End of Shabbat" },
             { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
           ]
         },
-        { day: "8", title: "Surfing & Shopping", desc: "Continuing the adventure with surfing at famous beaches and wandering around the town.", highlight: "Surfing in Arugam Bay", 
+        { day: "8", title: "Trincomalee", desc: "Our main experience today will be sailing in search of whales and dolphins, followed by fun snorkeling together.", highlight: "Whale Watching & Snorkeling", 
           schedule: [
             { hour: "05:00", place: "-", activity: "Sunrise Hike" },
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
-            { hour: "09:30 - 12:30", place: "Arugam Bay", activity: "Surfing / Shopping" },
+            { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
+            { hour: "09:30 - 12:30", place: "Trincomalee", activity: "Sailing & Snorkeling / Shopping" },
             { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
           ]
         },
         { day: "9", title: "Final Beach Time", desc: "Take advantage of every moment of sun, waves, and sand on the beach before parting.", highlight: "Sea & Sun", 
           schedule: [
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
-            { hour: "09:30 - 17:00", place: "Arugam Bay", activity: "Free Beach Time / Final Shopping" },
+            { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
+            { hour: "09:30 - 17:00", place: "Passikudah", activity: "Free Beach Time / Final Shopping" },
             { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
           ]
         },
         { day: "10", title: "Farewell to the Magic", desc: "Final packing, breakfast, and the drive back with memories for a lifetime.", highlight: "Heading Home", 
           schedule: [
             { hour: "06:30", place: "Hotel", activity: "Yoga" },
-            { hour: "08:00 - 09:00", place: "Hotel in Arugam Bay", activity: "Breakfast" },
+            { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
             { hour: "10:00", place: "Sri Lanka", activity: "Drive back and begin the journey home" }
           ]
         }
@@ -280,21 +280,21 @@ export const defaultContentData = {
         { title: "Visa (ETA)", items: ["Israelis need an ETA (~$50 USD)", "Apply at eta.gov.lk", "Passport valid for 6 months"] },
         { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "It is recommended to have cash as not all places accept credit cards. Cash can be easily withdrawn from local ATMs."] },
         { title: "Electricity", items: ["Voltage: 230V. Israeli plugs (2 pins) work in most places without an issue.", "American plugs require an adapter."] },
-        { title: "Kosher Food", items: ["We provide kosher-style meals", "Chabad Houses: Colombo, Ella, Arugam Bay", "Fresh tropical fruit"] }
+        { title: "Kosher Food", items: ["Our hosting is on a half-board basis - we provide kosher meals throughout the trip.", "Chabad Houses: Colombo, Ella, Passikudah", "Fresh tropical fruit"] }
       ]
     },
     discovery: { title: 'Discovery', subtitle: 'Get excited about the destination.', articles: [
         { title: "Ella: Mountain Bliss", text: "A magical mountain town surrounded by tea plantations, waterfalls, and endless green views." },
         { title: "Ceylon Tea", text: "Sri Lanka is a world tea power. We'll learn how the cool climate creates the perfect flavor." },
-        { title: "Arugam Bay", text: "One of the world's best surf spots with a young vibe, lagoons, and roaming elephants." },
+        { title: "Passikudah", text: "One of the most beautiful beaches in the world with a relaxed atmosphere, lagoons and spectacular views." },
         { title: "Safari & Wildlife", text: "Elephants, crocodiles, rare birds and even leopards. Sri Lanka is a paradise for nature lovers." }
       ]
     },
     about: { 
       title: 'Our Story', 
-      p1: 'So here we are, Eyal, Aliza, and Naomi 🙂.\n\nIn the summer of 2025, the three of us met in Sri Lanka after Eyal and Aliza completed a long honeymoon in the East. It was 10 miraculous days of waterfalls, surfing, beaches, landscapes, and simply excellent hotels (and one bad one, just so we’d have something to complain about).', 
-      p2: 'We returned home, and Naomi had an idea. Why not make this incredible, life-changing experience of travelling to the East accessible to savtas and mothers? So many young Israelis travel after the army to this part of the world and they have the time of their lives. They live the culture, they take on challenges they never would at home and they see life from a completely new perspective. We believe everyone should get the chance to do this. (We actually believe everyone needs to do this but we’ll discuss that when we meet:)\n\nWe realized that who better to guide savtas and mothers on this life-changing journey than us? We are not salespeople, we are not a travel agency, we are not working with any big companies. We are 3 people who are passionate about all that Sri Lanka has to offer and we want to give you the opportunity to share that passion.', 
-      p3: 'We each bring something else to your Sri Lankan adventure. I, Naomi, will be with you through every experience, making sure everyone is thoroughly enjoying themselves and always available to answer any and all questions. Eyal and Aliza, are trained yoga instructors and incredible chefs and they will make sure everyone is well fed and feeling their best. (They also play guitar and ukulele, respectively, which will come in handy at our nighttime beach concerts.) We will also have a local guide and driver with us to make sure we can easily get around and to give us an understanding and appreciation for the local culture.', 
+      p1: 'So nice to meet you! We are Eyal, Aliza and Naomi :) In the summer of 2025, we met in Sri Lanka towards the end of Eyal and Aliza\'s long honeymoon in the East. Those were 10 magical days of nature, surfing, beaches, landscapes and simply excellent hotels (except for one, but we needed something to complain about a little).', 
+      p2: 'When we returned home, I (Naomi) had an idea. Why not bring this crazy, life-changing experience of a "trip to the East" to mothers and grandmothers as well? After all, so many young Israelis travel to this part of the world after the army, breathe the culture, do things they would never do at home and return with a completely new perspective. We truly believe that everyone deserves this opportunity. (Actually, we think everyone needs this, but we\'ll talk about that when we meet...).\n\nWe are not salespeople, we are not a travel agency and we don\'t work with any huge company. We are simply three people who fell in love with everything Sri Lanka has to offer, and want to give you the opportunity to experience it together with us.', 
+      p3: 'Each of us brings something a little different to our adventure. I, Naomi, will be with you the whole way, making sure we all enjoy every moment and available for any question. Eyal and Aliza, who are both certified yoga instructors and great cooks, will oversee the kitchen along with the local staff to make sure we have full kashrut. They will ensure we all eat well and feel our best. Besides that, a local guide and driver will accompany us, both so we can get around comfortably and so we can get to know the fascinating local culture a little closer.', 
       team: { eyal: 'Aliza & Eyal', naomi: 'Naomi', guide: 'Local Guide' },
       contact: 'Contact us:\nEyal: +972 ...\nNaomi: +972 ...'
     },

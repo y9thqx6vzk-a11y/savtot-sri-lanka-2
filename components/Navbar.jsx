@@ -103,6 +103,16 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <a 
+              href="https://www.instagram.com/srilankasavtot/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center gap-3 font-medium py-2 text-teal-700"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Instagram size={20} />
+              <span>Instagram</span>
+            </a>
           </div>
         </div>
       )}

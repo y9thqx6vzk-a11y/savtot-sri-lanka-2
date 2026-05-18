@@ -121,10 +121,10 @@ export const defaultContentData = {
     essentials: {
       title: 'מידע חשוב - טוב לדעת', subtitle: 'כל מה שצריך לדעת לפני שאורזים מזוודה.', categories: [
         { title: "ויזה (ETA)", items: ["ישראלים חייבים ויזה אלקטרונית (כ-50$ באתר eta.gov.lk)", "דרכון בתוקף ל-6 חודשים לפחות"] },
-        { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים חדשים ונקיים להמרה", "מומלץ להצטייד במזומן מכיוון שלא כל מקום מקבל אשראי. ניתן להוציא כסף בקלות בכספומטים מקומיים."] },
+        { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים לחירום, הרבה פעמים זה נוח.", "מומלץ להצטייד במזומן מכיוון שלא כל מקום מקבל אשראי. ניתן להוציא כסף בקלות בכספומטים מקומיים."] },
         { title: "חשמל", items: ["מתח 230V. ברוב המקומות שקעים ישראלים (2 פינים) עובדים ללא בעיה.", "עבור תקעים אמריקאים נדרש מתאם."] },
         { title: "ביגוד", items: ["בגדים נוחים לטיולים", "בגדים נוחים להליכה בעיר", "בגדי ים", "סנדלים ונעלי הליכה לטיולים"] },
-        { title: "אוכל וכשרות", items: ["האירוח שלנו הוא על בסיס חצי פנסיון - אנחנו מספקים ארוחות כשרות לאורך כל הטיול.", "בתי חב\"ד: קולומבו, אלה, פסיקודה", "פירות טרופיים בשפע"] }
+        { title: "אוכל וכשרות", items: ["האירוח שלנו הוא על בסיס חצי פנסיון - אנחנו מספקים ארוחות כשרות לאורך כל הטיול.", "בתי חב\"ד: קולומבו, אלה"] }
       ]
     },
     discovery: {
@@ -278,9 +278,9 @@ export const defaultContentData = {
       categories: [
         { title: "Clothing", items: ["Comfortable clothes for hiking", "Comfortable clothes for city walking", "Bathing suits", "Sandals and hiking shoes"] },
         { title: "Visa (ETA)", items: ["Israelis need an ETA (~$50 USD)", "Apply at eta.gov.lk", "Passport valid for 6 months"] },
-        { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring clean USD notes", "It is recommended to have cash as not all places accept credit cards. Cash can be easily withdrawn from local ATMs."] },
+        { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring USD for emergencies, often it is very convenient.", "It is recommended to have cash as not all places accept credit cards. Cash can be easily withdrawn from local ATMs."] },
         { title: "Electricity", items: ["Voltage: 230V. Israeli plugs (2 pins) work in most places without an issue.", "American plugs require an adapter."] },
-        { title: "Kosher Food", items: ["Our hosting is on a half-board basis - we provide kosher meals throughout the trip.", "Chabad Houses: Colombo, Ella, Passikudah", "Fresh tropical fruit"] }
+        { title: "Kosher Food", items: ["Our hosting is on a half-board basis - we provide kosher meals throughout the trip.", "Chabad Houses: Colombo, Ella"] }
       ]
     },
     discovery: { title: 'Discovery', subtitle: 'Get excited about the destination.', articles: [

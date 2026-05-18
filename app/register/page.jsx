@@ -2,51 +2,46 @@
 
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import { useForm, ValidationError } from '@formspree/react';
 import { useSite } from '../../contexts/SiteContext';
 import EditableText from '../../components/EditableText';
 
 export default function RegisterPage() {
   const { lang, t } = useSite();
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  
+  // Initialize Formspree hook
+  const [formspreeState, sendToFormspree] = useForm('xlgvrgey');
+  const [customStatus, setCustomStatus] = useState('idle'); // idle | submitting | error
+
+  const isSuccess = formspreeState.succeeded;
+  const isSubmitting = formspreeState.submitting || customStatus === 'submitting';
+  const hasError = formspreeState.errors !== null || customStatus === 'error';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('submitting');
+    setCustomStatus('submitting');
     
     try {
-      // Request A: Save registration data (Replace URL if using actual Formspree endpoint)
-      const reqA = fetch('/api/register', {
+      // 1. Submit to Formspree
+      await sendToFormspree(e);
+      
+      // 2. Send email with webinar details (custom API)
+      const reqB = fetch('/api/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({ email: formData.email, name: formData.name, lang })
       });
       
-      // Request B: Send to custom calendar API
-      const reqB = fetch('/api/calendar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: formData.email, lang })
-      });
-      
-      // Execute in parallel
-      const [resA, resB] = await Promise.all([reqA, reqB]);
-      
-      // Check if primary request (A) succeeded
-      if (resA.ok) {
-        setStatus('success');
-        setFormData({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
-      } else {
-        setStatus('error');
-      }
-      
-      // We log but don't strictly fail the form if calendar invite fails
+      const resB = await reqB;
       if (!resB.ok) {
-        console.error("Calendar invitation failed.");
+        console.error("Email invitation failed.");
       }
+      
+      setCustomStatus('idle');
     } catch (err) {
       console.error(err);
-      setStatus('error');
+      setCustomStatus('error');
     }
   };
 
@@ -109,14 +104,26 @@ export default function RegisterPage() {
           </div>
 
           <div className="w-full md:w-7/12 p-10 md:p-14">
-            {status === 'success' ? (
+            {isSuccess ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12 animate-in zoom-in duration-500">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
                   <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <h3 className="text-3xl font-bold text-teal-900"><EditableText path={`${lang}.register.form.success_title`} text={t.register.form.success_title} /></h3>
                 <p className="text-stone-600"><EditableText path={`${lang}.register.form.success_desc`} text={t.register.form.success_desc} /></p>
-                <button onClick={() => setStatus('idle')} className="mt-8 text-orange-500 font-bold hover:underline">
+                
+                <div className="py-4">
+                  <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-500/30 transition-all hover:-translate-y-1">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                      <path d="M12.031 0C5.394 0 0 5.385 0 12.016c0 2.115.548 4.184 1.594 6.008L.027 24l6.126-1.603A12.016 12.016 0 0012.031 24c6.635 0 12.031-5.385 12.031-12.016S18.667 0 12.031 0zm3.834 17.202c-.161.455-.93.882-1.332.966-.403.084-.897.136-2.585-.563-2.037-.84-3.344-2.91-3.444-3.047-.1-.137-1.096-1.464-1.127-2.977-.03-1.512.723-2.257.994-2.56.27-.302.588-.377.785-.377.197 0 .394.004.568.013.184.01.428-.066.65.467.229.549.785 1.916.854 2.054.07.138.116.299.016.498-.098.197-.148.32-.295.49-.148.169-.313.364-.446.49-.148.148-.306.313-.135.611.171.298.761 1.261 1.636 2.04.1.09.206.183.322.281.821.688 1.76 1.05 2.023 1.185.263.136.417.112.573-.064.156-.176.669-.78.85-1.047.18-.268.36-.223.599-.133.24.089 1.516.714 1.776.844.259.13.433.195.496.302.064.108.064.629-.098 1.084z" />
+                    </svg>
+                    <span dir={lang === 'he' ? 'rtl' : 'ltr'}>
+                      {lang === 'he' ? 'הצטרפו לקבוצת הוואצאפ שלנו!' : 'Join our WhatsApp Group!'}
+                    </span>
+                  </a>
+                </div>
+
+                <button onClick={() => window.location.reload()} className="mt-4 text-stone-500 font-medium hover:text-stone-800 transition-colors">
                   <EditableText path={`${lang}.register.form.success_btn`} text={t.register.form.success_btn} />
                 </button>
               </div>
@@ -130,36 +137,40 @@ export default function RegisterPage() {
                 
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.name} *</label>
-                  <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" />
+                  <input required name="name" type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" />
+                  <ValidationError prefix="Name" field="name" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.phone} *</label>
-                    <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
+                    <input required name="phone" type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
+                    <ValidationError prefix="Phone" field="phone" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.email} *</label>
-                    <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
+                    <input required name="email" type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
+                    <ValidationError prefix="Email" field="email" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.guests}</label>
-                  <select value={formData.guests} onChange={e => setFormData({...formData, guests: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50">
+                  <select name="guests" value={formData.guests} onChange={e => setFormData({...formData, guests: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50">
                     {[1,2,3,4,5].map(num => <option key={num} value={num}>{num}</option>)}
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.notes}</label>
-                  <textarea value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 min-h-[120px]"></textarea>
+                  <textarea name="notes" value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 min-h-[120px]"></textarea>
+                  <ValidationError prefix="Notes" field="notes" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                 </div>
 
-                {status === 'error' && <p className="text-red-500 font-medium"><EditableText path={`${lang}.register.form.error`} text={t.register.form.error} /></p>}
+                {hasError && <p className="text-red-500 font-medium"><EditableText path={`${lang}.register.form.error`} text={t.register.form.error} /></p>}
 
-                <button disabled={status === 'submitting'} type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70">
-                  {status === 'submitting' ? t.register.form.submitting : <>{t.register.form.submit} <Send className={`w-5 h-5 ${lang === 'he' ? 'rotate-180' : ''}`} /></>}
+                <button disabled={isSubmitting} type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70">
+                  {isSubmitting ? t.register.form.submitting : <>{t.register.form.submit} <Send className={`w-5 h-5 ${lang === 'he' ? 'rotate-180' : ''}`} /></>}
                 </button>
               </form>
             )}

@@ -42,15 +42,9 @@ export async function POST(req) {
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
           <p style="font-size: 16px;">אנו שמחים לאשר את הרשמתך לוובינר של סבתות בסרי לנקה.</p>
-          <p style="font-size: 16px;"><strong>הנה פרטי ההתחברות לזום:</strong></p>
-          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0;"><strong>קישור לזום:</strong> <a href="#" style="color: #0f766e; text-decoration: underline;">[יש להוסיף כאן את הקישור לזום]</a></p>
-            <p style="margin: 5px 0 0 0;"><strong>תאריך:</strong> [יש לעדכן תאריך]</p>
-            <p style="margin: 5px 0 0 0;"><strong>שעה:</strong> [יש לעדכן שעה]</p>
-          </div>
-          <p style="font-size: 16px;">אל תשכחו להצטרף גם לקבוצת הוואצאפ שלנו לקבלת עדכונים ותזכורות:</p>
+          <p style="font-size: 16px;">אנו נשלח פרטים ועדכונים לגבי מפגש הזום הקרוב שלנו <strong>במייל הזה</strong>, וכמובן גם בקבוצת הוואצאפ בה אנחנו מעדכנים על הכל בזמן אמת.</p>
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">הצטרפו לקבוצת הוואצאפ</a>
+            <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">הצטרפו לקבוצת הוואצאפ לעדכונים</a>
           </div>
           <p style="font-size: 16px;">נתראה בקרוב,<br>צוות סבתות בסרי לנקה</p>
         </div>
@@ -63,13 +57,7 @@ export async function POST(req) {
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
           <p style="font-size: 16px;">We are excited to confirm your registration for the Savtot in Sri Lanka webinar.</p>
-          <p style="font-size: 16px;"><strong>Here are your Zoom details:</strong></p>
-          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0;"><strong>Zoom Link:</strong> <a href="#" style="color: #0f766e; text-decoration: underline;">[Add Zoom link here]</a></p>
-            <p style="margin: 5px 0 0 0;"><strong>Date:</strong> [Update Date]</p>
-            <p style="margin: 5px 0 0 0;"><strong>Time:</strong> [Update Time]</p>
-          </div>
-          <p style="font-size: 16px;">Don't forget to join our WhatsApp group for updates and reminders:</p>
+          <p style="font-size: 16px;">We will send all the details regarding the upcoming Zoom meeting <strong>via email</strong>, and of course in our WhatsApp group where we post real-time updates.</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">Join WhatsApp Group</a>
           </div>

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
-import { useForm, ValidationError } from '@formspree/react';
 import { useSite } from '../../contexts/SiteContext';
 import EditableText from '../../components/EditableText';
 
@@ -10,35 +9,42 @@ export default function RegisterPage() {
   const { lang, t } = useSite();
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
   
-  // Initialize Formspree hook
-  const [formspreeState, sendToFormspree] = useForm('xlgvrgey');
-  const [customStatus, setCustomStatus] = useState('idle'); // idle | submitting | error
+  const [customStatus, setCustomStatus] = useState('idle'); // idle | submitting | success | error
 
-  const isSuccess = formspreeState.succeeded;
-  const isSubmitting = formspreeState.submitting || customStatus === 'submitting';
-  const hasError = formspreeState.errors !== null || customStatus === 'error';
+  const isSuccess = customStatus === 'success';
+  const isSubmitting = customStatus === 'submitting';
+  const hasError = customStatus === 'error';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Honeypot check
+    if (formData.website_url) {
+      setCustomStatus('success'); // Fake success for bots
+      return;
+    }
+    
     setCustomStatus('submitting');
     
     try {
-      // 1. Submit to Formspree
-      await sendToFormspree(e);
-      
-      // 2. Send email with webinar details (custom API)
-      const reqB = fetch('/api/email', {
+      const response = await fetch('/api/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: formData.email, name: formData.name, lang })
+        body: JSON.stringify({ 
+          email: formData.email, 
+          name: formData.name, 
+          phone: formData.phone,
+          guests: formData.guests,
+          notes: formData.notes,
+          lang 
+        })
       });
       
-      const resB = await reqB;
-      if (!resB.ok) {
-        console.error("Email invitation failed.");
+      if (!response.ok) {
+        throw new Error("Email dispatch failed.");
       }
       
-      setCustomStatus('idle');
+      setCustomStatus('success');
     } catch (err) {
       console.error(err);
       setCustomStatus('error');
@@ -96,9 +102,9 @@ export default function RegisterPage() {
               </div>
               
               <p className="font-bold mb-2"><EditableText path={`${lang}.register.contact_email`} text={t.register.contact_email} /></p>
-              <a href="mailto:savtotinsrilanka@gmail.com" className="text-lg text-white hover:text-orange-400 transition-colors flex items-center gap-2">
+              <a href="mailto:srilankasavtot@gmail.com" className="text-lg text-white hover:text-orange-400 transition-colors flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                savtotinsrilanka@gmail.com
+                srilankasavtot@gmail.com
               </a>
             </div>
           </div>
@@ -138,19 +144,16 @@ export default function RegisterPage() {
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.name} *</label>
                   <input required name="name" type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" />
-                  <ValidationError prefix="Name" field="name" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.phone} *</label>
                     <input required name="phone" type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
-                    <ValidationError prefix="Phone" field="phone" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.email} *</label>
                     <input required name="email" type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50" dir="ltr" />
-                    <ValidationError prefix="Email" field="email" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                   </div>
                 </div>
 
@@ -164,7 +167,6 @@ export default function RegisterPage() {
                 <div>
                   <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.notes}</label>
                   <textarea name="notes" value={formData.notes} onChange={e => setFormData({...formData, notes: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 min-h-[120px]"></textarea>
-                  <ValidationError prefix="Notes" field="notes" errors={formspreeState.errors} className="text-red-500 text-sm mt-1" />
                 </div>
 
                 {hasError && <p className="text-red-500 font-medium"><EditableText path={`${lang}.register.form.error`} text={t.register.form.error} /></p>}

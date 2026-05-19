@@ -51,7 +51,7 @@ export default function Navbar() {
             title={lang === 'he' ? 'Change Language' : 'החלף שפה'}
           >
             <Globe className="w-4 h-4" />
-            <span className="text-xs font-bold tracking-wide">{lang === 'he' ? 'English' : 'עב'}</span>
+            <span className="text-xs font-bold tracking-wide">{lang === 'he' ? 'English' : 'עברית'}</span>
           </button>
 
           {navItems.map((item) => (

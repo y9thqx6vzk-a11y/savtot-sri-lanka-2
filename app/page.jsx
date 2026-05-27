@@ -36,9 +36,23 @@ export default function HomePage() {
             <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
             <span className="absolute -top-10 -end-10 text-orange-500 text-6xl opacity-40 select-none hidden md:block">🍃</span>
           </h1>
-          <p className="text-lg md:text-2xl font-light mb-10 opacity-90 max-w-2xl mx-auto pointer-events-auto leading-relaxed">
+          <p className="text-lg md:text-2xl font-light mb-8 opacity-90 max-w-2xl mx-auto pointer-events-auto leading-relaxed">
             <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
           </p>
+
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-10 pointer-events-auto border border-white/20 max-w-2xl mx-auto shadow-2xl">
+            <div className="text-3xl md:text-4xl font-bold mb-2 text-orange-400 text-center drop-shadow-md">
+              {lang === 'he' ? '8,000 ש״ח - מחיר מבצע (Intro Price)' : '₪8,000 - Intro Price'}
+            </div>
+            <div className="text-lg md:text-xl font-medium mb-4 text-white text-center">
+              {lang === 'he' ? 'המחיר לאדם בחדר זוגי' : 'Price per person in a double room'}
+            </div>
+            <div className="text-sm md:text-base opacity-90 space-y-2 text-white/90 text-start">
+              <p>* {lang === 'he' ? 'המחיר עשוי לרדת או לעלות בהתאם לשינויים בשער הדולר.' : 'Price may fluctuate depending on the dollar exchange rate.'}</p>
+              <p>* {lang === 'he' ? 'המחיר אינו כולל טיסות, ויזה וביטוח. כל שאר הדברים כלולים.' : 'Price does not include flights, visa, and insurance. Everything else is included.'}</p>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
             <button
               onClick={() => router.push('/itinerary')}

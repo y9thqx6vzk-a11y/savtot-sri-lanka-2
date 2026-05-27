@@ -144,7 +144,7 @@ export const defaultContentData = {
       contact: 'צרו קשר:\nאיל: 054-...\nנעמי: 054-...'
     },
     register: { 
-      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם תוך 24 שעות.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], 
+      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], 
       form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה', success_title: 'תודה רבה! הבקשה התקבלה.', success_desc: 'ניצור קשר בהקדם להשלמת ההרשמה ולמתן פרטים נוספים.', success_btn: 'שלח בקשה נוספת', error: 'אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.', submitting: 'שולח...' }
     }
   },
@@ -299,7 +299,7 @@ export const defaultContentData = {
       contact: 'Contact us:\nEyal: +972 ...\nNaomi: +972 ...'
     },
     register: { 
-      title: 'Secure Your Spot', subtitle: 'Fill out the details below, and we will contact you within 24 hours.', contact_wa: 'Contact Eyal', contact_email: 'Or Email Us', details: ["Limited to 15 participants", "No immediate payment", "Full refund policy"], 
+      title: 'Secure Your Spot', subtitle: 'Fill out the details below, and we will contact you.', contact_wa: 'Contact Eyal', contact_email: 'Or Email Us', details: ["Limited to 15 participants", "No immediate payment", "Full refund policy"], 
       form: { name: 'Full Name', phone: 'Phone', email: 'Email', guests: 'Number of Travelers', notes: 'Special Requests', submit: 'Send Request', success_title: 'Thank you! Request received.', success_desc: 'We will contact you soon to complete your registration.', success_btn: 'Send another request', error: 'Error sending form. Please try again or contact us via WhatsApp.', submitting: 'Sending...' }
     }
   }

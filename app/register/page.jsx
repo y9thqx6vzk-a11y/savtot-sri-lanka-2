@@ -118,8 +118,29 @@ export default function RegisterPage() {
                 <h3 className="text-3xl font-bold text-teal-900"><EditableText path={`${lang}.register.form.success_title`} text={t.register.form.success_title} /></h3>
                 <p className="text-stone-600"><EditableText path={`${lang}.register.form.success_desc`} text={t.register.form.success_desc} /></p>
                 
-                <div className="py-4">
-                  <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-500/30 transition-all hover:-translate-y-1">
+                <div className="py-6 flex flex-col gap-6 w-full max-w-md mx-auto">
+                  {/* Webinar Block */}
+                  <div className="bg-orange-50 border-2 border-orange-200 p-6 rounded-2xl flex flex-col items-center text-center shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-orange-200/50 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-200/50 rounded-full blur-2xl -ml-10 -mb-10"></div>
+                    
+                    <h4 className="text-2xl font-bold text-orange-600 mb-2 relative z-10">Sri Lanka - Webinar</h4>
+                    
+                    <div className="text-stone-700 font-medium mb-5 flex items-center gap-2 relative z-10">
+                      <svg className="w-5 h-5 text-orange-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                      <span>
+                        {lang === 'he' ? 'יום ראשון, 7 ביוני · 20:45 – 21:45' : 'Sunday, June 7 · 20:45 – 21:45'}
+                      </span>
+                    </div>
+                    
+                    <a href="https://calendar.app.google/5f8WopWBbKv1HWPX6" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 transition-all hover:-translate-y-1 w-full relative z-10">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                      {lang === 'he' ? 'הצגת הפרטים ואישור השתתפות' : 'View Details & RSVP'}
+                    </a>
+                  </div>
+
+                  {/* WhatsApp Block */}
+                  <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-500/30 transition-all hover:-translate-y-1 relative z-10">
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
                       <path d="M12.031 0C5.394 0 0 5.385 0 12.016c0 2.115.548 4.184 1.594 6.008L.027 24l6.126-1.603A12.016 12.016 0 0012.031 24c6.635 0 12.031-5.385 12.031-12.016S18.667 0 12.031 0zm3.834 17.202c-.161.455-.93.882-1.332.966-.403.084-.897.136-2.585-.563-2.037-.84-3.344-2.91-3.444-3.047-.1-.137-1.096-1.464-1.127-2.977-.03-1.512.723-2.257.994-2.56.27-.302.588-.377.785-.377.197 0 .394.004.568.013.184.01.428-.066.65.467.229.549.785 1.916.854 2.054.07.138.116.299.016.498-.098.197-.148.32-.295.49-.148.169-.313.364-.446.49-.148.148-.306.313-.135.611.171.298.761 1.261 1.636 2.04.1.09.206.183.322.281.821.688 1.76 1.05 2.023 1.185.263.136.417.112.573-.064.156-.176.669-.78.85-1.047.18-.268.36-.223.599-.133.24.089 1.516.714 1.776.844.259.13.433.195.496.302.064.108.064.629-.098 1.084z" />
                     </svg>

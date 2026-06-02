@@ -16,7 +16,7 @@ export const defaultContentData = {
       home: 'בית', itinerary: 'המסלול', essentials: 'מידע חשוב', discovery: 'מגלים עולם', about: 'הסיפור שלנו', register: 'הצטרפו למסע', toggle: 'Switch to English'
     },
     hero: {
-      title: 'סבתות בסרי לנקה\\nקיץ 2026', subtitle: 'חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות. המסע יתאפיין בקצב נינוח, רגעים מרגשים וקסם מקומי עם דגש על טבע, הרפתקאות, חברות וחוף הים.\\n\\n10 ימים מדהימים | מחנה פוסט-ילדים/נכדים שלכן, טיול סוף-קיץ של פעם בחיים\\n\\nטיול של פעם בחיים', cta_plan: 'צפו בתוכנית', cta_discover: 'גלו עוד'
+      title: 'סבתות בסרי לנקה\\nקיץ 2026', subtitle: 'חוויה ייחודית ובלתי נשכחת שעוצבה במיוחד עבור אימהות וסבתות. המסע יתאפיין בקצב נינוח, רגעים מרגשים וקסם מקומי עם דגש על טבע, הרפתקאות, חברות וחוף הים.\\n\\n10 ימים מדהימים | 30.08 עד ה-08.09 | מחנה פוסט-ילדים/נכדים שלכן, טיול סוף-קיץ של פעם בחיים\\n\\nטיול של פעם בחיים', cta_plan: 'צפו בתוכנית', cta_discover: 'גלו עוד'
     },
     features: {
       title: 'יותר מסתם טיול', f1_title: 'וולנס ויוגה', f1_desc: 'תרגולי יוגה עדינים בזריחה או בשקיעה, לכל הרמות, למתיחה והרגעה של הגוף והנפש.', f2_title: 'תרבות אותנטית', f2_desc: 'מספארי ועד מטעי תה וטיולי זריחה, תקבלו את ההזדמנות לראות את סרי לנקה האמיתית.', f3_title: 'כשרות מלאה', f3_desc: 'מרכיבים מקומיים טריים המוכנים בסטנדרטים של כשרות. הזדמנות ייחודית לחוות את המטבח המקומי המדהים.'
@@ -151,7 +151,7 @@ export const defaultContentData = {
   },
   en: {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Discovery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
-    hero: { title: 'Savtot in Sri Lanka\\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\\n\\n10 incredible days | Your post-kids/grandkids camp, end-of-summer once-in-a-lifetime trip\\n\\nThe trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
+    hero: { title: 'Savtot in Sri Lanka\\nSummer 2026', subtitle: 'A unique and unforgettable experience designed exclusively for mothers and grandmothers. The journey will feature an easy pace, exciting moments and local charm with a focus on nature, adventure, friendship and the beach.\\n\\n10 incredible days | August 30 - September 8 | Your post-kids/grandkids camp, end-of-summer once-in-a-lifetime trip\\n\\nThe trip of a lifetime', cta_plan: 'See the Plan', cta_discover: 'Explore' },
     features: { title: 'More Than Just a Trip', f1_title: 'Wellness & Yoga', f1_desc: 'Gentle yoga sessions at sunrise or sunset, for all levels to stretch and calm the body and mind', f2_title: 'Authentic culture', f2_desc: 'From safaris to tea plantations to sunrise hikes, you will get the chance to see the real Sri Lanka', f3_title: 'Fully kosher', f3_desc: 'Fresh local ingredients prepared to kosher standards. A unique opportunity to experience the incredible local cuisine' },
     gallery: { title: 'Experience the magic', desc: 'From majestic waterfalls to glorious tea plantations to the golden shores of Arugam Bay, you’ll get the chance to see all the wonders of Sri Lanka', cta: 'Secure Your Spot' },
     itinerary: {

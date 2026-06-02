@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Users, MapPin, Utensils, ArrowRight } from 'lucide-react';
+import { Users, MapPin, Utensils, ArrowRight, Calendar } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import EditableText from '../components/EditableText';
 import EditableImage from '../components/EditableImage';
@@ -29,6 +29,15 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16 pointer-events-none">
+          {/* Elegant Pulsing Date Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6 pointer-events-auto shadow-md">
+            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+            <span className="text-sm font-semibold tracking-wider text-white flex items-center gap-1.5 font-sans">
+              <Calendar className="w-4 h-4 text-orange-400" />
+              {lang === 'he' ? '30.08 עד ה-08.09*' : 'August 30 - September 8*'}
+            </span>
+          </div>
+
           <p className="text-sm uppercase tracking-[0.4em] mb-4 opacity-80 font-medium">
             {lang === 'he' ? 'חוויה של פעם בחיים' : 'The trip of a lifetime'}
           </p>
@@ -44,10 +53,15 @@ export default function HomePage() {
             <div className="text-3xl md:text-4xl font-bold mb-2 text-orange-400 text-center drop-shadow-md">
               {lang === 'he' ? '8,000 ש״ח - מחיר מבצע (Intro Price)' : '₪8,000 - Intro Price'}
             </div>
-            <div className="text-lg md:text-xl font-medium mb-4 text-white text-center">
+            <div className="text-lg md:text-xl font-medium mb-4 text-white text-center border-b border-white/10 pb-4">
               {lang === 'he' ? 'המחיר לאדם בחדר זוגי' : 'Price per person in a double room'}
             </div>
-            <div className="text-sm md:text-base opacity-90 space-y-2 text-white/90 text-start">
+            <div className="text-sm md:text-base opacity-90 space-y-2.5 text-white/90 text-start pt-2">
+              <p className="flex items-center gap-2">
+                <span className="text-orange-400 font-bold">📅 {lang === 'he' ? 'תאריכי המסע:' : 'Trip Dates:'}</span>
+                <span className="font-semibold">{lang === 'he' ? '30.08 עד ה-08.09*' : 'August 30 - September 8*'}</span>
+              </p>
+              <p>* {lang === 'he' ? 'התאריכים עשויים להשתנות - מומלץ להתעדכן.' : 'Dates are subject to change - please stay updated.'}</p>
               <p>* {lang === 'he' ? 'המחיר עשוי לרדת או לעלות בהתאם לשינויים בשער הדולר.' : 'Price may fluctuate depending on the dollar exchange rate.'}</p>
               <p>* {lang === 'he' ? 'המחיר אינו כולל טיסות, ויזה וביטוח. כל שאר הדברים כלולים.' : 'Price does not include flights, visa, and insurance. Everything else is included.'}</p>
             </div>

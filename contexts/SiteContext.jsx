@@ -145,7 +145,7 @@ export const defaultContentData = {
     },
     register: { 
       title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-15 משתתפות", "אין צורך בתשלום מיידי", "מדיניות ביטולים הוגנת"], 
-      form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה', success_title: 'תודה רבה! הבקשה התקבלה.', success_desc: 'ניצור קשר בהקדם להשלמת ההרשמה ולמתן פרטים נוספים.', success_btn: 'שלח בקשה נוספת', error: 'אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.', submitting: 'שולח...' }
+      form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה', success_title: 'איזה כיף, נרשמתן בהצלחה! 🎉💃', success_desc: 'אנחנו סופר מתרגשים לקראת המסע המשותף שלנו! ניצור קשר בהקדם להשלמת הפרטים.', success_btn: 'שלח בקשה נוספת', error: 'אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.', submitting: 'שולח...' }
     }
   },
   en: {
@@ -300,7 +300,7 @@ export const defaultContentData = {
     },
     register: { 
       title: 'Secure Your Spot', subtitle: 'Fill out the details below, and we will contact you.', contact_wa: 'Contact Eyal', contact_email: 'Or Email Us', details: ["Limited to 15 participants", "No immediate payment", "Full refund policy"], 
-      form: { name: 'Full Name', phone: 'Phone', email: 'Email', guests: 'Number of Travelers', notes: 'Special Requests', submit: 'Send Request', success_title: 'Thank you! Request received.', success_desc: 'We will contact you soon to complete your registration.', success_btn: 'Send another request', error: 'Error sending form. Please try again or contact us via WhatsApp.', submitting: 'Sending...' }
+      form: { name: 'Full Name', phone: 'Phone', email: 'Email', guests: 'Number of Travelers', notes: 'Special Requests', submit: 'Send Request', success_title: 'Yay, you are successfully registered! 🎉💃', success_desc: 'We are super excited for our journey together! We will get in touch shortly to finalize the details.', success_btn: 'Send another request', error: 'Error sending form. Please try again or contact us via WhatsApp.', submitting: 'Sending...' }
     }
   }
 };

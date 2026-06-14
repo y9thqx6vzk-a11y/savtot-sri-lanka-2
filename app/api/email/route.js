@@ -3,7 +3,8 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req) {
   try {
-    const { email, name, phone, guests, notes, lang } = await req.json();
+    const body = await req.json();
+    const { type, email, name, phone, guests, notes, file, lang } = body;
 
     if (!email || !name) {
       return NextResponse.json({ error: 'Email and Name are required' }, { status: 400 });
@@ -26,7 +27,100 @@ export async function POST(req) {
     });
 
     const isHebrew = lang !== 'en';
-    
+
+    if (type === 'payment') {
+      const registrantSubject = isHebrew 
+        ? 'אישור קבלת אסמכתת תשלום - סבתות בסרי לנקה' 
+        : 'Payment Reference Received - Savtot in Sri Lanka';
+
+      const greeting = name ? (isHebrew ? `היי ${name},` : `Hi ${name},`) : (isHebrew ? 'שלום,' : 'Hello,');
+
+      const registrantHtml = isHebrew ? `
+        <div dir="rtl" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden;">
+          <div style="background-color: #0f766e; color: white; padding: 20px; text-align: center;">
+            <h1 style="margin: 0; font-size: 24px;">אסמכתת התשלום התקבלה! 👍</h1>
+          </div>
+          <div style="padding: 20px;">
+            <p style="font-size: 16px;">${greeting}</p>
+            <p style="font-size: 16px;">קיבלנו את אסמכתת התשלום שצירפת (<strong>${file ? file.name : ''}</strong>).</p>
+            <p style="font-size: 16px;">אנו נבדוק אותה ונאשר את הרישום הסופי שלך בהקדם האפשרי. עותק של האסמכתא ששלחת מצורף למייל זה.</p>
+            <p style="font-size: 16px;">נתראה בקרוב,<br>צוות סבתות בסרי לנקה</p>
+          </div>
+        </div>
+      ` : `
+        <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden;">
+          <div style="background-color: #0f766e; color: white; padding: 20px; text-align: center;">
+            <h1 style="margin: 0; font-size: 24px;">Payment Reference Received! 👍</h1>
+          </div>
+          <div style="padding: 20px;">
+            <p style="font-size: 16px;">${greeting}</p>
+            <p style="font-size: 16px;">We have received the payment reference you attached (<strong>${file ? file.name : ''}</strong>).</p>
+            <p style="font-size: 16px;">We will verify it and confirm your final registration as soon as possible. A copy of the reference you sent is attached to this email.</p>
+            <p style="font-size: 16px;">See you soon,<br>Savtot in Sri Lanka Team</p>
+          </div>
+        </div>
+      `;
+
+      const adminSubject = `אסמכתת תשלום חדשה מ- ${name}`;
+      const adminHtml = `
+        <div dir="rtl" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+          <h2 style="color: #0f766e;">התקבלה אסמכתת תשלום חדשה! 💳</h2>
+          <p>להלן פרטי המשלם:</p>
+          <table style="width: 100%; max-width: 500px; border-collapse: collapse; margin-top: 20px;">
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold; width: 30%;">שם מלא:</td>
+              <td style="padding: 10px; border: 1px solid #ddd;">${name || '-'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">טלפון:</td>
+              <td style="padding: 10px; border: 1px solid #ddd;"><a href="tel:${phone}">${phone || '-'}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">אימייל:</td>
+              <td style="padding: 10px; border: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">שם קובץ אסמכתא:</td>
+              <td style="padding: 10px; border: 1px solid #ddd;">${file ? file.name : 'לא צורף קובץ'}</td>
+            </tr>
+          </table>
+          <p style="margin-top: 20px;">קובץ האסמכתא מצורף להודעה זו.</p>
+          <p style="margin-top: 20px; font-size: 12px; color: #888;">הודעה זו נשלחה אוטומטית ממערכת ההרשמה באתר Savtot in Sri Lanka.</p>
+        </div>
+      `;
+
+      const attachments = file ? [
+        {
+          filename: file.name,
+          content: file.base64,
+          encoding: 'base64',
+          contentType: file.type
+        }
+      ] : [];
+
+      // Send to registrant
+      await transporter.sendMail({
+        from: '"Savtot in Sri Lanka" <' + gmailUser + '>',
+        to: email,
+        subject: registrantSubject,
+        html: registrantHtml,
+        attachments
+      });
+
+      // Send to admin
+      await transporter.sendMail({
+        from: '"Savtot in Sri Lanka (System)" <' + gmailUser + '>',
+        to: gmailUser,
+        subject: adminSubject,
+        html: adminHtml,
+        replyTo: email,
+        attachments
+      });
+
+      return NextResponse.json({ success: true, message: 'Payment emails sent successfully' });
+    }
+
+    // Default Registration Email Flow (Step 1)
     // 1. Email to the registrant
     const registrantSubject = isHebrew 
       ? 'אישור הרשמה ופרטי התחברות לוובינר - סבתות בסרי לנקה' 

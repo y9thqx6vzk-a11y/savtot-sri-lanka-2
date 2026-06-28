@@ -11,24 +11,31 @@ const USE_FIREBASE = true; // Set to true when you want to reconnect Firebase
 
 export async function GET() {
   try {
+    const cleanDefaultData = JSON.parse(JSON.stringify(defaultContentData));
+
     // If Firebase env vars are missing or disabled, return default content locally (so the site doesn't crash)
     if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
       console.warn("Firebase is temporarily disconnected. Returning default content.");
-      return NextResponse.json(defaultContentData);
+      return NextResponse.json(cleanDefaultData);
     }
 
     const doc = await db.collection('settings').doc('content_v3').get();
     
     if (!doc.exists) {
       // Initialize with default if it doesn't exist
-      await db.collection('settings').doc('content_v3').set(defaultContentData);
-      return NextResponse.json(defaultContentData);
+      await db.collection('settings').doc('content_v3').set(cleanDefaultData);
+      return NextResponse.json(cleanDefaultData);
     }
 
     return NextResponse.json(doc.data());
   } catch (error) {
     console.error("Error reading content:", error);
-    return NextResponse.json(defaultContentData); // Fallback
+    try {
+      const cleanDefaultData = JSON.parse(JSON.stringify(defaultContentData));
+      return NextResponse.json(cleanDefaultData); // Fallback
+    } catch (e) {
+      return NextResponse.json({ error: "Failed to read content" }, { status: 500 });
+    }
   }
 }
 
@@ -50,7 +57,7 @@ export async function POST(req) {
     // Read current
     const docRef = db.collection('settings').doc('content_v3');
     const doc = await docRef.get();
-    let content = doc.exists ? doc.data() : { ...defaultContentData };
+    let content = doc.exists ? doc.data() : JSON.parse(JSON.stringify(defaultContentData));
 
     // Update path
     const keys = fieldPath.split('.');

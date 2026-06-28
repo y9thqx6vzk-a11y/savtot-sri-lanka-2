@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Send } from 'lucide-react';
 import { useSite } from '../../contexts/SiteContext';
 import EditableText from '../../components/EditableText';
@@ -8,13 +9,24 @@ import TravelAgreement from '../../components/Agreements/TravelAgreement';
 import ItineraryAppendix from '../../components/Agreements/ItineraryAppendix';
 import AccommodationRates from '../../components/Agreements/AccommodationRates';
 
-export default function RegisterPage() {
+function RegisterFormContent() {
   const { lang, t } = useSite();
+  const searchParams = useSearchParams();
+  const querySeason = searchParams.get('season') === 'winter' ? 'winter' : 'summer';
+
   const [step, setStep] = useState(1);
   const [customStatus, setCustomStatus] = useState('idle'); // idle | submitting | error
 
   // Step 1 State
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', guests: '1', notes: '', website_url: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    phone: '', 
+    email: '', 
+    guests: '1', 
+    notes: '', 
+    website_url: '',
+    season: querySeason
+  });
   
   // Step 2 State
   const [agreements, setAgreements] = useState({ sectionA: false, sectionB: false, sectionC: false });
@@ -52,6 +64,7 @@ export default function RegisterPage() {
           phone: formData.phone,
           guests: formData.guests,
           notes: formData.notes,
+          season: formData.season,
           lang 
         })
       });
@@ -126,6 +139,7 @@ export default function RegisterPage() {
             email: formData.email,
             name: formData.name,
             phone: formData.phone,
+            season: formData.season,
             file: {
               name: paymentFile.name,
               type: paymentFile.type,
@@ -182,7 +196,46 @@ export default function RegisterPage() {
                 <EditableText path={`${lang}.register.subtitle`} text={t.register.subtitle} />
               </p>
               
-              <div className="space-y-4 mb-12">
+              {/* Price & Deposit Card */}
+              <div className="bg-teal-800/40 border border-teal-700/60 rounded-2xl p-5 mb-8 space-y-4 text-sm text-start" dir={lang === 'he' ? 'rtl' : 'ltr'}>
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-teal-300 font-bold block mb-1">
+                    {lang === 'he' ? 'עלות המסע' : 'Trip Price'}
+                  </span>
+                  <div className="text-2xl font-bold text-white">8,000 ₪</div>
+                  <div className="text-teal-200 text-xs mt-0.5">
+                    {lang === 'he' ? 'מחיר מבצע (Intro Price) | לאדם בחדר זוגי' : 'Intro Price | Per person in a double room'}
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-teal-700/40">
+                  <span className="text-xs uppercase tracking-wider text-teal-300 font-bold block mb-1">
+                    {lang === 'he' ? 'מקדמה להבטחת מקום' : 'Deposit to Secure Spot'}
+                  </span>
+                  <div className="text-white font-semibold">
+                    {lang === 'he' ? 'יש צורך במקדמה של 1,000 ₪' : 'A deposit of 1,000 ILS is required'}
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-teal-700/40 space-y-2">
+                  <div className="font-semibold text-white text-xs">
+                    {lang === 'he' ? 'המחיר כולל:' : 'Price Includes:'}
+                  </div>
+                  <ul className="list-disc list-inside text-xs text-teal-100 space-y-1 opacity-90">
+                    <li>{lang === 'he' ? '2 ארוחות ביום + ארוחה לצהריים' : '2 meals a day + box lunch'}</li>
+                    <li>{lang === 'he' ? 'פעילויות' : 'Activities'}</li>
+                    <li>{lang === 'he' ? 'תחבורה' : 'Transport'}</li>
+                    <li>{lang === 'he' ? 'לינה במלונות 4-5 כוכבים' : 'Accommodation in 4-5 star hotels'}</li>
+                  </ul>
+                </div>
+
+                <div className="text-[11px] text-teal-300 leading-normal space-y-1 opacity-80 pt-2 border-t border-teal-700/40">
+                  <p>{lang === 'he' ? '* המחיר עשוי לרדת או לעלות בהתאם לשינויים בשער הדולר.' : '* Price may vary depending on the USD exchange rate.'}</p>
+                  <p>{lang === 'he' ? '* המחיר אינו כולל טיסות, ויזה וביטוח. כל שאר הדברים כלולים.' : '* Price does not include flights, visa, and insurance. All other items included.'}</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-8">
                 {t.register.details.map((detail, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-orange-400"></div>
@@ -258,11 +311,27 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.guests}</label>
-                  <select name="guests" value={formData.guests} onChange={e => setFormData({...formData, guests: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50">
-                    {[1,2,3,4,5].map(num => <option key={num} value={num}>{num}</option>)}
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-bold text-teal-900 mb-2">
+                      {lang === 'he' ? 'עונת הטיול *' : 'Trip Season *'}
+                    </label>
+                    <select 
+                      name="season" 
+                      value={formData.season} 
+                      onChange={e => setFormData({...formData, season: e.target.value})} 
+                      className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 cursor-pointer"
+                    >
+                      <option value="summer">{lang === 'he' ? 'קיץ 2027' : 'Summer 2027'}</option>
+                      <option value="winter">{lang === 'he' ? 'חורף (פברואר) 2027' : 'Winter (February) 2027'}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-teal-900 mb-2">{t.register.form.guests}</label>
+                    <select name="guests" value={formData.guests} onChange={e => setFormData({...formData, guests: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all bg-stone-50 cursor-pointer">
+                      {[1,2,3,4,5].map(num => <option key={num} value={num}>{num}</option>)}
+                    </select>
+                  </div>
                 </div>
 
                 <div>
@@ -272,7 +341,7 @@ export default function RegisterPage() {
 
                 {hasError && <p className="text-red-500 font-medium"><EditableText path={`${lang}.register.form.error`} text={t.register.form.error} /></p>}
 
-                <button disabled={isSubmitting} type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70 mt-4">
+                <button disabled={isSubmitting} type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70 mt-4 cursor-pointer">
                   {isSubmitting ? t.register.form.submitting : <>{t.register.form.submit} <Send className={`w-5 h-5 ${lang === 'he' ? 'rotate-180' : ''}`} /></>}
                 </button>
               </form>
@@ -347,7 +416,7 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                <button disabled={!canProceedStep2} type="submit" className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${canProceedStep2 ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-stone-300 text-stone-500 opacity-60 cursor-not-allowed'}`}>
+                <button disabled={!canProceedStep2} type="submit" className={`w-full py-4 rounded-xl font-bold text-lg transition-all cursor-pointer ${canProceedStep2 ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-stone-300 text-stone-500 opacity-60 cursor-not-allowed'}`}>
                   {lang === 'he' ? 'המשך לשלב התשלום' : 'Proceed to Payment'}
                 </button>
               </form>
@@ -383,7 +452,7 @@ export default function RegisterPage() {
                       : 'Our model is built on full transparency. Since most of the money does not stay with us but is transferred directly to ground suppliers abroad (hotels, buses, attractions, etc.), we operate on a trust fund model. Therefore, after payment, two separate receipts will be issued:'}
                   </p>
                   <ol className="list-decimal list-inside space-y-2">
-                    <li><strong>{lang === 'he' ? 'קבלת פיקדון: ' : 'Deposit Receipt: '}</strong> {lang === 'he' ? 'על החלק הארי של התשלום, אשר עובר דרכנו כ"צינור" ומיועד במלואו לתשלום לספקים בסרי לנקה.' : 'For the main part of the payment, which passes through us and is fully intended for suppliers in Sri Lanka.'}</li>
+                    <li><strong>{lang === 'he' ? 'קבלת פיקדון: ' : 'Deposit Receipt: '}</strong> {lang === 'he' ? 'על החלק הארי של התשלום, אשר עובר דרכנו כ\"צינור\" ומיועד במלואו לתשלום לספקים בסרי לנקה.' : 'For the main part of the payment, which passes through us and is fully intended for suppliers in Sri Lanka.'}</li>
                     <li><strong>{lang === 'he' ? 'קבלה רגילה: ' : 'Standard Invoice: '}</strong> {lang === 'he' ? 'על החלק המהווה את התמורה הישירה שלנו בגין הארגון, הליווי וההדרכה.' : 'For the part that constitutes our direct remuneration for organization, accompaniment, and guidance.'}</li>
                   </ol>
                 </div>
@@ -421,7 +490,7 @@ export default function RegisterPage() {
                           <p className="text-xs text-teal-600">{(paymentFile.size / 1024 / 1024).toFixed(2)} MB</p>
                         </div>
                       </div>
-                      <button onClick={handleRemoveFile} type="button" className="text-red-500 hover:text-red-700 p-2 hover:bg-red-50 rounded-lg transition-colors">
+                      <button onClick={handleRemoveFile} type="button" className="text-red-500 hover:text-red-700 p-2 hover:bg-red-50 rounded-lg transition-colors cursor-pointer">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                       </button>
                     </div>
@@ -435,7 +504,7 @@ export default function RegisterPage() {
                 <button 
                   disabled={isUploadingPayment} 
                   onClick={handleStep3Submit} 
-                  className={`w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all mt-6 flex justify-center items-center gap-2 ${isUploadingPayment ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all mt-6 flex justify-center items-center gap-2 cursor-pointer ${isUploadingPayment ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isUploadingPayment ? (
                     <>
@@ -475,7 +544,7 @@ export default function RegisterPage() {
                   </a>
                 </div>
 
-                <button onClick={() => window.location.reload()} className="mt-4 text-stone-500 font-medium hover:text-stone-800 transition-colors">
+                <button onClick={() => window.location.reload()} className="mt-4 text-stone-500 font-medium hover:text-stone-800 transition-colors cursor-pointer">
                   <EditableText path={`${lang}.register.form.success_btn`} text={t.register.form.success_btn} />
                 </button>
               </div>
@@ -485,5 +554,17 @@ export default function RegisterPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={
+      <div className="pt-40 pb-20 text-center text-teal-900 bg-stone-50 min-h-screen flex items-center justify-center font-serif text-2xl font-bold">
+        Loading Registration Details... / טוען פרטי הרשמה...
+      </div>
+    }>
+      <RegisterFormContent />
+    </Suspense>
   );
 }

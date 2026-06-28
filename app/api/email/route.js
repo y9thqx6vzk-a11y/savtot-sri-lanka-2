@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { type, email, name, phone, guests, notes, file, lang } = body;
+    const { type, email, name, phone, guests, notes, file, lang, season } = body;
 
     if (!email || !name) {
       return NextResponse.json({ error: 'Email and Name are required' }, { status: 400 });
@@ -27,11 +27,13 @@ export async function POST(req) {
     });
 
     const isHebrew = lang !== 'en';
+    const seasonTextHe = season === 'winter' ? 'חורף (פברואר) 2027' : 'קיץ 2027';
+    const seasonTextEn = season === 'winter' ? 'Winter (February) 2027' : 'Summer 2027';
 
     if (type === 'payment') {
       const registrantSubject = isHebrew 
-        ? 'אישור קבלת אסמכתת תשלום - סבתות בסרי לנקה' 
-        : 'Payment Reference Received - Savtot in Sri Lanka';
+        ? `אישור קבלת אסמכתת תשלום - סבתות בסרי לנקה (${seasonTextHe})` 
+        : `Payment Reference Received - Savtot in Sri Lanka (${seasonTextEn})`;
 
       const greeting = name ? (isHebrew ? `היי ${name},` : `Hi ${name},`) : (isHebrew ? 'שלום,' : 'Hello,');
 
@@ -42,7 +44,7 @@ export async function POST(req) {
           </div>
           <div style="padding: 20px;">
             <p style="font-size: 16px;">${greeting}</p>
-            <p style="font-size: 16px;">קיבלנו את אסמכתת התשלום שצירפת (<strong>${file ? file.name : ''}</strong>).</p>
+            <p style="font-size: 16px;">קיבלנו את אסמכתת התשלום שצירפת (<strong>${file ? file.name : ''}</strong>) עבור <strong>מחזור ${seasonTextHe}</strong>.</p>
             <p style="font-size: 16px;">אנו נבדוק אותה ונאשר את הרישום הסופי שלך בהקדם האפשרי. עותק של האסמכתא ששלחת מצורף למייל זה.</p>
             <p style="font-size: 16px;">נתראה בקרוב,<br>צוות סבתות בסרי לנקה</p>
           </div>
@@ -54,14 +56,14 @@ export async function POST(req) {
           </div>
           <div style="padding: 20px;">
             <p style="font-size: 16px;">${greeting}</p>
-            <p style="font-size: 16px;">We have received the payment reference you attached (<strong>${file ? file.name : ''}</strong>).</p>
+            <p style="font-size: 16px;">We have received the payment reference you attached (<strong>${file ? file.name : ''}</strong>) for the <strong>${seasonTextEn}</strong> trip.</p>
             <p style="font-size: 16px;">We will verify it and confirm your final registration as soon as possible. A copy of the reference you sent is attached to this email.</p>
             <p style="font-size: 16px;">See you soon,<br>Savtot in Sri Lanka Team</p>
           </div>
         </div>
       `;
 
-      const adminSubject = `אסמכתת תשלום חדשה מ- ${name}`;
+      const adminSubject = `אסמכתת תשלום חדשה מ- ${name} (${seasonTextHe})`;
       const adminHtml = `
         <div dir="rtl" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
           <h2 style="color: #0f766e;">התקבלה אסמכתת תשלום חדשה! 💳</h2>
@@ -70,6 +72,10 @@ export async function POST(req) {
             <tr>
               <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold; width: 30%;">שם מלא:</td>
               <td style="padding: 10px; border: 1px solid #ddd;">${name || '-'}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">עונה / מחזור:</td>
+              <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: #c4704f;">${seasonTextHe}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">טלפון:</td>
@@ -123,8 +129,8 @@ export async function POST(req) {
     // Default Registration Email Flow (Step 1)
     // 1. Email to the registrant
     const registrantSubject = isHebrew 
-      ? 'אישור הרשמה ופרטי התחברות לוובינר - סבתות בסרי לנקה' 
-      : 'Registration Confirmation & Webinar Details - Savtot in Sri Lanka';
+      ? `אישור הרשמה - סבתות בסרי לנקה (${seasonTextHe})` 
+      : `Registration Confirmation - Savtot in Sri Lanka (${seasonTextEn})`;
 
     const greeting = name ? (isHebrew ? `היי ${name},` : `Hi ${name},`) : (isHebrew ? 'שלום,' : 'Hello,');
 
@@ -135,8 +141,8 @@ export async function POST(req) {
         </div>
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
-          <p style="font-size: 16px;">אנו שמחים לאשר את הרשמתך לוובינר של סבתות בסרי לנקה.</p>
-          <p style="font-size: 16px;">אנו נשלח פרטים ועדכונים לגבי מפגש הזום הקרוב שלנו <strong>במייל הזה</strong>, וכמובן גם בקבוצת הוואצאפ בה אנחנו מעדכנים על הכל בזמן אמת.</p>
+          <p style="font-size: 16px;">אנו שמחים לאשר את הרשמתך לטיול סבתות בסרי לנקה - <strong>מחזור ${seasonTextHe}</strong>.</p>
+          <p style="font-size: 16px;">אנו נשלח פרטים ועדכונים נוספים <strong>במייל הזה</strong>, וכמובן גם בקבוצת הוואצאפ בה אנחנו מעדכנים על הכל בזמן אמת.</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">הצטרפו לקבוצת הוואצאפ לעדכונים</a>
           </div>
@@ -150,8 +156,8 @@ export async function POST(req) {
         </div>
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
-          <p style="font-size: 16px;">We are excited to confirm your registration for the Savtot in Sri Lanka webinar.</p>
-          <p style="font-size: 16px;">We will send all the details regarding the upcoming Zoom meeting <strong>via email</strong>, and of course in our WhatsApp group where we post real-time updates.</p>
+          <p style="font-size: 16px;">We are excited to confirm your registration for the Savtot in Sri Lanka - <strong>${seasonTextEn}</strong> trip.</p>
+          <p style="font-size: 16px;">We will send all the details and updates <strong>via email</strong>, and of course in our WhatsApp group where we post real-time updates.</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">Join WhatsApp Group</a>
           </div>
@@ -161,7 +167,7 @@ export async function POST(req) {
     `;
 
     // 2. Email to the admins
-    const adminSubject = `הרשמה חדשה לטיול: ${name}`;
+    const adminSubject = `הרשמה חדשה לטיול (${seasonTextHe}): ${name}`;
     const adminHtml = `
       <div dir="rtl" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
         <h2 style="color: #0f766e;">קיבלתם הרשמה חדשה מהאתר! 🎉</h2>
@@ -169,6 +175,10 @@ export async function POST(req) {
           <tr>
             <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold; width: 30%;">שם מלא:</td>
             <td style="padding: 10px; border: 1px solid #ddd;">${name || '-'}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">עונה / מחזור:</td>
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: #c4704f;">${seasonTextHe}</td>
           </tr>
           <tr>
             <td style="padding: 10px; border: 1px solid #ddd; background-color: #f9f9f9; font-weight: bold;">טלפון:</td>

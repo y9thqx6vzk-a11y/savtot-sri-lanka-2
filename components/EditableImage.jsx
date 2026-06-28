@@ -6,7 +6,7 @@ import { Upload, Loader } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import { getCloudinaryUrl } from '../lib/cloudinary';
 
-export default function EditableImage({ id, src, alt, className, width, height, crop }) {
+export default function EditableImage({ id, src, fallback, alt, className, width, height, crop }) {
   const { isAdmin } = useSite();
 
   // Resolve to Cloudinary URL on first render
@@ -55,7 +55,7 @@ export default function EditableImage({ id, src, alt, className, width, height, 
     }
   };
 
-  const fallbackSrc = getCloudinaryUrl('/home1.webp');
+  const fallbackSrc = getCloudinaryUrl(fallback || '/home1.webp');
 
   return (
     <div className={`relative group overflow-hidden rounded-2xl h-full ${isAdmin ? 'cursor-pointer' : ''} ${className}`}>

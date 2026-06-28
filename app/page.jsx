@@ -12,7 +12,7 @@ export default function HomePage() {
   const { lang, t } = useSite();
 
   return (
-    <>
+    <div style={{ backgroundColor: '#faf7f2' }}>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <div className="relative min-h-[100svh] py-32 flex items-center justify-center overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] shadow-2xl z-10 mb-8">
         <div className="absolute inset-0 z-0">
@@ -24,135 +24,116 @@ export default function HomePage() {
             width={1920}
             crop="fill"
           />
-          <div className="absolute inset-0 bg-teal-900/40 mix-blend-multiply pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-900 via-teal-900/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-stone-900/30 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/30 to-transparent pointer-events-none" />
         </div>
 
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16 pointer-events-none">
-          {/* Elegant Pulsing Date Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-6 pointer-events-auto shadow-md">
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-            <span className="text-sm font-semibold tracking-wider text-white flex items-center gap-1.5 font-sans">
-              <Calendar className="w-4 h-4 text-orange-400" />
-              {lang === 'he' ? '30.08 עד ה-08.09*' : 'August 30 - September 8*'}
-            </span>
-          </div>
+        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto mt-16 pointer-events-none">
+
 
           <p className="text-sm uppercase tracking-[0.4em] mb-4 opacity-80 font-medium">
-            {lang === 'he' ? 'חוויה של פעם בחיים' : 'The trip of a lifetime'}
+            <EditableText path={`${lang}.hero.tagline`} text={t.hero.tagline} />
           </p>
-          <h1 className="text-5xl md:text-8xl font-serif font-bold mb-8 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto relative">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto relative">
             <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
-            <span className="absolute -top-10 -end-10 text-orange-500 text-6xl opacity-40 select-none hidden md:block">🍃</span>
           </h1>
-          <p className="text-lg md:text-2xl font-light mb-8 opacity-90 max-w-2xl mx-auto pointer-events-auto leading-relaxed">
+          <p className="text-base md:text-xl font-light mb-6 opacity-90 max-w-3xl mx-auto pointer-events-auto leading-relaxed whitespace-pre-line">
             <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
           </p>
 
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 mb-10 pointer-events-auto border border-white/20 max-w-2xl mx-auto shadow-2xl">
-            <div className="text-3xl md:text-4xl font-bold mb-2 text-orange-400 text-center drop-shadow-md">
-              {lang === 'he' ? '8,000 ש״ח - מחיר מבצע (Intro Price)' : '₪8,000 - Intro Price'}
+
+          {/* Dynamic Selection Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto pointer-events-auto text-stone-800">
+            {/* Summer Card */}
+            <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
+              <div>
+                <span className="text-[#c4704f] font-serif italic text-sm md:text-base font-medium block mb-1">
+                  {lang === 'he' ? 'חוויית קיץ חמה' : 'Warm Summer Vibe'}
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
+                  {lang === 'he' ? 'מסע קיץ 2027' : 'Summer 2027'}
+                </h3>
+                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
+                  {lang === 'he' 
+                    ? "ג'ונגלים, אתרים מפורסמים וחופים מהיפים בעולם" 
+                    : 'Jungles, famous sites and some of the most beautiful beaches in the world'}
+                </p>
+              </div>
+              <button 
+                onClick={() => router.push('/itinerary/summer')}
+                className="w-fit bg-[#c4704f] hover:bg-[#b05d3d] text-white px-6 py-2.5 rounded-full font-bold text-xs tracking-wider transition-colors shadow-md cursor-pointer"
+              >
+                {lang === 'he' ? 'למסלול הקיץ ←' : 'Summer Itinerary →'}
+              </button>
             </div>
-            <div className="text-lg md:text-xl font-medium mb-4 text-white text-center border-b border-white/10 pb-4">
-              {lang === 'he' ? 'המחיר לאדם בחדר זוגי' : 'Price per person in a double room'}
-            </div>
-            <div className="text-sm md:text-base opacity-90 space-y-2.5 text-white/90 text-start pt-2">
-              <p className="flex items-center gap-2">
-                <span className="text-orange-400 font-bold">📅 {lang === 'he' ? 'תאריכי המסע:' : 'Trip Dates:'}</span>
-                <span className="font-semibold">{lang === 'he' ? '30.08 עד ה-08.09*' : 'August 30 - September 8*'}</span>
-              </p>
-              <p>* {lang === 'he' ? 'התאריכים עשויים להשתנות - מומלץ להתעדכן.' : 'Dates are subject to change - please stay updated.'}</p>
-              <p>* {lang === 'he' ? 'המחיר עשוי לרדת או לעלות בהתאם לשינויים בשער הדולר.' : 'Price may fluctuate depending on the dollar exchange rate.'}</p>
-              <p>* {lang === 'he' ? 'המחיר אינו כולל טיסות, ויזה וביטוח. כל שאר הדברים כלולים.' : 'Price does not include flights, visa, and insurance. Everything else is included.'}</p>
+
+            {/* Winter Card */}
+            <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
+              <div>
+                <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block mb-1">
+                  {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
+                  {lang === 'he' ? 'מסע חורף 2027' : 'Winter (February) 2027'}
+                </h3>
+                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
+                  {lang === 'he' 
+                    ? 'קפה בהרים, שקיעות בים ובעיקר הרבה שמש' 
+                    : 'Coffee in the mountains, sunsets at sea and above all lots of sun'}
+                </p>
+              </div>
+              <button 
+                onClick={() => router.push('/itinerary/winter')}
+                className="w-fit bg-[#8ca38f] hover:bg-[#798e7c] text-white px-6 py-2.5 rounded-full font-bold text-xs tracking-wider transition-colors shadow-md cursor-pointer"
+              >
+                {lang === 'he' ? 'למסלול החורף ←' : 'Winter Itinerary →'}
+              </button>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center pointer-events-auto">
-            <button
-              onClick={() => router.push('/itinerary')}
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-orange-500/30"
-            >
-              {t.hero.cta_plan}
-            </button>
-            <button
-              onClick={() => router.push('/discovery')}
-              className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all"
-            >
-              {t.hero.cta_discover}
-            </button>
+          {/* Highlights */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-sm md:text-base font-light tracking-wide text-white/90 pointer-events-auto">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
+              <EditableText path={`${lang}.hero.kosher`} text={t.hero.kosher} />
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
+              <EditableText path={`${lang}.hero.yoga`} text={t.hero.yoga} />
+            </span>
+            <span className="flex items-center gap-2 text-[#ffd5a1]">
+              <EditableText path={`${lang}.hero.dates_disclaimer`} text={t.hero.dates_disclaimer} />
+            </span>
           </div>
         </div>
       </div>
 
-      {/* ── Features ─────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-stone-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-teal-900 mb-4">
-              <EditableText path={`${lang}.features.title`} text={t.features.title} />
-            </h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
-          </div>
-
-          {/* Order: Kosher → Authentic → Wellness */}
-          <div className="grid md:grid-cols-3 gap-10">
-            {[
-              { icon: <Utensils className="w-10 h-10 text-orange-500" />, title: t.features.f3_title, desc: t.features.f3_desc, key: 'f3' },
-              { icon: <MapPin   className="w-10 h-10 text-orange-500" />, title: t.features.f2_title, desc: t.features.f2_desc, key: 'f2' },
-              { icon: <Users    className="w-10 h-10 text-orange-500" />, title: t.features.f1_title, desc: t.features.f1_desc, key: 'f1' },
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-stone-50 p-8 rounded-[2rem] text-center hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300 border border-stone-100 group">
-                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md shadow-stone-200/50 group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-teal-800">
-                  <EditableText path={`${lang}.features.${feature.key}_title`} text={feature.title} />
-                </h3>
-                <p className="text-stone-600 leading-relaxed">
-                  <EditableText path={`${lang}.features.${feature.key}_desc`} text={feature.desc} multiline />
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Gallery / CTA ─────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white overflow-hidden relative">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
-            <div className="md:w-1/2">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-teal-900 mb-6">
-                <EditableText path={`${lang}.gallery.title`} text={t.gallery.title} />
-              </h2>
-              <p className="text-xl text-stone-600 mb-8 leading-relaxed">
-                <EditableText path={`${lang}.gallery.desc`} text={t.gallery.desc} multiline />
+      {/* ── CTA ─────────────────────────────────────────────────────────── */}
+      <section className="py-16 bg-transparent relative">
+        <div className="container mx-auto px-6 max-w-md text-center">
+          <div className="bg-[#faf7f2] border border-[#eaddcd] rounded-3xl p-8 shadow-sm flex flex-col items-center gap-5">
+            <div className="space-y-2">
+              <span className="font-serif italic text-[#c4704f] text-sm md:text-base font-medium block">
+                {lang === 'he' ? 'מוכנה לצאת לדרך?' : 'Ready to start your journey?'}
+              </span>
+              <p className="text-xl md:text-2xl font-bold text-stone-800 tracking-wide">
+                {lang === 'he' ? '8,000 ₪ – הכל כלול (ללא טיסות)*' : '8,000 ILS – All-inclusive (excluding flights)*'}
               </p>
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-12 mt-10">
-                <button
-                  onClick={() => router.push('/register')}
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-orange-500/30 hover:-translate-y-1 shrink-0 z-20"
-                >
-                  {t.gallery.cta}
-                </button>
-                <div className="flex -space-x-12 rtl:space-x-reverse pt-2 w-full max-w-sm">
-                   <div className="w-40 h-56 sm:w-56 sm:h-72 rounded-3xl border-[6px] border-white shadow-2xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 -rotate-6 origin-bottom-right">
-                      <EditableImage id="small_1" src="small_1" alt="Small 1" className="w-full h-full object-cover" width={600} height={800} crop="fill" />
-                   </div>
-                   <div className="w-40 h-56 sm:w-56 sm:h-72 rounded-3xl border-[6px] border-white shadow-2xl overflow-hidden transform hover:scale-105 transition-all hover:z-30 rotate-6 origin-bottom-left z-10 mt-8">
-                      <EditableImage id="small_2" src="small_2" alt="Small 2" className="w-full h-full object-cover" width={600} height={800} crop="fill" />
-                   </div>
-                </div>
-              </div>
+              <p className="text-xs text-stone-500 max-w-xs mx-auto leading-relaxed">
+                {lang === 'he' 
+                  ? '* בהתאם לשער הדולר, לא כולל טיסות. פרטים מלאים בעמוד ההרשמה.' 
+                  : '* Subject to USD exchange rate, excluding flights. Full details on the registration page.'}
+              </p>
             </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <EditableImage id="gal_1" src="gal_1" alt="Gallery 1" className="rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transform translate-y-8 w-full h-auto transition-transform hover:scale-[1.02] duration-500" width={800} crop="fill" />
-              <EditableImage id="gal_2" src="gal_2" alt="Gallery 2" className="rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] w-full h-auto transition-transform hover:scale-[1.02] duration-500" width={800} crop="fill" />
-            </div>
+            <button
+              onClick={() => router.push('/register')}
+              className="bg-[#c4704f] hover:bg-[#b05d3d] text-white px-10 py-3.5 rounded-full font-bold text-base transition-all shadow-md hover:-translate-y-0.5 cursor-pointer mt-1"
+            >
+              {lang === 'he' ? 'להרשמה למסע' : 'Register for the Journey'}
+            </button>
           </div>
         </div>
-        <div className="absolute top-0 end-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl"></div>
       </section>
-    </>
+    </div>
   );
 }

@@ -29,6 +29,7 @@ export default function ItineraryPage() {
 
   const currentDefaultImages = defaultImages[season] || defaultImages.summer;
   const getImageId = (idx) => {
+    if (season === 'winter') return `winter_day_${idx}`;
     if (idx === 8) return '10';
     if (idx === 7) return 'itinerary_day_8';
     return `itinerary_day_${idx}`;

@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { db } from '../../../lib/firebaseAdmin';
 
 // Default content fallback if Firestore is empty or not configured yet
-import { defaultContentData } from '../../../fix_site_context';
+import { defaultContentData } from '../../../contexts/SiteContext';
 
 export const dynamic = 'force-dynamic';
 

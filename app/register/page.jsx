@@ -208,12 +208,40 @@ function RegisterFormContent() {
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-teal-700/40">
-                  <span className="text-xs uppercase tracking-wider text-teal-300 font-bold block mb-1">
-                    {lang === 'he' ? 'מקדמה להבטחת מקום' : 'Deposit to Secure Spot'}
+                {/* Payment Timeline */}
+                <div className="pt-2 border-t border-teal-700/40 space-y-3">
+                  <span className="text-xs uppercase tracking-wider text-teal-300 font-bold block">
+                    {lang === 'he' ? 'לוח תשלומים' : 'Payment Schedule'}
                   </span>
-                  <div className="text-white font-semibold">
-                    {lang === 'he' ? 'יש צורך במקדמה של 1,000 ₪' : 'A deposit of 1,000 ILS is required'}
+
+                  {/* Step 1 */}
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-400/90 flex items-center justify-center text-white text-xs font-bold mt-0.5">1</div>
+                    <div>
+                      <div className="text-white font-semibold">
+                        {lang === 'he' ? 'מקדמה להבטחת מקום – 1,000 ₪' : 'Deposit to Secure Your Spot – 1,000 ILS'}
+                      </div>
+                      <div className="text-teal-200 text-xs mt-0.5 leading-relaxed">
+                        {lang === 'he'
+                          ? 'זהו הסכום היחיד שמשולם כעת. המקדמה מבטיחה את מקומך במסע ואינה ניתנת להחזר.'
+                          : 'This is the only payment required at this stage. The deposit secures your spot and is non-refundable.'}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-500/70 flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
+                    <div>
+                      <div className="text-white font-semibold">
+                        {lang === 'he' ? 'השלמת התשלום – כחודש–חודשיים לפני הטיול' : 'Final Payment – 1–2 Months Before Departure'}
+                      </div>
+                      <div className="text-teal-200 text-xs mt-0.5 leading-relaxed">
+                        {lang === 'he'
+                          ? 'נצור קשר אישית עם כל משתתפת להסדרת יתרת התשלום (7,000 ₪) בהתאם לשער הדולר במועד החיוב.'
+                          : 'We will reach out personally to each participant to arrange the remaining balance (7,000 ILS), adjusted per the USD exchange rate at time of billing.'}
+                      </div>
+                    </div>
                   </div>
                 </div>
 

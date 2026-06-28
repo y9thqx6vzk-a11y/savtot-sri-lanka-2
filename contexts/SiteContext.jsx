@@ -92,10 +92,10 @@ export const defaultContentData = {
               { hour: "18:30 - 19:30", place: "מלון בפסיקודה", activity: "ארוחת ערב שבת" }
             ]
           },
-          { day: "7", title: "שבת מנוחה", desc: "יום מנוחה רגוע בפסיקודה. זמן ליהנות מהאווירה ולאגור כוחות.", highlight: "מנוחה וחופש", 
+          { day: "7", title: "שבת מנוחה", desc: "יום מנוחה רגוע בפסיקודה, סשן יוגה שבת לייט, זמן ליהנות מהאווירה ולאגור כוחות.", highlight: "מנוחה וחופש", 
             schedule: [
-              { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון בפסיקודה", activity: "ארוחת בוקר" },
+              { hour: "09:30", place: "מלון", activity: "יוגה שבת לייט" },
               { hour: "18:30", place: "פסיקודה", activity: "מוצאי שבת" },
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
@@ -181,11 +181,10 @@ export const defaultContentData = {
               { hour: "17:15", place: "מלון", activity: "התארגנות לשבת" }
             ]
           },
-          { day: "7", title: "שבת מנוחה", desc: "טיול זריחה ותרגול יוגה של בוקר, ארוחת בוקר וזמן מנוחה רגוע בשבת. בערב - הבדלה במוצאי שבת וארוחת ערב.", highlight: "שבת מנוחה ויוגה",
+          { day: "7", title: "שבת מנוחה", desc: "סשן יוגה שבת לייט, ארוחת בוקר וזמן מנוחה רגוע בשבת. בערב - הבדלה במוצאי שבת וארוחת ערב.", highlight: "שבת מנוחה ויוגה לייט",
             schedule: [
-              { hour: "05:00", place: "מלון", activity: "טיול זריחה" },
-              { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
+              { hour: "09:30", place: "מלון", activity: "יוגה שבת לייט" },
               { hour: "18:30", place: "מלון", activity: "מוצאי שבת (הבדלה)" },
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
@@ -338,10 +337,10 @@ export const defaultContentData = {
               { hour: "18:30 - 19:30", place: "Hotel in Passikudah", activity: "Shabbat Dinner" }
             ]
           },
-          { day: "7", title: "Shabbat Rest", desc: "A calm day of rest in Passikudah. Time to enjoy the atmosphere and recharge your batteries.", highlight: "Rest & Freedom", 
+          { day: "7", title: "Shabbat Rest", desc: "A calm day of rest in Passikudah, Shabbat lite yoga session, time to enjoy the atmosphere and recharge your batteries.", highlight: "Rest & Freedom", 
             schedule: [
-              { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
+              { hour: "09:30", place: "Hotel", activity: "Shabbat Lite Yoga" },
               { hour: "18:30", place: "Passikudah", activity: "End of Shabbat" },
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
@@ -427,11 +426,10 @@ export const defaultContentData = {
               { hour: "17:15", place: "Hotel", activity: "Shabbat preparations" }
             ]
           },
-          { day: "7", title: "Shabbat Rest", desc: "Sunrise hike and morning yoga, breakfast, and a peaceful Shabbat rest. In the evening, Havdalah (Motzash) and dinner.", highlight: "Peaceful Shabbat and morning yoga",
+          { day: "7", title: "Shabbat Rest", desc: "Shabbat lite yoga session, breakfast, and a peaceful Shabbat rest. In the evening, Havdalah (Motzash) and dinner.", highlight: "Peaceful Shabbat and lite yoga",
             schedule: [
-              { hour: "05:00", place: "Hotel", activity: "Sunrise hike" },
-              { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+              { hour: "09:30", place: "Hotel", activity: "Shabbat Lite Yoga" },
               { hour: "18:30", place: "Hotel", activity: "Motzash (Havdalah)" },
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]

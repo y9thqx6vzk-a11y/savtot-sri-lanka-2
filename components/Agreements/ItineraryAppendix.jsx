@@ -1,14 +1,192 @@
 import React from 'react';
 import { useSite } from '../../contexts/SiteContext';
 
-export default function ItineraryAppendix() {
+export default function ItineraryAppendix({ season }) {
   const { lang } = useSite();
   const isHe = lang === 'he';
+  const isWinter = season === 'winter';
 
+  if (isWinter) {
+    if (isHe) {
+      return (
+        <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="rtl">
+          <p className="font-bold text-base">נספח מסלול – מסע נשים לסרי לנקה (חורף 2027)</p>
+          
+          <div className="space-y-3">
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 1: הגעה ונסיעה לנגומבו/קולומבו</p>
+              <p><strong>הערב:</strong> נחיתה בשדה התעופה של קולומבו (CMB), סידורי הגעה והעברה למלון.</p>
+              <p><strong>פינוק:</strong> קבלת חדרים, מסאז' מפנק במלון להתחלת המסע באווירה רגועה וארוחת ערב חגיגית.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: ערב | לינה: מלון בקולומבו/נגומבו (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 2: אקסטרים בקיטולגלה ונסיעה לנווארה אליה</p>
+              <p><strong>בוקר:</strong> טיול זריחה מוקדם, יוגה וארוחת בוקר במלון.</p>
+              <p><strong>אמצע היום:</strong> נסיעה לקיטולגלה לרפטינג מרגש במים לבנים והליכת קניונינג ביער הגשם.</p>
+              <p><strong>ערב:</strong> נסיעה לנווארה אליה, צ'ק-אין וארוחת ערב במלון.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בנווארה אליה (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 3: מטעי תה והרכבת הציורית לאלה</p>
+              <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר.</p>
+              <p><strong>אמצע היום:</strong> סיור מודרך במטעי התה של נווארה אליה ובמפלים.</p>
+              <p><strong>אחר הצהריים:</strong> נסיעה ברכבת הציורית המפורסמת מנווארה אליה לאלה.</p>
+              <p><strong>ערב:</strong> הגעה לאלה, צ'ק-אין וארוחת ערב במלון או בבית חב"ד.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 4: מפלים ואדרנלין באלה</p>
+              <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר.</p>
+              <p><strong>אמצע היום:</strong> טיול שטח אל מפלי דיאלומא המרהיבים, גלישת אומגה (Flying Ravana) וזמן קניות בעיירה אלה.</p>
+              <p><strong>ערב:</strong> נסיעה למלון וארוחת ערב קבוצתית.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 5: ספארי פילים וסאפ שקיעה בדרום</p>
+              <p><strong>בוקר:</strong> ארוחת בוקר ונסיעה דרומה.</p>
+              <p><strong>צהריים:</strong> ספארי פילים מרתק בשמורת אודוואלאווה בטבע הפראי.</p>
+              <p><strong>אחר הצהריים:</strong> הגעה לחוף הדרומי, סאפ שקיעה רגוע בים ועיסוי מפנק במלון.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 6: שנורקלינג והתארגנות לשבת</p>
+              <p><strong>בוקר:</strong> ארוחת בוקר במלון.</p>
+              <p><strong>אמצע היום:</strong> שנורקלינג מדהים עם צבי ים בחוף, זמן חוף חופשי וקניות מקומיות.</p>
+              <p><strong>אחר הצהריים:</strong> התארגנות לקראת כניסת שבת.</p>
+              <p><strong>ערב:</strong> קבלת שבת וסעודת שבת חגיגית.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 7: שבת מנוחה ויוגה</p>
+              <p><strong>בוקר:</strong> טיול זריחה, סשן יוגה, קפה ועוגה ולאחריו ארוחת בוקר/בראנץ' מאוחרת.</p>
+              <p><strong>אמצע היום:</strong> זמן חופשי למנוחה, קריאה ואווירת שבת שקטה על החוף.</p>
+              <p><strong>ערב:</strong> מוצאי שבת, הבדלה וארוחת ערב במלון.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, צהריים, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 8: צפייה בלווייתנים וגלישה</p>
+              <p><strong>בוקר מוקדם:</strong> שייט מיוחד לצפייה בלווייתנים ודולפינים באוקיינוס.</p>
+              <p><strong>בוקר:</strong> יוגה וארוחת בוקר במלון.</p>
+              <p><strong>אמצע היום:</strong> שיעור גלישה חווייתי וזמן קניות.</p>
+              <p><strong>אחר הצהריים:</strong> נסיעה והתארגנות ללינה בטלפה.</p>
+              <p><strong>ערב:</strong> ארוחת ערב חמה במלון.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בטלפה (או דומה).</p>
+            </div>
+
+            <div className="border-r-4 border-teal-500 pr-3">
+              <p className="font-bold text-teal-800">יום 9: יום אחרון וטיסה</p>
+              <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר במלון.</p>
+              <p><strong>אמצע היום:</strong> זמן חופשי למנוחה, סידורים אחרונים וקניות.</p>
+              <p><strong>אחר הצהריים:</strong> נסיעה לשדה התעופה בקולומבו (CMB) לקראת הטיסה חזרה לישראל.</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב (במלון/בית חב"ד/שדה התעופה).</p>
+            </div>
+          </div>
+
+          <p className="text-xs mt-4"><strong>הבהרה משפטית:</strong> המסלול המוצג לעיל מפרט את הלו"ז המתוכנן והפעילויות הכלולות. המארגנים שומרים לעצמם את הזכות המלאה לבצע התאמות הכרחיות במסלול, בסדר הימים, או להחליף את המלונות המפורטים במקומות לינה ברמה זהה, עקב אילוצי שטח, החלטות ספקים מקומיים, תנאי מזג אוויר או כוח עליון.</p>
+          <p className="text-xs mt-2"><strong>פירוט רכיב פעילויות ($290 USD):</strong> הרכיב מכסה במלואו את כל דמי הכניסה הקבוצתיים, הדרכה מקומית, ולוגיסטיקה עבור הפעילויות הכלולות. פעילויות אופציונליות או טיפולי ספא ישולמו בנפרד על ידי המשתתפת.</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="ltr">
+          <p className="font-bold text-base">Itinerary Appendix – Women\'s Journey to Sri Lanka (Winter 2027)</p>
+          
+          <div className="space-y-3">
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 1: Arrival & Transit to Negombo/Colombo</p>
+              <p><strong>Evening:</strong> Landing at Colombo Airport (CMB), immigration procedures, and transfer to hotel.</p>
+              <p><strong>Wellness:</strong> Hotel check-in, pampering massage to kick off the trip, and a welcome dinner.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Dinner | Accommodation: Hotel in Colombo/Negombo (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 2: Extreme in Kithulgala & Drive to Nuwara Eliya</p>
+              <p><strong>Morning:</strong> Early sunrise hike, yoga, and breakfast at the hotel.</p>
+              <p><strong>Mid-Day:</strong> Drive to Kithulgala for whitewater rafting and rainforest canyoning.</p>
+              <p><strong>Evening:</strong> Transit to Nuwara Eliya, check-in, and dinner at the hotel.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Nuwara Eliya (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 3: Tea Gardens & Scenic Train to Ella</p>
+              <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
+              <p><strong>Mid-Day:</strong> Guided tour of tea plantations and Nuwara Eliya waterfalls.</p>
+              <p><strong>Afternoon:</strong> The iconic scenic train ride from Nuwara Eliya to Ella.</p>
+              <p><strong>Evening:</strong> Arrival in Ella, check-in, and dinner (at hotel or local Chabad House).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 4: Waterfalls & Adrenaline in Ella</p>
+              <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
+              <p><strong>Mid-Day:</strong> Excursion to the majestic Diyaluma Falls, Flying Ravana Zipline, and local shopping in Ella.</p>
+              <p><strong>Evening:</strong> Group dinner and rest.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 5: Elephant Safari & Sunset SUP on South Coast</p>
+              <p><strong>Morning:</strong> Breakfast and drive south.</p>
+              <p><strong>Mid-Day:</strong> Elephant safari in Udawalawe National Park.</p>
+              <p><strong>Afternoon:</strong> Arrival at the South Coast, sunset stand-up paddleboarding (SUP), and a relaxing massage.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 6: Turtles Snorkeling & Shabbat Preparation</p>
+              <p><strong>Morning:</strong> Breakfast at the hotel.</p>
+              <p><strong>Mid-Day:</strong> Snorkeling with wild sea turtles, free beach time, and local shopping.</p>
+              <p><strong>Afternoon:</strong> Shabbat preparations.</p>
+              <p><strong>Evening:</strong> Welcoming Shabbat; festive dinner.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 7: A Restful Shabbat & Yoga</p>
+              <p><strong>Morning:</strong> Sunrise hike, yoga session, morning coffee, followed by a late breakfast/brunch.</p>
+              <p><strong>Mid-Day:</strong> Free time for reading, relaxing, and quiet beach walks.</p>
+              <p><strong>Evening:</strong> Havdalah and group dinner.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Lunch, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 8: Whale Watching & Surf Lesson</p>
+              <p><strong>Early Morning:</strong> Ocean cruise search for whales and dolphins.</p>
+              <p><strong>Morning:</strong> Yoga and breakfast.</p>
+              <p><strong>Mid-Day:</strong> Surf lesson and shopping.</p>
+              <p><strong>Afternoon:</strong> Transit and check-in at Talpe.</p>
+              <p><strong>Evening:</strong> Dinner at the hotel.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Talpe (or similar).</p>
+            </div>
+
+            <div className="border-l-4 border-teal-500 pl-3">
+              <p className="font-bold text-teal-800">Day 9: Final Day & Departure</p>
+              <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
+              <p><strong>Mid-Day:</strong> Relaxation and final souvenir shopping.</p>
+              <p><strong>Afternoon:</strong> Drive to Colombo Airport (CMB) for the flight back.</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner (at hotel, Chabad House, or airport).</p>
+            </div>
+          </div>
+
+          <p className="text-xs mt-4"><strong>Legal Disclaimer:</strong> The itinerary presented above outlines the planned schedule and included activities. The Organizers reserve the full right to make necessary adjustments to the itinerary, the order of days, or substitute the specified hotels with accommodations of an identical standard, due to field constraints, local supplier decisions, weather conditions, or force majeure.</p>
+          <p className="text-xs mt-2"><strong>Activity Component Breakdown ($290 USD):</strong> Included Activities (Covered under the $290 USD Component) fully covers all group entry fees, local guiding services, and logistics for the included excursions. Excluded / Optional Activities (Paid Separately on Site) such as Ayurvedic spa treatments or marine wildlife excursions must be paid for independently.</p>
+        </div>
+      );
+    }
+  }
+
+  // Summer Trip (default)
   if (isHe) {
     return (
       <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="rtl">
-        <p className="font-bold text-base">נספח מסלול – מסע נשים לסרי לנקה (קיץ 2026)</p>
+        <p className="font-bold text-base">נספח מסלול – מסע נשים לסרי לנקה (קיץ 2027)</p>
         
         <div className="space-y-3">
           <div className="border-r-4 border-teal-500 pr-3">
@@ -91,7 +269,6 @@ export default function ItineraryAppendix() {
         </div>
 
         <p className="text-xs mt-4"><strong>הבהרה משפטית:</strong> המסלול המוצג לעיל מפרט את הלו"ז המתוכנן והפעילויות הכלולות. המארגנים שומרים לעצמם את הזכות המלאה לבצע התאמות הכרחיות במסלול, בסדר הימים, או להחליף את המלונות המפורטים במקומות לינה ברמה זהה, עקב אילוצי שטח, החלטות ספקים מקומיים, תנאי מזג אוויר או כוח עליון.</p>
-        
         <p className="text-xs mt-2"><strong>פירוט רכיב פעילויות ($290 USD):</strong> הרכיב מכסה במלואו את כל דמי הכניסה הקבוצתיים, הדרכה מקומית, ולוגיסטיקה עבור הפעילויות הכלולות. פעילויות אופציונליות או טיפולי ספא ישולמו בנפרד על ידי המשתתפת.</p>
       </div>
     );
@@ -99,10 +276,9 @@ export default function ItineraryAppendix() {
 
   return (
     <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="ltr">
-      <p className="font-bold text-base">Itinerary Appendix – Women's Journey to Sri Lanka (Summer 2026)</p>
+      <p className="font-bold text-base">Itinerary Appendix – Women\'s Journey to Sri Lanka (Summer 2027)</p>
       
       <div className="space-y-3">
-        {/* Days omitted for brevity in thought, but generating full HTML for client here */}
         <div className="border-l-4 border-teal-500 pl-3">
           <p className="font-bold text-teal-800">Day 1: Arrival & Journey to Sigiriya</p>
           <p><strong>Afternoon:</strong> Landing at Colombo Airport (CMB) and formal airport procedures.</p>

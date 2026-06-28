@@ -377,7 +377,7 @@ function RegisterFormContent() {
                 <div className="space-y-4">
                   <h4 className="text-lg font-bold text-teal-800">{lang === 'he' ? 'שקיפות אופרטיבית (נספח מסלול)' : 'Operational Transparency (Itinerary)'}</h4>
                   <div className="h-64 overflow-y-auto bg-stone-50 p-4 rounded-xl border border-stone-200 text-sm text-stone-700 shadow-inner">
-                    <ItineraryAppendix />
+                    <ItineraryAppendix season={formData.season} />
                   </div>
                   <label htmlFor="sectionB" className="flex items-start gap-3 cursor-pointer group">
                     <input type="checkbox" id="sectionB" className="w-5 h-5 mt-1 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={agreements.sectionB} onChange={(e) => setAgreements({...agreements, sectionB: e.target.checked})} />

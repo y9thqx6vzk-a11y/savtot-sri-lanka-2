@@ -29,7 +29,7 @@ export default function ItineraryPage() {
 
   const currentDefaultImages = defaultImages[season] || defaultImages.summer;
   const getImageId = (idx) => {
-    if (season === 'winter') return `winter_day_${idx}`;
+    if (season === 'winter') return `winter_day_${idx + 1}`;
     if (idx === 8) return '10';
     if (idx === 7) return 'itinerary_day_8';
     return `itinerary_day_${idx}`;
@@ -63,8 +63,8 @@ export default function ItineraryPage() {
               <div key={index} className={`flex flex-col md:flex-row items-stretch gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 
                 <div className="w-full md:w-1/2 p-4 flex">
-                  <div className="bg-white p-2 rounded-2xl shadow-lg rotate-1 hover:rotate-0 transition-transform duration-300 w-full h-full flex flex-col">
-                    <div className="w-full bg-stone-200 rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px]">
+                  <div className="bg-white p-2 rounded-2xl shadow-lg transition-transform duration-300 w-full h-full flex flex-col">
+                    <div className="w-full bg-stone-200 rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px] isolation-isolate" style={{ transform: 'translateZ(0)' }}>
                        <EditableImage 
                         id={getImageId(index)} 
                         src={getImageId(index)} 

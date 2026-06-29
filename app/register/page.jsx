@@ -202,7 +202,9 @@ function RegisterFormContent() {
                   <span className="text-xs uppercase tracking-wider text-teal-300 font-bold block mb-1">
                     {lang === 'he' ? 'עלות המסע' : 'Trip Price'}
                   </span>
-                  <div className="text-2xl font-bold text-white">8,000 ₪</div>
+                  <div className="text-2xl font-bold text-white">
+                    {lang === 'he' ? '8,000 ₪*' : '8,000 ILS*'}
+                  </div>
                   <div className="text-teal-200 text-xs mt-0.5">
                     {lang === 'he' ? 'מחיר מבצע (Intro Price) | לאדם בחדר זוגי' : 'Intro Price | Per person in a double room'}
                   </div>

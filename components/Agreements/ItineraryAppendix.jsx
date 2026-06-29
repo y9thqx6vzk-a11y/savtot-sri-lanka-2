@@ -30,7 +30,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-r-4 border-teal-500 pr-3">
               <p className="font-bold text-teal-800">יום 3: מטעי תה והרכבת הציורית לאלה</p>
-              <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר.</p>
+              <p><strong>בוקר:</strong> יוגה וארוחת בוקר.</p>
               <p><strong>אמצע היום:</strong> סיור מודרך במטעי התה של נווארה אליה ובמפלים.</p>
               <p><strong>אחר הצהריים:</strong> נסיעה ברכבת הציורית המפורסמת מנווארה אליה לאלה.</p>
               <p><strong>ערב:</strong> הגעה לאלה, צ'ק-אין וארוחת ערב במלון או בבית חב"ד.</p>
@@ -47,7 +47,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-r-4 border-teal-500 pr-3">
               <p className="font-bold text-teal-800">יום 5: ספארי פילים וסאפ שקיעה בדרום</p>
-              <p><strong>בוקר:</strong> ארוחת בוקר ונסיעה דרומה.</p>
+              <p><strong>בוקר:</strong> יוגה, ארוחת בוקר ונסיעה דרומה.</p>
               <p><strong>צהריים:</strong> ספארי פילים מרתק בשמורת אודוואלאווה בטבע הפראי.</p>
               <p><strong>אחר הצהריים:</strong> הגעה לחוף הדרומי, סאפ שקיעה רגוע בים ועיסוי מפנק במלון.</p>
               <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
@@ -55,7 +55,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-r-4 border-teal-500 pr-3">
               <p className="font-bold text-teal-800">יום 6: שנורקלינג והתארגנות לשבת</p>
-              <p><strong>בוקר:</strong> ארוחת בוקר במלון.</p>
+              <p><strong>בוקר:</strong> יוגה וארוחת בוקר במלון.</p>
               <p><strong>אמצע היום:</strong> שנורקלינג מדהים עם צבי ים בחוף, זמן חוף חופשי וקניות מקומיות.</p>
               <p><strong>אחר הצהריים:</strong> התארגנות לקראת כניסת שבת.</p>
               <p><strong>ערב:</strong> קבלת שבת וסעודת שבת חגיגית.</p>
@@ -73,16 +73,16 @@ export default function ItineraryAppendix({ season }) {
             <div className="border-r-4 border-teal-500 pr-3">
               <p className="font-bold text-teal-800">יום 8: צפייה בלווייתנים וגלישה</p>
               <p><strong>בוקר מוקדם:</strong> שייט מיוחד לצפייה בלווייתנים ודולפינים באוקיינוס.</p>
-              <p><strong>בוקר:</strong> יוגה וארוחת בוקר במלון.</p>
+              <p><strong>בוקר:</strong> ארוחת בוקר במלון.</p>
               <p><strong>אמצע היום:</strong> שיעור גלישה חווייתי וזמן קניות.</p>
-              <p><strong>אחר הצהריים:</strong> נסיעה והתארגנות ללינה בטלפה.</p>
+              <p><strong>אחר הצהריים:</strong> יוגה בשקיעה, נסיעה והתארגנות ללינה בטלפה.</p>
               <p><strong>ערב:</strong> ארוחת ערב חמה במלון.</p>
               <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בטלפה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
               <p className="font-bold text-teal-800">יום 9: יום אחרון וטיסה</p>
-              <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר במלון.</p>
+              <p><strong>בוקר:</strong> יוגה וארוחת בוקר במלון.</p>
               <p><strong>אמצע היום:</strong> זמן חופשי למנוחה, סידורים אחרונים וקניות.</p>
               <p><strong>אחר הצהריים:</strong> נסיעה לשדה התעופה בקולומבו (CMB) לקראת הטיסה חזרה לישראל.</p>
               <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב (במלון/בית חב"ד/שדה התעופה).</p>
@@ -116,7 +116,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-l-4 border-teal-500 pl-3">
               <p className="font-bold text-teal-800">Day 3: Tea Gardens & Scenic Train to Ella</p>
-              <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
+              <p><strong>Morning:</strong> Yoga and breakfast.</p>
               <p><strong>Mid-Day:</strong> Guided tour of tea plantations and Nuwara Eliya waterfalls.</p>
               <p><strong>Afternoon:</strong> The iconic scenic train ride from Nuwara Eliya to Ella.</p>
               <p><strong>Evening:</strong> Arrival in Ella, check-in, and dinner (at hotel or local Chabad House).</p>
@@ -133,7 +133,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-l-4 border-teal-500 pl-3">
               <p className="font-bold text-teal-800">Day 5: Elephant Safari & Sunset SUP on South Coast</p>
-              <p><strong>Morning:</strong> Breakfast and drive south.</p>
+              <p><strong>Morning:</strong> Yoga, breakfast, and drive south.</p>
               <p><strong>Mid-Day:</strong> Elephant safari in Udawalawe National Park.</p>
               <p><strong>Afternoon:</strong> Arrival at the South Coast, sunset stand-up paddleboarding (SUP), and a relaxing massage.</p>
               <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
@@ -141,7 +141,7 @@ export default function ItineraryAppendix({ season }) {
 
             <div className="border-l-4 border-teal-500 pl-3">
               <p className="font-bold text-teal-800">Day 6: Turtles Snorkeling & Shabbat Preparation</p>
-              <p><strong>Morning:</strong> Breakfast at the hotel.</p>
+              <p><strong>Morning:</strong> Yoga and breakfast at the hotel.</p>
               <p><strong>Mid-Day:</strong> Snorkeling with wild sea turtles, free beach time, and local shopping.</p>
               <p><strong>Afternoon:</strong> Shabbat preparations.</p>
               <p><strong>Evening:</strong> Welcoming Shabbat; festive dinner.</p>
@@ -159,16 +159,16 @@ export default function ItineraryAppendix({ season }) {
             <div className="border-l-4 border-teal-500 pl-3">
               <p className="font-bold text-teal-800">Day 8: Whale Watching & Surf Lesson</p>
               <p><strong>Early Morning:</strong> Ocean cruise search for whales and dolphins.</p>
-              <p><strong>Morning:</strong> Yoga and breakfast.</p>
+              <p><strong>Morning:</strong> Breakfast.</p>
               <p><strong>Mid-Day:</strong> Surf lesson and shopping.</p>
-              <p><strong>Afternoon:</strong> Transit and check-in at Talpe.</p>
+              <p><strong>Afternoon:</strong> Sunset yoga, transit and check-in at Talpe.</p>
               <p><strong>Evening:</strong> Dinner at the hotel.</p>
               <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Talpe (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
               <p className="font-bold text-teal-800">Day 9: Final Day & Departure</p>
-              <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
+              <p><strong>Morning:</strong> Yoga and breakfast.</p>
               <p><strong>Mid-Day:</strong> Relaxation and final souvenir shopping.</p>
               <p><strong>Afternoon:</strong> Drive to Colombo Airport (CMB) for the flight back.</p>
               <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner (at hotel, Chabad House, or airport).</p>

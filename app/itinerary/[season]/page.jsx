@@ -60,11 +60,11 @@ export default function ItineraryPage() {
 
           <div className="space-y-12">
             {days.map((item, index) => (
-              <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+              <div key={index} className={`flex flex-col md:flex-row items-stretch gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 
-                <div className="w-full md:w-1/2 p-4">
-                  <div className="bg-white p-2 rounded-2xl shadow-lg rotate-1 hover:rotate-0 transition-transform duration-300">
-                    <div className="aspect-[4/3] w-full bg-stone-200 rounded-xl overflow-hidden relative">
+                <div className="w-full md:w-1/2 p-4 flex">
+                  <div className="bg-white p-2 rounded-2xl shadow-lg rotate-1 hover:rotate-0 transition-transform duration-300 w-full h-full flex flex-col">
+                    <div className="w-full bg-stone-200 rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px]">
                        <EditableImage 
                         id={getImageId(index)} 
                         src={getImageId(index)} 
@@ -78,7 +78,7 @@ export default function ItineraryPage() {
                   </div>
                 </div>
 
-                <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-s-4 border-e-0 relative" style={{ borderInlineStartColor: season === 'winter' ? '#8ca38f' : '#c4704f' }}>
+                <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-s-4 border-e-0 relative flex flex-col justify-between" style={{ borderInlineStartColor: season === 'winter' ? '#8ca38f' : '#c4704f' }}>
                   <div className="absolute top-4 start-4 bg-teal-100 text-teal-800 font-bold px-3 py-1 rounded-full text-sm">
                     {lang === 'he' ? `יום ${item.day}` : `Day ${item.day}`}
                   </div>

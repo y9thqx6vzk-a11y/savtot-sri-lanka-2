@@ -234,11 +234,11 @@ function RegisterFormContent() {
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-500/70 flex items-center justify-center text-white text-xs font-bold mt-0.5">2</div>
                     <div>
                       <div className="text-white font-semibold">
-                        {lang === 'he' ? 'השלמת התשלום – כחודש–חודשיים לפני הטיול' : 'Final Payment – 1–2 Months Before Departure'}
+                        {lang === 'he' ? 'השלמת התשלום – כחודש/חודשיים לפני הטיול' : 'Final Payment – 1–2 Months Before Departure'}
                       </div>
                       <div className="text-teal-200 text-xs mt-0.5 leading-relaxed">
                         {lang === 'he'
-                          ? 'נצור קשר אישית עם כל משתתפת להסדרת יתרת התשלום (7,000 ₪) בהתאם לשער הדולר במועד החיוב.'
+                          ? 'ניצור קשר אישית עם כל משתתפת להסדרת יתרת התשלום (7,000 ₪) בהתאם לשער הדולר במועד החיוב.'
                           : 'We will reach out personally to each participant to arrange the remaining balance (7,000 ILS), adjusted per the USD exchange rate at time of billing.'}
                       </div>
                     </div>
@@ -250,7 +250,7 @@ function RegisterFormContent() {
                     {lang === 'he' ? 'המחיר כולל:' : 'Price Includes:'}
                   </div>
                   <ul className="list-disc list-inside text-xs text-teal-100 space-y-1 opacity-90">
-                    <li>{lang === 'he' ? '2 ארוחות ביום + ארוחה לצהריים' : '2 meals a day + box lunch'}</li>
+                    <li>{lang === 'he' ? '3 ארוחות' : '2 meals a day + Lunch Box'}</li>
                     <li>{lang === 'he' ? 'פעילויות' : 'Activities'}</li>
                     <li>{lang === 'he' ? 'תחבורה' : 'Transport'}</li>
                     <li>{lang === 'he' ? 'לינה במלונות 4-5 כוכבים' : 'Accommodation in 4-5 star hotels'}</li>
@@ -259,7 +259,7 @@ function RegisterFormContent() {
 
                 <div className="text-[11px] text-teal-300 leading-normal space-y-1 opacity-80 pt-2 border-t border-teal-700/40">
                   <p>{lang === 'he' ? '* המחיר עשוי לרדת או לעלות בהתאם לשינויים בשער הדולר.' : '* Price may vary depending on the USD exchange rate.'}</p>
-                  <p>{lang === 'he' ? '* המחיר אינו כולל טיסות, ויזה וביטוח. כל שאר הדברים כלולים.' : '* Price does not include flights, visa, and insurance. All other items included.'}</p>
+                  <p>{lang === 'he' ? '* המחיר אינו כולל טיסות, ויזה וביטוח.' : '* Price does not include flights, visa, and insurance.'}</p>
                 </div>
               </div>
 

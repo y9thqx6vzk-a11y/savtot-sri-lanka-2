@@ -63,7 +63,7 @@ export default function Navbar() {
             href="/"
             className={`text-xl cursor-pointer flex items-center gap-2 ${isSolid ? 'text-stone-800' : 'text-white'}`}
             style={{ fontFamily: "'Playfair Display', Georgia, serif", letterSpacing: '-0.01em' }}
-            title={lang === 'he' ? 'להרשמה' : 'Sign Up'}
+            title={lang === 'he' ? 'עמוד הבית' : 'Home'}
           >
             <Leaf className="w-5 h-5" style={{ color: '#c4704f' }} />
             <span>Savtot <span className="italic font-normal opacity-70">in Sri Lanka</span></span>
@@ -147,9 +147,19 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button className="md:hidden z-50 cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="text-stone-800" /> : <Menu className={isSolid ? 'text-stone-800' : 'text-white'} />}
-          </button>
+          <div className="md:hidden flex flex-col items-center gap-1 z-50">
+            <button className="cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="text-stone-800" /> : <Menu className={isSolid ? 'text-stone-800' : 'text-white'} />}
+            </button>
+            {!isMenuOpen && (
+              <button 
+                onClick={toggleLanguage}
+                className={`text-[10px] font-bold px-2 py-0.5 rounded border ${isSolid ? 'border-stone-300 text-stone-700 bg-stone-100/50' : 'border-white/50 text-white bg-white/10'} shadow-sm cursor-pointer`}
+              >
+                {lang === 'he' ? 'EN' : 'עב'}
+              </button>
+            )}
+          </div>
         </div>
       </nav>
 

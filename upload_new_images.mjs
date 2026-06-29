@@ -6,7 +6,8 @@ const UPLOAD_PRESET = 'savtot_admin';
 const filesToUpload = [
   { path: 'public/10.jpg', id: '10', type: 'image' },
   { path: 'public/small_1.webp', id: 'small_1', type: 'image' },
-  { path: 'public/small_2.webp', id: 'small_2', type: 'image' }
+  { path: 'public/small_2.webp', id: 'small_2', type: 'image' },
+  { path: 'public/home-page.jpg', id: 'home-page', type: 'image' }
 ];
 
 async function upload(buffer, publicId, type, originalPath) {

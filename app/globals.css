@@ -57,3 +57,21 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #faf7f2; }
 ::-webkit-scrollbar-thumb { background: #d4c4b0; border-radius: 10px; }
+
+/* Hebrew Font Overrides */
+html:lang(he), 
+html:lang(he) body, 
+html:lang(he) h1, 
+html:lang(he) h2, 
+html:lang(he) h3, 
+html:lang(he) h4,
+[lang="he"],
+[lang="he"] body,
+[lang="he"] h1,
+[lang="he"] h2,
+[lang="he"] [class*="font-serif"],
+[lang="he"] [class*="font-sans"],
+[lang="he"] h3,
+[lang="he"] h4 {
+  font-family: 'Calibri', 'Assistant', sans-serif !important;
+}

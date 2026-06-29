@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <EditableImage
             id="hero_bg"
-            src="hero_bg"
+            src="home-page.jpg"
             alt="Hero Background"
             className="w-full h-full object-cover"
             width={1920}
@@ -53,7 +53,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
                   {lang === 'he' ? 'מסע קיץ 2027' : 'Summer 2027'}
                 </h3>
-                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
+                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
                   {lang === 'he' 
                     ? "ג'ונגלים, אתרים מפורסמים וחופים מהיפים בעולם" 
                     : 'Jungles, famous sites and some of the most beautiful beaches in the world'}
@@ -76,7 +76,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
                   {lang === 'he' ? 'מסע חורף 2027' : 'Winter (February) 2027'}
                 </h3>
-                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
+                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
                   {lang === 'he' 
                     ? 'קפה בהרים, שקיעות בים ובעיקר הרבה שמש' 
                     : 'Coffee in the mountains, sunsets at sea and above all lots of sun'}
@@ -92,7 +92,7 @@ export default function HomePage() {
           </div>
 
           {/* Highlights */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-sm md:text-base font-light tracking-wide text-white/90 pointer-events-auto">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-xs md:text-sm font-light tracking-wide text-white/90 pointer-events-auto">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
               <EditableText path={`${lang}.hero.kosher`} text={t.hero.kosher} />
@@ -117,7 +117,7 @@ export default function HomePage() {
                 {lang === 'he' ? 'מוכנה לצאת לדרך?' : 'Ready to start your journey?'}
               </span>
               <p className="text-xl md:text-2xl font-bold text-stone-800 tracking-wide">
-                {lang === 'he' ? '8,000 ₪ – הכל כלול (ללא טיסות)*' : '8,000 ILS – All-inclusive (excluding flights)*'}
+                {lang === 'he' ? '8,000 ₪* – הכל כלול (ללא טיסות)' : '8,000 ILS* – All-inclusive (excluding flights)'}
               </p>
               <p className="text-xs text-stone-500 max-w-xs mx-auto leading-relaxed">
                 {lang === 'he' 

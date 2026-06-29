@@ -102,7 +102,6 @@ export const defaultContentData = {
           },
           { day: "8", title: "טרינקומלי", desc: "החוויה המרכזית שלנו היום תהיה שייט בעקבות לווייתנים ודולפינים, וצלילת שנורקלים כיפית ביחד.", highlight: "שייט לווייתנים ושנורקלים", 
             schedule: [
-              { hour: "05:00", place: "-", activity: "טיול זריחה" },
               { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון בפסיקודה", activity: "ארוחת בוקר" },
               { hour: "09:30 - 12:30", place: "טרינקומלי", activity: "שייט וצלילה / קניות" },
@@ -111,8 +110,8 @@ export const defaultContentData = {
           },
           { day: "9", title: "זמן ים אחרון", desc: "נצלו כל רגע של שמש, גלים וחול על החוף לפני הפרידה.", highlight: "ים ושמש", 
             schedule: [
-              { hour: "06:30", place: "מלון", activity: "יוגה" },
-              { hour: "08:00 - 09:00", place: "מלון בפסיקודה", activity: "ארוחת בוקר" },
+              { hour: "07:30", place: "מלון", activity: "יוגה" },
+              { hour: "08:30", place: "מלון בפסיקודה", activity: "ארוחת בוקר" },
               { hour: "09:30 - 17:00", place: "פסיקודה", activity: "זמן חוף חופשי / קניות אחרונות" },
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
@@ -142,9 +141,8 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון בנווארה אליה", activity: "ארוחת ערב במלון" }
             ]
           },
-          { day: "3", title: "תה, רכבות ואלה", desc: "טיול זריחה ותרגול יוגה בבוקר, סיור מרתק במטעי תה ועלייה על הרכבת הנופית היפה בעולם בדרך אל העיירה אלה.", highlight: "הרכבת הנופית לאלה ומטעי התה",
+          { day: "3", title: "תה, רכבות ואלה", desc: "יוגה בבוקר, סיור מרתק במטעי תה ועלייה על הרכבת הנופית היפה בעולם בדרך אל העיירה אלה.", highlight: "הרכבת הנופית לאלה ומטעי התה",
             schedule: [
-              { hour: "05:00", place: "מלון", activity: "טיול זריחה" },
               { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "09:30 - 14:30", place: "מטעי תה", activity: "סיור במטעי תה" },
@@ -164,8 +162,9 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
           },
-          { day: "5", title: "ספארי פילים וסאפ שקיעה", desc: "ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה, וסאפ שקיעה רגוע בים לקינוח היום עם עיסוי מפנק.", highlight: "ספארי פילים באודוואלאווה וסאפ שקיעה",
+          { day: "5", title: "ספארי פילים וסאפ שקיעה", desc: "יוגה בבוקר, ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה, וסאפ שקיעה רגוע בים לקינוח היום עם עיסוי מפנק.", highlight: "ספארי פילים באודוואלאווה וסאפ שקיעה",
             schedule: [
+              { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "07:15 - 08:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "08:30 - 11:00", place: "דרום", activity: "נסיעה דרומה" },
               { hour: "11:30 - 14:30", place: "אודוואלאווה", activity: "ספארי פילים באודוואלאווה" },
@@ -173,8 +172,9 @@ export const defaultContentData = {
               { hour: "20:30", place: "מלון", activity: "עיסוי מפנק (מסאז')" }
             ]
           },
-          { day: "6", title: "שנורקלינג והתארגנות לשבת", desc: "ארוחת בוקר, שנורקלינג מדהים עם צבי ים, זמן חוף וקניות, ולאחר מכן התארגנות לקראת כניסת שבת.", highlight: "שנורקלינג עם צבי ים וזמן חוף",
+          { day: "6", title: "שנורקלינג והתארגנות לשבת", desc: "יוגה בבוקר, ארוחת בוקר, שנורקלינג מדהים עם צבי ים, זמן חוף וקניות, ולאחר מכן התארגנות לקראת כניסת שבת.", highlight: "שנורקלינג עם צבי ים וזמן חוף",
             schedule: [
+              { hour: "07:00", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "10:30 - 12:00", place: "חוף", activity: "שנורקלינג עם צבי ים" },
               { hour: "13:30 - 15:30", place: "חוף", activity: "זמן חוף וקניות" },
@@ -189,24 +189,23 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
           },
-          { day: "8", title: "צפייה בלווייתנים וחוף דרומי", desc: "שייט בבוקר לצפייה בלווייתנים, תרגול יוגה וארוחת בוקר. בהמשך היום שיעור גלישה וקניות, ולאחר מכן נסיעה לטלפה ללינה וארוחת ערב.", highlight: "צפייה בלווייתנים ושיעור גלישה",
+          { day: "8", title: "צפייה בלווייתנים וחוף דרומי", desc: "שייט בבוקר לצפייה בלווייתנים וארוחת בוקר. בהמשך היום שיעור גלישה וקניות, יוגה בשקיעה, ולאחר מכן נסיעה לטלפה ללינה וארוחת ערב.", highlight: "צפייה בלווייתנים ושיעור גלישה",
             schedule: [
               { hour: "05:00", place: "אוקיינוס", activity: "צפייה בלווייתנים" },
-              { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "09:30 - 12:30", place: "חוף", activity: "שיעור גלישה וקניות" },
+              { hour: "16:30 - 17:30", place: "חוף", activity: "יוגה בשקיעה" },
               { hour: "17:30 - 18:30", place: "טלפה", activity: "נסיעה והתארגנות ללינה בטלפה" },
               { hour: "19:00 - 20:00", place: "מלון בטלפה", activity: "ארוחת ערב" }
             ]
           },
-          { day: "9", title: "יום אחרון וטיסה", desc: "טיול זריחה, יוגה וארוחת בוקר במלון. בהמשך היום מנוחה וקניות אחרונות, ולאחר מכן נסיעה לשדה התעופה לקראת הטיסה חזרה הביתה.", highlight: "טיול זריחה, יוגה ונסיעה לשדה התעופה",
+          { day: "9", title: "יום אחרון וטיסה", desc: "יוגה וארוחת בוקר במלון. בהמשך היום מנוחה וקניות אחרונות, ולאחר מכן נסיעה לשדה התעופה לקראת הטיסה חזרה הביתה.", highlight: "יוגה ונסיעה לשדה התעופה",
             schedule: [
-              { hour: "05:00", place: "-", activity: "טיול זריחה (Sunrise hike)" },
-              { hour: "06:30", place: "מלון", activity: "יוגה" },
-              { hour: "08:00 - 09:00", place: "-", activity: "ארוחת בוקר" },
+              { hour: "07:30", place: "מלון", activity: "יוגה" },
+              { hour: "08:30", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "09:30 - 13:30", place: "-", activity: "-" },
-              { hour: "13:30 - 16:30", place: "-", activity: "מנוחה וקניות (Relax, shopping)" },
-              { hour: "16:30", place: "-", activity: "נסיעה לשדה התעופה (Drive to airport)" }
+              { hour: "13:30 - 16:30", place: "-", activity: "מנוחה וקניות" },
+              { hour: "16:30", place: "-", activity: "נסיעה לשדה התעופה" }
             ]
           }
         ]
@@ -238,7 +237,7 @@ export const defaultContentData = {
       contact: 'צרו קשר:\nאיל: 054-...\nנעמי: 054-...'
     },
     register: { 
-      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכם.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-16 משתתפות", "מקדמה של 1,000 ש״ח להבטחת מקום", "מדיניות ביטולים הוגנת"], 
+      title: 'שריינו את המקום שלכן', subtitle: 'מלאו פרטים ונחזור אליכן.', contact_wa: 'שאלות? דברו עם איל', contact_email: 'או שלחו מייל', details: ["מוגבל ל-16 משתתפות", "מקדמה של 1,000 ש״ח להבטחת מקום", "מדיניות ביטולים הוגנת"], 
       form: { name: 'שם מלא', phone: 'טלפון', email: 'אימייל', guests: 'מספר משתתפים', notes: 'הערות', submit: 'שליחת בקשת הרשמה', success_title: 'איזה כיף, נרשמתן בהצלחה! 🎉💃', success_desc: 'אנחנו סופר מתרגשים לקראת המסע המשותף שלנו! ניצור קשר בהקדם להשלמת הפרטים.', success_btn: 'שלח בקשה נוספת', error: 'אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בוואטסאפ.', submitting: 'שולח...' }
     }
   },
@@ -347,7 +346,6 @@ export const defaultContentData = {
           },
           { day: "8", title: "Trincomalee", desc: "Our main experience today will be sailing in search of whales and dolphins, followed by fun snorkeling together.", highlight: "Whale Watching & Snorkeling", 
             schedule: [
-              { hour: "05:00", place: "-", activity: "Sunrise Hike" },
               { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
               { hour: "09:30 - 12:30", place: "Trincomalee", activity: "Sailing & Snorkeling / Shopping" },
@@ -356,8 +354,8 @@ export const defaultContentData = {
           },
           { day: "9", title: "Final Beach Time", desc: "Take advantage of every moment of sun, waves, and sand on the beach before parting.", highlight: "Sea & Sun", 
             schedule: [
-              { hour: "06:30", place: "Hotel", activity: "Yoga" },
-              { hour: "08:00 - 09:00", place: "Hotel in Passikudah", activity: "Breakfast" },
+              { hour: "07:30", place: "Hotel", activity: "Yoga" },
+              { hour: "08:30", place: "Hotel in Passikudah", activity: "Breakfast" },
               { hour: "09:30 - 17:00", place: "Passikudah", activity: "Free Beach Time / Final Shopping" },
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
@@ -387,9 +385,8 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel in Nuwara Eliya", activity: "Dinner at hotel" }
             ]
           },
-          { day: "3", title: "Tea, Trains & Ella", desc: "Sunrise hike and morning yoga, an interesting tour of Ceylon tea plantations, and boarding the most scenic train in the world to Ella.", highlight: "Scenic train to Ella and tea plantation",
+          { day: "3", title: "Tea, Trains & Ella", desc: "Morning yoga, an interesting tour of Ceylon tea plantations, and boarding the most scenic train in the world to Ella.", highlight: "Scenic train to Ella and tea plantation",
             schedule: [
-              { hour: "05:00", place: "Hotel", activity: "Sunrise hike" },
               { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
               { hour: "09:30 - 14:30", place: "Tea Plantations", activity: "Tea plantation tour" },
@@ -409,8 +406,9 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
           },
-          { day: "5", title: "Elephant Safari & Sunset SUP", desc: "Breakfast, driving south for an incredible elephant safari in Udawalawe, and enjoying a relaxing stand-up paddleboarding (SUP) session at sunset, finished with a massage.", highlight: "Udawalawe Elephant Safari and sunset SUP",
+          { day: "5", title: "Elephant Safari & Sunset SUP", desc: "Morning yoga, breakfast, driving south for an incredible elephant safari in Udawalawe, and enjoying a relaxing stand-up paddleboarding (SUP) session at sunset, finished with a massage.", highlight: "Udawalawe Elephant Safari and sunset SUP",
             schedule: [
+              { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "07:15 - 08:00", place: "Hotel", activity: "Breakfast" },
               { hour: "08:30 - 11:00", place: "South", activity: "Drive south" },
               { hour: "11:30 - 14:30", place: "Udawalawe", activity: "Udawalawe Elephant safari" },
@@ -418,8 +416,9 @@ export const defaultContentData = {
               { hour: "20:30", place: "Hotel", activity: "Massage" }
             ]
           },
-          { day: "6", title: "Beach & Shabbat Preparations", desc: "Breakfast, incredible snorkeling with sea turtles, relaxing beach and shopping time, and getting ready for Shabbat.", highlight: "Snorkeling with sea turtles and beach time",
+          { day: "6", title: "Beach & Shabbat Preparations", desc: "Morning yoga, breakfast, incredible snorkeling with sea turtles, relaxing beach and shopping time, and getting ready for Shabbat.", highlight: "Snorkeling with sea turtles and beach time",
             schedule: [
+              { hour: "07:00", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
               { hour: "10:30 - 12:00", place: "Beach", activity: "Snorkeling with turtles" },
               { hour: "13:30 - 15:30", place: "Beach", activity: "Beach & shopping time" },
@@ -434,21 +433,20 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
           },
-          { day: "8", title: "Whale Watching & South Coast", desc: "Early whale watching, morning yoga, and breakfast. Enjoy a surf session and shopping, followed by a transfer to Talpe for dinner and overnight.", highlight: "Whale watching and surfing",
+          { day: "8", title: "Whale Watching & South Coast", desc: "Early whale watching and breakfast. Enjoy a surf session and shopping, sunset yoga, followed by a transfer to Talpe for dinner and overnight.", highlight: "Whale watching and surfing",
             schedule: [
               { hour: "05:00", place: "Ocean", activity: "Whale watching" },
-              { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
               { hour: "09:30 - 12:30", place: "Beach", activity: "Surf and shops" },
+              { hour: "16:30 - 17:30", place: "Beach", activity: "Sunset Yoga" },
               { hour: "17:30 - 18:30", place: "Talpe", activity: "Transfer & overnight in Talpe" },
               { hour: "19:00 - 20:00", place: "Hotel in Talpe", activity: "Dinner" }
             ]
           },
-          { day: "9", title: "Final Day & Flight", desc: "Sunrise hike, morning yoga, and breakfast, followed by free time for relaxing or shopping, and then the drive to the airport for the flight back.", highlight: "Sunrise hike, yoga and flight home",
+          { day: "9", title: "Final Day & Flight", desc: "Yoga and breakfast at the hotel, followed by free time for relaxing or shopping, and then the drive to the airport for the flight back.", highlight: "Yoga and flight home",
             schedule: [
-              { hour: "05:00", place: "-", activity: "Sunrise hike" },
-              { hour: "06:30", place: "Hotel", activity: "Yoga" },
-              { hour: "08:00 - 09:00", place: "-", activity: "Breakfast" },
+              { hour: "07:30", place: "Hotel", activity: "Yoga" },
+              { hour: "08:30", place: "Hotel", activity: "Breakfast" },
               { hour: "09:30 - 13:30", place: "-", activity: "-" },
               { hour: "13:30 - 16:30", place: "-", activity: "Relax, shopping" },
               { hour: "16:30", place: "-", activity: "Drive to airport" }
@@ -492,7 +490,7 @@ export const defaultContentData = {
 const SiteContext = createContext();
 
 export const SiteProvider = ({ children }) => {
-  const [lang, setLang] = useState('he');
+  const [lang, setLang] = useState('en');
   const [siteContent, setSiteContent] = useState(defaultContentData);
   const [isAdmin, setIsAdmin] = useState(false);
 

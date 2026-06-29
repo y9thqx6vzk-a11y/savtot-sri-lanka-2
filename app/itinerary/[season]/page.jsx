@@ -29,7 +29,7 @@ export default function ItineraryPage() {
 
   const currentDefaultImages = defaultImages[season] || defaultImages.summer;
   const getImageId = (idx) => {
-    if (season === 'winter') return `winter_day_${idx + 1}`;
+    if (season === 'winter') return `winter_day_${idx}`;
     if (idx === 8) return '10';
     if (idx === 7) return 'itinerary_day_8';
     return `itinerary_day_${idx}`;
@@ -64,13 +64,14 @@ export default function ItineraryPage() {
                 
                 <div className="w-full md:w-1/2 p-4 flex">
                   <div className="bg-white p-2 rounded-2xl shadow-lg transition-transform duration-300 w-full h-full flex flex-col">
-                    <div className="w-full bg-stone-200 rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px] isolation-isolate" style={{ transform: 'translateZ(0)' }}>
+                    <div className={`w-full rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px] isolation-isolate ${getImageId(index) === 'winter_day_0' ? 'bg-white' : 'bg-stone-200'}`} style={{ transform: 'translateZ(0)' }}>
                        <EditableImage 
                         id={getImageId(index)} 
                         src={getImageId(index)} 
                         fallback={currentDefaultImages[index] || '/home1.jpg'}
                         alt={item.title}
                         className="w-full h-full object-cover"
+                        imgClassName={getImageId(index) === 'winter_day_0' ? '!object-contain bg-white' : ''}
                         width={1000}
                         crop="fill"
                        />

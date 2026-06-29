@@ -6,7 +6,7 @@ import { Upload, Loader } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import { getCloudinaryUrl } from '../lib/cloudinary';
 
-export default function EditableImage({ id, src, fallback, alt, className, width, height, crop }) {
+export default function EditableImage({ id, src, fallback, alt, className, width, height, crop, imgClassName }) {
   const { isAdmin } = useSite();
 
   // Resolve to Cloudinary URL on first render
@@ -64,7 +64,7 @@ export default function EditableImage({ id, src, fallback, alt, className, width
         alt={alt}
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover"
+        className={`object-cover ${imgClassName || ''}`}
         onError={() => {
           if (!hasError) setHasError(true);
         }}

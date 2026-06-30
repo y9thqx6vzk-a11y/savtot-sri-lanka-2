@@ -64,13 +64,12 @@ export default function ItineraryPage() {
                 
                 <div className="w-full md:w-1/2 p-4 flex">
                   <div className="bg-white p-2 rounded-2xl shadow-lg transition-transform duration-300 w-full h-full flex flex-col">
-                    <div className={`w-full rounded-xl overflow-hidden relative flex-1 min-h-[280px] max-h-[420px] isolation-isolate ${getImageId(index) === 'winter_day_0' ? 'bg-white' : 'bg-stone-200'}`} style={{ transform: 'translateZ(0)' }}>
+                    <div className={`w-full rounded-xl overflow-hidden relative flex-1 h-[300px] md:h-auto md:min-h-[280px] max-h-[420px] isolation-isolate ${getImageId(index) === 'winter_day_0' ? 'bg-white' : 'bg-stone-200'}`} style={{ transform: 'translateZ(0)' }}>
                        <EditableImage 
                         id={getImageId(index)} 
                         src={getImageId(index)} 
                         fallback={currentDefaultImages[index] || '/home1.jpg'}
                         alt={item.title}
-                        className="absolute inset-0"
                         imgClassName={getImageId(index) === 'winter_day_0' ? '!object-contain bg-white' : ''}
                         width={1000}
                         crop="fill"

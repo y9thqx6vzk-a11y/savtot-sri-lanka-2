@@ -45,29 +45,6 @@ export default function HomePage() {
 
           {/* Dynamic Selection Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto pointer-events-auto text-stone-800">
-            {/* Summer Card */}
-            <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
-              <div>
-                <span className="text-[#c4704f] font-serif italic text-sm md:text-base font-medium block mb-1">
-                  {lang === 'he' ? 'חוויית קיץ חמה' : 'Warm Summer Vibe'}
-                </span>
-                <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
-                  {lang === 'he' ? 'מסע קיץ 2027' : 'Summer 2027'}
-                </h3>
-                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
-                  {lang === 'he' 
-                    ? "ג'ונגלים, אתרים מפורסמים וחופים מהיפים בעולם" 
-                    : 'Jungles, famous sites and some of the most beautiful beaches in the world'}
-                </p>
-              </div>
-              <button 
-                onClick={() => router.push('/itinerary/summer')}
-                className="w-fit bg-[#c4704f] hover:bg-[#b05d3d] text-white px-6 py-2.5 rounded-full font-bold text-xs tracking-wider transition-colors shadow-md cursor-pointer"
-              >
-                {lang === 'he' ? 'למסלול הקיץ ←' : 'Summer Itinerary →'}
-              </button>
-            </div>
-
             {/* Winter Card */}
             <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
               <div>
@@ -88,6 +65,29 @@ export default function HomePage() {
                 className="w-fit bg-[#8ca38f] hover:bg-[#798e7c] text-white px-6 py-2.5 rounded-full font-bold text-xs tracking-wider transition-colors shadow-md cursor-pointer"
               >
                 {lang === 'he' ? 'למסלול החורף ←' : 'Winter Itinerary →'}
+              </button>
+            </div>
+
+            {/* Summer Card */}
+            <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
+              <div>
+                <span className="text-[#c4704f] font-serif italic text-sm md:text-base font-medium block mb-1">
+                  {lang === 'he' ? 'חוויית קיץ חמה' : 'Warm Summer Vibe'}
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
+                  {lang === 'he' ? 'מסע קיץ 2027' : 'Summer 2027'}
+                </h3>
+                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
+                  {lang === 'he' 
+                    ? "ג'ונגלים, אתרים מפורסמים וחופים מהיפים בעולם" 
+                    : 'Jungles, famous sites and some of the most beautiful beaches in the world'}
+                </p>
+              </div>
+              <button 
+                onClick={() => router.push('/itinerary/summer')}
+                className="w-fit bg-[#c4704f] hover:bg-[#b05d3d] text-white px-6 py-2.5 rounded-full font-bold text-xs tracking-wider transition-colors shadow-md cursor-pointer"
+              >
+                {lang === 'he' ? 'למסלול הקיץ ←' : 'Summer Itinerary →'}
               </button>
             </div>
           </div>

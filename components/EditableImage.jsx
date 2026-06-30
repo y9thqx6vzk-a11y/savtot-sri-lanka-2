@@ -58,7 +58,7 @@ export default function EditableImage({ id, src, fallback, alt, className, width
   const fallbackSrc = getCloudinaryUrl(fallback || '/home1.webp');
 
   return (
-    <div className={`relative group overflow-hidden rounded-2xl h-full ${isAdmin ? 'cursor-pointer' : ''} ${className}`}>
+    <div className={`group overflow-hidden rounded-2xl ${className?.includes('absolute') ? '' : 'relative h-full'} ${isAdmin ? 'cursor-pointer' : ''} ${className || ''}`}>
       <Image
         src={hasError ? fallbackSrc : imgSrc}
         alt={alt}

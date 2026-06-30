@@ -98,18 +98,18 @@ export default function Navbar() {
                         <div className="fixed inset-0 z-30" onClick={() => setIsItineraryOpen(false)} />
                         <div className="absolute top-full start-1/2 transform -translate-x-1/2 mt-2 w-48 bg-[#faf7f2] border border-stone-200 rounded-xl shadow-lg py-2 z-40 animate-in fade-in slide-in-from-top-2 duration-200 text-start">
                           <Link
-                            href="/itinerary/summer"
-                            onClick={() => setIsItineraryOpen(false)}
-                            className="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-200/50 hover:text-stone-900 transition-colors"
-                          >
-                            {lang === 'he' ? 'מסלול קיץ 2027' : 'Summer Itinerary 2027'}
-                          </Link>
-                          <Link
                             href="/itinerary/winter"
                             onClick={() => setIsItineraryOpen(false)}
                             className="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-200/50 hover:text-stone-900 transition-colors"
                           >
                             {lang === 'he' ? 'מסלול חורף 2027' : 'Winter Itinerary 2027'}
+                          </Link>
+                          <Link
+                            href="/itinerary/summer"
+                            onClick={() => setIsItineraryOpen(false)}
+                            className="block px-4 py-2 text-sm text-stone-700 hover:bg-stone-200/50 hover:text-stone-900 transition-colors"
+                          >
+                            {lang === 'he' ? 'מסלול קיץ 2027' : 'Summer Itinerary 2027'}
                           </Link>
                         </div>
                       </>
@@ -184,18 +184,18 @@ export default function Navbar() {
                     {isItineraryOpen && (
                       <div className="flex flex-col gap-2 mt-2 bg-stone-100/60 rounded-2xl py-2 px-4 text-sm animate-in fade-in duration-200">
                         <Link 
-                          href="/itinerary/summer"
-                          onClick={() => { setIsMenuOpen(false); setIsItineraryOpen(false); }}
-                          className="text-stone-600 hover:text-[#c4704f] py-1 px-4 block"
-                        >
-                          {lang === 'he' ? 'מסלול קיץ 2027' : 'Summer Itinerary 2027'}
-                        </Link>
-                        <Link 
                           href="/itinerary/winter"
                           onClick={() => { setIsMenuOpen(false); setIsItineraryOpen(false); }}
                           className="text-stone-600 hover:text-[#c4704f] py-1 px-4 block"
                         >
                           {lang === 'he' ? 'מסלול חורף 2027' : 'Winter Itinerary 2027'}
+                        </Link>
+                        <Link 
+                          href="/itinerary/summer"
+                          onClick={() => { setIsMenuOpen(false); setIsItineraryOpen(false); }}
+                          className="text-stone-600 hover:text-[#c4704f] py-1 px-4 block"
+                        >
+                          {lang === 'he' ? 'מסלול קיץ 2027' : 'Summer Itinerary 2027'}
                         </Link>
                       </div>
                     )}

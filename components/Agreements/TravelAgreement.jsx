@@ -43,7 +43,7 @@ export default function TravelAgreement() {
         <p>מסע זה כולל שירותי תיירות הניתנים במלואם מחוץ לישראל. בהתאם לסעיף 14ג2 לחוק הגנת הצרכן, מוצעת בחירה בין מסלולי הביטול הבאים:</p>
         <ul className="list-disc mr-6 space-y-2">
           <li><strong>מסלול א' – חוק הגנת הצרכן הישראלי:</strong> הזכות לבטל בתוך 14 ימים מיום ביצוע העסקה, ובלבד שהביטול נעשה לפחות 7 ימים שאינם ימי מנוחה לפני מועד היציאה. דמי הביטול במסלול זה יהיו 5% מערך העסקה או 100 ש"ח (הנמוך מביניהם). ביטול לאחר מסגרת זמן זו יפעיל את מסלול ב'.</li>
-          <li><strong>מסלול ב' – ספקים זרים:</strong> תחול מדיניות הביטולים של הספקים הזרים. "התאריך הקובע" להזמנות סופיות הוא ה-30 ביוני 2026 לטיול קיץ, וה-30 בנובמבר 2026 לטיול חורף.
+          <li><strong>מסלול ב' – ספקים זרים:</strong> תחול מדיניות הביטולים של הספקים הזרים. "התאריך הקובע" להזמנות סופיות הוא ה-30 בנובמבר 2026 לטיול חורף, וה-10 ביוני 2027 לטיול קיץ.
             <ul className="list-circle mr-6 mt-1 space-y-1 text-xs">
               <li>ביטול לפני התאריך הקובע: החזר מלא (למעט 300 ש"ח דמי הרשמה).</li>
               <li>ביטול לאחר התאריך הקובע: משתתפת בחדר זוגי תקבל החזר של 550 דולר. משתתפת בחדר יחיד מאולץ/מרצון תקבל החזר של 1,990 דולר.</li>
@@ -98,7 +98,7 @@ export default function TravelAgreement() {
       </ul>
 
       <div className="font-bold mt-4 mb-2 text-teal-800">4. The "Determining Date" and Cancellation Policy</div>
-      <p>Determining Date: June 30, 2026 for Summer Tour, and November 30, 2026 for Winter Tour.</p>
+      <p>Determining Date: November 30, 2026 for Winter Tour, and June 10, 2027 for Summer Tour.</p>
       <ul className="list-disc ml-6 space-y-2">
         <li>Cancellation before Determining Date: Full refund (excluding 300 ILS registration fee).</li>
         <li>Cancellation after Determining Date: Participant in double room: Refund of $550 USD only. Single room: Refund of $1,990 USD only.</li>

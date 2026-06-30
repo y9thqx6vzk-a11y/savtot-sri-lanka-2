@@ -428,14 +428,14 @@ function RegisterFormContent() {
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-lg font-bold text-teal-800">{lang === 'he' ? 'נספח א\' - כתב ויתור והצהרת בריאות' : 'Appendix A - Health Declaration'}</h4>
+                  <h4 className="text-lg font-bold text-teal-800">{lang === 'he' ? 'נספח א\' - כתב ויתור' : 'Appendix A - Participant Waiver'}</h4>
                   <div className="h-64 overflow-y-auto bg-stone-50 p-4 rounded-xl border border-stone-200 text-sm text-stone-700 shadow-inner">
                     <MedicalWaiver />
                   </div>
                   <label htmlFor="sectionC" className="flex items-start gap-3 cursor-pointer group">
                     <input type="checkbox" id="sectionC" className="w-5 h-5 mt-1 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={agreements.sectionC} onChange={(e) => setAgreements({...agreements, sectionC: e.target.checked})} />
                     <span className="text-stone-800 font-medium group-hover:text-teal-700">
-                      {lang === 'he' ? 'קראתי, הבנתי ואני מאשר/ת את כתב הוויתור והצהרת הבריאות.' : 'I have read, understood, and accept the health declaration.'}
+                      {lang === 'he' ? 'קראתי, הבנתי ואני מאשר/ת את כתב הוויתור והצהרת הבריאות.' : 'I have read, understood, and accept the waiver and release of risk.'}
                     </span>
                   </label>
                 </div>

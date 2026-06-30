@@ -118,7 +118,7 @@ export default function HomePage() {
                 {lang === 'he' ? 'מוכנה לצאת לדרך?' : 'Ready to start your journey?'}
               </span>
               <p className="text-xl md:text-2xl font-bold text-stone-800 tracking-wide">
-                {lang === 'he' ? '8,000 ₪* – הכל כלול (ללא טיסות)' : '8,000 ILS* – All-inclusive (excluding flights)'}
+                {lang === 'he' ? '8,050 ₪* – הכל כלול (ללא טיסות)' : '8,050 ILS* – All-inclusive (excluding flights)'}
               </p>
               <p className="text-xs text-stone-500 max-w-xs mx-auto leading-relaxed">
                 {lang === 'he' 

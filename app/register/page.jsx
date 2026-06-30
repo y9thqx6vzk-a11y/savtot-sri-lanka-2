@@ -243,7 +243,7 @@ function RegisterFormContent() {
                     {lang === 'he' ? 'עלות המסע' : 'Trip Price'}
                   </span>
                   <div className="text-2xl font-bold text-white">
-                    {lang === 'he' ? '8,000 ₪*' : '8,000 ILS*'}
+                    {lang === 'he' ? '8,050 ₪*' : '8,050 ILS*'}
                   </div>
                   <div className="text-teal-200 text-xs mt-0.5">
                     {lang === 'he' ? 'מחיר מבצע (Intro Price) | לאדם בחדר זוגי' : 'Intro Price | Per person in a double room'}
@@ -280,8 +280,8 @@ function RegisterFormContent() {
                       </div>
                       <div className="text-teal-200 text-xs mt-0.5 leading-relaxed">
                         {lang === 'he'
-                          ? 'ניצור קשר אישית עם כל משתתפת להסדרת יתרת התשלום (7,000 ₪) בהתאם לשער הדולר במועד החיוב.'
-                          : 'We will reach out personally to each participant to arrange the remaining balance (7,000 ILS), adjusted per the USD exchange rate at time of billing.'}
+                          ? 'ניצור קשר אישית עם כל משתתפת להסדרת יתרת התשלום (7,050 ₪) בהתאם לשער הדולר במועד החיוב.'
+                          : 'We will reach out personally to each participant to arrange the remaining balance (7,050 ILS), adjusted per the USD exchange rate at time of billing.'}
                       </div>
                     </div>
                   </div>
@@ -727,7 +727,7 @@ function RegisterFormContent() {
                   ) : paymentFile ? (
                     lang === 'he' ? 'שלח אסמכתא וסיים הרשמה' : 'Send Reference & Complete Registration'
                   ) : (
-                    lang === 'he' ? 'סיום הרשמה (ללא אסמכתא)' : 'Complete Registration (Without Reference)'
+                    lang === 'he' ? 'סיום הרשמה' : 'Complete Registration'
                   )}
                 </button>
               </div>

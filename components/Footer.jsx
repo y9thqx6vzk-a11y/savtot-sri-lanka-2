@@ -74,7 +74,7 @@ export default function Footer() {
 
       {/* Bottom thin copyright & admin link */}
       <div className="container mx-auto px-6 mt-4 pt-4 border-t border-stone-200/50 flex flex-row items-center justify-between opacity-50 text-[10px]">
-        <span>© 2026 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.</span>
+        <span>© 2027 Savtot in Sri Lanka. Planning & Love: Aliza, Eyal, Naomi.</span>
         
         <button 
           onClick={handleAdminToggle}

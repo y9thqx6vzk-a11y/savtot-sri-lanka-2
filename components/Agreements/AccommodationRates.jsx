@@ -9,7 +9,7 @@ export default function AccommodationRates() {
     return (
       <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="rtl">
         <p className="font-bold text-base">נספח א' – תעריפי לינה ומלונות</p>
-        <p>נספח זה ("לוח תעריפי לינה") מהווה חלק בלתי נפרד מהסכם הרישום לטיול. כל התעריפים והסכומים המפורטים כאן נקובים בדולר ארה"ב (USD) ומייצגים את תעריפי הלינה נטו עליהם סוכם מול ספקי הלינה עבור טיול קיץ 2026.</p>
+        <p>נספח זה ("לוח תעריפי לינה") מהווה חלק בלתי נפרד מהסכם הרישום לטיול. כל התעריפים והסכומים המפורטים כאן נקובים בדולר ארה"ב (USD) ומייצגים את תעריפי הלינה נטו עליהם סוכם מול ספקי הלינה עבור טיולי קיץ וחורף 2027.</p>
 
         <div className="font-bold mt-4 mb-2 text-teal-800">1. הגדרות ופרשנות</div>
         <ul className="list-disc mr-6 space-y-1">
@@ -31,7 +31,7 @@ export default function AccommodationRates() {
   return (
     <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="ltr">
       <p className="font-bold text-base">APPENDIX A – SCHEDULE OF ACCOMMODATION RATES</p>
-      <p>This Appendix A (the "Accommodation Schedule") forms an integral and inseparable part of the Tour Registration Agreement. All rates and figures listed herein are denominated in United States Dollars (USD) and represent the net contracted nightly rates with the respective accommodation providers for the Summer 2026 Tour.</p>
+      <p>This Appendix A (the "Accommodation Schedule") forms an integral and inseparable part of the Tour Registration Agreement. All rates and figures listed herein are denominated in United States Dollars (USD) and represent the net contracted nightly rates with the respective accommodation providers for the Summer and Winter 2027 Tours.</p>
 
       <div className="font-bold mt-4 mb-2 text-teal-800">1. Definitions and Interpretation</div>
       <ul className="list-disc ml-6 space-y-1">

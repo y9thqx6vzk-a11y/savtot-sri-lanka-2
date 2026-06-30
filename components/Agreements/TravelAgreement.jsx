@@ -8,7 +8,7 @@ export default function TravelAgreement() {
   if (isHe) {
     return (
       <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="rtl">
-        <p className="font-bold text-base">הסכם נסיעה ותנאי הרשמה – מסע נשים לסרי לנקה (קיץ 2026)</p>
+        <p className="font-bold text-base">הסכם נסיעה ותנאי הרשמה – מסע נשים לסרי לנקה (קיץ וחורף 2027)</p>
         <p>ברוכות הבאות למסע שלנו לסרי לנקה. מסמך זה נוסח בשקיפות מלאה כדי לשמש כמדריך ברור ומחייב המסדיר את מערכת היחסים, ההסכמות וההתחייבויות בינינו. אנא קראו אותו בעיון.</p>
         
         <div className="font-bold mt-4 mb-2 text-teal-800">1. זהות הצדדים ומהות ההתקשרות (מודל סוכנות ונאמנות)</div>
@@ -43,7 +43,7 @@ export default function TravelAgreement() {
         <p>מסע זה כולל שירותי תיירות הניתנים במלואם מחוץ לישראל. בהתאם לסעיף 14ג2 לחוק הגנת הצרכן, מוצעת בחירה בין מסלולי הביטול הבאים:</p>
         <ul className="list-disc mr-6 space-y-2">
           <li><strong>מסלול א' – חוק הגנת הצרכן הישראלי:</strong> הזכות לבטל בתוך 14 ימים מיום ביצוע העסקה, ובלבד שהביטול נעשה לפחות 7 ימים שאינם ימי מנוחה לפני מועד היציאה. דמי הביטול במסלול זה יהיו 5% מערך העסקה או 100 ש"ח (הנמוך מביניהם). ביטול לאחר מסגרת זמן זו יפעיל את מסלול ב'.</li>
-          <li><strong>מסלול ב' – ספקים זרים:</strong> תחול מדיניות הביטולים של הספקים הזרים. "התאריך הקובע" להזמנות סופיות הוא ה-30 ביוני 2026.
+          <li><strong>מסלול ב' – ספקים זרים:</strong> תחול מדיניות הביטולים של הספקים הזרים. "התאריך הקובע" להזמנות סופיות הוא ה-30 ביוני 2026 לטיול קיץ, וה-30 בנובמבר 2026 לטיול חורף.
             <ul className="list-circle mr-6 mt-1 space-y-1 text-xs">
               <li>ביטול לפני התאריך הקובע: החזר מלא (למעט 300 ש"ח דמי הרשמה).</li>
               <li>ביטול לאחר התאריך הקובע: משתתפת בחדר זוגי תקבל החזר של 550 דולר. משתתפת בחדר יחיד מאולץ/מרצון תקבל החזר של 1,990 דולר.</li>
@@ -73,7 +73,7 @@ export default function TravelAgreement() {
 
   return (
     <div className="space-y-4 text-sm text-stone-700 leading-relaxed" dir="ltr">
-      <p className="font-bold text-base">Travel Agreement and Registration Terms – Women's Journey to Sri Lanka (Summer 2026)</p>
+      <p className="font-bold text-base">Travel Agreement and Registration Terms – Women's Journey to Sri Lanka (Summer & Winter 2027)</p>
       <p>Welcome to our journey to Sri Lanka. This document is formulated with full transparency to serve as a clear, binding guide regulating the relationship, agreements, and obligations between us. Please read it carefully.</p>
       
       <div className="font-bold mt-4 mb-2 text-teal-800">1. Identity of the Parties and Nature of the Engagement</div>
@@ -98,7 +98,7 @@ export default function TravelAgreement() {
       </ul>
 
       <div className="font-bold mt-4 mb-2 text-teal-800">4. The "Determining Date" and Cancellation Policy</div>
-      <p>Determining Date: June 30, 2026.</p>
+      <p>Determining Date: June 30, 2026 for Summer Tour, and November 30, 2026 for Winter Tour.</p>
       <ul className="list-disc ml-6 space-y-2">
         <li>Cancellation before Determining Date: Full refund (excluding 300 ILS registration fee).</li>
         <li>Cancellation after Determining Date: Participant in double room: Refund of $550 USD only. Single room: Refund of $1,990 USD only.</li>

@@ -68,7 +68,7 @@ export default function EditableImage({ id, src, fallback, alt, className, width
         onError={() => {
           if (!hasError) setHasError(true);
         }}
-        unoptimized={imgSrc.startsWith('blob:')}
+        unoptimized={true}
         priority={priority}
       />
 

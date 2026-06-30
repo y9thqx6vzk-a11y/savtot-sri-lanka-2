@@ -15,7 +15,7 @@ export default function DiscoveryPage() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 border-b border-stone-200 pb-12">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-light mb-4">
-              {lang === 'he' ? 'סרי לנקה · קיץ 2026' : 'Sri Lanka · Summer 2026'}
+              {lang === 'he' ? 'סרי לנקה · קיץ וחורף 2027 (תאריכים יפורסמו בהמשך)' : 'Sri Lanka · Summer & Winter 2027 (Dates TBA)'}
             </p>
             <h1 
               className="text-6xl md:text-8xl font-serif font-medium leading-none text-stone-800"

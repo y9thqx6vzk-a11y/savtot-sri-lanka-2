@@ -109,6 +109,7 @@ export default function NoticeBoardGallery({ lang }) {
                     className="object-cover transition-transform duration-700 ease-out"
                     style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
                     loading="lazy"
+                    unoptimized={true}
                   />
                 )}
 

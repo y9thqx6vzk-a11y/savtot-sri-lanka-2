@@ -34,9 +34,25 @@ function RegisterFormContent() {
   const [digitalSignature, setDigitalSignature] = useState({ 
     fullName: '', 
     idNumber: '',
+    birthDate: '',
     date: new Date().toISOString().split('T')[0],
     emergencyName: '',
+    emergencyRelation: '',
     emergencyPhone: ''
+  });
+
+  const [healthQ, setHealthQ] = useState({
+    q1: { answer: '', details: '' },
+    q2: { answer: '', details: '' },
+    q3: { answer: '', details: '' },
+    q4: { answer: '', details: '' },
+    q5: { answer: '', details: '' },
+  });
+
+  const [healthDecl, setHealthDecl] = useState({
+    decl1: false,
+    decl2: false,
+    decl3: false
   });
 
   // Step 3 State
@@ -48,10 +64,21 @@ function RegisterFormContent() {
   const hasError = customStatus === 'error';
 
   const allChecked = agreements.sectionA && agreements.sectionB && agreements.sectionC;
+  
+  const healthQValid = ['q1', 'q2', 'q3', 'q4', 'q5'].every(q => 
+    healthQ[q].answer === 'no' || (healthQ[q].answer === 'yes' && healthQ[q].details.trim() !== '')
+  );
+  const healthDeclValid = healthDecl.decl1 && healthDecl.decl2 && healthDecl.decl3;
+
   const isFilled = digitalSignature.fullName.trim() !== '' && 
                    digitalSignature.idNumber.trim() !== '' &&
+                   digitalSignature.birthDate.trim() !== '' &&
                    digitalSignature.emergencyName.trim() !== '' &&
-                   digitalSignature.emergencyPhone.trim() !== '';
+                   digitalSignature.emergencyRelation.trim() !== '' &&
+                   digitalSignature.emergencyPhone.trim() !== '' &&
+                   healthQValid &&
+                   healthDeclValid;
+                   
   const canProceedStep2 = allChecked && isFilled;
 
   // Handlers
@@ -442,36 +469,158 @@ function RegisterFormContent() {
 
                 <hr className="border-stone-200" />
 
+                <div className="space-y-4">
+                  <h4 className="text-xl font-bold text-teal-900 mb-2">{lang === 'he' ? 'טופס הצהרת בריאות ושאלון רפואי' : 'Health Declaration & Medical Questionnaire'}</h4>
+                  <p className="text-stone-600 mb-4">{lang === 'he' ? '(אנא עני בכנות ובפירוט. מידע זה נאסף אך ורק למען בטיחותך ויישמר בסודיות מוחלטת)' : '(Please answer honestly and in detail. This information is collected solely for your safety and will be kept strictly confidential)'}</p>
+                  
+                  <div className="bg-stone-50 p-6 rounded-xl border border-stone-200 space-y-6">
+                    {/* Q1 */}
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm mb-2">1. {lang === 'he' ? 'האם את סובלת מבעיות רפואיות כרוניות (כגון: מחלות לב, לחץ דם, אסטמה, סוכרת, אפילפסיה וכד\')?' : 'Do you suffer from chronic medical conditions (e.g. heart disease, blood pressure, asthma, diabetes, epilepsy, etc.)?'}</p>
+                      <div className="flex gap-4 mb-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q1" checked={healthQ.q1.answer === 'no'} onChange={() => setHealthQ({...healthQ, q1: {...healthQ.q1, answer: 'no'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'לא' : 'No'}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q1" checked={healthQ.q1.answer === 'yes'} onChange={() => setHealthQ({...healthQ, q1: {...healthQ.q1, answer: 'yes'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'כן' : 'Yes'}
+                        </label>
+                      </div>
+                      {healthQ.q1.answer === 'yes' && (
+                        <input type="text" placeholder={lang === 'he' ? 'אנא פרטי...' : 'Please specify...'} value={healthQ.q1.details} onChange={e => setHealthQ({...healthQ, q1: {...healthQ.q1, details: e.target.value}})} className="w-full px-3 py-2 rounded-lg border border-stone-300 text-sm focus:ring-2 focus:ring-teal-500" />
+                      )}
+                    </div>
+                    {/* Q2 */}
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm mb-2">2. {lang === 'he' ? 'האם את נוטלת תרופות מרשם באופן קבוע?' : 'Do you take prescription medications regularly?'}</p>
+                      <div className="flex gap-4 mb-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q2" checked={healthQ.q2.answer === 'no'} onChange={() => setHealthQ({...healthQ, q2: {...healthQ.q2, answer: 'no'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'לא' : 'No'}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q2" checked={healthQ.q2.answer === 'yes'} onChange={() => setHealthQ({...healthQ, q2: {...healthQ.q2, answer: 'yes'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'כן' : 'Yes'}
+                        </label>
+                      </div>
+                      {healthQ.q2.answer === 'yes' && (
+                        <input type="text" placeholder={lang === 'he' ? 'אנא פרטי אילו תרופות...' : 'Please specify medications...'} value={healthQ.q2.details} onChange={e => setHealthQ({...healthQ, q2: {...healthQ.q2, details: e.target.value}})} className="w-full px-3 py-2 rounded-lg border border-stone-300 text-sm focus:ring-2 focus:ring-teal-500" />
+                      )}
+                    </div>
+                    {/* Q3 */}
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm mb-2">3. {lang === 'he' ? 'האם יש לך אלרגיות כלשהן (למזון, תרופות, עקיצות חרקים וכד\')?' : 'Do you have any allergies (food, medications, insect bites, etc.)?'}</p>
+                      <div className="flex gap-4 mb-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q3" checked={healthQ.q3.answer === 'no'} onChange={() => setHealthQ({...healthQ, q3: {...healthQ.q3, answer: 'no'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'לא' : 'No'}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q3" checked={healthQ.q3.answer === 'yes'} onChange={() => setHealthQ({...healthQ, q3: {...healthQ.q3, answer: 'yes'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'כן' : 'Yes'}
+                        </label>
+                      </div>
+                      {healthQ.q3.answer === 'yes' && (
+                        <input type="text" placeholder={lang === 'he' ? 'אנא פרטי את סוג האלרגיה ורמת החומרה...' : 'Please specify allergy type and severity...'} value={healthQ.q3.details} onChange={e => setHealthQ({...healthQ, q3: {...healthQ.q3, details: e.target.value}})} className="w-full px-3 py-2 rounded-lg border border-stone-300 text-sm focus:ring-2 focus:ring-teal-500" />
+                      )}
+                    </div>
+                    {/* Q4 */}
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm mb-2">4. {lang === 'he' ? 'האם יש לך מגבלה פיזית, אורתופדית או אחרת שעשויה להקשות עליך בהליכה, טיולי שטח או מאמץ פיזי מתון?' : 'Do you have any physical, orthopedic or other limitation that might make walking, hiking or moderate physical effort difficult?'}</p>
+                      <div className="flex gap-4 mb-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q4" checked={healthQ.q4.answer === 'no'} onChange={() => setHealthQ({...healthQ, q4: {...healthQ.q4, answer: 'no'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'לא' : 'No'}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q4" checked={healthQ.q4.answer === 'yes'} onChange={() => setHealthQ({...healthQ, q4: {...healthQ.q4, answer: 'yes'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'כן' : 'Yes'}
+                        </label>
+                      </div>
+                      {healthQ.q4.answer === 'yes' && (
+                        <input type="text" placeholder={lang === 'he' ? 'אנא פרטי...' : 'Please specify...'} value={healthQ.q4.details} onChange={e => setHealthQ({...healthQ, q4: {...healthQ.q4, details: e.target.value}})} className="w-full px-3 py-2 rounded-lg border border-stone-300 text-sm focus:ring-2 focus:ring-teal-500" />
+                      )}
+                    </div>
+                    {/* Q5 */}
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm mb-2">5. {lang === 'he' ? 'האם ישנו מידע רפואי, נפשי או תזונתי אחר שהמארגנים צריכים לדעת עליו לקראת המסע?' : 'Is there any other medical, mental, or nutritional information the organizers should know about before the trip?'}</p>
+                      <div className="flex gap-4 mb-2">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q5" checked={healthQ.q5.answer === 'no'} onChange={() => setHealthQ({...healthQ, q5: {...healthQ.q5, answer: 'no'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'לא' : 'No'}
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="q5" checked={healthQ.q5.answer === 'yes'} onChange={() => setHealthQ({...healthQ, q5: {...healthQ.q5, answer: 'yes'}})} className="text-teal-600 focus:ring-teal-500" /> {lang === 'he' ? 'כן' : 'Yes'}
+                        </label>
+                      </div>
+                      {healthQ.q5.answer === 'yes' && (
+                        <input type="text" placeholder={lang === 'he' ? 'אנא פרטי...' : 'Please specify...'} value={healthQ.q5.details} onChange={e => setHealthQ({...healthQ, q5: {...healthQ.q5, details: e.target.value}})} className="w-full px-3 py-2 rounded-lg border border-stone-300 text-sm focus:ring-2 focus:ring-teal-500" />
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3 mt-4 text-sm text-stone-800 bg-stone-50 p-4 rounded-xl border border-stone-200 shadow-inner">
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input type="checkbox" className="w-5 h-5 mt-0.5 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={healthDecl.decl1} onChange={e => setHealthDecl({...healthDecl, decl1: e.target.checked})} />
+                      <span className="font-medium group-hover:text-teal-700">
+                        <strong>{lang === 'he' ? 'הצהרת כושר גופני: ' : 'Physical Fitness Declaration: '}</strong>
+                        {lang === 'he' ? 'אני מצהירה כי קראתי את תוכנית המסע, וידוע לי כי אופי המסע כולל פעילויות שטח, סיורים רגליים ומאמץ פיזי מתון וסביר. אני מצהירה כי בריאותי תקינה ואני כשירה פיזית ונפשית להשתתף במסע מעין זה.' : 'I declare that I have read the itinerary and know that the trip includes field activities, walking tours, and moderate physical effort. I declare that I am in good health and physically and mentally fit to participate.'}
+                      </span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input type="checkbox" className="w-5 h-5 mt-0.5 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={healthDecl.decl2} onChange={e => setHealthDecl({...healthDecl, decl2: e.target.checked})} />
+                      <span className="font-medium group-hover:text-teal-700">
+                        <strong>{lang === 'he' ? 'אחריות על המידע: ' : 'Responsibility for Information: '}</strong>
+                        {lang === 'he' ? 'אני מצהירה כי מסרתי את כל המידע הרפואי הרלוונטי לגביי. ידוע לי כי המארגנים מסתמכים על הצהרתי זו. ככל שהסתרתי או השמטתי מידע רפואי, אני לוקחת על עצמי את המלוא האחריות לכל נזק, החמרה במצב רפואי או הוצאה שייגרמו לי עקב כך במהלך המסע, ומוותרת על כל טענה או תביעה כלפי המארגנים בהקשר זה.' : 'I declare I have provided all relevant medical information. I know organizers rely on this declaration. Should I hide or omit medical information, I take full responsibility for any damage, worsening of condition or expense caused during the trip, and waive any claims against organizers.'}
+                      </span>
+                    </label>
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input type="checkbox" className="w-5 h-5 mt-0.5 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={healthDecl.decl3} onChange={e => setHealthDecl({...healthDecl, decl3: e.target.checked})} />
+                      <span className="font-medium group-hover:text-teal-700">
+                        <strong>{lang === 'he' ? 'יידוע לפי חוק הגנת הפרטיות: ' : 'Privacy Protection Notice: '}</strong>
+                        {lang === 'he' ? 'אני מאשרת כי ידוע לי שהמידע הרגיש שמסרתי בטופס זה נמסר מרצוני החופשי ובהסכמתי. המידע נאסף אך ורק למטרת הפקת המסע, היערכות לוגיסטית ושמירה על שלומי ובריאותי במהלכו. המידע יישמר בסודיות אצל המארגנים ולא יועבר לשום צד שלישי, למעט לצוות רפואי מוסמך במקרה חירום רפואי בו אזדקק לטיפול.' : 'I confirm that the sensitive information provided is given voluntarily and with consent. It is collected solely for trip production, logistics, and safety. The information will be kept confidential and not transferred to any third party except authorized medical staff in an emergency.'}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <hr className="border-stone-200" />
+
                 <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
-                  <h4 className="text-xl font-bold text-teal-900 mb-4">{lang === 'he' ? 'חתימה דיגיטלית ופרטים אישיים' : 'Digital Signature & Personal Details'}</h4>
+                  <h4 className="text-xl font-bold text-teal-900 mb-4">{lang === 'he' ? 'פרטים אישיים, חירום וחתימה דיגיטלית' : 'Personal Details, Emergency Contact & Digital Signature'}</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label htmlFor="fullName" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'שם מלא (כפי שמופיע בדרכון) *' : 'Full Name (as in Passport) *'}</label>
-                      <input type="text" id="fullName" value={digitalSignature.fullName} onChange={(e) => setDigitalSignature({...digitalSignature, fullName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                      <input type="text" id="fullName" value={digitalSignature.fullName} onChange={(e) => setDigitalSignature({...digitalSignature, fullName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
                     </div>
                     <div>
                       <label htmlFor="idNumber" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תעודת זהות / דרכון *' : 'ID / Passport *'}</label>
-                      <input type="text" id="idNumber" value={digitalSignature.idNumber} onChange={(e) => setDigitalSignature({...digitalSignature, idNumber: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                      <input type="text" id="idNumber" value={digitalSignature.idNumber} onChange={(e) => setDigitalSignature({...digitalSignature, idNumber: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label htmlFor="date" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תאריך *' : 'Date *'}</label>
-                      <input type="date" id="date" value={digitalSignature.date} onChange={(e) => setDigitalSignature({...digitalSignature, date: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                      <label htmlFor="birthDate" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תאריך לידה *' : 'Date of Birth *'}</label>
+                      <input type="date" id="birthDate" value={digitalSignature.birthDate} onChange={(e) => setDigitalSignature({...digitalSignature, birthDate: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
                     </div>
-                    <div className="hidden md:block"></div>
+                    <div>
+                      <label htmlFor="date" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תאריך חתימה *' : 'Signature Date *'}</label>
+                      <input type="date" id="date" value={digitalSignature.date} onChange={(e) => setDigitalSignature({...digitalSignature, date: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
+                    </div>
                   </div>
-                  <h5 className="font-bold text-teal-800 mb-3 mt-2">{lang === 'he' ? 'איש קשר בחירום' : 'Emergency Contact'}</h5>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                  <h5 className="font-bold text-teal-800 mb-3 mt-6">{lang === 'he' ? 'איש קשר בחירום בישראל' : 'Emergency Contact in Israel'}</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <label htmlFor="emergencyName" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'שם איש קשר *' : 'Emergency Contact Name *'}</label>
-                      <input type="text" id="emergencyName" value={digitalSignature.emergencyName} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                      <input type="text" id="emergencyName" value={digitalSignature.emergencyName} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
+                    </div>
+                    <div>
+                      <label htmlFor="emergencyRelation" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'קרבה (בן זוג/הורה/אחר) *' : 'Relationship *'}</label>
+                      <input type="text" id="emergencyRelation" value={digitalSignature.emergencyRelation} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyRelation: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required />
                     </div>
                     <div>
                       <label htmlFor="emergencyPhone" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'טלפון איש קשר *' : 'Emergency Contact Phone *'}</label>
-                      <input type="tel" id="emergencyPhone" value={digitalSignature.emergencyPhone} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyPhone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required dir="ltr" />
+                      <input type="tel" id="emergencyPhone" value={digitalSignature.emergencyPhone} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyPhone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500 bg-white" required dir="ltr" />
                     </div>
                   </div>
+                  <p className="text-sm text-teal-800 mt-5 font-bold">
+                    {lang === 'he' 
+                      ? 'בחתימתי (מילוי פרטיי) הנני מאשר/ת את תנאי הביטול, כתב הוויתור, והצהרת הבריאות במלואם.' 
+                      : 'By signing (filling my details) I accept the cancellation policy, waiver, and health declaration in full.'}
+                  </p>
                 </div>
 
                 <button disabled={!canProceedStep2} type="submit" className={`w-full py-4 rounded-xl font-bold text-lg transition-all cursor-pointer ${canProceedStep2 ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-stone-300 text-stone-500 opacity-60 cursor-not-allowed'}`}>

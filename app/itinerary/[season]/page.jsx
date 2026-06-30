@@ -70,7 +70,7 @@ export default function ItineraryPage() {
                         src={getImageId(index)} 
                         fallback={currentDefaultImages[index] || '/home1.jpg'}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0"
                         imgClassName={getImageId(index) === 'winter_day_0' ? '!object-contain bg-white' : ''}
                         width={1000}
                         crop="fill"

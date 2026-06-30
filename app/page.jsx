@@ -23,6 +23,7 @@ export default function HomePage() {
             className="w-full h-full object-cover"
             width={1920}
             crop="fill"
+            priority={true}
           />
           <div className="absolute inset-0 bg-stone-900/30 mix-blend-multiply pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/30 to-transparent pointer-events-none" />

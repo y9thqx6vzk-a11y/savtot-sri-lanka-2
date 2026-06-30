@@ -6,7 +6,7 @@ import { Upload, Loader } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import { getCloudinaryUrl } from '../lib/cloudinary';
 
-export default function EditableImage({ id, src, fallback, alt, className, width, height, crop, imgClassName }) {
+export default function EditableImage({ id, src, fallback, alt, className, width, height, crop, imgClassName, priority = false }) {
   const { isAdmin } = useSite();
 
   // Resolve to Cloudinary URL on first render
@@ -69,6 +69,7 @@ export default function EditableImage({ id, src, fallback, alt, className, width
           if (!hasError) setHasError(true);
         }}
         unoptimized={imgSrc.startsWith('blob:')}
+        priority={priority}
       />
 
       {/* Admin overlay */}

@@ -8,6 +8,7 @@ import EditableText from '../../components/EditableText';
 import TravelAgreement from '../../components/Agreements/TravelAgreement';
 import ItineraryAppendix from '../../components/Agreements/ItineraryAppendix';
 import AccommodationRates from '../../components/Agreements/AccommodationRates';
+import MedicalWaiver from '../../components/Agreements/MedicalWaiver';
 
 function RegisterFormContent() {
   const { lang, t } = useSite();
@@ -30,7 +31,13 @@ function RegisterFormContent() {
   
   // Step 2 State
   const [agreements, setAgreements] = useState({ sectionA: false, sectionB: false, sectionC: false });
-  const [digitalSignature, setDigitalSignature] = useState({ fullName: '', idNumber: '' });
+  const [digitalSignature, setDigitalSignature] = useState({ 
+    fullName: '', 
+    idNumber: '',
+    date: new Date().toISOString().split('T')[0],
+    emergencyName: '',
+    emergencyPhone: ''
+  });
 
   // Step 3 State
   const [paymentFile, setPaymentFile] = useState(null);
@@ -41,7 +48,10 @@ function RegisterFormContent() {
   const hasError = customStatus === 'error';
 
   const allChecked = agreements.sectionA && agreements.sectionB && agreements.sectionC;
-  const isFilled = digitalSignature.fullName.trim() !== '' && digitalSignature.idNumber.trim() !== '';
+  const isFilled = digitalSignature.fullName.trim() !== '' && 
+                   digitalSignature.idNumber.trim() !== '' &&
+                   digitalSignature.emergencyName.trim() !== '' &&
+                   digitalSignature.emergencyPhone.trim() !== '';
   const canProceedStep2 = allChecked && isFilled;
 
   // Handlers
@@ -420,7 +430,7 @@ function RegisterFormContent() {
                 <div className="space-y-4">
                   <h4 className="text-lg font-bold text-teal-800">{lang === 'he' ? 'נספח א\' - כתב ויתור והצהרת בריאות' : 'Appendix A - Health Declaration'}</h4>
                   <div className="h-64 overflow-y-auto bg-stone-50 p-4 rounded-xl border border-stone-200 text-sm text-stone-700 shadow-inner">
-                    <p>{lang === 'he' ? 'כאן יופיע תוכן כתב הוויתור והצהרת הבריאות הנדרשת מכל משתתף. (טרם הוזן)' : 'Health declaration and liability waiver details will appear here. (Not entered yet)'}</p>
+                    <MedicalWaiver />
                   </div>
                   <label htmlFor="sectionC" className="flex items-start gap-3 cursor-pointer group">
                     <input type="checkbox" id="sectionC" className="w-5 h-5 mt-1 rounded border-stone-300 text-teal-600 focus:ring-teal-500 cursor-pointer" checked={agreements.sectionC} onChange={(e) => setAgreements({...agreements, sectionC: e.target.checked})} />
@@ -433,15 +443,33 @@ function RegisterFormContent() {
                 <hr className="border-stone-200" />
 
                 <div className="bg-teal-50 p-6 rounded-2xl border border-teal-100">
-                  <h4 className="text-xl font-bold text-teal-900 mb-4">{lang === 'he' ? 'חתימה דיגיטלית' : 'Digital Signature'}</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h4 className="text-xl font-bold text-teal-900 mb-4">{lang === 'he' ? 'חתימה דיגיטלית ופרטים אישיים' : 'Digital Signature & Personal Details'}</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'שם מלא *' : 'Full Name *'}</label>
+                      <label htmlFor="fullName" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'שם מלא (כפי שמופיע בדרכון) *' : 'Full Name (as in Passport) *'}</label>
                       <input type="text" id="fullName" value={digitalSignature.fullName} onChange={(e) => setDigitalSignature({...digitalSignature, fullName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
                     </div>
                     <div>
                       <label htmlFor="idNumber" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תעודת זהות / דרכון *' : 'ID / Passport *'}</label>
                       <input type="text" id="idNumber" value={digitalSignature.idNumber} onChange={(e) => setDigitalSignature({...digitalSignature, idNumber: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <label htmlFor="date" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'תאריך *' : 'Date *'}</label>
+                      <input type="date" id="date" value={digitalSignature.date} onChange={(e) => setDigitalSignature({...digitalSignature, date: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                    </div>
+                    <div className="hidden md:block"></div>
+                  </div>
+                  <h5 className="font-bold text-teal-800 mb-3 mt-2">{lang === 'he' ? 'איש קשר בחירום' : 'Emergency Contact'}</h5>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="emergencyName" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'שם איש קשר *' : 'Emergency Contact Name *'}</label>
+                      <input type="text" id="emergencyName" value={digitalSignature.emergencyName} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyName: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required />
+                    </div>
+                    <div>
+                      <label htmlFor="emergencyPhone" className="block text-sm font-bold text-teal-900 mb-1">{lang === 'he' ? 'טלפון איש קשר *' : 'Emergency Contact Phone *'}</label>
+                      <input type="tel" id="emergencyPhone" value={digitalSignature.emergencyPhone} onChange={(e) => setDigitalSignature({...digitalSignature, emergencyPhone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-teal-200 focus:ring-2 focus:ring-teal-500" required dir="ltr" />
                     </div>
                   </div>
                 </div>

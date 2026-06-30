@@ -74,6 +74,7 @@ export default function ItineraryPage() {
                         imgClassName={getImageId(index) === 'winter_day_0' ? '!object-contain bg-white' : ''}
                         width={1000}
                         crop="fill"
+                        priority={index <= 1}
                        />
                     </div>
                   </div>

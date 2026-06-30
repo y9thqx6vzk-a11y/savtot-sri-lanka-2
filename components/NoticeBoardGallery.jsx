@@ -88,7 +88,14 @@ export default function NoticeBoardGallery({ lang }) {
               onMouseLeave={() => setHoveredIdx(null)}
             >
               {/* Image / Video */}
-              <div className="relative w-full overflow-hidden" style={{ paddingBottom: idx % 5 === 0 ? '133.33%' : idx % 3 === 0 ? '125%' : '150%', height: 0 }}>
+              <div className="relative w-full overflow-hidden">
+                {/* SVG spacer to maintain aspect ratio across all browsers, specifically fixing iOS Safari multicol bug */}
+                <svg 
+                  viewBox={idx % 5 === 0 ? "0 0 3 4" : idx % 3 === 0 ? "0 0 4 5" : "0 0 2 3"} 
+                  className="w-full h-auto block invisible pointer-events-none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                />
+                
                 {isVideo ? (
                   <video
                     src={thumbSrc}
@@ -106,7 +113,7 @@ export default function NoticeBoardGallery({ lang }) {
                     alt={`Sri Lanka ${idx + 1}`}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    className="object-cover transition-transform duration-700 ease-out"
+                    className="object-cover transition-transform duration-700 ease-out absolute inset-0 w-full h-full"
                     style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
                     loading="lazy"
                     unoptimized={true}

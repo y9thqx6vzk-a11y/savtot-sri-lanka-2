@@ -88,11 +88,11 @@ export default function NoticeBoardGallery({ lang }) {
               onMouseLeave={() => setHoveredIdx(null)}
             >
               {/* Image / Video */}
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: idx % 5 === 0 ? '3/4' : idx % 3 === 0 ? '4/5' : '2/3' }}>
+              <div className="relative w-full overflow-hidden" style={{ paddingBottom: idx % 5 === 0 ? '133.33%' : idx % 3 === 0 ? '125%' : '150%', height: 0 }}>
                 {isVideo ? (
                   <video
                     src={thumbSrc}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out"
                     style={{ transform: isHovered ? 'scale(1.04)' : 'scale(1)' }}
                     autoPlay
                     loop

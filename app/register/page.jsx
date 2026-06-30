@@ -292,7 +292,7 @@ function RegisterFormContent() {
                     {lang === 'he' ? 'המחיר כולל:' : 'Price Includes:'}
                   </div>
                   <ul className="list-disc list-inside text-xs text-teal-100 space-y-1 opacity-90">
-                    <li>{lang === 'he' ? '3 ארוחות' : '2 meals a day + Lunch Box'}</li>
+                    <li>{lang === 'he' ? '3 ארוחות ביום' : '3 meals a day'}</li>
                     <li>{lang === 'he' ? 'פעילויות' : 'Activities'}</li>
                     <li>{lang === 'he' ? 'תחבורה' : 'Transport'}</li>
                     <li>{lang === 'he' ? 'לינה במלונות 4-5 כוכבים' : 'Accommodation in 4-5 star hotels'}</li>

@@ -17,7 +17,7 @@ export default function ItineraryAppendix({ season }) {
               <p className="font-bold text-teal-800">יום 1: הגעה ונסיעה לנגומבו/קולומבו</p>
               <p><strong>הערב:</strong> נחיתה בשדה התעופה של קולומבו (CMB), סידורי הגעה והעברה למלון.</p>
               <p><strong>פינוק:</strong> קבלת חדרים, מסאז' מפנק במלון להתחלת המסע באווירה רגועה וארוחת ערב חגיגית.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: ערב | לינה: מלון בקולומבו/נגומבו (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בקולומבו/נגומבו (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -25,7 +25,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>בוקר:</strong> טיול זריחה מוקדם, יוגה וארוחת בוקר במלון.</p>
               <p><strong>אמצע היום:</strong> נסיעה לקיטולגלה לרפטינג מרגש במים לבנים והליכת קניונינג ביער הגשם.</p>
               <p><strong>ערב:</strong> נסיעה לנווארה אליה, צ'ק-אין וארוחת ערב במלון.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בנווארה אליה (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בנווארה אליה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -34,7 +34,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>אמצע היום:</strong> סיור מודרך במטעי התה של נווארה אליה ובמפלים.</p>
               <p><strong>אחר הצהריים:</strong> נסיעה ברכבת הציורית המפורסמת מנווארה אליה לאלה.</p>
               <p><strong>ערב:</strong> הגעה לאלה, צ'ק-אין וארוחת ערב במלון או בבית חב"ד.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון באלה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -42,7 +42,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>בוקר:</strong> טיול זריחה, יוגה וארוחת בוקר.</p>
               <p><strong>אמצע היום:</strong> טיול שטח אל מפלי דיאלומא המרהיבים, גלישת אומגה (Flying Ravana) וזמן קניות בעיירה אלה.</p>
               <p><strong>ערב:</strong> נסיעה למלון וארוחת ערב קבוצתית.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון באלה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -50,7 +50,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>בוקר:</strong> יוגה, ארוחת בוקר ונסיעה דרומה.</p>
               <p><strong>צהריים:</strong> ספארי פילים מרתק בשמורת אודוואלאווה בטבע הפראי.</p>
               <p><strong>אחר הצהריים:</strong> הגעה לחוף הדרומי, סאפ שקיעה רגוע בים ועיסוי מפנק במלון.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בחוף הדרומי (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -59,7 +59,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>אמצע היום:</strong> שנורקלינג מדהים עם צבי ים בחוף, זמן חוף חופשי וקניות מקומיות.</p>
               <p><strong>אחר הצהריים:</strong> התארגנות לקראת כניסת שבת.</p>
               <p><strong>ערב:</strong> קבלת שבת וסעודת שבת חגיגית.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בחוף הדרומי (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -67,7 +67,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>בוקר:</strong> טיול זריחה, סשן יוגה, קפה ועוגה ולאחריו ארוחת בוקר/בראנץ' מאוחרת.</p>
               <p><strong>אמצע היום:</strong> זמן חופשי למנוחה, קריאה ואווירת שבת שקטה על החוף.</p>
               <p><strong>ערב:</strong> מוצאי שבת, הבדלה וארוחת ערב במלון.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, צהריים, ערב | לינה: מלון בחוף הדרומי (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בחוף הדרומי (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -77,7 +77,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>אמצע היום:</strong> שיעור גלישה חווייתי וזמן קניות.</p>
               <p><strong>אחר הצהריים:</strong> יוגה בשקיעה, נסיעה והתארגנות ללינה בטלפה.</p>
               <p><strong>ערב:</strong> ארוחת ערב חמה במלון.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בטלפה (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בטלפה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -85,7 +85,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>בוקר:</strong> יוגה וארוחת בוקר במלון.</p>
               <p><strong>אמצע היום:</strong> זמן חופשי למנוחה, סידורים אחרונים וקניות.</p>
               <p><strong>אחר הצהריים:</strong> נסיעה לשדה התעופה בקולומבו (CMB) לקראת הטיסה חזרה לישראל.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב (במלון/בית חב"ד/שדה התעופה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות.</p>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ export default function ItineraryAppendix({ season }) {
               <p className="font-bold text-teal-800">Day 1: Arrival & Transit to Negombo/Colombo</p>
               <p><strong>Evening:</strong> Landing at Colombo Airport (CMB), immigration procedures, and transfer to hotel.</p>
               <p><strong>Wellness:</strong> Hotel check-in, pampering massage to kick off the trip, and a welcome dinner.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Dinner | Accommodation: Hotel in Colombo/Negombo (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Colombo/Negombo (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -111,7 +111,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Morning:</strong> Early sunrise hike, yoga, and breakfast at the hotel.</p>
               <p><strong>Mid-Day:</strong> Drive to Kithulgala for whitewater rafting and rainforest canyoning.</p>
               <p><strong>Evening:</strong> Transit to Nuwara Eliya, check-in, and dinner at the hotel.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Nuwara Eliya (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Nuwara Eliya (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -120,7 +120,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Mid-Day:</strong> Guided tour of tea plantations and Nuwara Eliya waterfalls.</p>
               <p><strong>Afternoon:</strong> The iconic scenic train ride from Nuwara Eliya to Ella.</p>
               <p><strong>Evening:</strong> Arrival in Ella, check-in, and dinner (at hotel or local Chabad House).</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Ella (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -128,7 +128,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Morning:</strong> Sunrise hike, yoga, and breakfast.</p>
               <p><strong>Mid-Day:</strong> Excursion to the majestic Diyaluma Falls, Flying Ravana Zipline, and local shopping in Ella.</p>
               <p><strong>Evening:</strong> Group dinner and rest.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Ella (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -136,7 +136,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Morning:</strong> Yoga, breakfast, and drive south.</p>
               <p><strong>Mid-Day:</strong> Elephant safari in Udawalawe National Park.</p>
               <p><strong>Afternoon:</strong> Arrival at the South Coast, sunset stand-up paddleboarding (SUP), and a relaxing massage.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel on the South Coast (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -145,7 +145,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Mid-Day:</strong> Snorkeling with wild sea turtles, free beach time, and local shopping.</p>
               <p><strong>Afternoon:</strong> Shabbat preparations.</p>
               <p><strong>Evening:</strong> Welcoming Shabbat; festive dinner.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel on the South Coast (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -153,7 +153,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Morning:</strong> Sunrise hike, yoga session, morning coffee, followed by a late breakfast/brunch.</p>
               <p><strong>Mid-Day:</strong> Free time for reading, relaxing, and quiet beach walks.</p>
               <p><strong>Evening:</strong> Havdalah and group dinner.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Lunch, Dinner | Accommodation: Hotel on the South Coast (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel on the South Coast (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -163,7 +163,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Mid-Day:</strong> Surf lesson and shopping.</p>
               <p><strong>Afternoon:</strong> Sunset yoga, transit and check-in at Talpe.</p>
               <p><strong>Evening:</strong> Dinner at the hotel.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Talpe (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Talpe (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
@@ -171,7 +171,7 @@ export default function ItineraryAppendix({ season }) {
               <p><strong>Morning:</strong> Yoga and breakfast.</p>
               <p><strong>Mid-Day:</strong> Relaxation and final souvenir shopping.</p>
               <p><strong>Afternoon:</strong> Drive to Colombo Airport (CMB) for the flight back.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner (at hotel, Chabad House, or airport).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals.</p>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>אחר הצהריים:</strong> נחיתה בשדה התעופה של קולומבו (CMB) וסידורי הגעה.</p>
             <p><strong>ערב:</strong> נסיעה קבוצתית לסיגירייה (כ-4 שעות).</p>
             <p><strong>לילה:</strong> צ'ק-אין במלון, חלוקת חדרים וארוחת ערב מאוחרת וקבלת פנים.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: ערב | לינה: Hotel Sigiriya (או דומה).</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: Hotel Sigiriya (או דומה).</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -203,7 +203,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>בוקר:</strong> ארוחת בוקר במלון.</p>
             <p><strong>אמצע היום:</strong> סיור בכפר אותנטי וספארי פילים בטבע.</p>
             <p><strong>ערב:</strong> ארוחת ערב ולאחריה זמן מנוחה (אופציונלי: ספא/עיסוי איורוודי).</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: Hotel Sigiriya (או דומה).</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: Hotel Sigiriya (או דומה).</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -212,7 +212,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>בוקר:</strong> ארוחת בוקר ונסיעה לקיטולגאלה.</p>
             <p><strong>אחר הצהריים:</strong> רפטינג במים לבנים והליכת קניונינג ביער הגשם.</p>
             <p><strong>ערב:</strong> נסיעה לנווארה אליה וארוחת ערב במלון.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון בנווארה אליה.</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בנווארה אליה.</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -221,7 +221,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>אמצע היום:</strong> סיור מודרך במטעי התה של נווארה אליה ובמפלים.</p>
             <p><strong>אחר הצהריים:</strong> נסיעה ברכבת הציורית המפורסמת מנווארה אליה לאלה.</p>
             <p><strong>ערב:</strong> הגעה לאלה, צ'ק-אין במלון וארוחת ערב בבית חב"ד המקומי.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה.</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון באלה.</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -231,7 +231,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>אמצע היום:</strong> יציאה לטבע אל מפלי דיאלומבה המרהיבים.</p>
             <p><strong>אחר הצהריים:</strong> חווית אומגה (Zipline) וזמן התארגנות במלון.</p>
             <p><strong>ערב:</strong> סיור בעיירה, קניות, וארוחת ערב בבית חב"ד.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: מלון באלה.</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון באלה.</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -240,7 +240,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>אמצע היום:</strong> סאפ בוקר (SUP) ומנוחה בחוף במפרץ פסיקודה.</p>
             <p><strong>אחר הצהריים מאוחרים:</strong> הכנות לשבת.</p>
             <p><strong>ערב:</strong> כניסת שבת; סעודת שבת חגיגית.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: Pasikudah Bay Hotel (או דומה).</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: Pasikudah Bay Hotel (או דומה).</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -248,7 +248,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>בוקר:</strong> קפה/עוגה בבוקר, ולאחריו ארוחת בוקר/בראנץ' מאוחרת.</p>
             <p><strong>אחר הצהריים:</strong> ארוחת צהריים וזמן חוף רגוע.</p>
             <p><strong>ערב:</strong> מוצאי שבת וארוחת ערב במלון.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, צהריים, ערב | לינה: Pasikudah Bay Hotel (או דומה).</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: Pasikudah Bay Hotel (או דומה).</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -256,7 +256,7 @@ export default function ItineraryAppendix({ season }) {
             <p><strong>בוקר:</strong> סשן יוגה וארוחת בוקר.</p>
             <p><strong>אמצע היום:</strong> יציאה לטרינקומלי לשנורקלינג, קניות מקומיות, ואפשרות לצפייה בחיות ים (אופציונלי).</p>
             <p><strong>ערב:</strong> ארוחת ערב ואפשרות לטיפולי ספא איורוודי.</p>
-            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: בוקר, ערב | לינה: Pasikudah Bay Hotel (או דומה).</p>
+            <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: Pasikudah Bay Hotel (או דומה).</p>
           </div>
 
           <div className="border-r-4 border-teal-500 pr-3">
@@ -284,7 +284,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Afternoon:</strong> Landing at Colombo Airport (CMB) and formal airport procedures.</p>
           <p><strong>Evening:</strong> Scenic group drive to Sigiriya (approx. 4 hours).</p>
           <p><strong>Night:</strong> Hotel check-in, room assignments, and a late welcome dinner.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Dinner | Accommodation: Hotel Sigiriya (or similar).</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel Sigiriya (or similar).</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -293,7 +293,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Morning:</strong> Breakfast at the hotel.</p>
           <p><strong>Mid-Day:</strong> Authentic Village Tour and a Wildlife Elephant Safari.</p>
           <p><strong>Evening:</strong> Dinner, followed by relaxation time (Optional: Ayurvedic spa/massage).</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel Sigiriya (or similar).</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel Sigiriya (or similar).</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -302,7 +302,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Morning:</strong> Breakfast at the hotel and drive to Kithulgala.</p>
           <p><strong>Afternoon:</strong> Whitewater rafting and a rainforest canyoning walk.</p>
           <p><strong>Evening:</strong> Drive to Nuwara Eliya and dinner at the hotel.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Nuwara Eliya.</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Nuwara Eliya.</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -311,7 +311,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Mid-Day:</strong> Guided tour of the Nuwara Eliya Tea Plantations and waterfalls.</p>
           <p><strong>Afternoon:</strong> The famous scenic train ride from Nuwara Eliya to Ella.</p>
           <p><strong>Evening:</strong> Arrival in Ella, hotel check-in, and dinner at the local Chabad House.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella.</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Ella.</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -321,7 +321,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Mid-Day:</strong> Nature excursion to the spectacular Diyaluma Falls.</p>
           <p><strong>Afternoon:</strong> Omega Zipline experience and time to freshen up at the hotel.</p>
           <p><strong>Evening:</strong> Town exploration, shopping, and dinner at the Chabad House.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Hotel in Ella.</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Ella.</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -330,7 +330,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Mid-Day:</strong> Morning SUP (Stand Up Paddleboarding) and beach relaxation at Pasikudah Bay.</p>
           <p><strong>Late Afternoon:</strong> Preparations for Shabbat.</p>
           <p><strong>Evening:</strong> Shabbat begins; festive dinner.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Pasikudah Bay Hotel (or similar).</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Pasikudah Bay Hotel (or similar).</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -338,7 +338,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Morning:</strong> Morning coffee/cake, followed by a late breakfast/brunch.</p>
           <p><strong>Afternoon:</strong> Lunch and leisurely beach time.</p>
           <p><strong>Evening:</strong> Motzash (Shabbat ends) and dinner at the hotel.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Lunch, Dinner | Accommodation: Pasikudah Bay Hotel (or similar).</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Pasikudah Bay Hotel (or similar).</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">
@@ -346,7 +346,7 @@ export default function ItineraryAppendix({ season }) {
           <p><strong>Morning:</strong> Yoga session and breakfast.</p>
           <p><strong>Mid-Day:</strong> Excursion to Trincomalee for snorkeling, local shopping, and optional marine wildlife watching.</p>
           <p><strong>Evening:</strong> Dinner and optional Ayurvedic spa treatments.</p>
-          <p className="text-xs text-stone-500 mt-1">Meals: Breakfast, Dinner | Accommodation: Pasikudah Bay Hotel (or similar).</p>
+          <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Pasikudah Bay Hotel (or similar).</p>
         </div>
 
         <div className="border-l-4 border-teal-500 pl-3">

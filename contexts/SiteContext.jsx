@@ -217,7 +217,7 @@ export const defaultContentData = {
         { title: "כסף ומטבע", items: ["מטבע: רופי סרי-לנקי (LKR)", "להביא דולרים לחירום, הרבה פעמים זה נוח.", "מומלץ להצטייד במזומן מכיוון שלא כל מקום מקבל אשראי. ניתן להוציא כסף בקלות בכספומטים מקומיים."] },
         { title: "חשמל", items: ["מתח 230V. ברוב המקומות שקעים ישראלים (2 פינים) עובדים ללא בעיה.", "עבור תקעים אמריקאים נדרש מתאם."] },
         { title: "ביגוד", items: ["בגדים נוחים לטיולים", "בגדים נוחים להליכה בעיר", "בגדי ים", "סנדלים ונעלי הליכה לטיולים"] },
-        { title: "אוכל וכשרות", items: ["האירוח שלנו הוא על בסיס חצי פנסיון - אנחנו מספקים ארוחות כשרות לאורך כל הטיול.", "בתי חב\"ד: קולומבו, אלה"] }
+        { title: "אוכל וכשרות", items: ["האירוח שלנו הוא על בסיס 3 ארוחות ביום - אנחנו מספקים ארוחות כשרות לאורך כל הטיול.", "בתי חב\"ד: קולומבו, אלה"] }
       ]
     },
     discovery: {
@@ -462,7 +462,7 @@ export const defaultContentData = {
         { title: "Visa (ETA)", items: ["Israelis need an electronic visa/ETA (can be issued for free on the official site eta.gov.lk, or for a fee through agents for easier handling)", "Passport valid for 6 months"] },
         { title: "Money & Currency", items: ["Currency: Sri Lankan Rupee (LKR)", "Bring USD for emergencies, often it is very convenient.", "It is recommended to have cash as not all places accept credit cards. Cash can be easily withdrawn from local ATMs."] },
         { title: "Electricity", items: ["Voltage: 230V. Israeli plugs (2 pins) work in most places without an issue.", "American plugs require an adapter."] },
-        { title: "Kosher Food", items: ["Our hosting is on a half-board basis - we provide kosher meals throughout the trip.", "Chabad Houses: Colombo, Ella"] }
+        { title: "Kosher Food", items: ["Our hosting is on a 3-meals-a-day basis - we provide kosher meals throughout the trip.", "Chabad Houses: Colombo, Ella"] }
       ]
     },
     discovery: { title: 'Discovery', subtitle: 'Get excited about the destination.', articles: [

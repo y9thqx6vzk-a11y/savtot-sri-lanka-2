@@ -164,42 +164,45 @@ function RegisterFormContent() {
   };
 
   const handleStep3Submit = async () => {
-    if (paymentFile) {
-      setIsUploadingPayment(true);
-      setPaymentError('');
-      try {
-        const response = await fetch('/api/email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'payment',
-            email: formData.email,
-            name: formData.name,
-            phone: formData.phone,
-            season: formData.season,
-            file: {
-              name: paymentFile.name,
-              type: paymentFile.type,
-              base64: paymentFile.base64
-            },
-            lang
-          })
-        });
+    if (!paymentFile) {
+      setPaymentError(lang === 'he' ? 'חובה להעלות אסמכתת תשלום כדי להשלים את ההרשמה.' : 'You must upload a payment reference to complete registration.');
+      return;
+    }
 
-        if (!response.ok) {
-          throw new Error('Failed to send payment reference email');
-        }
+    setIsUploadingPayment(true);
+    setPaymentError('');
+    try {
+      const response = await fetch('/api/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          phone: formData.phone,
+          season: formData.season,
+          guests: formData.guests,
+          notes: formData.notes,
+          digitalSignature,
+          healthQ,
+          file: {
+            name: paymentFile.name,
+            type: paymentFile.type,
+            base64: paymentFile.base64
+          },
+          lang
+        })
+      });
 
-        setIsUploadingPayment(false);
-        setStep(4);
-      } catch (err) {
-        console.error(err);
-        setPaymentError(lang === 'he' ? 'שגיאה בשליחת האסמכתא. אנא נסו שנית.' : 'Failed to send payment reference. Please try again.');
-        setIsUploadingPayment(false);
+      if (!response.ok) {
+        throw new Error('Failed to send registration email');
       }
-    } else {
-      // Proceed directly if no file is attached (optional)
+
+      setIsUploadingPayment(false);
       setStep(4);
+    } catch (err) {
+      console.error(err);
+      setPaymentError(lang === 'he' ? 'שגיאה בהשלמת ההרשמה. אנא נסו שנית.' : 'Failed to complete registration. Please try again.');
+      setIsUploadingPayment(false);
     }
   };
 

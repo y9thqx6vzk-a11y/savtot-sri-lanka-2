@@ -1,15 +1,84 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
 
 export async function POST(req) {
+  let body;
   try {
-    const body = await req.json();
-    const { email, name, phone, guests, notes, file, lang, season, digitalSignature, healthQ } = body;
+    body = await req.json();
+  } catch (err) {
+    return NextResponse.json({ error: 'Invalid JSON payload' }, { status: 400 });
+  }
 
-    if (!email || !name) {
-      return NextResponse.json({ error: 'Email and Name are required' }, { status: 400 });
+  const { email, name, phone, guests, notes, file, lang, season, digitalSignature, healthQ } = body;
+
+  if (!email || !name) {
+    return NextResponse.json({ error: 'Email and Name are required' }, { status: 400 });
+  }
+
+  // --- 1. GOOGLE SHEETS INTEGRATION ---
+  let sheetsStatus = "not_attempted";
+  try {
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    const sheetId = process.env.GOOGLE_SHEET_ID || '11FXY_H8q9ihvcIkn92Ghyl-vIBPGrcYL41HuGZd_2oA';
+
+    if (clientEmail && privateKey) {
+      const auth = new google.auth.GoogleAuth({
+        credentials: {
+          client_email: clientEmail,
+          private_key: privateKey.replace(/\\n/g, '\n')
+        },
+        scopes: ['https://www.googleapis.com/auth/spreadsheets']
+      });
+
+      const sheets = google.sheets({ version: 'v4', auth });
+
+      const rowData = [
+        new Date().toISOString(), // Timestamp
+        file ? 'Complete' : 'Partial (Step 1)', // Status
+        name || '',
+        email || '',
+        phone || '',
+        season === 'winter' ? 'Winter 2027' : 'Summer 2027',
+        guests || 1,
+        notes || '',
+        lang || 'he',
+        digitalSignature?.fullName || '',
+        digitalSignature?.idNumber || '',
+        digitalSignature?.birthDate || '',
+        digitalSignature?.date || '',
+        digitalSignature?.emergencyName || '',
+        digitalSignature?.emergencyRelation || '',
+        digitalSignature?.emergencyPhone || '',
+        healthQ?.q1?.answer === 'yes' ? `Yes - ${healthQ.q1.details}` : (healthQ?.q1?.answer || ''),
+        healthQ?.q2?.answer === 'yes' ? `Yes - ${healthQ.q2.details}` : (healthQ?.q2?.answer || ''),
+        healthQ?.q3?.answer === 'yes' ? `Yes - ${healthQ.q3.details}` : (healthQ?.q3?.answer || ''),
+        healthQ?.q4?.answer === 'yes' ? `Yes - ${healthQ.q4.details}` : (healthQ?.q4?.answer || ''),
+        healthQ?.q5?.answer === 'yes' ? `Yes - ${healthQ.q5.details}` : (healthQ?.q5?.answer || ''),
+        file?.name || 'No file attached'
+      ];
+
+      await sheets.spreadsheets.values.append({
+        spreadsheetId: sheetId,
+        range: 'A1', // Appends to the first available empty row
+        valueInputOption: 'USER_ENTERED',
+        requestBody: {
+          values: [rowData]
+        }
+      });
+      sheetsStatus = "success";
+    } else {
+      console.warn("Google Sheets credentials are not configured. Skipping sheets upload.");
+      sheetsStatus = "missing_credentials";
     }
+  } catch (sheetError) {
+    console.error('Google Sheets API Error:', sheetError);
+    sheetsStatus = "error";
+  }
 
+  // --- 2. EMAIL INTEGRATION ---
+  try {
     const gmailUser = process.env.GMAIL_USER;
     const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
@@ -99,6 +168,10 @@ export async function POST(req) {
         <h2 style="color: #0f766e;">קיבלתם הרשמה חדשה מהאתר! 🎉</h2>
         <p>להלן פרטי הנרשמת וטופס ההרשמה המלא (כולל אסמכתא, הצהרת בריאות ופרטי חירום):</p>
         
+        <div style="margin-bottom: 20px; padding: 10px; background-color: ${sheetsStatus === 'success' ? '#e8f5e9' : '#ffebee'}; border: 1px solid ${sheetsStatus === 'success' ? '#4caf50' : '#f44336'}; border-radius: 5px;">
+          <strong>סטטוס גוגל שיטס:</strong> ${sheetsStatus === 'success' ? '✅ נשמר בהצלחה במסד הנתונים' : '❌ שגיאה בשמירה למסד הנתונים / חסרות הרשאות'}
+        </div>
+
         <h3 style="color: #0f766e; margin-top: 20px;">פרטים כלליים</h3>
         <table style="width: 100%; max-width: 600px; border-collapse: collapse;">
           <tr>
@@ -186,7 +259,11 @@ export async function POST(req) {
       attachments
     });
 
-    return NextResponse.json({ success: true, message: 'Registration and emails completed successfully' });
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Emails sent successfully',
+      sheetsStatus
+    });
   } catch (error) {
     console.error('Email API Error:', error);
     return NextResponse.json({ error: 'Failed to send emails' }, { status: 500 });

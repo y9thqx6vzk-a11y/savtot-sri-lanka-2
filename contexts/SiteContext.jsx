@@ -162,13 +162,13 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
           },
-          { day: "5", title: "ספארי פילים וסאפ שקיעה", desc: "יוגה בבוקר, ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה, וסאפ שקיעה רגוע בים לקינוח היום עם עיסוי מפנק.", highlight: "ספארי פילים באודוואלאווה וסאפ שקיעה",
+          { day: "5", title: "ספארי פילים ויוגה בשקיעה", desc: "יוגה בבוקר, ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה, ויוגה בשקיעה מול הים לקינוח היום עם עיסוי מפנק.", highlight: "ספארי פילים באודוואלאווה ויוגה בשקיעה",
             schedule: [
               { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "07:15 - 08:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "08:30 - 11:00", place: "דרום", activity: "נסיעה דרומה" },
               { hour: "11:30 - 14:30", place: "אודוואלאווה", activity: "ספארי פילים באודוואלאווה" },
-              { hour: "18:30 - 19:30", place: "חוף", activity: "סאפ שקיעה" },
+              { hour: "18:30 - 19:30", place: "חוף", activity: "יוגה בשקיעה" },
               { hour: "20:30", place: "מלון", activity: "עיסוי מפנק (מסאז')" }
             ]
           },
@@ -189,14 +189,14 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
           },
-          { day: "8", title: "צפייה בלווייתנים וחוף דרומי", desc: "שייט בבוקר לצפייה בלווייתנים וארוחת בוקר. בהמשך היום שיעור גלישה וקניות, יוגה בשקיעה, ולאחר מכן נסיעה לטלפה ללינה וארוחת ערב.", highlight: "צפייה בלווייתנים ושיעור גלישה",
+          { day: "8", title: "צפייה בלווייתנים וסאפ שקיעה", desc: "שייט בבוקר לצפייה בלווייתנים וארוחת בוקר. בהמשך היום קניות, נסיעה והתארגנות במלון באההנגמה, סאפ שקיעה ולאחר מכן ארוחת ערב.", highlight: "צפייה בלווייתנים וסאפ שקיעה",
             schedule: [
               { hour: "05:00", place: "אוקיינוס", activity: "צפייה בלווייתנים" },
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
-              { hour: "09:30 - 12:30", place: "חוף", activity: "שיעור גלישה וקניות" },
-              { hour: "16:30 - 17:30", place: "חוף", activity: "יוגה בשקיעה" },
-              { hour: "17:30 - 18:30", place: "טלפה", activity: "נסיעה והתארגנות ללינה בטלפה" },
-              { hour: "19:00 - 20:00", place: "מלון בטלפה", activity: "ארוחת ערב" }
+              { hour: "09:30 - 12:30", place: "חוף", activity: "זמן חופשי וקניות" },
+              { hour: "12:30 - 16:30", place: "אההנגמה", activity: "נסיעה והתארגנות במלון באההנגמה" },
+              { hour: "16:30 - 18:30", place: "חוף", activity: "סאפ שקיעה" },
+              { hour: "19:00 - 20:00", place: "מלון באההנגמה", activity: "ארוחת ערב" }
             ]
           },
           { day: "9", title: "יום אחרון וטיסה", desc: "יוגה וארוחת בוקר במלון. בהמשך היום מנוחה וקניות אחרונות, ולאחר מכן נסיעה לשדה התעופה לקראת הטיסה חזרה הביתה.", highlight: "יוגה ונסיעה לשדה התעופה",
@@ -406,13 +406,13 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
           },
-          { day: "5", title: "Elephant Safari & Sunset SUP", desc: "Morning yoga, breakfast, driving south for an incredible elephant safari in Udawalawe, and enjoying a relaxing stand-up paddleboarding (SUP) session at sunset, finished with a massage.", highlight: "Udawalawe Elephant Safari and sunset SUP",
+          { day: "5", title: "Elephant Safari & Sunset Yoga", desc: "Morning yoga, breakfast, driving south for an incredible elephant safari in Udawalawe, and enjoying a relaxing sunset yoga session, finished with a massage.", highlight: "Udawalawe Elephant Safari and sunset yoga",
             schedule: [
               { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "07:15 - 08:00", place: "Hotel", activity: "Breakfast" },
               { hour: "08:30 - 11:00", place: "South", activity: "Drive south" },
               { hour: "11:30 - 14:30", place: "Udawalawe", activity: "Udawalawe Elephant safari" },
-              { hour: "18:30 - 19:30", place: "Beach", activity: "Sunset SUP" },
+              { hour: "18:30 - 19:30", place: "Beach", activity: "Sunset Yoga" },
               { hour: "20:30", place: "Hotel", activity: "Massage" }
             ]
           },
@@ -433,14 +433,14 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
           },
-          { day: "8", title: "Whale Watching & South Coast", desc: "Early whale watching and breakfast. Enjoy a surf session and shopping, sunset yoga, followed by a transfer to Talpe for dinner and overnight.", highlight: "Whale watching and surfing",
+          { day: "8", title: "Whale Watching & Sunset SUP", desc: "Early whale watching and breakfast. Enjoy free time and shopping, transfer and check-in at Ahangama hotel, sunset SUP, and dinner.", highlight: "Whale watching and Sunset SUP",
             schedule: [
               { hour: "05:00", place: "Ocean", activity: "Whale watching" },
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
-              { hour: "09:30 - 12:30", place: "Beach", activity: "Surf and shops" },
-              { hour: "16:30 - 17:30", place: "Beach", activity: "Sunset Yoga" },
-              { hour: "17:30 - 18:30", place: "Talpe", activity: "Transfer & overnight in Talpe" },
-              { hour: "19:00 - 20:00", place: "Hotel in Talpe", activity: "Dinner" }
+              { hour: "09:30 - 12:30", place: "Beach", activity: "Free time and shops" },
+              { hour: "12:30 - 16:30", place: "Ahangama", activity: "Transfer & check-in at Ahangama hotel" },
+              { hour: "16:30 - 18:30", place: "Beach", activity: "Sunset SUP" },
+              { hour: "19:00 - 20:00", place: "Hotel in Ahangama", activity: "Dinner" }
             ]
           },
           { day: "9", title: "Final Day & Flight", desc: "Yoga and breakfast at the hotel, followed by free time for relaxing or shopping, and then the drive to the airport for the flight back.", highlight: "Yoga and flight home",

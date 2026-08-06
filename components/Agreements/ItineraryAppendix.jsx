@@ -46,10 +46,10 @@ export default function ItineraryAppendix({ season }) {
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
-              <p className="font-bold text-teal-800">יום 5: ספארי פילים וסאפ שקיעה בדרום</p>
+              <p className="font-bold text-teal-800">יום 5: ספארי פילים ויוגה בשקיעה בדרום</p>
               <p><strong>בוקר:</strong> יוגה, ארוחת בוקר ונסיעה דרומה.</p>
               <p><strong>צהריים:</strong> ספארי פילים מרתק בשמורת אודוואלאווה בטבע הפראי.</p>
-              <p><strong>אחר הצהריים:</strong> הגעה לחוף הדרומי, סאפ שקיעה רגוע בים ועיסוי מפנק במלון.</p>
+              <p><strong>אחר הצהריים:</strong> הגעה לחוף הדרומי, יוגה בשקיעה מול הים ועיסוי מפנק במלון.</p>
               <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בחוף הדרומי (או דומה).</p>
             </div>
 
@@ -71,13 +71,13 @@ export default function ItineraryAppendix({ season }) {
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
-              <p className="font-bold text-teal-800">יום 8: צפייה בלווייתנים וגלישה</p>
+              <p className="font-bold text-teal-800">יום 8: צפייה בלווייתנים וסאפ שקיעה</p>
               <p><strong>בוקר מוקדם:</strong> שייט מיוחד לצפייה בלווייתנים ודולפינים באוקיינוס.</p>
               <p><strong>בוקר:</strong> ארוחת בוקר במלון.</p>
-              <p><strong>אמצע היום:</strong> שיעור גלישה חווייתי וזמן קניות.</p>
-              <p><strong>אחר הצהריים:</strong> יוגה בשקיעה, נסיעה והתארגנות ללינה בטלפה.</p>
+              <p><strong>אמצע היום:</strong> זמן קניות, נסיעה והתארגנות במלון באההנגמה (12:30).</p>
+              <p><strong>אחר הצהריים:</strong> סאפ שקיעה מול הים.</p>
               <p><strong>ערב:</strong> ארוחת ערב חמה במלון.</p>
-              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון בטלפה (או דומה).</p>
+              <p className="text-xs text-stone-500 mt-1">ארוחות כלולות: 3 ארוחות | לינה: מלון באההנגמה (או דומה).</p>
             </div>
 
             <div className="border-r-4 border-teal-500 pr-3">
@@ -132,10 +132,10 @@ export default function ItineraryAppendix({ season }) {
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
-              <p className="font-bold text-teal-800">Day 5: Elephant Safari & Sunset SUP on South Coast</p>
+              <p className="font-bold text-teal-800">Day 5: Elephant Safari & Sunset Yoga on South Coast</p>
               <p><strong>Morning:</strong> Yoga, breakfast, and drive south.</p>
               <p><strong>Mid-Day:</strong> Elephant safari in Udawalawe National Park.</p>
-              <p><strong>Afternoon:</strong> Arrival at the South Coast, sunset stand-up paddleboarding (SUP), and a relaxing massage.</p>
+              <p><strong>Afternoon:</strong> Arrival at the South Coast, sunset yoga, and a relaxing massage.</p>
               <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel on the South Coast (or similar).</p>
             </div>
 
@@ -157,13 +157,13 @@ export default function ItineraryAppendix({ season }) {
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">
-              <p className="font-bold text-teal-800">Day 8: Whale Watching & Surf Lesson</p>
+              <p className="font-bold text-teal-800">Day 8: Whale Watching & Sunset SUP</p>
               <p><strong>Early Morning:</strong> Ocean cruise search for whales and dolphins.</p>
               <p><strong>Morning:</strong> Breakfast.</p>
-              <p><strong>Mid-Day:</strong> Surf lesson and shopping.</p>
-              <p><strong>Afternoon:</strong> Sunset yoga, transit and check-in at Talpe.</p>
+              <p><strong>Mid-Day:</strong> Shopping, transfer and check-in at Ahangama hotel (12:30).</p>
+              <p><strong>Afternoon:</strong> Sunset stand-up paddleboarding (SUP).</p>
               <p><strong>Evening:</strong> Dinner at the hotel.</p>
-              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Talpe (or similar).</p>
+              <p className="text-xs text-stone-500 mt-1">Meals: 3 meals | Accommodation: Hotel in Ahangama (or similar).</p>
             </div>
 
             <div className="border-l-4 border-teal-500 pl-3">

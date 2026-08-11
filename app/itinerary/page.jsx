@@ -53,9 +53,14 @@ export default function ItineraryRootPage() {
           {/* Winter Card */}
           <div className="bg-white p-8 rounded-3xl border border-[#eaddcd] shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between min-h-[260px] text-start">
             <div>
-              <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block mb-1">
-                {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
-              </span>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block">
+                  {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
+                </span>
+                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#8ca38f]/10 text-[#8ca38f] border border-[#8ca38f]/20">
+                  {lang === 'he' ? '15-24 לפברואר' : 'Feb 15-24'}
+                </span>
+              </div>
               <h3 className="text-2xl font-serif font-bold text-stone-900 mb-3">
                 {lang === 'he' ? 'מסע חורף 2027' : 'Winter (February) 2027'}
               </h3>

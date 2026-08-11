@@ -47,6 +47,16 @@ export default function ItineraryPage() {
               ? (lang === 'he' ? 'מסע חורף 2027' : 'Winter Trip 2027') 
               : (lang === 'he' ? 'מסע קיץ 2027' : 'Summer Trip 2027')}
           </span>
+          {season === 'winter' && (
+            <div className="inline-block px-4 py-1.5 rounded-full text-xs md:text-sm font-bold tracking-wider mb-4 border"
+                 style={{ 
+                   borderColor: '#8ca38f', 
+                   color: '#8ca38f', 
+                   backgroundColor: 'rgba(140, 163, 143, 0.1)' 
+                 }}>
+              {lang === 'he' ? '15-24 לפברואר' : 'February 15-24'}
+            </div>
+          )}
           <h1 className="text-5xl font-serif font-bold text-teal-900 mb-4">
             <EditableText path={`${lang}.itinerary.title`} text={t.itinerary.title} />
           </h1>

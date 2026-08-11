@@ -8,13 +8,14 @@ export const defaultContentData = {
       home: 'בית', itinerary: 'המסלול', essentials: 'מידע חשוב', discovery: 'גלריה', about: 'הסיפור שלנו', register: 'הצטרפו למסע', toggle: 'Switch to English'
     },
     hero: {
-      title: 'סבתות בסרי לנקה\nקיץ 2027',
+      title: 'סבתות בסרי לנקה\n2027',
       subtitle: 'ממפלים מרהיבים ומטעי תה ירוקים, ל״בריכות אינפיניטי" טבעיות והחופים היפים ביותר שיש.\nחוויה מיוחדת ובלתי נשכחת שארגנו במיוחד בשבילך, אישה שמחפשת לחוות קצת ״טיול אחרי צבא״\nאבל בקצב רגוע ועם כל הפינוקים של טיול מאורגן.',
       tagline: 'טיול של פעם בחיים',
       cta_plan: 'צפו בתוכנית',
       cta_discover: 'גלו עוד',
       kosher: 'הטיול עם כשרות מלאה.',
       yoga: 'כולל תרגולי יוגה יומיים.',
+      winter_trip: 'מסע חורף: 15-24 לפברואר',
       dates_disclaimer: '* תאריכים מדויקים יפורסמו בהמשך.'
     },
     features: {
@@ -244,13 +245,14 @@ export const defaultContentData = {
   en: {
     nav: { home: 'Home', itinerary: 'Itinerary', essentials: 'Good to Know', discovery: 'Gallery', about: 'Our Story', register: 'Join Us', toggle: 'עבור לעברית' },
     hero: { 
-      title: 'Savtot in Sri Lanka\nSummer 2027', 
+      title: 'Savtot in Sri Lanka\n2027', 
       subtitle: 'From stunning waterfalls and green tea plantations, to natural infinity pools and the most beautiful beaches.\nA special and unforgettable experience we organized especially for you, a woman looking to experience a bit of a "post-army trip", but at a relaxed pace and with all the indulgences of an organized tour.',
       tagline: 'THE TRIP OF A LIFETIME',
       cta_plan: 'See the Plan',
       cta_discover: 'Experience the magic',
       kosher: 'The trip is fully Kosher.',
       yoga: 'Includes daily Yoga sessions.',
+      winter_trip: 'Winter Journey: February 15-24',
       dates_disclaimer: '* Exact dates will be published later.'
     },
     features: { 

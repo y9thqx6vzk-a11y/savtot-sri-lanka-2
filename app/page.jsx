@@ -48,9 +48,14 @@ export default function HomePage() {
             {/* Winter Card */}
             <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
               <div>
-                <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block mb-1">
-                  {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
-                </span>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block">
+                    {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
+                  </span>
+                  <span className="text-[10px] md:text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#8ca38f]/10 text-[#8ca38f] border border-[#8ca38f]/20">
+                    {lang === 'he' ? '15-24 לפברואר' : 'Feb 15-24'}
+                  </span>
+                </div>
                 <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
                   {lang === 'he' ? 'מסע חורף 2027' : 'Winter (February) 2027'}
                 </h3>
@@ -101,6 +106,10 @@ export default function HomePage() {
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
               <EditableText path={`${lang}.hero.yoga`} text={t.hero.yoga} />
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8ca38f]" />
+              <EditableText path={`${lang}.hero.winter_trip`} text={t.hero.winter_trip} />
             </span>
             <span className="flex items-center gap-2 text-[#ffd5a1]">
               <EditableText path={`${lang}.hero.dates_disclaimer`} text={t.hero.dates_disclaimer} />

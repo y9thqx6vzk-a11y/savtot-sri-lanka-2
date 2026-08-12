@@ -52,7 +52,7 @@ export default function HomePage() {
                   <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block">
                     {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
                   </span>
-                  <span className="text-[10px] md:text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#8ca38f]/10 text-[#8ca38f] border border-[#8ca38f]/20">
+                  <span className="text-[10px] md:text-xs font-black px-2.5 py-0.5 rounded-full bg-[#8ca38f] text-white shadow-xs">
                     {lang === 'he' ? '15-24 לפברואר' : 'Feb 15-24'}
                   </span>
                 </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
               <EditableText path={`${lang}.hero.yoga`} text={t.hero.yoga} />
             </span>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 font-semibold text-white bg-white/15 px-3 py-1 rounded-full border border-white/10 shadow-sm backdrop-blur-[2px]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8ca38f]" />
               <EditableText path={`${lang}.hero.winter_trip`} text={t.hero.winter_trip} />
             </span>

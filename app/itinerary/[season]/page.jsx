@@ -48,11 +48,10 @@ export default function ItineraryPage() {
               : (lang === 'he' ? 'מסע קיץ 2027' : 'Summer Trip 2027')}
           </span>
           {season === 'winter' && (
-            <div className="inline-block px-4 py-1.5 rounded-full text-xs md:text-sm font-bold tracking-wider mb-4 border"
+            <div className="inline-block px-5 py-2 rounded-full text-sm md:text-base font-extrabold tracking-wider mb-6 shadow-md"
                  style={{ 
-                   borderColor: '#8ca38f', 
-                   color: '#8ca38f', 
-                   backgroundColor: 'rgba(140, 163, 143, 0.1)' 
+                   color: '#ffffff', 
+                   backgroundColor: '#8ca38f' 
                  }}>
               {lang === 'he' ? '15-24 לפברואר' : 'February 15-24'}
             </div>

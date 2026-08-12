@@ -57,7 +57,7 @@ export default function ItineraryRootPage() {
                 <span className="text-[#8ca38f] font-serif italic text-sm md:text-base font-medium block">
                   {lang === 'he' ? 'בריחה טרופית בחורף' : 'Tropical Winter Escape'}
                 </span>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#8ca38f]/10 text-[#8ca38f] border border-[#8ca38f]/20">
+                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-[#8ca38f] text-white shadow-xs">
                   {lang === 'he' ? '15-24 לפברואר' : 'Feb 15-24'}
                 </span>
               </div>

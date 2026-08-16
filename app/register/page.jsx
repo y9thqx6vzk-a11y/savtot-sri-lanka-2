@@ -92,7 +92,7 @@ function RegisterFormContent() {
     setCustomStatus('submitting');
     
     try {
-      const response = await fetch('/api/email', {
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -102,12 +102,12 @@ function RegisterFormContent() {
           guests: formData.guests,
           notes: formData.notes,
           season: formData.season,
-          lang 
+          website_url: formData.website_url
         })
       });
       
       if (!response.ok) {
-        throw new Error("Email dispatch failed.");
+        throw new Error("Registration step 1 failed.");
       }
       
       setCustomStatus('idle');

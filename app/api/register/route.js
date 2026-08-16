@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { db } from '../../../lib/firebaseAdmin';
-import { addRegistration } from '../../utils/registrationStore.js';
 
 const USE_FIREBASE = false; // Set to true when you want to reconnect Firebase
 
@@ -24,8 +23,7 @@ export async function POST(req) {
     if (USE_FIREBASE && process.env.FIREBASE_PROJECT_ID) {
       await db.collection('registrations').add(newRegistration);
     } else {
-      // Store registration locally when Firebase is disabled
-      await addRegistration(newRegistration);
+      console.warn("Firebase is temporarily disconnected. Registration not saved permanently.");
     }
 
     return NextResponse.json({ success: true, message: "Registration saved successfully" });

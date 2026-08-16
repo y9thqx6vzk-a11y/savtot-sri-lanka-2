@@ -1,23 +1,24 @@
 import { NextResponse } from 'next/server';
 
-// Allowed origins for CORS
-const ALLOWED_ORIGINS = process.env.NODE_ENV === 'production' ? ['https://savtot.com','https://www.savtot.com'] : ['*'];
-  'https://savtot.com',
-  'https://www.savtot.com'
-];
 
 export function middleware(request) {
   const origin = request.headers.get('origin');
-  const isAllowed = origin && (
-    ALLOWED_ORIGINS.includes(origin) || 
-    origin.startsWith('http://localhost:') || 
-    origin.endsWith('.vercel.app')
-  );
+  
+  // Allow all origins in development
+  if (process.env.NODE_ENV !== 'production') {
+    return NextResponse.next();
+  }
 
-  if (origin && !isAllowed) {
+  // Allowed origins for CORS in production
+  const ALLOWED_ORIGINS = [
+    'https://savtot.com',
+    'https://www.savtot.com'
+  ];
+
+  if (origin && !ALLOWED_ORIGINS.includes(origin) && !origin.endsWith('.vercel.app')) {
     return new NextResponse('Origin not allowed', { status: 403 });
   }
-  // Continue to the next middleware / route handler
+  
   return NextResponse.next();
 }
 

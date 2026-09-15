@@ -648,12 +648,39 @@ function RegisterFormContent() {
                       ? 'על מנת לחסוך בעמלות סליקה והמרת מט"ח מיותרות, התשלום יבוצע בהעברה בנקאית (או העברת זה"ב) לחשבון הפרויקט:' 
                       : 'To save on clearing and currency exchange fees, payment will be made via bank transfer to the project account:'}
                   </p>
-                  <ul className="list-disc list-inside mb-6 space-y-1 font-medium text-blue-900">
-                    <li>{lang === 'he' ? 'בנק: 10 (לאומי)' : 'Bank: 10 (Leumi)'}</li>
-                    <li>{lang === 'he' ? 'סניף: 680 (מודיעין)' : 'Branch: 680 (Modi\'in)'}</li>
-                    <li>{lang === 'he' ? 'מספר חשבון: 4422472' : 'Account Number: 4422472'}</li>
-                    <li>{lang === 'he' ? 'שם בעל החשבון: איל גרנות' : 'Account Name: Eyal Granot'}</li>
-                  </ul>
+                  <div className="bg-white/80 border border-blue-200 rounded-xl p-4 mb-4">
+                    <p className="font-bold text-blue-950 mb-2">
+                      {lang === 'he' ? 'להעברות בתוך ישראל:' : 'For Local Transfers (Israel):'}
+                    </p>
+                    <ul className="list-disc list-inside space-y-1 font-medium text-blue-900">
+                      <li>{lang === 'he' ? 'בנק: 10 (לאומי)' : 'Bank: 10 (Leumi)'}</li>
+                      <li>{lang === 'he' ? 'סניף: 680 (מודיעין)' : 'Branch: 680 (Modi\'in)'}</li>
+                      <li>{lang === 'he' ? 'מספר חשבון: 4422472' : 'Account Number: 4422472'}</li>
+                      <li>{lang === 'he' ? 'שם בעל החשבון: איל גרנות' : 'Account Name: Eyal Granot'}</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/80 border border-blue-200 rounded-xl p-4 mb-6">
+                    <p className="font-extrabold text-blue-950 text-base mb-2">
+                      {lang === 'he' ? 'להעברות בינלאומיות:' : 'For International Transfers:'}
+                    </p>
+                    <ul className="list-disc list-inside space-y-1 font-medium text-blue-900">
+                      <li>
+                        <strong>IBAN:</strong>{' '}
+                        <span className="font-mono font-bold tracking-wide select-all text-blue-950">IL56 0106 8000 0000 4422 472</span>
+                      </li>
+                      <li>
+                        <strong>SWIFT / BIC:</strong>{' '}
+                        <span className="font-mono font-bold select-all text-blue-950">LUMIILIT</span>
+                      </li>
+                      <li>
+                        {lang === 'he' ? 'בנק: בנק לאומי לישראל בע"מ' : 'Bank: Bank Leumi Le-Israel B.M.'}
+                      </li>
+                      <li>
+                        {lang === 'he' ? 'שם המוטב: איל גרנות' : 'Beneficiary Name: Eyal Granot'}
+                      </li>
+                    </ul>
+                  </div>
 
                   <p className="font-bold text-blue-900 mb-2">{lang === 'he' ? 'שקיפות פיננסית ופיצול קבלות:' : 'Financial Transparency & Split Invoicing:'}</p>
                   <p className="mb-3">

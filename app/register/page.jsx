@@ -59,6 +59,8 @@ function RegisterFormContent() {
   const [paymentFile, setPaymentFile] = useState(null);
   const [isUploadingPayment, setIsUploadingPayment] = useState(false);
   const [paymentError, setPaymentError] = useState('');
+  const [showNoPaymentModal, setShowNoPaymentModal] = useState(false);
+  const [submittedWithoutFile, setSubmittedWithoutFile] = useState(false);
 
   const isSubmitting = customStatus === 'submitting';
   const hasError = customStatus === 'error';
@@ -163,14 +165,23 @@ function RegisterFormContent() {
     setPaymentError('');
   };
 
-  const handleStep3Submit = async () => {
+  const handleStep3Click = (e) => {
+    if (e) e.preventDefault();
     if (!paymentFile) {
-      setPaymentError(lang === 'he' ? 'חובה להעלות אסמכתת תשלום כדי להשלים את ההרשמה.' : 'You must upload a payment reference to complete registration.');
+      setShowNoPaymentModal(true);
       return;
     }
+    executeStep3Submit(true);
+  };
 
+  const executeStep3Submit = async (hasFile) => {
     setIsUploadingPayment(true);
     setPaymentError('');
+    setShowNoPaymentModal(false);
+    if (!hasFile) {
+      setSubmittedWithoutFile(true);
+    }
+
     try {
       const response = await fetch('/api/email', {
         method: 'POST',
@@ -184,11 +195,11 @@ function RegisterFormContent() {
           notes: formData.notes,
           digitalSignature,
           healthQ,
-          file: {
+          file: hasFile && paymentFile ? {
             name: paymentFile.name,
             type: paymentFile.type,
             base64: paymentFile.base64
-          },
+          } : null,
           lang
         })
       });
@@ -694,6 +705,23 @@ function RegisterFormContent() {
                   </ol>
                 </div>
 
+                {/* Notice Banner about reservation upon actual payment */}
+                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 text-sm flex items-start gap-3 shadow-sm">
+                  <svg className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <div>
+                    <strong className="font-bold block mb-0.5">
+                      {lang === 'he' ? 'לתשומת לבכן:' : 'Important Notice:'}
+                    </strong>
+                    <span>
+                      {lang === 'he' 
+                        ? 'המקום במסע אינו משוריין עד שלא מתבצע תשלום בפועל וקבלת אסמכתא. באפשרותכן לשלוח את הטופס המלא כעת ולהסדיר את התשלום בהמשך.' 
+                        : 'Your spot on the journey is not reserved until actual payment is completed and confirmed. You may submit the full form now and settle payment later.'}
+                    </span>
+                  </div>
+                </div>
+
                 {/* File Upload Box */}
                 <div className="bg-stone-50 border border-stone-200 p-6 rounded-2xl shadow-sm space-y-4 mt-6">
                   <h4 className="text-lg font-bold text-teal-900">
@@ -740,7 +768,7 @@ function RegisterFormContent() {
 
                 <button 
                   disabled={isUploadingPayment} 
-                  onClick={handleStep3Submit} 
+                  onClick={handleStep3Click} 
                   className={`w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all mt-6 flex justify-center items-center gap-2 cursor-pointer ${isUploadingPayment ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isUploadingPayment ? (
@@ -749,14 +777,61 @@ function RegisterFormContent() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      {lang === 'he' ? 'שולח אסמכתא...' : 'Sending Reference...'}
+                      {lang === 'he' ? 'שולח נתונים...' : 'Sending Data...'}
                     </>
                   ) : paymentFile ? (
                     lang === 'he' ? 'שלח אסמכתא וסיים הרשמה' : 'Send Reference & Complete Registration'
                   ) : (
-                    lang === 'he' ? 'סיום הרשמה' : 'Complete Registration'
+                    lang === 'he' ? 'סיום הרשמה (ללא אסמכתא כעת)' : 'Complete Registration (Without Reference Now)'
                   )}
                 </button>
+              </div>
+            )}
+
+            {/* Warning Modal when completing without payment */}
+            {showNoPaymentModal && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" dir={lang === 'he' ? 'rtl' : 'ltr'}>
+                <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-stone-100 text-stone-800 space-y-6 animate-in zoom-in-95 duration-200 text-start">
+                  <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-stone-900">
+                      {lang === 'he' ? 'שימי לב: המקום אינו משוריין עדיין' : 'Please Note: Spot Not Reserved Yet'}
+                    </h3>
+                    <p className="text-stone-600 text-sm leading-relaxed">
+                      {lang === 'he' 
+                        ? 'כל פרטי ההרשמה, החתימה והשאלונים שמילאת יישלחו אלינו במלואם. יחד עם זאת, חשוב להדגיש כי המקום במסע אינו מובטח או משוריין עד שלא מתבצע תשלום בפועל.' 
+                        : 'All registration details, signatures, and questionnaires will be sent to us in full. However, please note that your spot on the journey is not reserved until actual payment is completed.'}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3 pt-2">
+                    <button
+                      type="button"
+                      disabled={isUploadingPayment}
+                      onClick={() => executeStep3Submit(false)}
+                      className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      {isUploadingPayment ? (
+                        <span>{lang === 'he' ? 'שולח נתונים...' : 'Submitting...'}</span>
+                      ) : (
+                        lang === 'he' ? 'הבנתי, סיום ושליחת הטופס המלא' : 'I Understand, Submit Full Form'
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setShowNoPaymentModal(false)}
+                      className="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium py-3 px-4 rounded-xl transition-all cursor-pointer"
+                    >
+                      {lang === 'he' ? 'חזרה להעלאת אסמכתא' : 'Back to Upload Reference'}
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
 
@@ -768,6 +843,24 @@ function RegisterFormContent() {
                 </div>
                 <h3 className="text-3xl font-bold text-teal-900"><EditableText path={`${lang}.register.form.success_title`} text={t.register.form.success_title} /></h3>
                 <p className="text-stone-600"><EditableText path={`${lang}.register.form.success_desc`} text={t.register.form.success_desc} /></p>
+
+                {submittedWithoutFile && (
+                  <div className="max-w-md w-full bg-amber-50 border border-amber-300 rounded-2xl p-4 text-amber-950 text-sm text-start flex items-start gap-3 my-2">
+                    <svg className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <div>
+                      <p className="font-bold">
+                        {lang === 'he' ? 'טופס ההרשמה המלא נקלט בהצלחה!' : 'Full Registration Form Received!'}
+                      </p>
+                      <p className="mt-1 text-xs sm:text-sm text-amber-900">
+                        {lang === 'he' 
+                          ? 'כל פרטי ההרשמה, החתימה והשאלונים נשמרו במלואם. נזכיר כי המקום אינו משוריין עד להסדרת התשלום בפועל והעברת אסמכתא.' 
+                          : 'All registration details, signatures, and forms were saved in full. Please note that your spot is not reserved until payment is completed and confirmed.'}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 
                 <div className="py-6 flex flex-col gap-6 w-full max-w-md mx-auto">
                   {/* WhatsApp Block */}

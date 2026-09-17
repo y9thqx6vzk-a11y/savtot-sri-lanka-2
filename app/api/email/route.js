@@ -23,6 +23,13 @@ export async function POST(req) {
     const privateKey = process.env.GOOGLE_PRIVATE_KEY;
     const sheetId = process.env.GOOGLE_SHEET_ID || '11FXY_H8q9ihvcIkn92Ghyl-vIBPGrcYL41HuGZd_2oA';
 
+    const hasFullForm = !!digitalSignature?.fullName;
+    const hasFile = !!file;
+
+    const registrationStatus = hasFile 
+      ? 'Complete' 
+      : (hasFullForm ? 'Full Form (Pending Payment)' : 'Partial (Step 1)');
+
     if (clientEmail && privateKey) {
       const auth = new google.auth.GoogleAuth({
         credentials: {
@@ -36,7 +43,7 @@ export async function POST(req) {
 
       const rowData = [
         new Date().toISOString(), // Timestamp
-        file ? 'Complete' : 'Partial (Step 1)', // Status
+        registrationStatus, // Status
         name || '',
         email || '',
         phone || '',
@@ -101,8 +108,16 @@ export async function POST(req) {
 
     // Registrant Email
     const registrantSubject = isHebrew 
-      ? `אישור הרשמה וקבלת אסמכתא - סבתות בסרי לנקה (${seasonTextHe})` 
-      : `Registration & Payment Confirmation - Savtot in Sri Lanka (${seasonTextEn})`;
+      ? (hasFile 
+          ? `אישור הרשמה וקבלת אסמכתא - סבתות בסרי לנקה (${seasonTextHe})` 
+          : (hasFullForm 
+              ? `קבלת פרטי הרשמה (טרם הוסדר תשלום) - סבתות בסרי לנקה (${seasonTextHe})`
+              : `אישור קבלת פנייה - סבתות בסרי לנקה (${seasonTextHe})`))
+      : (hasFile
+          ? `Registration & Payment Confirmation - Savtot in Sri Lanka (${seasonTextEn})`
+          : (hasFullForm
+              ? `Registration Received (Payment Pending) - Savtot in Sri Lanka (${seasonTextEn})`
+              : `Registration Inquiry Received - Savtot in Sri Lanka (${seasonTextEn})`));
 
     const greeting = name ? (isHebrew ? `היי ${name},` : `Hi ${name},`) : (isHebrew ? 'שלום,' : 'Hello,');
 
@@ -113,8 +128,20 @@ export async function POST(req) {
         </div>
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
-          <p style="font-size: 16px;">אנו שמחים לאשר שקיבלנו את פרטי ההרשמה שלך לטיול סבתות בסרי לנקה - <strong>מחזור ${seasonTextHe}</strong>, כולל אסמכתת התשלום (<strong>${file ? file.name : ''}</strong>).</p>
-          <p style="font-size: 16px;">אנו נבדוק את האסמכתא ונאשר את הרישום הסופי שלך בהקדם האפשרי. עותק של האסמכתא ששלחת מצורף למייל זה.</p>
+          ${hasFile ? `
+            <p style="font-size: 16px;">אנו שמחים לאשר שקיבלנו את פרטי ההרשמה שלך לטיול סבתות בסרי לנקה - <strong>מחזור ${seasonTextHe}</strong>, כולל אסמכתת התשלום (<strong>${file.name}</strong>).</p>
+            <p style="font-size: 16px;">אנו נבדוק את האסמכתא ונאשר את הרישום הסופי שלך בהקדם האפשרי. עותק של האסמכתא ששלחת מצורף למייל זה.</p>
+          ` : (hasFullForm ? `
+            <p style="font-size: 16px;">אנו שמחים לאשר שקיבלנו את טופס ההרשמה המלא שלך לטיול סבתות בסרי לנקה - <strong>מחזור ${seasonTextHe}</strong>.</p>
+            <div style="background-color: #fff7ed; border: 1px solid #f97316; border-radius: 8px; padding: 14px; margin: 18px 0; color: #9a3412;">
+              <strong style="font-size: 16px;">⚠️ לתשומת לבך:</strong><br>
+              המקום במסע אינו משוריין עד שלא מתבצע תשלום בפועל וקבלת אסמכתא.
+            </div>
+            <p style="font-size: 15px;">כל פרטי הטופס, החתימה והשאלון נקלטו בהצלחה. כדי לשריין את מקומך במסע, אנא השלימי את ביצוע ההעברה הבנקאית בהקדם לפי פרטי החשבון המופיעים באתר.</p>
+          ` : `
+            <p style="font-size: 16px;">תודה שהתחלת את תהליך ההרשמה למסע סבתות בסרי לנקה - <strong>מחזור ${seasonTextHe}</strong>.</p>
+            <p style="font-size: 15px;">נשמח לעמוד לרשותך בכל שאלה כדי לסייע בהשלמת ההרשמה.</p>
+          `)}
           <p style="font-size: 16px;">אנו נשלח פרטים ועדכונים נוספים במייל, וכמובן גם בקבוצת הוואצאפ בה אנחנו מעדכנים על הכל בזמן אמת.</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">הצטרפו לקבוצת הוואצאפ לעדכונים</a>
@@ -129,8 +156,20 @@ export async function POST(req) {
         </div>
         <div style="padding: 20px;">
           <p style="font-size: 16px;">${greeting}</p>
-          <p style="font-size: 16px;">We are excited to confirm we have received your registration details for the Savtot in Sri Lanka - <strong>${seasonTextEn}</strong> trip, along with your payment reference (<strong>${file ? file.name : ''}</strong>).</p>
-          <p style="font-size: 16px;">We will verify it and confirm your final registration as soon as possible. A copy of the reference you sent is attached to this email.</p>
+          ${hasFile ? `
+            <p style="font-size: 16px;">We are excited to confirm we have received your registration details for the Savtot in Sri Lanka - <strong>${seasonTextEn}</strong> trip, along with your payment reference (<strong>${file.name}</strong>).</p>
+            <p style="font-size: 16px;">We will verify it and confirm your final registration as soon as possible. A copy of the reference you sent is attached to this email.</p>
+          ` : (hasFullForm ? `
+            <p style="font-size: 16px;">We are pleased to confirm receipt of your full registration form for the Savtot in Sri Lanka trip - <strong>${seasonTextEn}</strong>.</p>
+            <div style="background-color: #fff7ed; border: 1px solid #f97316; border-radius: 8px; padding: 14px; margin: 18px 0; color: #9a3412;">
+              <strong style="font-size: 16px;">⚠️ Please Note:</strong><br>
+              Your spot on the journey is not reserved until actual payment is completed and confirmed.
+            </div>
+            <p style="font-size: 15px;">All details, signatures, and questionnaire answers were successfully received. To secure your spot on the trip, please complete the bank transfer as specified on the website.</p>
+          ` : `
+            <p style="font-size: 16px;">Thank you for starting your registration for Savtot in Sri Lanka - <strong>${seasonTextEn}</strong>.</p>
+            <p style="font-size: 15px;">We are available for any questions you may have to help you complete the registration.</p>
+          `)}
           <p style="font-size: 16px;">We will send all the details and updates via email, and of course in our WhatsApp group where we post real-time updates.</p>
           <div style="text-align: center; margin: 30px 0;">
             <a href="https://chat.whatsapp.com/EfBba4Pilux40nrtu2vyjK?mode=gi_t" style="background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; display: inline-block;">Join WhatsApp Group</a>
@@ -162,14 +201,26 @@ export async function POST(req) {
     }
 
     // Admin Email
-    const adminSubject = `הרשמה חדשה לטיול (${seasonTextHe}): ${name}`;
+    const adminSubject = hasFile
+      ? `הרשמה חדשה מלאה (שולמה אסמכתא) (${seasonTextHe}): ${name}`
+      : (hasFullForm
+          ? `הרשמה חדשה - טופס מלא (טרם הוסדר תשלום) (${seasonTextHe}): ${name}`
+          : `ליד חדש / התחלת הרשמה שלב 1 (${seasonTextHe}): ${name}`);
+
     const adminHtml = `
       <div dir="rtl" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
         <h2 style="color: #0f766e;">קיבלתם הרשמה חדשה מהאתר! 🎉</h2>
-        <p>להלן פרטי הנרשמת וטופס ההרשמה המלא (כולל אסמכתא, הצהרת בריאות ופרטי חירום):</p>
+        <p>להלן פרטי הנרשמת וטופס ההרשמה${hasFullForm ? ' (כולל הצהרת בריאות ופרטי חירום)' : ''}:</p>
+
+        ${hasFullForm && !hasFile ? `
+        <div style="margin-bottom: 20px; padding: 14px 18px; background-color: #fff7ed; border: 2px solid #f97316; border-radius: 8px; color: #9a3412;">
+          <strong style="font-size: 16px;">⚠️ שימו לב: נשלח טופס הרשמה מלא, אך טרם הועברה אסמכתת תשלום!</strong>
+          <p style="margin: 6px 0 0 0; font-size: 14px;">המשתתפת מילאה את כל שלב 2 (חתימה, חירום, שאלון רפואי). המקום אינו משוריין עד להסדרת התשלום בפועל.</p>
+        </div>
+        ` : ''}
         
         <div style="margin-bottom: 20px; padding: 10px; background-color: ${sheetsStatus === 'success' ? '#e8f5e9' : '#ffebee'}; border: 1px solid ${sheetsStatus === 'success' ? '#4caf50' : '#f44336'}; border-radius: 5px;">
-          <strong>סטטוס גוגל שיטס:</strong> ${sheetsStatus === 'success' ? '✅ נשמר בהצלחה במסד הנתונים' : '❌ שגיאה בשמירה למסד הנתונים / חסרות הרשאות'}
+          <strong>סטטוס גוגל שיטס:</strong> ${sheetsStatus === 'success' ? '✅ נשמר בהצלחה במסד הנתונים' : '❌ שגיאה בשמירה למסד הנתונים / חסרות הרשאות'} (${registrationStatus})
         </div>
 
         <h3 style="color: #0f766e; margin-top: 20px;">פרטים כלליים</h3>

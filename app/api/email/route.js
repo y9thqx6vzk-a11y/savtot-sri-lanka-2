@@ -83,7 +83,55 @@ export async function POST(req) {
     sheetsStatus = "error";
   }
 
-  // --- 2. EMAIL INTEGRATION ---
+  // --- 2. SUPABASE (SQL DATABASE) INTEGRATION ---
+  let supabaseStatus = "not_attempted";
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (supabaseUrl && supabaseKey) {
+      const { createClient: createSupabaseClient } = await import('@supabase/supabase-js');
+      const supabase = createSupabaseClient(supabaseUrl, supabaseKey);
+
+      const { error: sbError } = await supabase.from('registrations').insert([
+        {
+          status: registrationStatus,
+          name: name || '',
+          email: email || '',
+          phone: phone || '',
+          season: season || 'summer',
+          guests: parseInt(guests) || 1,
+          notes: notes || '',
+          lang: lang || 'he',
+          full_name_passport: digitalSignature?.fullName || null,
+          id_number: digitalSignature?.idNumber || null,
+          birth_date: digitalSignature?.birthDate || null,
+          signature_date: digitalSignature?.date || null,
+          emergency_name: digitalSignature?.emergencyName || null,
+          emergency_relation: digitalSignature?.emergencyRelation || null,
+          emergency_phone: digitalSignature?.emergencyPhone || null,
+          health_chronic: healthQ?.q1?.answer === 'yes' ? `Yes - ${healthQ.q1.details}` : (healthQ?.q1?.answer || null),
+          health_medications: healthQ?.q2?.answer === 'yes' ? `Yes - ${healthQ.q2.details}` : (healthQ?.q2?.answer || null),
+          health_allergies: healthQ?.q3?.answer === 'yes' ? `Yes - ${healthQ.q3.details}` : (healthQ?.q3?.answer || null),
+          health_limitations: healthQ?.q4?.answer === 'yes' ? `Yes - ${healthQ.q4.details}` : (healthQ?.q4?.answer || null),
+          health_notes: healthQ?.q5?.answer === 'yes' ? `Yes - ${healthQ.q5.details}` : (healthQ?.q5?.answer || null),
+          payment_file_name: file?.name || null
+        }
+      ]);
+
+      if (sbError) {
+        console.warn('Supabase Insert Note:', sbError.message);
+        supabaseStatus = "error: " + sbError.message;
+      } else {
+        supabaseStatus = "success";
+      }
+    }
+  } catch (sbErr) {
+    console.warn('Supabase Error:', sbErr);
+    supabaseStatus = "error";
+  }
+
+  // --- 3. EMAIL INTEGRATION ---
   try {
     const gmailUser = process.env.GMAIL_USER;
     const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
@@ -218,6 +266,10 @@ export async function POST(req) {
         </div>
         ` : ''}
         
+        <div style="margin-bottom: 12px; padding: 10px; background-color: ${supabaseStatus === 'success' ? '#e8f5e9' : '#fff3e0'}; border: 1px solid ${supabaseStatus === 'success' ? '#4caf50' : '#ff9800'}; border-radius: 5px;">
+          <strong>סטטוס מסד נתונים SQL (Supabase):</strong> ${supabaseStatus === 'success' ? '✅ נשמר בהצלחה בטבלה' : '⚠️ ' + supabaseStatus}
+        </div>
+
         <div style="margin-bottom: 20px; padding: 10px; background-color: ${sheetsStatus === 'success' ? '#e8f5e9' : '#ffebee'}; border: 1px solid ${sheetsStatus === 'success' ? '#4caf50' : '#f44336'}; border-radius: 5px;">
           <strong>סטטוס גוגל שיטס:</strong> ${sheetsStatus === 'success' ? '✅ נשמר בהצלחה במסד הנתונים' : '❌ שגיאה בשמירה למסד הנתונים / חסרות הרשאות'} (${registrationStatus})
         </div>

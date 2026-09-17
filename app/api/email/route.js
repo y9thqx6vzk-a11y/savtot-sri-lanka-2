@@ -16,19 +16,18 @@ export async function POST(req) {
     return NextResponse.json({ error: 'Email and Name are required' }, { status: 400 });
   }
 
+  const hasFullForm = !!digitalSignature?.fullName;
+  const hasFile = !!file;
+  const registrationStatus = hasFile 
+    ? 'Complete' 
+    : (hasFullForm ? 'Full Form (Pending Payment)' : 'Partial (Step 1)');
+
   // --- 1. GOOGLE SHEETS INTEGRATION ---
   let sheetsStatus = "not_attempted";
   try {
     const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
     const privateKey = process.env.GOOGLE_PRIVATE_KEY;
     const sheetId = process.env.GOOGLE_SHEET_ID || '11FXY_H8q9ihvcIkn92Ghyl-vIBPGrcYL41HuGZd_2oA';
-
-    const hasFullForm = !!digitalSignature?.fullName;
-    const hasFile = !!file;
-
-    const registrationStatus = hasFile 
-      ? 'Complete' 
-      : (hasFullForm ? 'Full Form (Pending Payment)' : 'Partial (Step 1)');
 
     if (clientEmail && privateKey) {
       const auth = new google.auth.GoogleAuth({

@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
 
 export async function POST(req) {
   let body;
@@ -22,68 +21,7 @@ export async function POST(req) {
     ? 'Complete' 
     : (hasFullForm ? 'Full Form (Pending Payment)' : 'Partial (Step 1)');
 
-  // --- 1. GOOGLE SHEETS INTEGRATION ---
-  let sheetsStatus = "not_attempted";
-  try {
-    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
-    const sheetId = process.env.GOOGLE_SHEET_ID || '11FXY_H8q9ihvcIkn92Ghyl-vIBPGrcYL41HuGZd_2oA';
-
-    if (clientEmail && privateKey) {
-      const auth = new google.auth.GoogleAuth({
-        credentials: {
-          client_email: clientEmail,
-          private_key: privateKey.replace(/\\n/g, '\n')
-        },
-        scopes: ['https://www.googleapis.com/auth/spreadsheets']
-      });
-
-      const sheets = google.sheets({ version: 'v4', auth });
-
-      const rowData = [
-        new Date().toISOString(), // Timestamp
-        registrationStatus, // Status
-        name || '',
-        email || '',
-        phone || '',
-        season === 'winter' ? 'Winter 2027' : 'Summer 2027',
-        guests || 1,
-        notes || '',
-        lang || 'he',
-        digitalSignature?.fullName || '',
-        digitalSignature?.idNumber || '',
-        digitalSignature?.birthDate || '',
-        digitalSignature?.date || '',
-        digitalSignature?.emergencyName || '',
-        digitalSignature?.emergencyRelation || '',
-        digitalSignature?.emergencyPhone || '',
-        healthQ?.q1?.answer === 'yes' ? `Yes - ${healthQ.q1.details}` : (healthQ?.q1?.answer || ''),
-        healthQ?.q2?.answer === 'yes' ? `Yes - ${healthQ.q2.details}` : (healthQ?.q2?.answer || ''),
-        healthQ?.q3?.answer === 'yes' ? `Yes - ${healthQ.q3.details}` : (healthQ?.q3?.answer || ''),
-        healthQ?.q4?.answer === 'yes' ? `Yes - ${healthQ.q4.details}` : (healthQ?.q4?.answer || ''),
-        healthQ?.q5?.answer === 'yes' ? `Yes - ${healthQ.q5.details}` : (healthQ?.q5?.answer || ''),
-        file?.name || 'No file attached'
-      ];
-
-      await sheets.spreadsheets.values.append({
-        spreadsheetId: sheetId,
-        range: 'A1', // Appends to the first available empty row
-        valueInputOption: 'USER_ENTERED',
-        requestBody: {
-          values: [rowData]
-        }
-      });
-      sheetsStatus = "success";
-    } else {
-      console.warn("Google Sheets credentials are not configured. Skipping sheets upload.");
-      sheetsStatus = "missing_credentials";
-    }
-  } catch (sheetError) {
-    console.error('Google Sheets API Error:', sheetError);
-    sheetsStatus = "error";
-  }
-
-  // --- 2. SUPABASE (SQL DATABASE) INTEGRATION ---
+  // --- 1. SUPABASE (SQL DATABASE) INTEGRATION ---
   let supabaseStatus = "not_attempted";
   try {
     const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -270,10 +208,6 @@ export async function POST(req) {
           <strong>סטטוס מסד נתונים SQL (Supabase):</strong> ${supabaseStatus === 'success' ? '✅ נשמר בהצלחה בטבלה' : '⚠️ ' + supabaseStatus}
         </div>
 
-        <div style="margin-bottom: 20px; padding: 10px; background-color: ${sheetsStatus === 'success' ? '#e8f5e9' : '#ffebee'}; border: 1px solid ${sheetsStatus === 'success' ? '#4caf50' : '#f44336'}; border-radius: 5px;">
-          <strong>סטטוס גוגל שיטס:</strong> ${sheetsStatus === 'success' ? '✅ נשמר בהצלחה במסד הנתונים' : '❌ שגיאה בשמירה למסד הנתונים / חסרות הרשאות'} (${registrationStatus})
-        </div>
-
         <h3 style="color: #0f766e; margin-top: 20px;">פרטים כלליים</h3>
         <table style="width: 100%; max-width: 600px; border-collapse: collapse;">
           <tr>
@@ -364,7 +298,7 @@ export async function POST(req) {
     return NextResponse.json({ 
       success: true, 
       message: 'Emails sent successfully',
-      sheetsStatus
+      supabaseStatus
     });
   } catch (error) {
     console.error('Email API Error:', error);

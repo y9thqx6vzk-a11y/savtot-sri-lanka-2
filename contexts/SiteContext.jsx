@@ -163,31 +163,31 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
             ]
           },
-          { day: "5", title: "ספארי פילים ויוגה בשקיעה", desc: "יוגה בבוקר, ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה, ויוגה בשקיעה מול הים לקינוח היום עם עיסוי מפנק.", highlight: "ספארי פילים באודוואלאווה ויוגה בשקיעה",
+          { day: "5", title: "ספארי פילים והכנות לשבת", desc: "יוגה בבוקר, ארוחת בוקר, נסיעה דרומה לספארי פילים בשמורת אודוואלאווה. אחרי הצהריים מגיעים למלון ומתארגנים לקראת כניסת שבת.", highlight: "ספארי פילים באודוואלאווה",
             schedule: [
               { hour: "06:30", place: "מלון", activity: "יוגה" },
               { hour: "07:15 - 08:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "08:30 - 11:00", place: "דרום", activity: "נסיעה דרומה" },
               { hour: "11:30 - 14:30", place: "אודוואלאווה", activity: "ספארי פילים באודוואלאווה" },
-              { hour: "18:30 - 19:30", place: "חוף", activity: "יוגה בשקיעה" },
-              { hour: "20:30", place: "מלון", activity: "עיסוי מפנק (מסאז')" }
+              { hour: "14:30", place: "מלון", activity: "הגעה למלון" },
+              { hour: "15:30", place: "מלון", activity: "הכנות לשבת וערב שבת" }
             ]
           },
-          { day: "6", title: "שנורקלינג והתארגנות לשבת", desc: "יוגה בבוקר, ארוחת בוקר, שנורקלינג מדהים עם צבי ים, זמן חוף וקניות, ולאחר מכן התארגנות לקראת כניסת שבת.", highlight: "שנורקלינג עם צבי ים וזמן חוף",
-            schedule: [
-              { hour: "07:00", place: "מלון", activity: "יוגה" },
-              { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
-              { hour: "10:30 - 12:00", place: "חוף", activity: "שנורקלינג עם צבי ים" },
-              { hour: "13:30 - 15:30", place: "חוף", activity: "זמן חוף וקניות" },
-              { hour: "17:15", place: "מלון", activity: "התארגנות לשבת" }
-            ]
-          },
-          { day: "7", title: "שבת מנוחה", desc: "סשן יוגה שבת לייט, ארוחת בוקר וזמן מנוחה רגוע בשבת. בערב - הבדלה במוצאי שבת וארוחת ערב.", highlight: "שבת מנוחה ויוגה לייט",
+          { day: "6", title: "שבת מנוחה", desc: "סשן יוגה שבת לייט, ארוחת בוקר וזמן מנוחה רגוע בשבת. בערב - הבדלה במוצאי שבת וארוחת ערב.", highlight: "שבת מנוחה ויוגה לייט",
             schedule: [
               { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
               { hour: "09:30", place: "מלון", activity: "יוגה שבת לייט" },
               { hour: "18:30", place: "מלון", activity: "מוצאי שבת (הבדלה)" },
               { hour: "19:30 - 20:30", place: "מלון", activity: "ארוחת ערב" }
+            ]
+          },
+          { day: "7", title: "שנורקלינג עם צבים ויוגה בשקיעה", desc: "ארוחת בוקר, שנורקלינג מדהים עם צבי ים, זמן מנוחה, קניות וחוף, עיסוי מפנק ויוגה בשקיעה לסיום היום.", highlight: "שנורקלינג עם צבי ים ויוגה בשקיעה",
+            schedule: [
+              { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
+              { hour: "09:30 - 11:30", place: "חוף", activity: "שנורקלינג עם צבים" },
+              { hour: "11:30 - 15:00", place: "חוף", activity: "מנוחה, שופינג וזמן חוף" },
+              { hour: "15:30", place: "מלון", activity: "טיפול מסאז'" },
+              { hour: "17:30", place: "חוף", activity: "יוגה בשקיעה" }
             ]
           },
           { day: "8", title: "צפייה בלווייתנים וסאפ שקיעה", desc: "שייט בבוקר לצפייה בלווייתנים וארוחת בוקר. בהמשך היום קניות, נסיעה והתארגנות במלון באההנגמה, סאפ שקיעה ולאחר מכן ארוחת ערב.", highlight: "צפייה בלווייתנים וסאפ שקיעה",
@@ -200,13 +200,13 @@ export const defaultContentData = {
               { hour: "19:00 - 20:00", place: "מלון באההנגמה", activity: "ארוחת ערב" }
             ]
           },
-          { day: "9", title: "יום אחרון וטיסה", desc: "יוגה וארוחת בוקר במלון. בהמשך היום מנוחה וקניות אחרונות, ולאחר מכן נסיעה לשדה התעופה לקראת הטיסה חזרה הביתה.", highlight: "יוגה ונסיעה לשדה התעופה",
+          { day: "9", title: "גאלה ולהתראות", desc: "ארוחת בוקר ומנוחה במלון, נסיעה לעיר גאלה לסיור וקניות אחרונות, ומשם נסיעה לקולומבו ולהתראות.", highlight: "סיור וקניות בגאלה",
             schedule: [
-              { hour: "07:30", place: "מלון", activity: "יוגה" },
-              { hour: "08:30", place: "מלון", activity: "ארוחת בוקר" },
-              { hour: "09:30 - 13:30", place: "-", activity: "-" },
-              { hour: "13:30 - 16:30", place: "-", activity: "מנוחה וקניות" },
-              { hour: "16:30", place: "-", activity: "נסיעה לשדה התעופה" }
+              { hour: "08:00 - 09:00", place: "מלון", activity: "ארוחת בוקר" },
+              { hour: "09:30 - 11:00", place: "מלון", activity: "מנוחה במלון" },
+              { hour: "11:00 - 12:30", place: "גאלה", activity: "נסיעה לגאלה" },
+              { hour: "12:30 - 15:30", place: "גאלה", activity: "מסתובבים בגאלה וקניות" },
+              { hour: "15:30", place: "קולומבו", activity: "נסיעה לקולומבו ולהתראות" }
             ]
           }
         ]
@@ -408,31 +408,31 @@ export const defaultContentData = {
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
             ]
           },
-          { day: "5", title: "Elephant Safari & Sunset Yoga", desc: "Morning yoga, breakfast, driving south for an incredible elephant safari in Udawalawe, and enjoying a relaxing sunset yoga session, finished with a massage.", highlight: "Udawalawe Elephant Safari and sunset yoga",
+          { day: "5", title: "Elephant Safari & Shabbat Preparations", desc: "Morning yoga, breakfast, driving south for an incredible elephant safari in Udawalawe. In the afternoon we arrive at the hotel and get ready for Shabbat.", highlight: "Udawalawe Elephant Safari",
             schedule: [
               { hour: "06:30", place: "Hotel", activity: "Yoga" },
               { hour: "07:15 - 08:00", place: "Hotel", activity: "Breakfast" },
               { hour: "08:30 - 11:00", place: "South", activity: "Drive south" },
               { hour: "11:30 - 14:30", place: "Udawalawe", activity: "Udawalawe Elephant safari" },
-              { hour: "18:30 - 19:30", place: "Beach", activity: "Sunset Yoga" },
-              { hour: "20:30", place: "Hotel", activity: "Massage" }
+              { hour: "14:30", place: "Hotel", activity: "Arrival at the hotel" },
+              { hour: "15:30", place: "Hotel", activity: "Shabbat preparations & Shabbat eve" }
             ]
           },
-          { day: "6", title: "Beach & Shabbat Preparations", desc: "Morning yoga, breakfast, incredible snorkeling with sea turtles, relaxing beach and shopping time, and getting ready for Shabbat.", highlight: "Snorkeling with sea turtles and beach time",
-            schedule: [
-              { hour: "07:00", place: "Hotel", activity: "Yoga" },
-              { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
-              { hour: "10:30 - 12:00", place: "Beach", activity: "Snorkeling with turtles" },
-              { hour: "13:30 - 15:30", place: "Beach", activity: "Beach & shopping time" },
-              { hour: "17:15", place: "Hotel", activity: "Shabbat preparations" }
-            ]
-          },
-          { day: "7", title: "Shabbat Rest", desc: "Shabbat lite yoga session, breakfast, and a peaceful Shabbat rest. In the evening, Havdalah (Motzash) and dinner.", highlight: "Peaceful Shabbat and lite yoga",
+          { day: "6", title: "Shabbat Rest", desc: "Shabbat lite yoga session, breakfast, and a peaceful Shabbat rest. In the evening, Havdalah (Motzash) and dinner.", highlight: "Peaceful Shabbat and lite yoga",
             schedule: [
               { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
               { hour: "09:30", place: "Hotel", activity: "Shabbat Lite Yoga" },
               { hour: "18:30", place: "Hotel", activity: "Motzash (Havdalah)" },
               { hour: "19:30 - 20:30", place: "Hotel", activity: "Dinner" }
+            ]
+          },
+          { day: "7", title: "Turtle Snorkeling & Sunset Yoga", desc: "Breakfast, incredible snorkeling with sea turtles, time to rest, shop and enjoy the beach, a massage, and sunset yoga to end the day.", highlight: "Snorkeling with sea turtles and sunset yoga",
+            schedule: [
+              { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+              { hour: "09:30 - 11:30", place: "Beach", activity: "Snorkeling with turtles" },
+              { hour: "11:30 - 15:00", place: "Beach", activity: "Rest, shopping & beach time" },
+              { hour: "15:30", place: "Hotel", activity: "Massage treatment" },
+              { hour: "17:30", place: "Beach", activity: "Sunset Yoga" }
             ]
           },
           { day: "8", title: "Whale Watching & Sunset SUP", desc: "Early whale watching and breakfast. Enjoy free time and shopping, transfer and check-in at Ahangama hotel, sunset SUP, and dinner.", highlight: "Whale watching and Sunset SUP",
@@ -445,13 +445,13 @@ export const defaultContentData = {
               { hour: "19:00 - 20:00", place: "Hotel in Ahangama", activity: "Dinner" }
             ]
           },
-          { day: "9", title: "Final Day & Flight", desc: "Yoga and breakfast at the hotel, followed by free time for relaxing or shopping, and then the drive to the airport for the flight back.", highlight: "Yoga and flight home",
+          { day: "9", title: "Galle & Goodbye", desc: "Breakfast and rest at the hotel, a drive to Galle for a stroll and last shopping, then the drive to Colombo and goodbye.", highlight: "Strolling and shopping in Galle",
             schedule: [
-              { hour: "07:30", place: "Hotel", activity: "Yoga" },
-              { hour: "08:30", place: "Hotel", activity: "Breakfast" },
-              { hour: "09:30 - 13:30", place: "-", activity: "-" },
-              { hour: "13:30 - 16:30", place: "-", activity: "Relax, shopping" },
-              { hour: "16:30", place: "-", activity: "Drive to airport" }
+              { hour: "08:00 - 09:00", place: "Hotel", activity: "Breakfast" },
+              { hour: "09:30 - 11:00", place: "Hotel", activity: "Rest at the hotel" },
+              { hour: "11:00 - 12:30", place: "Galle", activity: "Drive to Galle" },
+              { hour: "12:30 - 15:30", place: "Galle", activity: "Strolling around Galle & shopping" },
+              { hour: "15:30", place: "Colombo", activity: "Drive to Colombo & goodbye" }
             ]
           }
         ]

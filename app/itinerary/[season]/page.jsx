@@ -29,30 +29,28 @@ export default function ItineraryPage() {
 
   const currentDefaultImages = defaultImages[season] || defaultImages.summer;
   const getImageId = (idx) => {
-    if (season === 'winter') return `winter_day_${idx}`;
+    if (season === 'winter') {
+      // שבת (אינדקס 5) ושנורקלינג (אינדקס 6) שומרים על התמונות המקוריות שלהם
+      if (idx === 5) return 'winter_day_6';
+      if (idx === 6) return 'winter_day_5';
+      return `winter_day_${idx}`;
+    }
     if (idx === 8) return '10';
     if (idx === 7) return 'itinerary_day_8';
     return `itinerary_day_${idx}`;
   };
 
-  // פונקציה לחישוב יום בשבוע (בהנחה שיום 1 הוא יום שני)
+  // פונקציה לחישוב יום בשבוע (יום 1 הוא יום שני, יום 6 הוא שבת)
   const getDayOfWeek = (dayNum, currentLang) => {
     const hebrewDays = ['שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת', 'ראשון'];
     const englishDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     // dayNum מגיע כ-1, 2 וכו'. אנחנו עושים מודולו 7 כדי לדעת איזה יום זה
-    const dayIndex = (dayNum - 1) % 7;
+    const dayIndex = (Number(dayNum) - 1) % 7;
     return currentLang === 'he' ? hebrewDays[dayIndex] : englishDays[dayIndex];
   };
 
   // הכנת המערך עם האינדקס המקורי כדי לא לשבור את ה-EditableText והשמירה למסד הנתונים
-  let displayDays = days.map((item, idx) => ({ ...item, originalIndex: idx }));
-
-  // החלפה בין יום 6 (אינדקס 5) ליום 7 (אינדקס 6) - רק במסע חורף
-  if (season === 'winter' && displayDays.length >= 7) {
-    const temp = displayDays[5];
-    displayDays[5] = displayDays[6];
-    displayDays[6] = temp;
-  }
+  const displayDays = days.map((item, idx) => ({ ...item, originalIndex: idx }));
 
   return (
     <div className="pt-32 pb-20 bg-stone-50">

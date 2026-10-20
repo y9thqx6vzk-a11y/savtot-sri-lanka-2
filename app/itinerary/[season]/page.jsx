@@ -35,24 +35,43 @@ export default function ItineraryPage() {
     return `itinerary_day_${idx}`;
   };
 
+  // פונקציה לחישוב יום בשבוע (בהנחה שיום 1 הוא יום שני)
+  const getDayOfWeek = (dayNum, currentLang) => {
+    const hebrewDays = ['שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת', 'ראשון'];
+    const englishDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    // dayNum מגיע כ-1, 2 וכו'. אנחנו עושים מודולו 7 כדי לדעת איזה יום זה
+    const dayIndex = (dayNum - 1) % 7;
+    return currentLang === 'he' ? hebrewDays[dayIndex] : englishDays[dayIndex];
+  };
+
+  // הכנת המערך עם האינדקס המקורי כדי לא לשבור את ה-EditableText והשמירה למסד הנתונים
+  let displayDays = days.map((item, idx) => ({ ...item, originalIndex: idx }));
+
+  // החלפה בין יום 6 (אינדקס 5) ליום 7 (אינדקס 6) - רק במסע חורף
+  if (season === 'winter' && displayDays.length >= 7) {
+    const temp = displayDays[5];
+    displayDays[5] = displayDays[6];
+    displayDays[6] = temp;
+  }
+
   return (
     <div className="pt-32 pb-20 bg-stone-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span 
+          <span
             className="font-serif italic text-lg md:text-xl font-medium block mb-2"
             style={{ color: season === 'winter' ? '#8ca38f' : '#c4704f' }}
           >
-            {season === 'winter' 
-              ? (lang === 'he' ? 'מסע חורף 2027' : 'Winter Trip 2027') 
+            {season === 'winter'
+              ? (lang === 'he' ? 'מסע חורף 2027' : 'Winter Trip 2027')
               : (lang === 'he' ? 'מסע קיץ 2027' : 'Summer Trip 2027')}
           </span>
           {season === 'winter' && (
             <div className="inline-block px-5 py-2 rounded-full text-sm md:text-base font-extrabold tracking-wider mb-6 shadow-md"
-                 style={{ 
-                   color: '#ffffff', 
-                   backgroundColor: '#8ca38f' 
-                 }}>
+              style={{
+                color: '#ffffff',
+                backgroundColor: '#8ca38f'
+              }}>
               {lang === 'he' ? '15-24 לפברואר' : 'February 15-24'}
             </div>
           )}
@@ -68,79 +87,90 @@ export default function ItineraryPage() {
           <div className="hidden md:block absolute start-1/2 transform -translate-x-1/2 h-full w-1 bg-teal-100 rounded-full"></div>
 
           <div className="space-y-12">
-            {days.map((item, index) => (
-              <div key={index} className={`flex flex-col md:flex-row items-stretch gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                
-                <div className="w-full md:w-1/2 p-4 flex">
-                  <div className="bg-white p-2 rounded-2xl shadow-lg transition-transform duration-300 w-full h-full flex flex-col">
-                    <div className={`w-full rounded-xl overflow-hidden relative md:flex-1 h-[300px] md:h-auto md:min-h-[280px] max-h-[420px] isolation-isolate ${getImageId(index) === 'winter_day_0' ? 'bg-white' : 'bg-stone-200'}`} style={{ transform: 'translateZ(0)' }}>
-                       <EditableImage 
-                        id={getImageId(index)} 
-                        src={getImageId(index)} 
-                        fallback={currentDefaultImages[index] || '/home1.jpg'}
-                        alt={item.title}
-                        className="absolute inset-0"
-                        imgClassName={getImageId(index) === 'winter_day_0' ? '!object-contain bg-white' : ''}
-                        width={1000}
-                        crop="fill"
-                        priority={index <= 1}
-                       />
+            {displayDays.map((item, renderIndex) => {
+              // חובה להשתמש ב-originalIndex עבור הנתיבים של ה-EditableText והתמונות כדי שהמידע יישמר כראוי
+              const originalIndex = item.originalIndex;
+              const actualDayNum = item.day || (originalIndex + 1);
+
+              return (
+                <div key={originalIndex} className={`flex flex-col md:flex-row items-stretch gap-8 ${renderIndex % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+
+                  <div className="w-full md:w-1/2 p-4 flex">
+                    <div className="bg-white p-2 rounded-2xl shadow-lg transition-transform duration-300 w-full h-full flex flex-col">
+                      <div className={`w-full rounded-xl overflow-hidden relative md:flex-1 h-[300px] md:h-auto md:min-h-[280px] max-h-[420px] isolation-isolate ${getImageId(originalIndex) === 'winter_day_0' ? 'bg-white' : 'bg-stone-200'}`} style={{ transform: 'translateZ(0)' }}>
+                        <EditableImage
+                          id={getImageId(originalIndex)}
+                          src={getImageId(originalIndex)}
+                          fallback={currentDefaultImages[originalIndex] || '/home1.jpg'}
+                          alt={item.title}
+                          className="absolute inset-0"
+                          imgClassName={getImageId(originalIndex) === 'winter_day_0' ? '!object-contain bg-white' : ''}
+                          width={1000}
+                          crop="fill"
+                          priority={renderIndex <= 1}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-s-4 border-e-0 relative flex flex-col justify-between" style={{ borderInlineStartColor: season === 'winter' ? '#8ca38f' : '#c4704f' }}>
+
+                    {/* תגית היום בשבוע */}
+                    <div className="absolute top-4 start-4 bg-teal-100 text-teal-800 font-bold px-3 py-1 rounded-full text-sm">
+                      {lang === 'he'
+                        ? `יום ${actualDayNum} - ${getDayOfWeek(actualDayNum, lang)}`
+                        : `Day ${actualDayNum} - ${getDayOfWeek(actualDayNum, lang)}`}
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-teal-900 mb-3 pt-8">
+                      <EditableText path={`${lang}.itinerary.${season}.days.${originalIndex}.title`} text={item.title} />
+                    </h3>
+                    <p className="text-stone-600 mb-4 leading-relaxed">
+                      <EditableText path={`${lang}.itinerary.${season}.days.${originalIndex}.desc`} text={item.desc} multiline />
+                    </p>
+
+                    {item.schedule && item.schedule.length > 0 && (
+                      <details className="my-6 group border border-teal-100 bg-teal-50/30 rounded-xl overflow-hidden cursor-pointer">
+                        <summary className="font-medium text-teal-800 px-4 py-3 bg-teal-100/50 hover:bg-teal-200/50 transition-colors flex justify-between items-center outline-none list-none">
+                          <span className="flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            {lang === 'he' ? 'לו"ז מפורט' : 'Detailed Schedule'}
+                          </span>
+                          <span className="text-teal-600 group-open:rotate-180 transition-transform duration-300">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                          </span>
+                        </summary>
+                        <div className="overflow-x-auto bg-white/40">
+                          <table className="w-full text-sm text-start">
+                            <thead className="text-teal-900 border-b border-teal-100/50 bg-teal-50/50">
+                              <tr>
+                                <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.hour || 'Hour'}</th>
+                                <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.place || 'Place'}</th>
+                                <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.activity || 'Activity'}</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-teal-100/30">
+                              {item.schedule.map((row, rowIdx) => (
+                                <tr key={rowIdx} className="hover:bg-white/80 transition-colors">
+                                  <td className="px-4 py-3 whitespace-nowrap font-medium text-teal-700" dir="ltr">{row.hour}</td>
+                                  <td className="px-4 py-3 text-stone-600">{row.place}</td>
+                                  <td className="px-4 py-3 text-stone-700">{row.activity}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </details>
+                    )}
+
+                    <div className="flex items-center gap-2 font-medium justify-center md:justify-start" style={{ color: season === 'winter' ? '#798e7c' : '#c4704f' }}>
+                      <Sun className="w-5 h-5" />
+                      <span>{lang === 'he' ? 'היילייט: ' : 'Highlight: '} <EditableText path={`${lang}.itinerary.${season}.days.${originalIndex}.highlight`} text={item.highlight} /></span>
                     </div>
                   </div>
                 </div>
-
-                <div className="w-full md:w-1/2 text-center md:text-start p-6 bg-white rounded-2xl shadow-md border-s-4 border-e-0 relative flex flex-col justify-between" style={{ borderInlineStartColor: season === 'winter' ? '#8ca38f' : '#c4704f' }}>
-                  <div className="absolute top-4 start-4 bg-teal-100 text-teal-800 font-bold px-3 py-1 rounded-full text-sm">
-                    {lang === 'he' ? `יום ${item.day}` : `Day ${item.day}`}
-                  </div>
-                  <h3 className="text-2xl font-bold text-teal-900 mb-3 pt-8">
-                    <EditableText path={`${lang}.itinerary.${season}.days.${index}.title`} text={item.title} />
-                  </h3>
-                  <p className="text-stone-600 mb-4 leading-relaxed">
-                    <EditableText path={`${lang}.itinerary.${season}.days.${index}.desc`} text={item.desc} multiline />
-                  </p>
-
-                  {item.schedule && item.schedule.length > 0 && (
-                    <details className="my-6 group border border-teal-100 bg-teal-50/30 rounded-xl overflow-hidden cursor-pointer">
-                      <summary className="font-medium text-teal-800 px-4 py-3 bg-teal-100/50 hover:bg-teal-200/50 transition-colors flex justify-between items-center outline-none list-none">
-                        <span className="flex items-center gap-2">
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                          {lang === 'he' ? 'לו"ז מפורט' : 'Detailed Schedule'}
-                        </span>
-                        <span className="text-teal-600 group-open:rotate-180 transition-transform duration-300">
-                          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-                        </span>
-                      </summary>
-                      <div className="overflow-x-auto bg-white/40">
-                        <table className="w-full text-sm text-start">
-                          <thead className="text-teal-900 border-b border-teal-100/50 bg-teal-50/50">
-                            <tr>
-                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.hour || 'Hour'}</th>
-                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.place || 'Place'}</th>
-                              <th className="px-4 py-3 font-semibold">{t.itinerary.headers?.activity || 'Activity'}</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-teal-100/30">
-                            {item.schedule.map((row, rowIdx) => (
-                              <tr key={rowIdx} className="hover:bg-white/80 transition-colors">
-                                <td className="px-4 py-3 whitespace-nowrap font-medium text-teal-700" dir="ltr">{row.hour}</td>
-                                <td className="px-4 py-3 text-stone-600">{row.place}</td>
-                                <td className="px-4 py-3 text-stone-700">{row.activity}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </details>
-                  )}
-
-                  <div className="flex items-center gap-2 font-medium justify-center md:justify-start" style={{ color: season === 'winter' ? '#798e7c' : '#c4704f' }}>
-                    <Sun className="w-5 h-5" />
-                    <span>{lang === 'he' ? 'היילייט: ' : 'Highlight: '} <EditableText path={`${lang}.itinerary.${season}.days.${index}.highlight`} text={item.highlight} /></span>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

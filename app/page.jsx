@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Users, MapPin, Utensils, ArrowRight, Calendar } from 'lucide-react';
 import { useSite } from '../contexts/SiteContext';
 import EditableText from '../components/EditableText';
 import EditableImage from '../components/EditableImage';
@@ -14,7 +13,7 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: '#faf7f2' }}>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="relative min-h-[100svh] py-32 flex items-center justify-center overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] shadow-2xl z-10 mb-8">
+      <div className="relative min-h-[75vh] md:min-h-[85vh] py-20 md:py-28 flex items-center justify-center overflow-hidden rounded-b-[3rem] md:rounded-b-[5rem] shadow-2xl z-10">
         <div className="absolute inset-0 z-0">
           <EditableImage
             id="hero_bg"
@@ -25,26 +24,28 @@ export default function HomePage() {
             crop="fill"
             priority={true}
           />
-          <div className="absolute inset-0 bg-stone-900/30 mix-blend-multiply pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-stone-900/35 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/30 to-stone-950/40 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto mt-16 pointer-events-none">
-
-
-          <p className="text-sm uppercase tracking-[0.4em] mb-4 opacity-80 font-medium">
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto flex flex-col items-center justify-center">
+          <p className="text-xs md:text-sm uppercase tracking-[0.35em] mb-4 opacity-80 font-medium">
             <EditableText path={`${lang}.hero.tagline`} text={t.hero.tagline} />
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg leading-tight whitespace-pre-line pointer-events-auto relative">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 drop-shadow-lg leading-tight whitespace-pre-line relative">
             <EditableText path={`${lang}.hero.title`} text={t.hero.title} multiline />
           </h1>
-          <p className="text-base md:text-xl font-light mb-6 opacity-90 max-w-3xl mx-auto pointer-events-auto leading-relaxed whitespace-pre-line">
+          <p className="text-base md:text-xl font-light opacity-95 max-w-3xl mx-auto leading-relaxed whitespace-pre-line drop-shadow-sm">
             <EditableText path={`${lang}.hero.subtitle`} text={t.hero.subtitle} multiline />
           </p>
+        </div>
+      </div>
 
-
+      {/* ── Selection Cards (Itinerary links moved below hero image) ────── */}
+      <section className="py-12 md:py-16 px-4 md:px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
           {/* Dynamic Selection Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto pointer-events-auto text-stone-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full text-stone-800">
             {/* Winter Card */}
             <div className="relative flex flex-col rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-white border border-[#eaddcd] p-6 md:p-8 text-start justify-between min-h-[220px]">
               <div>
@@ -59,7 +60,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
                   {lang === 'he' ? 'מסע חורף 2027' : 'Winter (February) 2027'}
                 </h3>
-                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
+                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
                   {lang === 'he' 
                     ? 'קפה בהרים, שקיעות בים ובעיקר הרבה שמש' 
                     : 'Coffee in the mountains, sunsets at sea and above all lots of sun'}
@@ -82,7 +83,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-serif font-bold text-stone-900 mb-2">
                   {lang === 'he' ? 'מסע קיץ 2027' : 'Summer 2027'}
                 </h3>
-                <p className="text-stone-600 text-[11px] md:text-xs mb-4 font-light leading-relaxed">
+                <p className="text-stone-600 text-xs md:text-sm mb-4 font-light leading-relaxed">
                   {lang === 'he' 
                     ? "ג'ונגלים, אתרים מפורסמים וחופים מהיפים בעולם" 
                     : 'Jungles, famous sites and some of the most beautiful beaches in the world'}
@@ -98,28 +99,28 @@ export default function HomePage() {
           </div>
 
           {/* Highlights */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-xs md:text-sm font-light tracking-wide text-white/90 pointer-events-auto">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10 text-xs md:text-sm font-medium tracking-wide text-stone-700">
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
+              <span className="w-2 h-2 rounded-full bg-[#c4704f]" />
               <EditableText path={`${lang}.hero.kosher`} text={t.hero.kosher} />
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c4704f]" />
+              <span className="w-2 h-2 rounded-full bg-[#c4704f]" />
               <EditableText path={`${lang}.hero.yoga`} text={t.hero.yoga} />
             </span>
-            <span className="flex items-center gap-2 font-semibold text-white bg-white/15 px-3 py-1 rounded-full border border-white/10 shadow-sm backdrop-blur-[2px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8ca38f]" />
+            <span className="flex items-center gap-2 font-semibold text-stone-900 bg-[#8ca38f]/20 px-3 py-1 rounded-full border border-[#8ca38f]/40 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#8ca38f]" />
               <EditableText path={`${lang}.hero.winter_trip`} text={t.hero.winter_trip} />
             </span>
-            <span className="flex items-center gap-2 text-[#ffd5a1]">
+            <span className="flex items-center gap-2 text-stone-500 italic">
               <EditableText path={`${lang}.hero.dates_disclaimer`} text={t.hero.dates_disclaimer} />
             </span>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
-      <section className="py-16 bg-transparent relative">
+      <section className="py-12 md:py-16 bg-transparent relative">
         <div className="container mx-auto px-6 max-w-md text-center">
           <div className="bg-[#faf7f2] border border-[#eaddcd] rounded-3xl p-8 shadow-sm flex flex-col items-center gap-5">
             <div className="space-y-2">

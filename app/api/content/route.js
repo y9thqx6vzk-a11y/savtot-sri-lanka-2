@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { db } from '../../../lib/firebaseAdmin';
 
 // Default content fallback if Firestore is empty or not configured yet
-import { defaultContentData } from '../../../contexts/SiteContext';
+import { defaultContentData } from '../../../lib/defaultContent';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,7 +14,7 @@ export async function GET() {
     const cleanDefaultData = JSON.parse(JSON.stringify(defaultContentData));
 
     // If Firebase env vars are missing or disabled, return default content locally (so the site doesn't crash)
-    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
+    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID || !db) {
       console.warn("Firebase is temporarily disconnected. Returning default content.");
       return NextResponse.json(cleanDefaultData);
     }
@@ -50,7 +50,7 @@ export async function POST(req) {
 
     const { path: fieldPath, newValue } = await req.json();
     
-    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID) {
+    if (!USE_FIREBASE || !process.env.FIREBASE_PROJECT_ID || !db) {
       return NextResponse.json({ error: "Firebase is temporarily disconnected" }, { status: 500 });
     }
 
